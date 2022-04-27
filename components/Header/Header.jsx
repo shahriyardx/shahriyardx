@@ -5,8 +5,7 @@ import Container from '../Layout/Container'
 import IconLink from '../Link/IconLink'
 import TextLink from '../Link/TextLink'
 
-import { AiOutlineTwitter, AiFillGithub, AiFillMail } from 'react-icons/ai'
-import { BsFacebook } from 'react-icons/bs'
+import { AiFillTwitterCircle, AiFillGithub, AiFillMail, AiFillFacebook } from 'react-icons/ai'
 import { BiMenu } from 'react-icons/bi'
 
 const Header = () => {
@@ -31,9 +30,9 @@ const Header = () => {
 
         <div className='ml-auto gap-10 hidden lg:flex'>
           <div className='flex items-center gap-5'>
-            <IconLink href='/' icon={AiOutlineTwitter}>Twitter</IconLink>
+            <IconLink href='/' icon={AiFillTwitterCircle}>Twitter</IconLink>
             <IconLink href='/' icon={AiFillGithub}>GitHub</IconLink>
-            <IconLink href='/' icon={BsFacebook}>Facebook</IconLink>
+            <IconLink href='/' icon={AiFillFacebook}>Facebook</IconLink>
           </div>
 
           <div className='p-3 bg-zinc-700 rounded-full'>
@@ -62,11 +61,11 @@ const Header = () => {
             </a>
 
             <a href="#">
-              <BsFacebook />
+              <AiFillFacebook className='rounded-full' />
             </a>
 
             <a href="#">
-              <AiOutlineTwitter />
+              <AiFillTwitterCircle />
             </a>
           </div>
         </div>
