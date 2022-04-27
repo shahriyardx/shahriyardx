@@ -5,7 +5,13 @@ import Container from '../Layout/Container'
 import IconLink from '../Link/IconLink'
 import TextLink from '../Link/TextLink'
 
-import { AiFillTwitterCircle, AiFillGithub, AiFillMail, AiFillFacebook } from 'react-icons/ai'
+import { 
+  AiFillTwitterCircle, 
+  AiFillGithub, 
+  AiFillMail, 
+  AiFillFacebook 
+} from 'react-icons/ai'
+
 import { BiMenu } from 'react-icons/bi'
 
 const Header = () => {
