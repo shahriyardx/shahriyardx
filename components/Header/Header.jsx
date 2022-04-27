@@ -56,17 +56,17 @@ const Header = () => {
             <TextLink href="/contact" className='p-2'>Contact</TextLink>
           </div>
 
-          <div className='p-2 pb-5 flex gap-3 text-2xl'>
-            <a href="#">
-              <AiOutlineTwitter />
-            </a>
-
+          <div className='p-2 pb-5 flex gap-3 text-3xl'>
             <a href="#">
               <AiFillGithub />
             </a>
 
             <a href="#">
               <BsFacebook />
+            </a>
+
+            <a href="#">
+              <AiOutlineTwitter />
             </a>
           </div>
         </div>
