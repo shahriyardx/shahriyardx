@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import Container from '../../Layout/Container'
+import Container from '../../Components/Layout/Container'
 
 const Banner = () => {
   return (
