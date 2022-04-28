@@ -13,7 +13,7 @@ const Projects = () => {
             title="Makeown"
             url='https://makeown.cc/'
             description='A discord bot dashboard to manage the bot from a web interface'
-            image='/images/projects/makeown.png' 
+            image='/images/projects/makeown.PNG' 
             tags={['HTML', 'CSS', 'JavaScript', 'Python']} 
           />
 
@@ -21,7 +21,7 @@ const Projects = () => {
             title="Crisis Entertainment" 
             url='https://crisisentertainment.com/'
             description='Crisis Entertainment is a video game startup currently operating in Bangladesh, India and Australia.'
-            image='/images/projects/crisis.png' 
+            image='/images/projects/crisis.PNG' 
             tags={['NextJs', 'ReactJs', 'NodeJs', 'TailwindCss']} 
           />
 
@@ -37,7 +37,7 @@ const Projects = () => {
             title="Mac Studio" 
             url='https://mac-studiox.netlify.app/'
             description='Showcasing Mac Studio frontend design'
-            image='/images/projects/max.png' 
+            image='/images/projects/max.PNG' 
             tags={['ReactJs', 'NodeJs', 'TailwindCss']} 
           />
 
@@ -53,7 +53,7 @@ const Projects = () => {
             title="Wildie" 
             url='https://wildie-shahriyardx.web.app/'
             description='Wild life photographer portfolio and service website'
-            image='/images/projects/wildie.png' 
+            image='/images/projects/wildie.PNG' 
             tags={['ReactJs', 'TailwindCss', 'NodeJs']} 
           />
         </div>
