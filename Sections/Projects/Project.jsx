@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import Tag from '../../Components/Tag/Tag'
+import Tag from '../../components/Tag/Tag'
 
 import { HiOutlineExternalLink } from 'react-icons/hi'
 
