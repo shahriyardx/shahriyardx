@@ -1,5 +1,5 @@
 import React from 'react'
-import Container from '../../Components/Layout/Container'
+import Container from '../../components/Layout/Container'
 import Experience from './Experience'
 
 import { BiPen, BiCodeAlt, BiCube } from 'react-icons/bi'
