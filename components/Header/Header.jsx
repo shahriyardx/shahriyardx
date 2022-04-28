@@ -13,6 +13,7 @@ import {
 } from 'react-icons/ai'
 
 import { BiMenu } from 'react-icons/bi'
+import MobileMenu from './MobileMenu'
 
 const Header = () => {
   const [show, setShow] = useState(false)
@@ -31,7 +32,8 @@ const Header = () => {
 
         <div className='items-center gap-5 ml-20 hidden lg:flex'>
           <TextLink href='/'>Home</TextLink>
-          <TextLink href='/about'>About</TextLink>
+          <TextLink href='/blog'>Blog</TextLink>
+          <TextLink href='/contact'>Contact</TextLink>
         </div>
 
         <div className='ml-auto gap-10 hidden lg:flex'>
@@ -54,27 +56,7 @@ const Header = () => {
       </Container>
 
       {show && (
-        <div className={`absolute top-16 left-0 w-full bg-secondary lg:hidden`}>
-          <div className='flex flex-col w-full'>
-            <TextLink href="/" className='p-2'>Home</TextLink>
-            <TextLink href="/about" className='p-2'>About</TextLink>
-            <TextLink href="/contact" className='p-2'>Contact</TextLink>
-          </div>
-
-          <div className='p-2 pb-5 flex gap-3 text-3xl'>
-            <a href="#">
-              <AiFillGithub />
-            </a>
-
-            <a href="#">
-              <AiFillFacebook className='rounded-full' />
-            </a>
-
-            <a href="#">
-              <AiFillTwitterCircle />
-            </a>
-          </div>
-        </div>
+        <MobileMenu />
       )}
     </div>
   )
