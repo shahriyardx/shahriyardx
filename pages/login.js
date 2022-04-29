@@ -1,22 +1,32 @@
 import React from 'react'
 import Main from '../components/Layout/Main'
 
-import { signIn } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 
 const Login = () => {
+  const router = useRouter()
+  const { data, status } = useSession()
+
+  if (data && status == 'authenticated') {
+    router.push('/dashboard')
+  }
+
   const handleSignIn = () => {
-    signIn('github')
+    signIn('github', {
+      callbackUrl: '/dashboard'
+    })
   }
   return (
     <Main>
       <div className='min-h-[75vh] bg-zinc-800 flex flex-col items-center justify-center'>
-        <h1 className='text-2xl text-white font-bold mb-5'>You are not signed in</h1>
-        <button
+        <h1 className='text-2xl text-white font-bold mb-5'>{status === 'loading' ? 'Loading...' : 'You are not signed in'}</h1>
+        {['loading', 'unauthenticated'].includes(status) && (<button
           onClick={handleSignIn}
           className='bg-zinc-600 text-zinc-200 px-5 py-3 rounded-lg text-lg uppercase'
         >
           Sign In
-        </button>
+        </button>)}
       </div>
     </Main>
   )

@@ -15,6 +15,6 @@ export default NextAuth({
   callbacks: {
     async signIn({ user }) {
       return user.email === 'mdshahriyaralam552@gmail.com'
-    }
+    },
   }
 })
