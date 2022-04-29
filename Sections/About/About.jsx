@@ -1,6 +1,6 @@
 import React from 'react'
 import Container from '../../components/Layout/Container'
-import Experience from './Experience'
+import Experience from '../../components/Experience/Experience'
 
 import { BiPen, BiCodeAlt, BiCube } from 'react-icons/bi'
 
