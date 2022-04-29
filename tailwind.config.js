@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      gridTemplateColumns: {
+        dashboard: '300px auto'
+      },
       screens: {
         'msm': '400px',
       },

@@ -1,11 +1,12 @@
 import { signOut } from 'next-auth/react'
 import React from 'react'
+import DashLayout from '../../components/Layout/DashLayout'
 
 const Dashboard = () => {
   return (
-    <div>
-      <button onClick={signOut}>Sign Out</button>
-    </div>
+    <DashLayout>
+      
+    </DashLayout>
   )
 }
 

@@ -9,7 +9,12 @@ const AuthWrapper = ({ children }) => {
 
   useEffect(() => {
     if (status === 'unauthenticated') {
-      router.push('/login')
+      router.push({
+        pathname: '/login',
+        query: {
+          to: router.pathname
+        }
+      })
     }
   }, [status, router])
   

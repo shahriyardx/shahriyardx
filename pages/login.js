@@ -7,9 +7,10 @@ import { useRouter } from 'next/router'
 const Login = () => {
   const router = useRouter()
   const { data, status } = useSession()
+  const { to } = router.query
 
   if (data && status == 'authenticated') {
-    router.push('/dashboard')
+    router.push(to || '/dashboard')
   }
 
   const handleSignIn = () => {
