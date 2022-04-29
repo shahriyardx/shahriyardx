@@ -6,8 +6,8 @@ const tagMap = {
     text: 'text-[#F53900]'
   },
   CSS: {
-    bg: 'bg-[#2965F1]/20',
-    text: 'text-[#2965F1]'
+    bg: 'bg-[#2862E9]/20',
+    text: 'text-[#2862E9]'
   },
   JavaScript: {
     bg: 'bg-[#F7DF1E]/10',
@@ -30,8 +30,8 @@ const tagMap = {
     text: 'text-white'
   },
   TailwindCss: {
-    bg: 'bg-[#3B49DF]/20',
-    text: 'text-[#3B49DF]'
+    bg: 'bg-[#0EA5E9]/20',
+    text: 'text-[#0EA5E9]'
   }
 }
 

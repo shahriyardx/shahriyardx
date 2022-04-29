@@ -1,6 +1,6 @@
 import React from 'react'
 import Container from '../../components/Layout/Container'
-import Project from './Project'
+import Project from '../../components/Project/Project'
 
 const Projects = () => {
   return (
@@ -9,7 +9,7 @@ const Projects = () => {
         <h1 className='text-4xl font-black tracking-tighter text-zinc-300 text-center mb-10'>Projects</h1>
 
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10'>
-          <Project 
+          <Project
             title="Makeown"
             url='https://makeown.cc/'
             description='A discord bot dashboard to manage the bot from a web interface'

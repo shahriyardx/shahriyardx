@@ -1,12 +1,12 @@
 import React from 'react'
 import Image from 'next/image'
-import Tag from '../../components/Tag/Tag'
+import Tag from '../Tag/Tag'
 
 import { HiOutlineExternalLink } from 'react-icons/hi'
 
 const Project = ({ title, url, tags, image, description}) => {
   return (
-    <div className='bg-zinc-800 rounded-xl p-5 flex flex-col gap-2'>
+    <div className='bg-zinc-800 rounded-xl p-5 flex flex-col gap-2 cursor-pointer'>
       <div className='w-full aspect-video'>
         <Image 
           src={image}
