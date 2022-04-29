@@ -6,7 +6,9 @@ const Main = (props) => {
   return (
     <div>
         <Header />
-        {props.children}
+        <div className='min-h-[75vh]'>
+          {props.children}
+        </div>
         <Footer/>
     </div>
   )
