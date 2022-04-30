@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
 import { updateProject } from '../../../../redux/projects'
 import { API_BASE } from '../../../../utils/api'
+import SEO from '../../../../components/Seo'
 
 const EditProject = () => {
   const router = useRouter()
@@ -146,6 +147,7 @@ const EditProject = () => {
 
   return (
     <DashLayout>
+      <SEO title='Loading...' />
       <PageHeader className='flex justify-between items-center'>
         Edit Project
         <Link href='/dashboard/projects'>
@@ -154,6 +156,7 @@ const EditProject = () => {
       </PageHeader>
 
       {project && (<div>
+        <SEO title={`✒ ${project.title} - Dashboard`} />
         <form onSubmit={handleSubmit(onSubmit)} ref={formRef}>
           <div className='grid grid-cols-3 gap-5'>
             <div>

@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from 'react-redux'
 import { addProject } from '../../../redux/projects'
 import { API_BASE } from '../../../utils/api'
+import SEO from '../../../components/Seo'
 
 const CreateProject = () => {
   const dispatch = useDispatch()
@@ -122,6 +123,7 @@ const CreateProject = () => {
 
   return (
     <DashLayout>
+      <SEO title='➕ Create Project - Dashboard' />
       <PageHeader className='flex justify-between items-center'>
         Create Project
         <Link href='/dashboard/projects'>

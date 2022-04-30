@@ -1,4 +1,5 @@
 import Main from "../components/Layout/Main";
+import SEO from "../components/Seo";
 import About from "../Sections/About/About";
 import Banner from "../Sections/Banner/Banner";
 import Projects from "../Sections/Projects/Projects";
@@ -7,6 +8,7 @@ import { API_BASE } from "../utils/api";
 export default function Home({ projects }) {
   return (
     <Main>
+      <SEO />
       <Banner countries={3} count={projects.length}/>
       <About />
       <Projects projects={projects} />

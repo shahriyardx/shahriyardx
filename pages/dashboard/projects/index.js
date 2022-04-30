@@ -7,6 +7,7 @@ import { BiTrashAlt, BiPencil, BiX, BiCheck, BiLoaderAlt } from 'react-icons/bi'
 import Link from 'next/link'
 import { API_BASE } from '../../../utils/api'
 import { deleteProject } from '../../../redux/projects'
+import SEO from '../../../components/Seo'
 
 const Projects = () => {
   const dispatch = useDispatch()
@@ -32,6 +33,7 @@ const Projects = () => {
 
   return (
     <DashLayout>
+      <SEO title='Projects - Dashboard' />
       <PageHeader className='flex justify-between items-center'>
         Projects
         <Link href='/dashboard/projects/create'>
