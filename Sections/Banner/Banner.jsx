@@ -21,7 +21,7 @@ const Banner = (props) => {
 
             <div className='mt-7 flex gap-3 sm:gap-5 md:gap-10 flex-wrap'>
               <div className='text-slate-100 flex gap-2 uppercase'>
-                <h1 className='text-4xl md:text-6xl font-semibold font-montserrat'>3</h1>
+                <h1 className='text-4xl md:text-6xl font-semibold font-montserrat'>{new Date().getFullYear() - 2019}</h1>
                 <p className='h-full flex flex-col justify-center'>
                   <span className='text-xs sm:text-sm md:text-base text-zinc-500'>Years</span>
                   <span className='text-xs sm:text-sm md:text-base text-zinc-500'>Experience</span>
