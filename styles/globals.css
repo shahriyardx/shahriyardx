@@ -7,3 +7,12 @@
 body {
   @apply font-sourcecode;
 }
+
+/* width */
+.scrollbar::-webkit-scrollbar {
+  @apply w-2;
+}
+/* Handle */
+.scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-zinc-800;
+}

@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       gridTemplateColumns: {
-        dashboard: '300px auto'
+        dashboard: '300px auto',
+        cards: ''
       },
       screens: {
         'msm': '400px',
@@ -23,5 +24,5 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 }
