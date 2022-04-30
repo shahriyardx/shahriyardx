@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 
 const AuthWrapper = ({ children }) => {
   const router = useRouter()
-  const { status } = useSession()
+  const { data, status } = useSession()
 
   useEffect(() => {
     if (status === 'unauthenticated') {
@@ -23,8 +23,12 @@ const AuthWrapper = ({ children }) => {
     return 'Loading...'
   }
 
-  if (status === 'authenticated') {
+  if (status === 'authenticated' && data.admin) {
     return children
+  }
+
+  if (status === 'authenticated' && !data.admin) {
+    router.push('/')
   }
 
   return null

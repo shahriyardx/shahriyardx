@@ -7,7 +7,7 @@ const Main = (props) => {
   return (
     <div>
       <Header />
-      <div className='min-h-[75vh]'>
+      <div className='min-h-[75vh] bg-zinc-800'>
         {props.children}
       </div>
       <Footer/>

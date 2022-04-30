@@ -9,14 +9,18 @@ const Login = () => {
   const router = useRouter()
   const { data, status } = useSession()
   const { to } = router.query
-
+  
   if (data && status == 'authenticated') {
-    router.push(to || '/dashboard')
+    if (data.admin) {
+      router.push(to || '/dashboard')
+    } else {
+      router.push(to || '/blog')
+    }
   }
 
   const handleSignIn = () => {
     signIn('github', {
-      callbackUrl: to || '/dashboard'
+      callbackUrl: to || data.admin ? '/dashboard' : '/blog'
     })
   }
   return (
