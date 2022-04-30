@@ -21,6 +21,6 @@ export const getStaticProps = async (ctx) => {
     props: {
       projects,
     },
-    revalidate: 10
+    revalidate: 60
   }
 }
