@@ -7,7 +7,7 @@ import { API_BASE } from "../utils/api";
 export default function Home({ projects }) {
   return (
     <Main>
-      <Banner />
+      <Banner countries={3} count={projects.length}/>
       <About />
       <Projects projects={projects} />
     </Main>

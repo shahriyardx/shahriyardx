@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import Container from '../../components/Layout/Container'
 
-const Banner = () => {
+const Banner = (props) => {
   return (
     <div className='bg-primary'>
       <Container className='md:grid md:grid-cols-3 py-10 md:py-20 xl:max-w-6xl'>
@@ -29,10 +29,10 @@ const Banner = () => {
               </div>
 
               <div className='text-slate-100 flex gap-2'>
-                <h1 className='text-4xl md:text-6xl font-semibold font-montserrat'>6</h1>
+                <h1 className='text-4xl md:text-6xl font-semibold font-montserrat'>{props.count}</h1>
                 <p className='h-full flex flex-col justify-center uppercase'>
                   <span className='text-xs sm:text-sm md:text-base text-zinc-500'>Projects Completed</span>
-                  <span className='text-xs sm:text-sm md:text-base text-zinc-500'>On 3 countries</span>
+                  <span className='text-xs sm:text-sm md:text-base text-zinc-500'>On {props.countries} countries</span>
                 </p>
               </div>
 
