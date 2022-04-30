@@ -17,19 +17,19 @@ const MobileMenu = () => {
         {/* <TextLink href="/contact" className='py-2'>Contact</TextLink> */}
 
         <div className='py-2 pb-5 flex gap-3 text-3xl'>
-          <a href="#">
+          <a href="https://twitter.com/shahriyardx/" target='_blank' rel='noreferrer'>
             <AiFillTwitterCircle />
           </a>
 
-          <a href="#">
+          <a href="https://github.com/shahriyardx/" target='_blank' rel='noreferrer'>
             <AiFillGithub />
           </a>
 
-          <a href="#">
+          <a href="https://facebook.com/shahriyardx/" target='_blank' rel='noreferrer'>
             <AiFillFacebook className='rounded-full' />
           </a>
 
-          <a href="#">
+          <a href="mailto:mdshahriyaralam9@gmail.com">
             <AiFillMail className='rounded-full' />
           </a>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { signOut } from 'next-auth/react'
+import LinkButton from '../Button/LinkButton'
 
 const DashHeader = () => {
   return (
@@ -16,9 +17,9 @@ const DashHeader = () => {
 
         <div className='flex gap-3'>
           <button className='text-red-500' onClick={signOut}>Logout</button>
-          <Link href='/'>
-            <a className='px-3 py-2 bg-zinc-700 rounded-md' target="_blank">Visit</a>
-          </Link>
+          <LinkButton href='/' target='_blank' className='bg-zinc-700'>
+            Visit
+          </LinkButton>
         </div>
       </div>
     </div>

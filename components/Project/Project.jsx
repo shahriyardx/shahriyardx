@@ -20,13 +20,13 @@ const Project = ({ title, url, tags, image, description}) => {
       </div>
     
       <a 
-        className='text-white text-2xl flex items-center hover:text-blue-400' 
+        className='text-white text-2xl flex items-center hover:text-accent' 
         href={url} 
         rel='noreferrer' 
         target={`${url !== '#' ? '_blank' : '' }`}
       >
           {title}
-          <HiOutlineExternalLink className='text-base ml-2 text-blue-400' />
+          <HiOutlineExternalLink className='text-base ml-2 text-accent' />
       </a>
       <p className='text-zinc-500 tracking-tighter'>{description}</p>
 

@@ -38,13 +38,13 @@ const Header = () => {
 
         <div className='ml-auto gap-10 hidden lg:flex'>
           <div className='flex items-center gap-5'>
-            <IconLink href='/' icon={AiFillTwitterCircle}>Twitter</IconLink>
-            <IconLink href='/' icon={AiFillGithub}>GitHub</IconLink>
-            <IconLink href='/' icon={AiFillFacebook}>Facebook</IconLink>
+            <IconLink href='https://twitter.com/shahriyardx' icon={AiFillTwitterCircle}>Twitter</IconLink>
+            <IconLink href='https://github.com/shahriyardx/' icon={AiFillGithub}>GitHub</IconLink>
+            <IconLink href='https://facebook.com/shahriyardx/' icon={AiFillFacebook}>Facebook</IconLink>
           </div>
 
           <div className='p-3 bg-zinc-700 rounded-full'>
-            <a href="mailto:contact@shahriyar.dev">
+            <a href="mailto:mdshahriyaralam9@gmail.com">
               <AiFillMail />
             </a>
           </div>
