@@ -14,7 +14,7 @@ const MobileMenu = () => {
       <Container className='px-4'>
         <TextLink href="/" className='py-2'>Home</TextLink>
         <TextLink href="/blog" className='py-2'>Blog</TextLink>
-        <TextLink href="/contact" className='py-2'>Contact</TextLink>
+        {/* <TextLink href="/contact" className='py-2'>Contact</TextLink> */}
 
         <div className='py-2 pb-5 flex gap-3 text-3xl'>
           <a href="#">

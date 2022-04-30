@@ -14,12 +14,13 @@ export default function Home({ projects }) {
   )
 }
 
-export const getServerSideProps = async (ctx) => {
+export const getStaticProps = async (ctx) => {
   const projects =  await fetch(`${API_BASE}/projects`).then(data => data.json())
 
   return {
     props: {
       projects,
-    }
+    },
+    revalidate: 10
   }
 }
