@@ -3,7 +3,7 @@ import Main from '../components/Layout/Main'
 
 import { signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
-import SEO from '../components/Seo'
+import SEO from '../components/SEO'
 
 const Login = () => {
   const router = useRouter()

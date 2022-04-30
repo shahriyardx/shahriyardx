@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
 import { updateProject } from '../../../../redux/projects'
 import { API_BASE } from '../../../../utils/api'
-import SEO from '../../../../components/Seo'
+import SEO from '../../../../components/SEO'
 
 const EditProject = () => {
   const router = useRouter()

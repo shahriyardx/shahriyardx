@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import CountCart from '../../components/Dashboard/CountCart/CountCart'
 import DashLayout from '../../components/Layout/DashLayout'
-import SEO from '../../components/Seo'
+import SEO from '../../components/SEO'
 
 const Dashboard = () => {
   const projects = useSelector(state => state.projects.value)

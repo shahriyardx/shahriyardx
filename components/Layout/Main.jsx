@@ -1,7 +1,7 @@
 import React from 'react'
 import Footer from '../../Sections/Footer/Footer'
 import Header from '../Header/Header'
-import SEO from '../Seo'
+import SEO from '../SEO'
 
 const Main = (props) => {
   return (

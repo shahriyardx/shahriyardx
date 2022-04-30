@@ -2,7 +2,7 @@ import React from 'react'
 import LinkButton from '../../components/Button/LinkButton'
 import Main from '../../components/Layout/Main'
 import { BiLeftArrowAlt } from 'react-icons/bi'
-import SEO from '../../components/Seo'
+import SEO from '../../components/SEO'
 
 const Blog = () => {
   return (

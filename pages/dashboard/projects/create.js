@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from 'react-redux'
 import { addProject } from '../../../redux/projects'
 import { API_BASE } from '../../../utils/api'
-import SEO from '../../../components/Seo'
+import SEO from '../../../components/SEO'
 
 const CreateProject = () => {
   const dispatch = useDispatch()

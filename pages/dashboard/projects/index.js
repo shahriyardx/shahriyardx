@@ -7,7 +7,7 @@ import { BiTrashAlt, BiPencil, BiX, BiCheck, BiLoaderAlt } from 'react-icons/bi'
 import Link from 'next/link'
 import { API_BASE } from '../../../utils/api'
 import { deleteProject } from '../../../redux/projects'
-import SEO from '../../../components/Seo'
+import SEO from '../../../components/SEO'
 
 const Projects = () => {
   const dispatch = useDispatch()

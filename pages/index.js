@@ -1,5 +1,5 @@
 import Main from "../components/Layout/Main";
-import SEO from "../components/Seo";
+import SEO from "../components/SEO";
 import About from "../Sections/About/About";
 import Banner from "../Sections/Banner/Banner";
 import Projects from "../Sections/Projects/Projects";

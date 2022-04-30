@@ -1,7 +1,7 @@
 import React from 'react'
 import PageHeader from '../../../components/Dashboard/PageHeader'
 import DashLayout from '../../../components/Layout/DashLayout'
-import SEO from '../../../components/Seo'
+import SEO from '../../../components/SEO'
 
 const Posts = () => {
   return (
