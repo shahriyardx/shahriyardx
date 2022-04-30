@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
 import { updateProject } from '../../../../redux/projects'
+import { API_BASE } from '../../../../utils/api'
 
 const EditProject = () => {
   const router = useRouter()
@@ -116,7 +117,7 @@ const EditProject = () => {
     }
 
     setCreateState('Updating..')
-    const addData = await fetch('http://localhost:3000/api/projects/update', {
+    const addData = await fetch(`${API_BASE}/api/projects/update`, {
       method: 'POST',
       body: JSON.stringify(projectData)
     }).then(data => data.json())
