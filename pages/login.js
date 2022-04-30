@@ -15,7 +15,7 @@ const Login = () => {
 
   const handleSignIn = () => {
     signIn('github', {
-      callbackUrl: '/dashboard'
+      callbackUrl: to || '/dashboard'
     })
   }
   return (
