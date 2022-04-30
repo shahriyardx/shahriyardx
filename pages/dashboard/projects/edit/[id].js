@@ -117,7 +117,7 @@ const EditProject = () => {
     }
 
     setCreateState('Updating..')
-    const addData = await fetch(`${API_BASE}/api/projects/update`, {
+    const addData = await fetch(`${API_BASE}/projects/update`, {
       method: 'POST',
       body: JSON.stringify(projectData)
     }).then(data => data.json())
