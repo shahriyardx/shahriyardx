@@ -1,10 +1,10 @@
+require('../../utils/mongoose')
 import React from 'react'
 import PostCard from '../../components/Blog/PostCard'
 import Container from '../../components/Layout/Container'
 import Main from '../../components/Layout/Main'
 import SEO from '../../components/SEO'
-import posts from '../../redux/posts'
-import { API_BASE } from '../../utils/api'
+import Post from '../../utils/schemas/Post'
 
 const Blog = ({ posts }) => {
   return (
@@ -26,11 +26,21 @@ const Blog = ({ posts }) => {
 export default Blog
 
 export const getStaticProps = async (ctx) => {
-  const posts = await fetch(`${API_BASE}/posts`).then(data => data.json())
+  const data = await Post.find({})
+
+  const posts = data.map(post => {
+    const modifiedPost = post.toObject()
+    modifiedPost._id = post._id.toString()
+    modifiedPost.createdAt = post.createdAt.toString()
+    modifiedPost.updatedAt = post.updatedAt.toString()
+    modifiedPost.tags = post.tags.map(tag => ({ value: tag.value, label: tag.label }))
+    return modifiedPost
+  })
 
   return {
     props: {
       posts
-    }
+    },
+    revalidate: 60
   }
 }

@@ -1,3 +1,4 @@
+require('../../utils/mongoose')
 import React from 'react'
 import Container from '../../components/Layout/Container'
 import Main from '../../components/Layout/Main'
@@ -5,6 +6,7 @@ import { API_BASE } from '../../utils/api'
 import moment from 'moment'
 import { BiUser, BiTime } from 'react-icons/bi'
 import Markdown from 'marked-react'
+import Post from '../../utils/schemas/Post'
 
 const SinglePost = ({ post }) => {
 
@@ -34,8 +36,8 @@ const SinglePost = ({ post }) => {
 export default SinglePost
 
 export const getStaticPaths = async () => {
-  const posts = await fetch(`${API_BASE}/posts`).then(data => data.json())
-  const paths = posts.map(post => ({ params: { postId: post._id} }))
+  const posts = await Post.find({})
+  const paths = posts.map(post => ({ params: { postId: post._id.toString()} }))
 
   return {
     paths,
@@ -46,7 +48,12 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }) => {
   const { postId } = params
 
-  const post = await fetch(`${API_BASE}/posts/${postId}`).then(data => data.json())
+  const data = await Post.findOne({ _id: postId })
+  const post = data.toObject()
+  post._id = postId
+  post.createdAt = data.createdAt.toString()
+  post.updatedAt = data.updatedAt.toString()
+  post.tags = data.tags.map(tag => ({ value: tag.value, label: tag.label }))
 
   return {
     props: {
