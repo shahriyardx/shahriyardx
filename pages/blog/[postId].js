@@ -35,30 +35,28 @@ const SinglePost = ({ post }) => {
 
 export default SinglePost
 
-export const getStaticPaths = async () => {
-  const posts = await Post.find({})
-  const paths = posts.map(post => ({ params: { postId: post._id.toString()} }))
-
-  return {
-    paths,
-    fallback: false
-  }
-}
-
-export const getStaticProps = async ({ params }) => {
+export const getServerSideProps = async ({ req, res, params}) => {
   const { postId } = params
 
-  const data = await Post.findOne({ _id: postId })
-  const post = data.toObject()
-  post._id = postId
-  post.createdAt = data.createdAt.toString()
-  post.updatedAt = data.updatedAt.toString()
-  post.tags = data.tags.map(tag => ({ value: tag.value, label: tag.label }))
+  try {
+    const data = await Post.findOne({ _id: postId })
+    const post = data.toObject()
+    post._id = postId
+    post.createdAt = data.createdAt.toISOString()
+    post.updatedAt = data.updatedAt.toISOString()
+    post.tags = data.tags.map(tag => ({ value: tag.value, label: tag.label }))
 
-  return {
-    props: {
-      post,
-    },
-    revalidate: 60
+    return {
+      props: {
+        post,
+      }
+    }
+  } catch (err) {
+    return {
+      redirect: {
+        destination: '/blog',
+        permanent: false
+      }
+    }
   }
 }
