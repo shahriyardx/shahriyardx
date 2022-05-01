@@ -91,7 +91,6 @@ const EditProject = () => {
   const onSubmit = async (data) => {
     const projectData = {...data}
     projectData.tags = tags
-    projectData._id = projectId
 
     if (!tags.length) {
       return alert('Select at-least one tag')
@@ -118,8 +117,8 @@ const EditProject = () => {
     }
 
     setCreateState('Updating..')
-    const addData = await fetch(`${API_BASE}/projects/update`, {
-      method: 'POST',
+    const addData = await fetch(`${API_BASE}/projects/${projectId}`, {
+      method: 'PUT',
       body: JSON.stringify(projectData)
     }).then(data => data.json())
 

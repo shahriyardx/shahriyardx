@@ -19,15 +19,12 @@ const Projects = () => {
 
   const delProject = () => {
     setDeleting(true)
-    fetch(`${API_BASE}/projects/delete`, {
-      method: "DELETE",
-      body: JSON.stringify({
-        _id: deleteId
-      })
-    }).then(response => response.json())
-    .then((data => {
-      dispatch(deleteProject(deleteId))
-    }))
+    fetch(`${API_BASE}/projects/${deleteId}`, {method: "DELETE"})
+      .then(response => response.json())
+      .then((data => {
+        dispatch(deleteProject(deleteId))
+      }))
+    
     setDeleting(false)
   } 
 

@@ -93,7 +93,7 @@ const CreateProject = () => {
     projectData.image = cloudinaryData.secure_url
 
     setCreateState('Saving..')
-    const addData = await fetch(`${API_BASE}/projects/create`, {
+    const addData = await fetch(`${API_BASE}/projects`, {
       method: 'POST',
       body: JSON.stringify(projectData)
     }).then(data => data.json())
