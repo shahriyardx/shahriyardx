@@ -13,10 +13,6 @@ export default NextAuth({
     error: "/login",
   },
   callbacks: {
-    async jwt({ token, user }) {
-    console.log(token)
-    return token
-  },
   async session({ session, user, token }) {
     if (token.email == "mdshahriyaralam552@gmail.com") {
       session.admin = true
