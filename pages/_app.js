@@ -4,6 +4,7 @@ import AuthWrapper from '../components/Auth/AuthWrapper'
 import { wrapper } from '../redux/store'
 import { useDispatch } from 'react-redux'
 import { setProjects } from '../redux/projects'
+import { setPosts } from '../redux/posts'
 import { useEffect } from 'react'
 import { API_BASE } from '../utils/api'
 
@@ -15,6 +16,12 @@ function MyApp({ Component, pageProps }) {
       .then(response => response.json())
       .then(data => {
         dispatch(setProjects(data))
+      })
+
+    fetch(`${API_BASE}/posts`)
+      .then(response => response.json())
+      .then(data => {
+        dispatch(setPosts(data))
       })
   }, [dispatch])
 

@@ -2,55 +2,46 @@ import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
 import PageHeader from '../../../../components/Dashboard/PageHeader'
 import DashLayout from '../../../../components/Layout/DashLayout'
+import Button from '../../../../components/Button/Button'
 import Image from 'next/image'
-import Select from 'react-select'
+import CreatableSelect  from 'react-select/creatable'
 import { useForm } from "react-hook-form";
-import { useSelector, useDispatch } from 'react-redux'
-import { useRouter } from 'next/router'
-import { updateProject } from '../../../../redux/projects'
+import { useDispatch, useSelector } from 'react-redux'
+import { addPost, updatePost } from '../../../../redux/posts'
 import { API_BASE } from '../../../../utils/api'
 import SEO from '../../../../components/SEO'
+import { useRouter } from 'next/router'
 
-const EditProject = () => {
-  const router = useRouter()
+const EditPost = () => {
   const dispatch = useDispatch()
+  const router = useRouter()
 
   const fileref = useRef()
   const tagsRef = useRef()
   const formRef = useRef()
 
-  const [project, setProject] = useState()
+  const [post, setPost] = useState()
   const [tags, setTags] = useState([])
-  const [image, setImage] = useState('')
+  const [image, setImage] = useState()
   const [newImage, setNewImage] = useState('')
   const [createState, setCreateState] =  useState('')
-
-  const projects = useSelector(state => state.projects.value)
-  const projectId = router.query.id
+  
+  const posts = useSelector(state => state.posts.value)
+  const postId = router.query.id
   
   useEffect(() => {
-    if(projects) {
-      const matchedProject = projects.find(item => item._id == projectId)
+    if(posts) {
+      const matchedPost = posts.find(item => item._id == postId)
       
-      if (matchedProject) {
-        setProject(matchedProject)
-        setImage(matchedProject.image)
-        setTags(matchedProject.tags)
+      if (matchedPost) {
+        setPost(matchedPost)
+        setImage(matchedPost.image)
+        setTags(matchedPost.tags)
       }
     }
-  }, [projects, projectId])
+  }, [posts, postId])
 
-  const options = [
-    { value: 'HTML', label: 'HTML' },
-    { value: 'CSS', label: 'CSS' },
-    { value: 'JavaScript', label: 'JavaScript' },
-    { value: 'Python', label: 'Python' },
-    { value: 'ReactJs', label: 'ReactJs' },
-    { value: 'NextJs', label: 'NextJs' },
-    { value: 'NodeJs', label: 'NodeJs' },
-    { value: 'TailwindCss', label: 'TailwindCss', selected: true},
-  ]
-  
+
   const colourStyles = {
     control: (styles) => ({ ...styles, backgroundColor: '#3F3F46' }),
     option: (styles, { data, isDisabled, isFocused, isSelected }) => {
@@ -85,11 +76,10 @@ const EditProject = () => {
     input: (styles) => ({ ...styles, backgroundColor: '#3F3F46', color: 'white'}),
     multiValue: (styles) => ({ ...styles, backgroundColor: '#C0C0C0', color: 'black'}),
   };
-  
+
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = async (data) => {
-    const projectData = {...data}
-    projectData.tags = tags
+    const postData = {...data}
 
     if (!tags.length) {
       return alert('Select at-least one tag')
@@ -99,34 +89,36 @@ const EditProject = () => {
       return alert('Select an image')
     }
 
-    const imageData = new FormData()
-    imageData.append('file', fileref.current.files[0])
-    imageData.append('upload_preset', 'possts')
     
     if (newImage) {
       setCreateState('Uploading..')
+      const imageData = new FormData()
+      imageData.append('file', fileref.current.files[0])
+      imageData.append('upload_preset', 'possts')
+
       const cloudinaryData = await fetch('https://api.cloudinary.com/v1_1/shahriyar-dev/image/upload', {
         method: 'POST',
         body: imageData
       }).then(data => data.json())
-
-      projectData.image = cloudinaryData.secure_url
+      postData.image = cloudinaryData.secure_url
     } else {
-      projectData.image = project.image
+      postData.image = post.image
     }
 
-    setCreateState('Updating..')
-    const updateData = await fetch(`${API_BASE}/projects/${projectId}`, {
+    postData.tags = tags
+
+    setCreateState('Saving..')
+    const updateData = await fetch(`${API_BASE}/posts/${post._id}`, {
       method: 'PUT',
-      body: JSON.stringify(projectData)
+      body: JSON.stringify(postData)
     }).then(data => data.json())
 
     if (updateData.error) {
       alert(updateData.error)
     } else {
-      dispatch(updateProject(updateData))
+      dispatch(updatePost(updateData))
     }
-    
+
     setCreateState('')
   }
 
@@ -138,15 +130,16 @@ const EditProject = () => {
     if (fileref.current.files[0]) {
       const reader = new FileReader();
       reader.readAsDataURL(fileref.current.files[0]);
+
       reader.onload = () => setNewImage(reader.result);
     } else {
-      setNewImage('');
+      setImage('');
     }
   }
 
   return (
     <DashLayout>
-      <SEO title='Loading...' />
+      <SEO title='➕ Edit Post - Dashboard' />
       <PageHeader className='flex justify-between items-center'>
         Edit Project
         <Link href='/dashboard/projects'>
@@ -154,27 +147,26 @@ const EditProject = () => {
         </Link>
       </PageHeader>
 
-      {project && (<div>
-        <SEO title={`✒ ${project.title} - Dashboard`} />
+      {post && (<div>
         <form onSubmit={handleSubmit(onSubmit)} ref={formRef}>
           <div className='grid grid-cols-3 gap-5'>
             <div>
               <label className='mb-2 block'>Title</label>
-              <input type="text" defaultValue={project.title} {...register('title')} className='bg-zinc-700 w-full rounded-md py-3' required/>
+              <input type="text" defaultValue={post.title} {...register('title')} className='bg-zinc-700 w-full rounded-md py-3' required/>
             </div>
             <div className='col-span-2'>
-              <label className='mb-2 block'>Description</label>
-              <input type="text" defaultValue={project.description} {...register('description')} className='bg-zinc-700 w-full rounded-md py-3' required/>
+              <label className='mb-2 block'>Meta</label>
+              <input type="text" defaultValue={post.meta} {...register('meta')} className='bg-zinc-700 w-full rounded-md py-3' required/>
+            </div>
+
+            <div className='col-span-3'>
+              <label className='mb-2 block'>Content</label>
+              <textarea className='bg-zinc-700 w-full rounded-md' defaultValue={post.content} {...register('content')} rows={10} />
             </div>
 
             <div>
               <label className='mb-2 block'>Tags</label>
-              <Select ref={tagsRef} options={options} styles={colourStyles} onChange={handleTagChange} defaultValue={project.tags} isMulti/>
-            </div>
-
-            <div className='col-span-2'>
-              <label className='mb-2 block'>Url</label>
-              <input type="text" defaultValue={project.url} {...register('url')} className='bg-zinc-700 w-full rounded-md py-3'/>
+              <CreatableSelect ref={tagsRef} defaultValue={tags} options={tags} isClearable={true} styles={colourStyles} onChange={handleTagChange} isMulti/>
             </div>
 
             <div>
@@ -182,16 +174,16 @@ const EditProject = () => {
               <input type="file" ref={fileref} onChange={handleFileChange}/>
             </div>
 
-            <div className='col-span-2 flex items-end justify-end'>
-              <button type='submit' className='bg-green-400 text-black px-3 py-2 rounded-md cursor-pointer' disabled={createState !== ''}>
-                {createState || 'Update'}
-              </button>
+            <div className='flex items-end justify-end'>
+              <Button className='bg-green-400 text-black' disabled={createState !== ''} type='submit'>
+                {createState || 'Save'}
+              </Button>
             </div>
           </div>
 
           {image && (
             <div className='w-[500px] h-[300px] bg-black rounded-md my-5'>
-              <Image src={newImage || image} className='rounded-md' width={500} height={300} layout='responsive' alt='cover' objectFit='cover'/>
+              <Image src={image} className='rounded-md' width={500} height={300} layout='responsive' alt='cover' objectFit='cover'/>
             </div>
           )}
         </form>
@@ -200,5 +192,6 @@ const EditProject = () => {
   )
 }
 
-EditProject.requireAuth = true
-export default EditProject
+EditPost.requireAuth = true
+
+export default EditPost

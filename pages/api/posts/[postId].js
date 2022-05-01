@@ -1,23 +1,27 @@
 require('../../../utils/mongoose')
-import Project from '../../../utils/schemas/Project'
+import Post from '../../../utils/schemas/Post'
 import { getSession } from 'next-auth/react'
 
 export default async function handler(req, res) {
   const session = await getSession({req})
-  if (!session && !session?.admin) {
+  if (!session && !session?.admin && req.method !== "GET") {
     return res.status(401).json({ error: 'Unauthorized'})
   }
   
-  const projectId = req.query.projectId
+  const postId = req.query.postId
 
   switch (req.method) {
+    case "GET":
+      const post = await Post.findOne({ _id: postId })
+      res.json(post)
+      break;
     case "PUT":
       const body = JSON.parse(req.body)
-      const update_data = await Project.updateOne({ _id: projectId }, body)
+      const update_data = await Post.updateOne({ _id: postId }, body)
       res.json(update_data)
       break;
     case "DELETE":
-      const delete_data = await Project.deleteOne({ _id: projectId })
+      const delete_data = await Post.deleteOne({ _id: postId })
       res.json(delete_data)
       break;
     default:

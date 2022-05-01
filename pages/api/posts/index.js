@@ -1,11 +1,11 @@
 require('../../../utils/mongoose')
-import Project from '../../../utils/schemas/Project'
+import Post from '../../../utils/schemas/Post'
 import { getSession } from 'next-auth/react'
 
 export default async function handler(req, res) {
   switch (req.method) {
     case "GET":
-      const projects = await Project.find({})
+      const projects = await Post.find({})
       res.json(projects)
       break;
     case "POST":
@@ -14,9 +14,9 @@ export default async function handler(req, res) {
       if (!session && !session?.admin) {
         return res.status(401).json({ error: 'Unauthorized'})
       }
-      
+  
       const body = JSON.parse(req.body)
-      const data = await Project.create(body)
+      const data = await Post.create(body)
       res.json(data)
       break;
     default:
