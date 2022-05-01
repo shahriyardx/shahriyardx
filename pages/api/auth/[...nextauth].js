@@ -13,12 +13,19 @@ export default NextAuth({
     error: "/login",
   },
   callbacks: {
-  async session({ session, user, token }) {
-    if (token.email == "mdshahriyaralam552@gmail.com") {
-      session.admin = true
-    }
-    
-    return session
-  },
+    async jwt({ token, user, account }) {
+      if (account && user) {
+        const data = await fetch(`https://api.github.com/user/${token.sub}`).then(data => data.json())
+        token.username = data.login
+      }
+      return token
+    },
+    async session({ session, token }) {
+      if (token.email == "mdshahriyaralam552@gmail.com") {
+        session.admin = true
+      }
+      session.username = token.username
+      return session
+    },
   }
 })
