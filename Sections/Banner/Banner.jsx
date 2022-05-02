@@ -42,7 +42,7 @@ const Banner = (props) => {
 
         <div className='hidden md:block'>
           <Image 
-            src='/images/me.png' 
+            src='/images/me.jpg' 
             width={100} 
             height={100}
             alt='Me' 
