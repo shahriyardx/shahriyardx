@@ -16,7 +16,7 @@ const Banner = (props) => {
                 <span>Then, write the code.</span>
               </h1>
               <p className='text-xs sm:text-sm text-zinc-500'>I love making complex things in a simple way :)</p>
-              <a href="mailto:contact@shahriyar.dev" className='text-accent underline underline-offset-2 uppercase mt-5 block text-sm sm:text-base'>Let&apos;s Chat</a>
+              <a href="mailto:mdshahriyaralam9@gmail.com" className='text-accent underline underline-offset-2 uppercase mt-5 block text-sm sm:text-base'>Let&apos;s Chat</a>
             </div>
 
             <div className='mt-7 flex gap-3 sm:gap-5 md:gap-10 flex-wrap'>
