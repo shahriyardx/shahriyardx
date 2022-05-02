@@ -7,10 +7,11 @@ import Image from 'next/image'
 import CreatableSelect  from 'react-select/creatable'
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from 'react-redux'
-import { addPost, updatePost } from '../../../../redux/posts'
+import { updatePost } from '../../../../redux/posts'
 import { API_BASE } from '../../../../utils/api'
 import SEO from '../../../../components/SEO'
 import { useRouter } from 'next/router'
+import TextareaMarkdown from "textarea-markdown-editor";
 
 const EditPost = () => {
   const dispatch = useDispatch()
@@ -161,7 +162,7 @@ const EditPost = () => {
 
             <div className='col-span-3'>
               <label className='mb-2 block'>Content</label>
-              <textarea className='bg-zinc-700 w-full rounded-md' defaultValue={post.content} {...register('content')} rows={10} />
+              <TextareaMarkdown className='bg-zinc-700 w-full rounded-md' defaultValue={post.content} {...register('content')} rows={10} />
             </div>
 
             <div>

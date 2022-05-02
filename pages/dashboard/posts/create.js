@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux'
 import { addPost } from '../../../redux/posts'
 import { API_BASE } from '../../../utils/api'
 import SEO from '../../../components/SEO'
+import TextareaMarkdown from "textarea-markdown-editor";
 
 const CreatePost = () => {
   const dispatch = useDispatch()
@@ -140,7 +141,7 @@ const CreatePost = () => {
 
             <div className='col-span-3'>
               <label className='mb-2 block'>Content</label>
-              <textarea className='bg-zinc-700 w-full rounded-md' {...register('content')} rows={10}></textarea>
+              <TextareaMarkdown className='bg-zinc-700 w-full rounded-md' {...register('content')} rows={10} />
             </div>
 
             <div>
