@@ -1,13 +1,13 @@
 import Head from 'next/head'
 import React from 'react'
 
-const SEO = ({ title, description, keywords, image, url }) => {
+const SEO = ({ title, description, keywords, image, url, author }) => {
   const _title = title || "Md Shahriyar Alam - Full-Stack Web Developer"
   const _description = description || "Full-Stack Web Developer with knowledge of JavaScript and Python. Currently living in Bangladesh and open for jobs."
   const _url = url || "https://shahriyar.dev"
   const _image = image || "/images/meta.png"
   const _keywords = keywords || 'md shahriyar alam, shahriyar, shahriyar alam, full-stack web developer, bangladeshi web developer, bangladeshi fullstack web developer, bangladeshi react developer, bangladeshi python developer'
-
+  const _author = author || "Md Shahriyar Alam"
   return (
     <Head>
       <title>{_title}</title>

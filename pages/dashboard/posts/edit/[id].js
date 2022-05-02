@@ -141,8 +141,8 @@ const EditPost = () => {
     <DashLayout>
       <SEO title='➕ Edit Post - Dashboard' />
       <PageHeader className='flex justify-between items-center'>
-        Edit Project
-        <Link href='/dashboard/projects'>
+        Edit Post
+        <Link href='/dashboard/posts'>
           <a className='text-green-300 text-base'>Go back</a>
         </Link>
       </PageHeader>

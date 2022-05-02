@@ -16,3 +16,7 @@ body {
 .scrollbar::-webkit-scrollbar-thumb {
   @apply bg-zinc-800;
 }
+
+.hljs {
+  @apply !bg-transparent;
+}

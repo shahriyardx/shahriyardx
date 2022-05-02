@@ -13,7 +13,9 @@ export default async function handler(req, res) {
   switch (req.method) {
     case "PUT":
       const body = JSON.parse(req.body)
-      const update_data = await Project.updateOne({ _id: projectId }, body)
+      const update_data = await Project.updateOne({ _id: projectId }, {
+        $set: body
+      })
       res.json(update_data)
       break;
     case "DELETE":

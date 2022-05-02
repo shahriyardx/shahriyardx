@@ -17,7 +17,9 @@ export default async function handler(req, res) {
       break;
     case "PUT":
       const body = JSON.parse(req.body)
-      const update_data = await Post.updateOne({ _id: postId }, body)
+      const update_data = await Post.updateOne({ _id: postId }, {
+        $set: body
+      })
       res.json(update_data)
       break;
     case "DELETE":

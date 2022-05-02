@@ -7,6 +7,7 @@ import { setProjects } from '../redux/projects'
 import { setPosts } from '../redux/posts'
 import { useEffect } from 'react'
 import { API_BASE } from '../utils/api'
+import NextNProgress from "nextjs-progressbar";
 
 function MyApp({ Component, pageProps }) {
   const dispatch = useDispatch()
@@ -27,13 +28,17 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <SessionProvider session={pageProps.session}>
-      {Component.requireAuth ? (
-        <AuthWrapper>
-          <Component {...pageProps} />
+      <>
+        <NextNProgress />
+        {Component.requireAuth ? (
+          <AuthWrapper>
+            <Component {...pageProps} />
           </AuthWrapper>
-        ) : (
-          <Component {...pageProps} />
-        )}
+          ) : (
+            <Component {...pageProps} />
+          )
+        }
+      </>
     </SessionProvider>
   )
 }
