@@ -6,7 +6,6 @@ import PageHeader from '../../../../components/Dashboard/PageHeader'
 import DashLayout from '../../../../components/Layout/DashLayout'
 import Button from '../../../../components/Button/Button'
 import CreatableSelect  from 'react-select/creatable'
-import TextareaMarkdown from "textarea-markdown-editor";
 
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from 'react-redux'
@@ -163,7 +162,7 @@ const EditPost = () => {
 
             <div className='col-span-3'>
               <label className='mb-2 block'>Content</label>
-              <TextareaMarkdown className='bg-zinc-700 w-full rounded-md' defaultValue={post.content} {...register('content')} rows={10} />
+              <textarea className='bg-zinc-700 w-full rounded-md' defaultValue={post.content} {...register('content')} rows={10} />
             </div>
 
             <div>

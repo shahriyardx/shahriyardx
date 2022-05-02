@@ -4,7 +4,6 @@ import SEO from '../../../components/SEO'
 import React, { useRef, useState } from 'react'
 import CreatableSelect  from 'react-select/creatable'
 import Button from '../../../components/Button/Button'
-import TextareaMarkdown from "textarea-markdown-editor";
 import DashLayout from '../../../components/Layout/DashLayout'
 import PageHeader from '../../../components/Dashboard/PageHeader'
 
@@ -142,7 +141,7 @@ const CreatePost = () => {
 
             <div className='col-span-3'>
               <label className='mb-2 block'>Content</label>
-              <TextareaMarkdown className='bg-zinc-700 w-full rounded-md' {...register('content')} rows={10} />
+              <textarea className='bg-zinc-700 w-full rounded-md' {...register('content')} rows={10} />
             </div>
 
             <div>
@@ -157,7 +156,7 @@ const CreatePost = () => {
 
             <div className='flex items-end justify-end'>
               <Button className='bg-green-400 text-black' disabled={createState !== ''} type='submit'>
-                {createState || 'Save'}
+                {createState || 'Save'} 
               </Button>
             </div>
           </div>
