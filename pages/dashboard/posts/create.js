@@ -1,16 +1,17 @@
 import Link from 'next/link'
-import React, { useRef, useState } from 'react'
-import PageHeader from '../../../components/Dashboard/PageHeader'
-import DashLayout from '../../../components/Layout/DashLayout'
-import Button from '../../../components/Button/Button'
 import Image from 'next/image'
+import SEO from '../../../components/SEO'
+import React, { useRef, useState } from 'react'
 import CreatableSelect  from 'react-select/creatable'
+import Button from '../../../components/Button/Button'
+import TextareaMarkdown from "textarea-markdown-editor";
+import DashLayout from '../../../components/Layout/DashLayout'
+import PageHeader from '../../../components/Dashboard/PageHeader'
+
 import { useForm } from "react-hook-form";
 import { useDispatch } from 'react-redux'
 import { addPost } from '../../../redux/posts'
 import { API_BASE } from '../../../utils/api'
-import SEO from '../../../components/SEO'
-import TextareaMarkdown from "textarea-markdown-editor";
 
 const CreatePost = () => {
   const dispatch = useDispatch()

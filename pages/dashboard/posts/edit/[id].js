@@ -1,17 +1,18 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import SEO from '../../../../components/SEO'
 import React, { useEffect, useRef, useState } from 'react'
 import PageHeader from '../../../../components/Dashboard/PageHeader'
 import DashLayout from '../../../../components/Layout/DashLayout'
 import Button from '../../../../components/Button/Button'
-import Image from 'next/image'
 import CreatableSelect  from 'react-select/creatable'
+import TextareaMarkdown from "textarea-markdown-editor";
+
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from 'react-redux'
 import { updatePost } from '../../../../redux/posts'
 import { API_BASE } from '../../../../utils/api'
-import SEO from '../../../../components/SEO'
 import { useRouter } from 'next/router'
-import TextareaMarkdown from "textarea-markdown-editor";
 
 const EditPost = () => {
   const dispatch = useDispatch()
