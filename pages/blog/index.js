@@ -24,7 +24,7 @@ const Blog = ({ staticPosts }) => {
       <Container className='max-w-5xl py-20'>
         <h1 className='text-4xl sm:text-5xl md:text-6xl text-white font-black text-center mb-10'>Blog</h1>
         <div>
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-5 md:grid-cols-3'>
             {posts.map(post => <PostCard key={post._id} blog={post} />)}
           </div>
         </div>
