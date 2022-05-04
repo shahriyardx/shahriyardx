@@ -1,18 +1,14 @@
 import React from 'react'
-import Link from 'next/link'
 import { signOut } from 'next-auth/react'
-import LinkButton from '../Button/LinkButton'
+import LinkButton from '../../Button/LinkButton'
+import { BiMenu } from 'react-icons/bi'
 
-const DashHeader = () => {
+const DashHeader = ({ toggleMenu }) => {
   return (
     <div className='h-16 bg-primary text-slate-200 flex items-center'>
       <div className='px-3 flex items-center justify-between w-full'>
-        <div>
-          <Link href="/dashboard">
-            <a className='uppercase text-lg'>
-              <span className='font-bold text-white'>Dashboard</span>
-            </a>
-          </Link>
+        <div className='md:invisible'>
+          <BiMenu className='text-2xl' onClick={toggleMenu} />
         </div>
 
         <div className='flex gap-3'>

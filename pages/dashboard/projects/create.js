@@ -133,12 +133,12 @@ const CreateProject = () => {
 
       <div>
         <form onSubmit={handleSubmit(onSubmit)} ref={formRef}>
-          <div className='grid grid-cols-3 gap-5'>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
             <div>
               <label className='mb-2 block'>Title</label>
               <input type="text" defaultValue="" {...register('title')} className='bg-zinc-700 w-full rounded-md py-3' required/>
             </div>
-            <div className='col-span-2'>
+            <div className='md:col-span-2'>
               <label className='mb-2 block'>Description</label>
               <input type="text" defaultValue="" {...register('description')} className='bg-zinc-700 w-full rounded-md py-3' required/>
             </div>
@@ -148,7 +148,7 @@ const CreateProject = () => {
               <Select ref={tagsRef} options={options} styles={colourStyles} onChange={handleTagChange} isMulti/>
             </div>
 
-            <div className='col-span-2'>
+            <div className='md:col-span-2'>
               <label className='mb-2 block'>Url</label>
               <input type="text" defaultValue="" {...register('url')} className='bg-zinc-700 w-full rounded-md py-3'/>
             </div>
@@ -158,7 +158,7 @@ const CreateProject = () => {
               <input type="file" ref={fileref} onChange={handleFileChange}/>
             </div>
 
-            <div className='col-span-2 flex items-end justify-end'>
+            <div className='md:col-span-2 flex items-end md:justify-end'>
               <button type='submit' className='bg-green-400 text-black px-3 py-2 rounded-md cursor-pointer' disabled={createState !== ''}>
                 {createState || 'Save'}
               </button>
@@ -166,7 +166,7 @@ const CreateProject = () => {
           </div>
 
           {image && (
-            <div className='w-[500px] h-[300px] bg-black rounded-md my-5'>
+            <div className='w-full md:w-[500px] aspect-video md:aspect-auto h-[300px] bg-black rounded-md my-5'>
               <Image src={image} className='rounded-md' width={500} height={300} layout='responsive' alt='cover' objectFit='cover'/>
             </div>
           )}

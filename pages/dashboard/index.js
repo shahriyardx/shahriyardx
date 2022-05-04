@@ -11,7 +11,7 @@ const Dashboard = () => {
   return (
     <DashLayout>
       <SEO title='Dashboard' />
-      <div className='grid grid-cols-1 sm:grid-cols-4 gap-5'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-4 gap-5'>
         <CountCart text="Posts" count={posts.length} />
         <CountCart text="Projects" count={projects.length} />
       </div>

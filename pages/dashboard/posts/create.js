@@ -129,17 +129,17 @@ const CreatePost = () => {
 
       <div>
         <form onSubmit={handleSubmit(onSubmit)} ref={formRef}>
-          <div className='grid grid-cols-3 gap-5'>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
             <div>
               <label className='mb-2 block'>Title</label>
               <input type="text" defaultValue="" {...register('title')} className='bg-zinc-700 w-full rounded-md py-3' required/>
             </div>
-            <div className='col-span-2'>
+            <div className='md:col-span-2'>
               <label className='mb-2 block'>Meta</label>
               <input type="text" defaultValue="" {...register('meta')} className='bg-zinc-700 w-full rounded-md py-3' required/>
             </div>
 
-            <div className='col-span-3'>
+            <div className='md:col-span-3'>
               <label className='mb-2 block'>Content</label>
               <textarea className='bg-zinc-700 w-full rounded-md' {...register('content')} rows={10} />
             </div>
@@ -154,7 +154,7 @@ const CreatePost = () => {
               <input type="file" ref={fileref} onChange={handleFileChange}/>
             </div>
 
-            <div className='flex items-end justify-end'>
+            <div className='flex items-end md:justify-end'>
               <Button className='bg-green-400 text-black' disabled={createState !== ''} type='submit'>
                 {createState || 'Save'} 
               </Button>
@@ -162,7 +162,7 @@ const CreatePost = () => {
           </div>
 
           {image && (
-            <div className='w-[500px] h-[300px] bg-black rounded-md my-5'>
+            <div className='w-full md:w-[500px] aspect-video md:aspect-auto h-[300px] rounded-md my-5'>
               <Image src={image} className='rounded-md' width={500} height={300} layout='responsive' alt='cover' objectFit='cover'/>
             </div>
           )}
