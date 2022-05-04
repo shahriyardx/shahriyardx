@@ -5,7 +5,7 @@ import { getSession } from 'next-auth/react'
 export default async function handler(req, res) {
   switch (req.method) {
     case "GET":
-      const projects = await Post.find({})
+      const projects = await Post.find({}).sort({ createdAt: -1 })
       res.json(projects)
       break;
     case "POST":

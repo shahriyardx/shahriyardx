@@ -184,7 +184,7 @@ const EditPost = () => {
 
           {image && (
             <div className='w-full md:w-[500px] aspect-video md:aspect-auto md:h-[300px] rounded-md my-5'>
-              <Image src={image} className='rounded-md' width={500} height={300} layout='responsive' alt='cover' objectFit='cover'/>
+              <Image src={newImage || image} className='rounded-md' width={500} height={300} layout='responsive' alt='cover' objectFit='cover'/>
             </div>
           )}
         </form>

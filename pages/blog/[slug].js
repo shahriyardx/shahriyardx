@@ -4,6 +4,7 @@ import Container from '../../components/Layout/Container'
 import Main from '../../components/Layout/Main'
 import moment from 'moment'
 import { BiUser, BiTime } from 'react-icons/bi'
+import { ImStatsBars } from 'react-icons/im'
 import Markdown from 'marked-react'
 import Post from '../../utils/schemas/Post'
 import Lowlight from 'react-lowlight'
@@ -32,13 +33,17 @@ const SinglePost = ({ post }) => {
       <SEO title={post.title} description={post.meta} image={post.image} url={`https://shahriyar.dev/blog/${post._id}`} keywords={post.tags.map(tag => tag.value).join(", ")} />
       <Container className='py-20 prose prose-invert prose-green'>
         <h1>{post.title}</h1>
-        <div className='flex gap-2 mt-3 mb-10 flex-wrap'>
+        <div className='flex gap-3 mt-3 mb-10 flex-wrap'>
           <div className='flex gap-2 text-sm text-zinc-300 items-center'>
             <BiUser className='text-base text-accent' /> <span className='author'>Shahriyar</span>
           </div>
 
           <div className='flex gap-2 text-sm text-zinc-300 items-center'>
             <BiTime className='text-base text-accent' /> <span className='createdAt tracking-tighter'>{moment(post.createdAt).format('MMMM d, YYYY')}</span>
+          </div>
+
+          <div className='flex gap-2 text-sm text-zinc-300 items-center'>
+            <ImStatsBars className='text-base text-accent' />{post.views}
           </div>
         </div>
         <div>

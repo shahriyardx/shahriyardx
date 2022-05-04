@@ -36,7 +36,7 @@ const Blog = ({ staticPosts }) => {
 export default Blog
 
 export const getStaticProps = async () => {
-  const data = await Post.find({})
+  const data = await Post.find({}).sort({ createdAt: -1 })
 
   const posts = data.map(post => {
     const modifiedPost = post.toObject()
