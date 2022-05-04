@@ -1,12 +1,22 @@
 require('../../utils/mongoose')
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PostCard from '../../components/Blog/PostCard'
 import Container from '../../components/Layout/Container'
 import Main from '../../components/Layout/Main'
 import SEO from '../../components/SEO'
 import Post from '../../utils/schemas/Post'
 
-const Blog = ({ posts }) => {
+const Blog = ({ staticPosts }) => {
+  const [posts, setPosts] = useState(staticPosts)
+
+  useEffect(() => {
+    fetch('/api/posts')
+      .then(response => response.json())
+      .then(data => {
+        setPosts(data)
+      })
+  }, [])
+
   return (
     <Main>
       <SEO title='Blog - Md Shahriyar Alam' url='https://shahriyar.dev/blog' description="Shahriyar's blogs. Read Now..." />
@@ -25,7 +35,7 @@ const Blog = ({ posts }) => {
 
 export default Blog
 
-export const getServerSideProps = async (ctx) => {
+export const getStaticProps = async () => {
   const data = await Post.find({})
 
   const posts = data.map(post => {
@@ -39,7 +49,8 @@ export const getServerSideProps = async (ctx) => {
 
   return {
     props: {
-      posts
-    }
+      staticPosts: posts
+    },
+    revalidate: 10
   }
 }

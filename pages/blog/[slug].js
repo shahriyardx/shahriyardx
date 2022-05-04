@@ -57,14 +57,30 @@ const SinglePost = ({ post }) => {
 
 export default SinglePost
 
-export const getServerSideProps = async ({ params }) => {
-  const { postId } = params
+export const getStaticPaths = async () => {
+  const posts = await Post.find({})
+  const paths = posts.map(post => {
+    return { params: { slug: post.slug }}
+  })
+
+  return {
+    paths,
+    fallback: 'blocking'
+  }
+}
+
+export const getStaticProps = async ({ params }) => {
+  const { slug } = params
+
+  console.log(`Generating page for /blog/${slug}`)
 
   try {
-    const data = await Post.findOne({ slug: postId })
+    const data = await Post.findOne({ slug: slug })
+    
     await Post.updateOne({ _id: data._id.toString()}, { $set: { views: data.views + 1}})
     const post = data.toObject()
-    post._id = postId
+
+    post._id = data._id.toString()
     post.createdAt = data.createdAt.toISOString()
     post.updatedAt = data.updatedAt.toISOString()
     post.tags = data.tags.map(tag => ({ value: tag.value, label: tag.label }))

@@ -14,9 +14,11 @@ import {
 
 import { BiMenu } from 'react-icons/bi'
 import MobileMenu from './MobileMenu'
+import { signOut, useSession } from 'next-auth/react'
 
 const Header = () => {
   const [show, setShow] = useState(false)
+  const {data: session} = useSession() 
 
   return (
     <div className='h-16 bg-primary text-slate-200 flex items-center'>
@@ -33,6 +35,9 @@ const Header = () => {
         <div className='items-center gap-5 ml-20 hidden lg:flex'>
           <TextLink href='/'>Home</TextLink>
           <TextLink href='/blog'>Blog</TextLink>
+          {session?.user && (
+            <button type='button' className='text-red-400 hover:text-red-500' onClick={signOut}>Logout</button>
+          )}
           {/* <TextLink href='/contact'>Contact</TextLink> */}
         </div>
 
