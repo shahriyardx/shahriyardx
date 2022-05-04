@@ -72,8 +72,6 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }) => {
   const { slug } = params
 
-  console.log(`Generating page for /blog/${slug}`)
-
   try {
     const data = await Post.findOne({ slug: slug })
     
@@ -88,7 +86,8 @@ export const getStaticProps = async ({ params }) => {
     return {
       props: {
         post,
-      }
+      },
+      revalidate: 10
     }
   } catch (err) {
     return {
