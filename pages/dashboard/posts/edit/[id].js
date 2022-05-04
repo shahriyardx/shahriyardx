@@ -89,7 +89,6 @@ const EditPost = () => {
     if (!(image || newImage)) {
       return alert('Select an image')
     }
-
     
     if (newImage) {
       setCreateState('Uploading..')
@@ -101,6 +100,7 @@ const EditPost = () => {
         method: 'POST',
         body: imageData
       }).then(data => data.json())
+      
       postData.image = cloudinaryData.secure_url
       fileref.current.value = ''
     } else {
@@ -120,7 +120,6 @@ const EditPost = () => {
     } else {
       dispatch(updatePost(updateData))
     }
-
     setCreateState('')
   }
 
@@ -140,7 +139,7 @@ const EditPost = () => {
 
   return (
     <DashLayout>
-      <SEO title='➕ Edit Post - Dashboard' />
+      <SEO title='🖊 Edit Post - Dashboard' />
       <PageHeader className='flex justify-between items-center'>
         Edit Post
         <Link href='/dashboard/posts'>
