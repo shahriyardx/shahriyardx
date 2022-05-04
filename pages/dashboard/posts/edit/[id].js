@@ -102,6 +102,7 @@ const EditPost = () => {
         body: imageData
       }).then(data => data.json())
       postData.image = cloudinaryData.secure_url
+      fileref.current.value = ''
     } else {
       postData.image = post.image
     }
@@ -131,10 +132,9 @@ const EditPost = () => {
     if (fileref.current.files[0]) {
       const reader = new FileReader();
       reader.readAsDataURL(fileref.current.files[0]);
-
       reader.onload = () => setNewImage(reader.result);
     } else {
-      setImage('');
+      setNewImage('')
     }
   }
 
