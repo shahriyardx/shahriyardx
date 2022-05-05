@@ -1,20 +1,23 @@
 require('../../utils/mongoose')
 import React from 'react'
-import Container from '../../components/Layout/Container'
-import Main from '../../components/Layout/Main'
+
 import moment from 'moment'
-import { BiUser, BiTime } from 'react-icons/bi'
-import { ImStatsBars } from 'react-icons/im'
 import Markdown from 'marked-react'
-import Post from '../../utils/schemas/Post'
 import Lowlight from 'react-lowlight'
 
-import javascript from 'highlight.js/lib/languages/javascript';
+import { ImStatsBars } from 'react-icons/im'
+import { BiUser, BiTime } from 'react-icons/bi'
+
+import SEO from '../../components/SEO'
+import Post from '../../utils/schemas/Post'
+import Main from '../../components/Layout/Main'
+import Container from '../../components/Layout/Container'
+
 import python from 'highlight.js/lib/languages/python';
 import markdown from 'highlight.js/lib/languages/markdown';
+import javascript from 'highlight.js/lib/languages/javascript';
 
 import 'highlight.js/styles/atom-one-dark.css'
-import SEO from '../../components/SEO'
 
 const SinglePost = ({ post }) => {
   Lowlight.registerLanguage('js', javascript);

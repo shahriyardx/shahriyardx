@@ -1,21 +1,22 @@
 require('../../utils/mongoose')
 import React, { useState, useEffect } from 'react'
-import PostCard from '../../components/Blog/PostCard'
-import Container from '../../components/Layout/Container'
-import Main from '../../components/Layout/Main'
+
 import SEO from '../../components/SEO'
 import Post from '../../utils/schemas/Post'
+import Main from '../../components/Layout/Main'
+import PostCard from '../../components/Blog/PostCard'
+import Container from '../../components/Layout/Container'
+import { useSelector } from 'react-redux'
 
 const Blog = ({ staticPosts }) => {
   const [posts, setPosts] = useState(staticPosts)
+  const postState = useSelector(state => state.posts.value)
 
   useEffect(() => {
-    fetch('/api/posts')
-      .then(response => response.json())
-      .then(data => {
-        setPosts(data)
-      })
-  }, [])
+    if (postState.length) {
+      setPosts(postState)
+    }
+  }, [postState])
 
   return (
     <Main>
