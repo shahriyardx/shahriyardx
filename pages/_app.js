@@ -8,6 +8,7 @@ import { setPosts } from '../redux/posts'
 import { useEffect } from 'react'
 import { API_BASE } from '../utils/api'
 import NextNProgress from "nextjs-progressbar";
+import Script from 'next/script'
 
 function MyApp({ Component, pageProps }) {
   const dispatch = useDispatch()
@@ -30,6 +31,18 @@ function MyApp({ Component, pageProps }) {
     <SessionProvider session={pageProps.session}>
       <>
         <NextNProgress />
+        <Script src='https://www.googletagmanager.com/gtag/js?id=G-V0VJLSW7JB' strategy='afterInteractive' />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){
+              dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+            gtag('config', 'G-V0VJLSW7JB');
+          `}
+        </Script>
         {Component.requireAuth ? (
           <AuthWrapper>
             <Component {...pageProps} />
