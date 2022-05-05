@@ -1,5 +1,5 @@
 require('../../utils/mongoose')
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import moment from 'moment'
 import Markdown from 'marked-react'
@@ -18,8 +18,25 @@ import markdown from 'highlight.js/lib/languages/markdown';
 import javascript from 'highlight.js/lib/languages/javascript';
 
 import 'highlight.js/styles/atom-one-dark.css'
+import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
 
-const SinglePost = ({ post }) => {
+const SinglePost = ({ post: staticPost }) => {
+  const router = useRouter()
+  const slug = router.query.slug
+
+  const [post, setPost] = useState(staticPost)
+  const allPosts = useSelector(state => state.posts.value)
+  
+  useEffect(() => {
+    if (allPosts.length) {
+      const matchedPost = allPosts.find(item => item.slug == slug)
+      if (matchedPost) {
+        setPost(matchedPost)
+      }
+    }
+  }, [allPosts, slug])
+
   Lowlight.registerLanguage('js', javascript);
   Lowlight.registerLanguage('py', python);
   Lowlight.registerLanguage('md', markdown);
