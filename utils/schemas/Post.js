@@ -7,10 +7,6 @@ const PostSchema = new mongoose.Schema({
   meta: String,
   image: String,
   content: String,
-  views: {
-    type: Number,
-    default: 0
-  },
   tags: [{value: String, label: String}],
 }, {timestamps: true})
 

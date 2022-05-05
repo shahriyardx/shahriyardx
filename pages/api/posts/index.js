@@ -5,8 +5,8 @@ import { getSession } from 'next-auth/react'
 export default async function handler(req, res) {
   switch (req.method) {
     case "GET":
-      const projects = await Post.find({}).sort({ createdAt: -1 })
-      res.json(projects)
+      const posts = await Post.find({}).sort({ createdAt: -1 })
+      res.json(posts)
       break;
     case "POST":
       const session = await getSession({ req })

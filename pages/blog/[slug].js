@@ -60,10 +60,6 @@ const SinglePost = ({ post: staticPost }) => {
           <div className='flex gap-2 text-sm text-zinc-300 items-center'>
             <BiTime className='text-base text-accent' /> <span className='createdAt tracking-tighter'>{moment(post.createdAt).format('MMMM d, YYYY')}</span>
           </div>
-
-          <div className='flex gap-2 text-sm text-zinc-300 items-center'>
-            <ImStatsBars className='text-base text-accent' />{post.views}
-          </div>
         </div>
         <div>
           <Markdown renderer={renderer}>
@@ -98,8 +94,6 @@ export const getStaticProps = async ({ params }) => {
 
   try {
     const data = await Post.findOne({ slug: slug })
-    
-    await Post.updateOne({ _id: data._id.toString()}, { $set: { views: data.views + 1}})
     const post = data.toObject()
 
     post._id = data._id.toString()

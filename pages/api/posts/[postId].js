@@ -11,10 +11,6 @@ export default async function handler(req, res) {
   const postId = req.query.postId
 
   switch (req.method) {
-    case "GET":
-      const post = await Post.findOne({ _id: postId })
-      res.json(post)
-      break;
     case "PUT":
       const body = JSON.parse(req.body)
       const update_data = await Post.updateOne({ _id: postId }, {
