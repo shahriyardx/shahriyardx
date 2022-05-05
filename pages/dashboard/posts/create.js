@@ -1,16 +1,16 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import SEO from '../../../components/SEO'
+import SEO from '@/components/SEO'
 import React, { useRef, useState } from 'react'
 import CreatableSelect  from 'react-select/creatable'
-import Button from '../../../components/Button/Button'
-import DashLayout from '../../../components/Layout/DashLayout'
-import PageHeader from '../../../components/Dashboard/PageHeader'
+import Button from '@/components/Button/Button'
+import DashLayout from '@/components/Layout/DashLayout'
+import PageHeader from '@/components/Dashboard/PageHeader'
 
 import { useForm } from "react-hook-form";
 import { useDispatch } from 'react-redux'
-import { addPost } from '../../../redux/posts'
-import { API_BASE } from '../../../utils/api'
+import { addPost } from '@/redux/posts'
+import { API_BASE } from '@/utils/api'
 
 const CreatePost = () => {
   const dispatch = useDispatch()

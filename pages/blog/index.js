@@ -1,11 +1,11 @@
-require('../../utils/mongoose')
+require('@/utils/mongoose')
 import React, { useState, useEffect } from 'react'
 
-import SEO from '../../components/SEO'
-import Post from '../../utils/schemas/Post'
-import Main from '../../components/Layout/Main'
-import PostCard from '../../components/Blog/PostCard'
-import Container from '../../components/Layout/Container'
+import SEO from '@/components/SEO'
+import Post from '@/utils/schemas/Post'
+import Main from '@/components/Layout/Main'
+import PostCard from '@/components/Blog/PostCard'
+import Container from '@/components/Layout/Container'
 import { useSelector } from 'react-redux'
 
 const Blog = ({ staticPosts }) => {

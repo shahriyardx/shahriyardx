@@ -1,5 +1,5 @@
-require('../../../utils/mongoose')
-import Project from '../../../utils/schemas/Project'
+require('@/utils/mongoose')
+import Project from '@/utils/schemas/Project'
 import { getSession } from 'next-auth/react'
 
 export default async function handler(req, res) {

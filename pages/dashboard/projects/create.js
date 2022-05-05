@@ -1,14 +1,14 @@
 import Link from 'next/link'
 import React, { useRef, useState } from 'react'
-import PageHeader from '../../../components/Dashboard/PageHeader'
-import DashLayout from '../../../components/Layout/DashLayout'
+import PageHeader from '@/components/Dashboard/PageHeader'
+import DashLayout from '@/components/Layout/DashLayout'
 import Image from 'next/image'
 import Select from 'react-select'
 import { useForm } from "react-hook-form";
 import { useDispatch } from 'react-redux'
-import { addProject } from '../../../redux/projects'
-import { API_BASE } from '../../../utils/api'
-import SEO from '../../../components/SEO'
+import { addProject } from '@/redux/projects'
+import { API_BASE } from '@/utils/api'
+import SEO from '@/components/SEO'
 
 const CreateProject = () => {
   const dispatch = useDispatch()

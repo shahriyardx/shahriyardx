@@ -1,4 +1,4 @@
-require('../../utils/mongoose')
+require('@/utils/mongoose')
 import React, { useEffect, useState } from 'react'
 
 import moment from 'moment'
@@ -8,10 +8,10 @@ import Lowlight from 'react-lowlight'
 import { ImStatsBars } from 'react-icons/im'
 import { BiUser, BiTime } from 'react-icons/bi'
 
-import SEO from '../../components/SEO'
-import Post from '../../utils/schemas/Post'
-import Main from '../../components/Layout/Main'
-import Container from '../../components/Layout/Container'
+import SEO from '@/components/SEO'
+import Post from '@/utils/schemas/Post'
+import Main from '@/components/Layout/Main'
+import Container from '@/components/Layout/Container'
 
 import python from 'highlight.js/lib/languages/python';
 import markdown from 'highlight.js/lib/languages/markdown';

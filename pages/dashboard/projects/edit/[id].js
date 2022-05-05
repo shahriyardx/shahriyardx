@@ -1,15 +1,15 @@
 import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
-import PageHeader from '../../../../components/Dashboard/PageHeader'
-import DashLayout from '../../../../components/Layout/DashLayout'
+import PageHeader from '@/components/Dashboard/PageHeader'
+import DashLayout from '@/components/Layout/DashLayout'
 import Image from 'next/image'
 import Select from 'react-select'
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
-import { updateProject } from '../../../../redux/projects'
-import { API_BASE } from '../../../../utils/api'
-import SEO from '../../../../components/SEO'
+import { updateProject } from '@/redux/projects'
+import { API_BASE } from '@/utils/api'
+import SEO from '@/components/SEO'
 
 const EditProject = () => {
   const router = useRouter()

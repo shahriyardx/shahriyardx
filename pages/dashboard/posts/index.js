@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import PageHeader from '../../../components/Dashboard/PageHeader'
-import DashLayout from '../../../components/Layout/DashLayout'
+import PageHeader from '@/components/Dashboard/PageHeader'
+import DashLayout from '@/components/Layout/DashLayout'
 
 import { BiTrashAlt, BiPencil, BiX, BiCheck, BiLoaderAlt } from 'react-icons/bi'
 import Link from 'next/link'
-import { API_BASE } from '../../../utils/api'
-import { deletePost } from '../../../redux/posts'
-import SEO from '../../../components/SEO'
+import { API_BASE } from '@/utils/api'
+import { deletePost } from '@/redux/posts'
+import SEO from '@/components/SEO'
 
 const Posts = () => {
   const dispatch = useDispatch()

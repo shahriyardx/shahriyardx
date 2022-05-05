@@ -1,9 +1,9 @@
-import Main from "../components/Layout/Main";
-import SEO from "../components/SEO";
-import About from "../Sections/About/About";
-import Banner from "../Sections/Banner/Banner";
-import Projects from "../Sections/Projects/Projects";
-import { API_BASE } from "../utils/api";
+import Main from "@/components/Layout/Main";
+import SEO from "@/components/SEO";
+import About from "@/Sections/About/About";
+import Banner from "@/Sections/Banner/Banner";
+import Projects from "@/Sections/Projects/Projects";
+import { API_BASE } from "@/utils/api";
 
 export default function Home({ projects }) {
   return (

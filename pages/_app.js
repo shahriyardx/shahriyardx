@@ -1,12 +1,12 @@
 import '../styles/globals.css'
 import { SessionProvider } from 'next-auth/react'
-import AuthWrapper from '../components/Auth/AuthWrapper'
-import { wrapper } from '../redux/store'
+import AuthWrapper from '@/components/Auth/AuthWrapper'
+import { wrapper } from '@/redux/store'
 import { useDispatch } from 'react-redux'
-import { setProjects } from '../redux/projects'
-import { setPosts } from '../redux/posts'
+import { setProjects } from '@/redux/projects'
+import { setPosts } from '@/redux/posts'
 import { useEffect } from 'react'
-import { API_BASE } from '../utils/api'
+import { API_BASE } from '@/utils/api'
 import NextNProgress from "nextjs-progressbar";
 import Script from 'next/script'
 

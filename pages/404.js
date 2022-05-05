@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import React from 'react'
-import LinkButton from '../components/Button/LinkButton'
-import Container from '../components/Layout/Container'
-import Main from '../components/Layout/Main'
-import SEO from '../components/SEO'
+import LinkButton from '@/components/Button/LinkButton'
+import Container from '@/components/Layout/Container'
+import Main from '@/components/Layout/Main'
+import SEO from '@/components/SEO'
 import { BiLeftArrowAlt } from 'react-icons/bi'
 
 const NotFound = () => {
