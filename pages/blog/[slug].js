@@ -27,7 +27,7 @@ const SinglePost = ({ post: staticPost }) => {
 
   const [post, setPost] = useState(staticPost)
   const allPosts = useSelector(state => state.posts.value)
-  
+
   useEffect(() => {
     if (allPosts.length) {
       const matchedPost = allPosts.find(item => item.slug == slug)
@@ -111,7 +111,7 @@ export const getStaticProps = async ({ params }) => {
       props: {
         post,
       },
-      revalidate: 10
+      revalidate: 600
     }
   } catch (err) {
     return {
