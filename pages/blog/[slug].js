@@ -13,7 +13,7 @@ import javascript from 'highlight.js/lib/languages/javascript';
 import python from 'highlight.js/lib/languages/python';
 import markdown from 'highlight.js/lib/languages/markdown';
 
-import 'highlight.js/styles/monokai.css'
+import 'highlight.js/styles/atom-one-dark.css'
 import SEO from '../../components/SEO'
 
 const SinglePost = ({ post }) => {
@@ -23,7 +23,6 @@ const SinglePost = ({ post }) => {
 
   const renderer = {
     code(snippet, lang) {
-      console.log(snippet, lang)
       return <Lowlight key={this.elementId} language={lang} value={snippet} />;
     },
   };
@@ -31,7 +30,7 @@ const SinglePost = ({ post }) => {
   return (
     <Main>
       <SEO title={post.title} description={post.meta} image={post.image} url={`https://shahriyar.dev/blog/${post._id}`} keywords={post.tags.map(tag => tag.value).join(", ")} />
-      <Container className='py-20 prose prose-invert prose-green'>
+      <Container className='py-20 prose prose-invert prose-green max-w-[88ch]'>
         <h1>{post.title}</h1>
         <div className='flex gap-3 mt-3 mb-10 flex-wrap'>
           <div className='flex gap-2 text-sm text-zinc-300 items-center'>
