@@ -18,7 +18,7 @@ const PostCard = ({ blog }) => {
               width={320} 
               height={180} 
               objectFit='cover' 
-              alt='Makeown' 
+              alt={slug} 
               layout='responsive' 
               className='rounded-lg' 
             />
