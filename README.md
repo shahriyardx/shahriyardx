@@ -27,16 +27,26 @@ class Shahriyar:
 Projects I did as a Web Developer
 
 - [Portfolio](https://shahriyar.dev)
+  - [Repository](https://github.com/shahriyardx/shahriyardx)
 - [Notes](https://notes.shahriyar.dev)
+  - [Repository](https://github.com/shahriyardx/notes)
 - [Roktoo](https://roktoo.com)
+  - [Repository](https://github.com/shahriyardx/roktoo.com)
 - [Chat App](https://chat.shahriyar.dev)
+  - [Repository](https://github.com/shahriyardx/anonymous-chat)
 - [Crisis Entertainment](https://crisisentertainment.com)
+  - [Repository](https://github.com/shahriyardx/crisisentertainment)
 - [Wildie](https://wildie-shahriyardx.web.app/)
+  - [Repository](https://github.com/shahriyardx/wildie)
 - [Mac Studio](https://mac-studiox.netlify.app/)
+  - [Repository](https://github.com/shahriyardx/mac-sudiox)
 - [Compart](https://icompart.web.app/)
+  - [Repository Frontend](https://github.com/shahriyardx/compart)
+  - [Repository Backend](https://github.com/shahriyardx/compart-backend)
 - [Laptop Carnnival](https://laptop-carnival.web.app/)
+  - [Repository Frontend](https://github.com/shahriyardx/laptop-carnival)
+  - [Repository Backend](https://github.com/shahriyardx/laptop-carnival-backend)
 - And more....
--
 
 ### GitHub Analytics
 
