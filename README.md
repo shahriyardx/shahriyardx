@@ -22,6 +22,22 @@ class Shahriyar:
 ![HTML](https://img.shields.io/badge/-HTML-05122A?style=flat&logo=HTML5)&nbsp;
 ![CSS](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=CSS3&logoColor=1572B6)&nbsp;
 
+### Projects
+
+Projects I did as a Web Developer
+
+- [Portfolio](https://shahriyar.dev)
+- [Notes](https://notes.shahriyar.dev)
+- [Roktoo](https://roktoo.com)
+- [Chat App](https://chat.shahriyar.dev)
+- [Crisis Entertainment](https://crisisentertainment.com)
+- [Wildie](https://wildie-shahriyardx.web.app/)
+- [Mac Studio](https://mac-studiox.netlify.app/)
+- [Compart](https://icompart.web.app/)
+- [Laptop Carnnival](https://laptop-carnival.web.app/)
+- And more....
+-
+
 ### GitHub Analytics
 
 <p>
