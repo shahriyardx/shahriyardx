@@ -26,24 +26,24 @@ class Shahriyar:
 
 Projects I did as a Web Developer
 
-- [Portfolio](https://shahriyar.dev)
+- [Portfolio](https://shahriyar.dev) My portfolio website
   - [Repository](https://github.com/shahriyardx/shahriyardx)
-- [Notes](https://notes.shahriyar.dev)
+- [Notes](https://notes.shahriyar.dev) A note taking website, Markdown supported
   - [Repository](https://github.com/shahriyardx/notes)
-- [Roktoo](https://roktoo.com)
+- [Roktoo](https://roktoo.com) A blood donating and finding platform in bangladesh
   - [Repository](https://github.com/shahriyardx/roktoo.com)
-- [Chat App](https://chat.shahriyar.dev)
+- [Chat App](https://chat.shahriyar.dev) Websocket powered chat application
   - [Repository](https://github.com/shahriyardx/anonymous-chat)
-- [Crisis Entertainment](https://crisisentertainment.com)
+- [Crisis Entertainment](https://crisisentertainment.com) Crisis Enetrtainment is a bangladeshi game development company
   - [Repository](https://github.com/shahriyardx/crisisentertainment)
-- [Wildie](https://wildie-shahriyardx.web.app/)
+- [Wildie](https://wildie-shahriyardx.web.app/) Portfolio and service websitea of a photographer
   - [Repository](https://github.com/shahriyardx/wildie)
-- [Mac Studio](https://mac-studiox.netlify.app/)
+- [Mac Studio](https://mac-studiox.netlify.app/) Showcasing mac studio
   - [Repository](https://github.com/shahriyardx/mac-sudiox)
-- [Compart](https://icompart.web.app/)
+- [Compart](https://icompart.web.app/) A computer parts manufacturer website
   - [Repository Frontend](https://github.com/shahriyardx/compart)
   - [Repository Backend](https://github.com/shahriyardx/compart-backend)
-- [Laptop Carnnival](https://laptop-carnival.web.app/)
+- [Laptop Carnnival](https://laptop-carnival.web.app/) Inventory management of laptops
   - [Repository Frontend](https://github.com/shahriyardx/laptop-carnival)
   - [Repository Backend](https://github.com/shahriyardx/laptop-carnival-backend)
 - And more....
