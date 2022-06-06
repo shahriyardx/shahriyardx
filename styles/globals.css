@@ -20,3 +20,15 @@ body {
 .hljs {
   @apply !bg-transparent;
 }
+
+.skill {
+  @apply p-3 bg-black/10 rounded-md flex items-center gap-2;
+}
+
+.skill svg {
+  @apply text-2xl;
+}
+
+.skill span {
+  @apply font-bold;
+}
