@@ -27,7 +27,7 @@ const Skills = () => {
       <Container className="py-20">
         <div className="text-center">
           <span className="uppercase text-lg text-zinc-600">Skills</span>
-          <h1 className="text-4xl font-bold text-zinc-300">My Expertises</h1>
+          <h1 className="text-4xl font-bold text-zinc-300">My Skills</h1>
         </div>
         <div className="flex items-center justify-center flex-wrap gap-5 text-zinc-500 text-6xl mt-10">
           <Skill icon={SiHtml5} text="HTML" className="hover:text-orange-600" />
