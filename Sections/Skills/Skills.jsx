@@ -35,7 +35,7 @@ const Skills = () => {
           <Skill
             icon={SiJavascript}
             text="JavaScript"
-            className="hover:text-orange-600"
+            className="hover:text-yellow-600"
           />
           <Skill
             icon={SiTypescript}
