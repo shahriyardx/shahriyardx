@@ -4,10 +4,10 @@ import React from "react";
 import Container from "../../components/Layout/Container";
 import { AiOutlineCloudDownload } from "react-icons/ai";
 
-const Banner = (props) => {
+const Banner = () => {
   return (
     <div className="bg-primary">
-      <Container className="md:grid md:grid-cols-3 py-10 md:py-20 xl:max-w-6xl">
+      <Container className="md:grid md:grid-cols-3 gap-10 py-10 md:py-40 xl:max-w-6xl">
         <div className="md:col-span-2 flex flex-col justify-center">
           <div>
             <div>
@@ -18,9 +18,12 @@ const Banner = (props) => {
                 Md Shahriyar Alam
               </h1>
               <p className="text-xs sm:text-sm text-zinc-400">
-                I love making complex things in a simple way :)
+                Full-Stack Web Developer with knowledge of ReactJs NextJs,
+                Redux, Typescript, ExpressJs, Node, MongoDB. Also has experience
+                with developing backend APIs using Python web frameworks.
               </p>
-              <div className="flex items-center gap-5">
+
+              <div className="flex items-center gap-5 mt-10">
                 <Link href="/cv">
                   <a className="text-accent underline underline-offset-2 uppercase mt-5 text-sm sm:text-base flex items-center gap-2 hover:text-green-600">
                     <AiOutlineCloudDownload className="text-xl animate-bounce -mb-2" />
@@ -33,36 +36,6 @@ const Banner = (props) => {
                 >
                   Let&apos;s Chat
                 </a>
-              </div>
-            </div>
-
-            <div className="mt-10 flex gap-3 sm:gap-5 md:gap-10 flex-wrap">
-              <div className="text-slate-100 flex gap-2 uppercase">
-                <h1 className="text-4xl md:text-6xl font-semibold font-montserrat">
-                  {new Date().getFullYear() - 2019}+
-                </h1>
-                <p className="h-full flex flex-col justify-center">
-                  <span className="text-xs sm:text-sm md:text-base text-zinc-500">
-                    Years
-                  </span>
-                  <span className="text-xs sm:text-sm md:text-base text-zinc-500">
-                    Experience
-                  </span>
-                </p>
-              </div>
-
-              <div className="text-slate-100 flex gap-2">
-                <h1 className="text-4xl md:text-6xl font-semibold font-montserrat">
-                  {props.count}+
-                </h1>
-                <p className="h-full flex flex-col justify-center uppercase">
-                  <span className="text-xs sm:text-sm md:text-base text-zinc-500">
-                    Projects
-                  </span>
-                  <span className="text-xs sm:text-sm md:text-base text-zinc-500">
-                    Completed
-                  </span>
-                </p>
               </div>
             </div>
           </div>
