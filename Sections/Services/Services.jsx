@@ -1,6 +1,5 @@
 import React from "react";
 import Container from "../../components/Layout/Container";
-import Experience from "../../components/Experience/Experience";
 
 import { BiCustomize, BiCodeAlt, BiCubeAlt } from "react-icons/bi";
 import Service from "@/components/Service/Service";
@@ -10,7 +9,7 @@ const Services = () => {
     <div className="bg-zinc-800">
       <Container className="py-20">
         <div className="text-center">
-          <span className="uppercase text-lg text-zinc-700">Services</span>
+          <span className="uppercase text-lg text-zinc-600">Services</span>
           <h1 className="text-4xl font-bold text-zinc-300">What I Do?</h1>
         </div>
 
@@ -18,12 +17,12 @@ const Services = () => {
           <Service
             icon={BiCubeAlt}
             title="Frontend Development"
-            content="I can develop modern looking UI using HTML, CSS, JavaScript and ReactJs"
+            content="Develop modern looking UI using HTML, CSS, JavaScript and ReactJs"
           />
           <Service
             icon={BiCodeAlt}
             title="Backend Development"
-            content="I can develop backend REST APIs using ExpressJs (JavaScript), Flask (Python), FastAPI (python)"
+            content="Backend REST API development using ExpressJs (JavaScript), Flask (Python), FastAPI (python)"
           />
           <Service
             icon={BiCustomize}

@@ -6,7 +6,7 @@ const Projects = ({ projects }) => {
   const [showAll, setShowAll] = useState(false);
   const renderRrojects = showAll ? projects : projects.slice(0, 6);
   return (
-    <div className="bg-primary">
+    <div className="bg-secondary">
       <Container className="py-10 md:py-20">
         <h1 className="text-4xl font-black tracking-tighter text-zinc-300 text-center mb-10">
           Projects

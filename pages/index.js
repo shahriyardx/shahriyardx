@@ -4,6 +4,7 @@ import Services from "@/Sections/Services/Services";
 import Banner from "@/Sections/Banner/Banner";
 import Projects from "@/Sections/Projects/Projects";
 import { API_BASE } from "@/utils/api";
+import Skills from "@/Sections/Skills/Skills";
 
 export default function Home({ projects }) {
   return (
@@ -11,6 +12,7 @@ export default function Home({ projects }) {
       <SEO />
       <Banner />
       <Services />
+      <Skills />
       <Projects projects={projects} />
     </Main>
   );
