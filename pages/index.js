@@ -9,20 +9,22 @@ export default function Home({ projects }) {
   return (
     <Main>
       <SEO />
-      <Banner countries={3} count={projects.length}/>
+      <Banner countries={3} count={projects.length} />
       <About />
       <Projects projects={projects} />
     </Main>
-  )
+  );
 }
 
 export const getStaticProps = async (ctx) => {
-  const projects =  await fetch(`${API_BASE}/projects`).then(data => data.json())
+  const projects = await fetch(`${API_BASE}/projects`).then((data) =>
+    data.json()
+  );
 
   return {
     props: {
       projects,
     },
-    revalidate: 60
-  }
-}
+    revalidate: 60,
+  };
+};
