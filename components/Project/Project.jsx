@@ -3,10 +3,13 @@ import Image from "next/image";
 import Tag from "../Tag/Tag";
 
 import { HiOutlineExternalLink } from "react-icons/hi";
+import Link from "next/link";
 
-const Project = ({ title, url, tags, image, description }) => {
+const Project = ({ project }) => {
+  const { title, slug, tags, image, description } = project;
+
   return (
-    <div className="bg-zinc-900 rounded-xl p-5 flex flex-col gap-2 cursor-pointer">
+    <div className="bg-zinc-900 rounded-xl p-5 flex flex-col gap-2">
       <div className="w-full aspect-video">
         <Image
           src={image}
@@ -19,20 +22,14 @@ const Project = ({ title, url, tags, image, description }) => {
         />
       </div>
 
-      <a
-        className="text-white text-2xl flex items-center hover:text-accent"
-        href={url}
-        rel="noreferrer"
-        target={`${url !== "#" ? "_blank" : ""}`}
-      >
-        {title}
-        <HiOutlineExternalLink className="text-base ml-2 text-accent" />
-      </a>
+      <Link href={`/projects/${slug}`}>
+        <a className="text-white text-2xl hover:text-accent">{title}</a>
+      </Link>
       <p className="text-zinc-500 tracking-tighter">{description}</p>
 
       <div className="flex flex-wrap gap-2 mt-auto pt-2">
         {tags.map((tag, index) => (
-          <Tag key={index} text={tag} />
+          <Tag key={index} text={tag.value} />
         ))}
       </div>
     </div>
