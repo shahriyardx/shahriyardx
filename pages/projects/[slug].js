@@ -27,15 +27,6 @@ export const getStaticProps = (ctx) => {
   const { slug } = ctx.params;
   const matchedProject = projects.find((project) => project.slug === slug);
 
-  if (!matchedProject) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  }
-
   return {
     props: {
       project: matchedProject,
