@@ -5,6 +5,7 @@ import Banner from "@/Sections/Banner/Banner";
 import Projects from "@/Sections/Projects/Projects";
 import { API_BASE } from "@/utils/api";
 import Skills from "@/Sections/Skills/Skills";
+import CallToAction from "@/Sections/CallToAction/CallToAction";
 
 export default function Home({ projects }) {
   return (
@@ -14,6 +15,7 @@ export default function Home({ projects }) {
       <Services />
       <Skills />
       <Projects projects={projects} />
+      <CallToAction />
     </Main>
   );
 }
