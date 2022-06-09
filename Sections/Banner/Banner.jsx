@@ -56,7 +56,7 @@ const Banner = () => {
         </motion.div>
 
         <motion.div
-          className="hidden md:block cursor-pointer"
+          className="hidden md:block cursor-pointer group"
           initial={{ x: 200 }}
           animate={{ x: 0 }}
           drag
@@ -74,7 +74,7 @@ const Banner = () => {
             alt="Me"
             objectFit="contain"
             layout="responsive"
-            className="rounded-full pointer-events-none"
+            className="rounded-full pointer-events-none grayscale transition-all group-hover:grayscale-0"
           />
         </motion.div>
       </Container>
