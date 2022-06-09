@@ -30,7 +30,7 @@ const Skills = () => {
           <span className="uppercase text-lg text-zinc-600">Skills</span>
           <h1 className="text-4xl font-bold text-zinc-300">My Skills</h1>
         </div>
-        <div className="flex items-center justify-center flex-wrap sm:max-w-3xl sm:mx-auto sm:grid sm:grid-cols-9 gap-5 text-zinc-500 text-6xl mt-10">
+        <div className="flex items-center justify-center flex-wrap max-w-3xl mx-auto gap-5 text-zinc-500 text-6xl mt-10">
           <Skill icon={SiHtml5} text="HTML" className="hover:text-orange-600" />
           <Skill icon={SiCss3} text="CSS3" className="hover:text-blue-500" />
           <Skill
