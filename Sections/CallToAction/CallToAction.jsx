@@ -4,7 +4,7 @@ import React from "react";
 
 const CallToAction = () => {
   return (
-    <div className="bg-primary bg-[url(/images/cta.png)] bg-no-repeat bg-center bg-cover">
+    <div className="bg-primary bg-[url(/images/cta.jpg)] bg-no-repeat bg-center bg-cover">
       <Container className="py-20 z-10">
         <div className="p-10 rounded-2xl text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-300 font-montserrat">
