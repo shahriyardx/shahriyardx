@@ -12,7 +12,7 @@ const Project = ({ project }) => {
     <div className="bg-zinc-900 rounded-xl p-5 flex flex-col gap-2">
       <div className="w-full aspect-video">
         <Image
-          src={`/images/projects/${slug}/1.png`}
+          src={`/images/projects/${slug}/1.PNG`}
           width={320}
           height={180}
           objectFit="cover"

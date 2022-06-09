@@ -33,7 +33,7 @@ const ProjectDetails = ({ project }) => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             <div className="border-2 border-zinc-500 rounded-md overflow-hidden">
               <Image
-                src={`/images/projects/${project.slug}/1.png`}
+                src={`/images/projects/${project.slug}/1.PNG`}
                 width={500}
                 height={300}
                 alt="Roktoo"
@@ -44,7 +44,7 @@ const ProjectDetails = ({ project }) => {
 
             <div className="border-2 border-zinc-500 rounded-md overflow-hidden">
               <Image
-                src={`/images/projects/${project.slug}/2.png`}
+                src={`/images/projects/${project.slug}/2.PNG`}
                 width={500}
                 height={300}
                 alt="Roktoo"
@@ -55,7 +55,7 @@ const ProjectDetails = ({ project }) => {
 
             <div className="border-2 border-zinc-500 rounded-md overflow-hidden">
               <Image
-                src={`/images/projects/${project.slug}/3.png`}
+                src={`/images/projects/${project.slug}/3.PNG`}
                 width={500}
                 height={300}
                 alt="Roktoo"
