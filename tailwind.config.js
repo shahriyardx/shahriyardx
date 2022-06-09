@@ -4,6 +4,21 @@ module.exports = {
     "./components/**/*.{js,jsx}",
     "./Sections/**/*.{js,jsx}",
   ],
+  safelist: [
+    "hover:text-orange-600",
+    "hover:text-blue-500",
+    "hover:text-yellow-400",
+    "hover:text-sky-600",
+    "hover:text-blue-800",
+    "hover:text-sky-500",
+    "hover:text-white",
+    "hover:text-green-500",
+    "hover:text-green-600",
+    "hover:text-yellow-500",
+    "hover:text-red-500",
+    "hover:text-indigo-500",
+    "hover:text-orange-500",
+  ],
   theme: {
     extend: {
       gridTemplateColumns: {

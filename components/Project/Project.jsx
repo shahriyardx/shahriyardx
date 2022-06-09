@@ -1,15 +1,20 @@
 import React from "react";
 import Image from "next/image";
 import Tag from "../Tag/Tag";
-
-import { HiOutlineExternalLink } from "react-icons/hi";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
-const Project = ({ project }) => {
+const Project = ({ project, position }) => {
   const { name, slug, tags, description } = project;
 
   return (
-    <div className="bg-zinc-900 rounded-xl p-5 flex flex-col gap-2">
+    <motion.div
+      initial={{ y: 100, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: position * 0.1 }}
+      className="bg-zinc-900 rounded-xl p-5 flex flex-col gap-2"
+    >
       <div className="w-full aspect-video">
         <Image
           src={`/images/projects/${slug}/1.PNG`}
@@ -32,7 +37,7 @@ const Project = ({ project }) => {
           <Tag key={index} text={tag} />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

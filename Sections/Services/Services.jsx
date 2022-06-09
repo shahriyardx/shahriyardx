@@ -17,16 +17,19 @@ const Services = () => {
           <Service
             icon={BiCubeAlt}
             title="Frontend Development"
+            position={1}
             content="Develop modern looking UI using HTML, CSS, JavaScript and ReactJs"
           />
           <Service
             icon={BiCodeAlt}
             title="Backend Development"
+            position={2}
             content="Backend REST API development using ExpressJs (JavaScript), Flask (Python), FastAPI (python)"
           />
           <Service
             icon={BiCustomize}
             title="Responsive Design"
+            position={3}
             content="Wesbites I make will look good in Mobile, Tablet and Desktop devices."
           />
         </div>

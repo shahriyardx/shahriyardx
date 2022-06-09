@@ -22,7 +22,7 @@ const projects = [
     slug: "crisis",
     tags: ["NextJs", "ReactJs", "TailwindCss", "NodeJs"],
     description:
-      "Crisis Entertainment is a video game startup currently operating in Bangladesh, India and Australia. Presently it is trying to takeover gaming industry through disruptive innovation.",
+      "Crisis Entertainment is a video game startup currently operating in Bangladesh, India and Australia.",
     links: [
       { text: "Live Site", url: "https://crisisentertainment.com/" },
       { text: "Repository (Closed Source)", url: "#" },

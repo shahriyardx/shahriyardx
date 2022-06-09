@@ -14,8 +14,14 @@ const Projects = ({ projects }) => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10 mt-10">
-          {renderRrojects.map((project) => {
-            return <Project key={project.slug} project={project} />;
+          {renderRrojects.map((project, index) => {
+            return (
+              <Project
+                key={project.slug}
+                project={project}
+                position={index + 1}
+              />
+            );
           })}
         </div>
         {projects.length > 6 && (

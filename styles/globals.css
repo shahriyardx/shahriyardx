@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-  @apply font-sourcecode;
+  @apply font-sourcecode bg-primary;
 }
 
 /* width */

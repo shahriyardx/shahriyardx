@@ -3,12 +3,17 @@ import Link from "next/link";
 import React from "react";
 import Container from "../../components/Layout/Container";
 import { AiOutlineCloudDownload } from "react-icons/ai";
+import { motion } from "framer-motion";
 
 const Banner = () => {
   return (
     <div className="bg-primary">
       <Container className="md:grid md:grid-cols-3 gap-10 py-10 md:py-40 xl:max-w-6xl">
-        <div className="md:col-span-2 flex flex-col justify-center">
+        <motion.div
+          initial={{ x: -200 }}
+          animate={{ x: 0 }}
+          className="md:col-span-2 flex flex-col justify-center"
+        >
           <div>
             <div>
               <p className="bg-accent text-black p-1 px-2 text-xs w-max rounded-md">
@@ -24,23 +29,44 @@ const Banner = () => {
               </p>
 
               <div className="flex items-center gap-5 mt-10">
-                <Link href="/cv">
-                  <a className="text-accent underline underline-offset-2 uppercase mt-5 text-sm sm:text-base flex items-center gap-2 hover:text-green-600">
+                <Link href="/cv" passHref>
+                  <motion.a
+                    initial={{ y: 30 }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="text-accent underline underline-offset-2 uppercase mt-5 text-sm sm:text-base flex items-center gap-2 hover:text-green-600"
+                  >
                     <AiOutlineCloudDownload className="text-xl animate-bounce -mb-2" />
                     <span>Download Resume</span>
-                  </a>
+                  </motion.a>
                 </Link>
-                <Link href="/contact">
-                  <a className="text-zinc-200 underline underline-offset-2 uppercase mt-5 text-sm sm:text-base">
+                <Link href="/contact" passHref>
+                  <motion.a
+                    initial={{ y: 30 }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="text-zinc-200 underline underline-offset-2 uppercase mt-5 text-sm sm:text-base"
+                  >
                     <span>Let&apos;s Chat</span>
-                  </a>
+                  </motion.a>
                 </Link>
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="hidden md:block">
+        <motion.div
+          className="hidden md:block cursor-pointer"
+          initial={{ x: 200 }}
+          animate={{ x: 0 }}
+          drag
+          dragConstraints={{
+            top: -10,
+            left: -20,
+            right: 20,
+            bottom: 20,
+          }}
+        >
           <Image
             src="/images/me.jpg"
             width={100}
@@ -48,9 +74,9 @@ const Banner = () => {
             alt="Me"
             objectFit="contain"
             layout="responsive"
-            className="rounded-full"
+            className="rounded-full pointer-events-none"
           />
-        </div>
+        </motion.div>
       </Container>
     </div>
   );
