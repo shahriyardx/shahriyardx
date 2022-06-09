@@ -30,12 +30,11 @@ const Banner = () => {
                     <span>Download Resume</span>
                   </a>
                 </Link>
-                <a
-                  href="mailto:mdshahriyaralam9@gmail.com"
-                  className="text-zinc-200 underline underline-offset-2 uppercase mt-5 text-sm sm:text-base"
-                >
-                  Let&apos;s Chat
-                </a>
+                <Link href="/contact">
+                  <a className="text-zinc-200 underline underline-offset-2 uppercase mt-5 text-sm sm:text-base">
+                    <span>Let&apos;s Chat</span>
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
