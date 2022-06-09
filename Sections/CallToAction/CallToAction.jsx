@@ -15,11 +15,14 @@ const CallToAction = () => {
           </p>
 
           <div className="mt-10">
-            <Link href="/contact" passHref>
-              <a className="px-5 py-3 bg-accent text-black font-bold">
-                Hire Me
-              </a>
-            </Link>
+            <a
+              href="https://www.linkedin.com/in/shahriyardx/"
+              className="px-5 py-3 bg-accent text-black font-bold"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Hire Me
+            </a>
           </div>
         </div>
       </Container>
