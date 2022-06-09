@@ -8,10 +8,12 @@ const Projects = ({ projects }) => {
   return (
     <div className="bg-secondary">
       <Container className="py-10 md:py-20">
-        <h1 className="text-4xl font-black tracking-tighter text-zinc-300 text-center mb-10">
-          Projects
-        </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10">
+        <div className="text-center">
+          <span className="uppercase text-lg text-zinc-600">Projects</span>
+          <h1 className="text-4xl font-bold text-zinc-300">Recent Projects</h1>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10 mt-10">
           {renderRrojects.map((project) => {
             return (
               <Project

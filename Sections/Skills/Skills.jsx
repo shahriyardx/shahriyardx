@@ -18,6 +18,7 @@ import {
   SiMongodb,
   SiStripe,
   SiCloudflare,
+  SiNextdotjs,
 } from "react-icons/si";
 import Skill from "@/components/Skill/Skill";
 
@@ -29,7 +30,7 @@ const Skills = () => {
           <span className="uppercase text-lg text-zinc-600">Skills</span>
           <h1 className="text-4xl font-bold text-zinc-300">My Skills</h1>
         </div>
-        <div className="flex items-center justify-center flex-wrap gap-5 text-zinc-500 text-6xl mt-10">
+        <div className="flex items-center justify-center flex-wrap sm:max-w-3xl sm:mx-auto sm:grid sm:grid-cols-9 gap-5 text-zinc-500 text-6xl mt-10">
           <Skill icon={SiHtml5} text="HTML" className="hover:text-orange-600" />
           <Skill icon={SiCss3} text="CSS3" className="hover:text-blue-500" />
           <Skill
@@ -49,6 +50,11 @@ const Skills = () => {
           />
           <Skill icon={SiReact} text="ReactJs" className="hover:text-sky-500" />
           <Skill
+            icon={SiNextdotjs}
+            text="NextJs"
+            className="hover:text-white"
+          />
+          <Skill
             icon={SiExpress}
             text="ExpressJs"
             className="hover:text-green-500"
@@ -58,7 +64,7 @@ const Skills = () => {
             text="NodeJs"
             className="hover:text-green-600"
           />
-          <Skill icon={SiGit} text="Git" className="hover:text-zinc-400" />
+          <Skill icon={SiGit} text="Git" className="hover:text-orange-600" />
           <Skill icon={SiNginx} text="NGINX" className="hover:text-green-500" />
           <Skill
             icon={SiLinux}
