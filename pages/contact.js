@@ -1,5 +1,6 @@
 import Container from "@/components/Layout/Container";
 import Main from "@/components/Layout/Main";
+import SEO from "@/components/SEO";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -39,6 +40,7 @@ const Contact = () => {
 
   return (
     <Main>
+      <SEO title="Contact - Md Shahriyar Alam" />
       <Container className="py-20">
         <h1 className="text-zinc-200 text-3xl font-bold text-center">
           Have any question in mind?
