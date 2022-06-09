@@ -15,7 +15,7 @@ const Projects = ({ projects }) => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10 mt-10">
           {renderRrojects.map((project) => {
-            return <Project key={project._id} project={project} />;
+            return <Project key={project.slug} project={project} />;
           })}
         </div>
         {projects.length > 6 && (

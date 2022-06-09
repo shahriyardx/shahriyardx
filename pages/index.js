@@ -3,11 +3,11 @@ import SEO from "@/components/SEO";
 import Services from "@/Sections/Services/Services";
 import Banner from "@/Sections/Banner/Banner";
 import Projects from "@/Sections/Projects/Projects";
-import { API_BASE } from "@/utils/api";
+import projects from "../data/projects";
 import Skills from "@/Sections/Skills/Skills";
 import CallToAction from "@/Sections/CallToAction/CallToAction";
 
-export default function Home({ projects }) {
+const Home = () => {
   return (
     <Main>
       <SEO />
@@ -18,17 +18,6 @@ export default function Home({ projects }) {
       <CallToAction />
     </Main>
   );
-}
-
-export const getStaticProps = async () => {
-  const projects = await fetch(`${API_BASE}/projects`).then((data) =>
-    data.json()
-  );
-
-  return {
-    props: {
-      projects,
-    },
-    revalidate: 60,
-  };
 };
+
+export default Home;

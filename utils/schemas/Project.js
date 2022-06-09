@@ -5,9 +5,12 @@ const ProjectSchema = new mongoose.Schema(
   {
     title: String,
     slug: String,
-    description: String,
+    short_description: String,
     url: String,
+    repo_front: String,
+    repo_back: String,
     image: String,
+    description: String,
     tags: [{ value: String, label: String }],
   },
   { timestamps: true }
