@@ -1,5 +1,4 @@
 import Container from "@/components/Layout/Container";
-import Link from "next/link";
 import React from "react";
 
 const CallToAction = () => {
