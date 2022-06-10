@@ -9,7 +9,7 @@ const fadeInUp = {
   show: { y: 0, opacity: 1 },
 };
 
-const Project = ({ project, position }) => {
+const Project = ({ project }) => {
   const { name, slug, tags, description } = project;
 
   return (
