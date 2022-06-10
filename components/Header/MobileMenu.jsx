@@ -5,7 +5,7 @@ import {
   AiFillTwitterCircle,
   AiFillGithub,
   AiFillMail,
-  AiFillFacebook,
+  AiFillLinkedin,
 } from "react-icons/ai";
 import { signOut, useSession } from "next-auth/react";
 
@@ -35,7 +35,6 @@ const MobileMenu = () => {
             Logout
           </button>
         )}
-        {/* <TextLink href="/contact" className='py-2'>Contact</TextLink> */}
 
         <div className="py-2 pb-5 flex gap-3 text-3xl">
           <a
@@ -55,11 +54,11 @@ const MobileMenu = () => {
           </a>
 
           <a
-            href="https://facebook.com/shahriyardx/"
+            href="https://www.linkedin.com/in/shahriyardx/"
             target="_blank"
             rel="noreferrer"
           >
-            <AiFillFacebook className="rounded-full" />
+            <AiFillLinkedin className="rounded-full" />
           </a>
 
           <a href="mailto:mdshahriyaralam9@gmail.com">
