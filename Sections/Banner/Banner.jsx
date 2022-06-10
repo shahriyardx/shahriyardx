@@ -8,11 +8,11 @@ import { motion } from "framer-motion";
 const Banner = () => {
   return (
     <div className="bg-primary">
-      <Container className="md:grid md:grid-cols-3 gap-10 py-10 md:py-40 xl:max-w-6xl">
+      <Container className="md:grid md:grid-cols-3 gap-10 relative xl:max-w-7xl">
         <motion.div
           initial={{ x: -200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          className="md:col-span-2 flex flex-col justify-center"
+          className="md:col-span-2 flex flex-col justify-center py-20 lg:py-32"
         >
           <div>
             <div>
@@ -56,25 +56,17 @@ const Banner = () => {
         </motion.div>
 
         <motion.div
-          className="hidden md:block cursor-pointer group"
+          className="hidden md:block cursor-pointer absolute bottom-0 right-0 w-[400px] lg:w-[500px]"
           initial={{ x: 200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          drag
-          dragConstraints={{
-            top: -10,
-            left: -20,
-            right: 20,
-            bottom: 20,
-          }}
         >
           <Image
-            src="/images/me.jpg"
-            width={100}
-            height={100}
+            src="/images/profile.png"
+            width={200}
+            height={200}
             alt="Me"
             objectFit="contain"
             layout="responsive"
-            className="rounded-full pointer-events-none grayscale transition-all group-hover:grayscale-0"
           />
         </motion.div>
       </Container>
