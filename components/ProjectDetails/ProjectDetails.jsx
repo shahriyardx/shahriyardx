@@ -12,13 +12,13 @@ const ProjectDetails = ({ project }) => {
         <motion.h1
           initial={{ y: -50 }}
           animate={{ y: 0 }}
-          className="text-5xl font-bold text-white"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-white"
         >
           {project.name}
         </motion.h1>
         <p className="text-zinc-400">{project.description}</p>
 
-        <div className="flex gap-5 items-center text-accent mt-5">
+        <div className="flex flex-wrap gap-2 sm:gap-5 items-center text-accent mt-5">
           {project.links.map((link, index) => {
             return (
               <a
@@ -37,7 +37,7 @@ const ProjectDetails = ({ project }) => {
 
         <div className="prose prose-invert prose-green mt-10 max-w-full">
           <h2>Screenshots</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-full overflow-x-hidden">
             {[...Array(3)].map((_, index) => {
               return (
                 <motion.div

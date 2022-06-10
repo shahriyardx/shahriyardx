@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 const Banner = () => {
   return (
     <div className="bg-primary">
-      <Container className="md:grid md:grid-cols-3 gap-10 relative xl:max-w-7xl">
+      <Container className="md:grid md:grid-cols-3 gap-10 relative xl:max-w-7xl overflow-x-hidden">
         <motion.div
           initial={{ x: -200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
