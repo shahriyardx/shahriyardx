@@ -10,8 +10,8 @@ const Banner = () => {
     <div className="bg-primary">
       <Container className="md:grid md:grid-cols-3 gap-10 py-10 md:py-40 xl:max-w-6xl">
         <motion.div
-          initial={{ x: -200 }}
-          animate={{ x: 0 }}
+          initial={{ x: -200, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
           className="md:col-span-2 flex flex-col justify-center"
         >
           <div>
@@ -57,8 +57,8 @@ const Banner = () => {
 
         <motion.div
           className="hidden md:block cursor-pointer group"
-          initial={{ x: 200 }}
-          animate={{ x: 0 }}
+          initial={{ x: 200, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
           drag
           dragConstraints={{
             top: -10,

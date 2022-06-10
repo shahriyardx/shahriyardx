@@ -3,9 +3,10 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const container = {
-  hidden: { y: 100 },
+  hidden: { y: 100, opacity: 0 },
   show: {
     y: 0,
+    opacity: 1,
     transition: {
       staggerChildren: 0.1,
     },
