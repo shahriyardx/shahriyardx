@@ -1,45 +1,35 @@
-import ProjectDetails from "@/components/ProjectDetails/ProjectDetails";
-import SEO from "@/components/SEO";
 import React from "react";
-import projects from "../../data/projects";
+import SEO from "@/components/SEO";
+import ProjectDetails from "@/components/ProjectDetails/ProjectDetails";
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useState } from "react";
 
-const ProjectSingle = ({ project }) => {
+const ProjectSingle = () => {
+  const [project, setProject] = useState();
+  const router = useRouter();
+  const { slug } = router.query;
+  const projects = useSelector((state) => state.projects);
+
+  useEffect(() => {
+    if (!router || !projects || !slug) return;
+    const match = projects.find((p) => p.slug === slug);
+    match ? setProject(match) : router.push("/");
+  }, [projects, router, slug]);
+
   return (
-    <>
-      <SEO
-        title={`${project.name} - Md Shahriyar Alam`}
-        image={`/images/projects/${project.slug}/1.PNG`}
-        description={project.description}
-      />
-      <ProjectDetails project={project} />;
-    </>
+    project && (
+      <>
+        <SEO
+          title={`${project.name} - Md Shahriyar Alam`}
+          image={`/images/projects/${project.slug}/1.PNG`}
+          description={project.description}
+        />
+        <ProjectDetails project={project} />;
+      </>
+    )
   );
 };
 
 export default ProjectSingle;
-
-export const getStaticPaths = () => {
-  const paths = projects.slice(0, 3).map((project) => {
-    return {
-      params: {
-        slug: project.slug,
-      },
-    };
-  });
-
-  return {
-    paths,
-    fallback: "blocking",
-  };
-};
-
-export const getStaticProps = (ctx) => {
-  const { slug } = ctx.params;
-  const matchedProject = projects.find((project) => project.slug === slug);
-
-  return {
-    props: {
-      project: matchedProject,
-    },
-  };
-};

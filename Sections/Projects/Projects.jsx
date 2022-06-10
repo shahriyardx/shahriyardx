@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Container from "../../components/Layout/Container";
 import Project from "../../components/Project/Project";
 import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
 
 const stagger = {
   hidden: { opacity: 0 },
@@ -14,7 +15,8 @@ const stagger = {
   },
 };
 
-const Projects = ({ projects }) => {
+const Projects = () => {
+  const projects = useSelector((state) => state.projects);
   const [showAll, setShowAll] = useState(false);
   const renderRrojects = showAll ? projects : projects.slice(0, 6);
   return (
