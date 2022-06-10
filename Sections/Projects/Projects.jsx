@@ -1,6 +1,18 @@
 import React, { useState } from "react";
 import Container from "../../components/Layout/Container";
 import Project from "../../components/Project/Project";
+import { motion } from "framer-motion";
+
+const stagger = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 0,
+      staggerChildren: 0.1,
+    },
+  },
+};
 
 const Projects = ({ projects }) => {
   const [showAll, setShowAll] = useState(false);
@@ -13,7 +25,13 @@ const Projects = ({ projects }) => {
           <h1 className="text-4xl font-bold text-zinc-300">Recent Projects</h1>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10 mt-10">
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10 mt-10"
+        >
           {renderRrojects.map((project, index) => {
             return (
               <Project
@@ -23,7 +41,7 @@ const Projects = ({ projects }) => {
               />
             );
           })}
-        </div>
+        </motion.div>
         {projects.length > 6 && (
           <div
             className="mt-5 flex justify-center"

@@ -4,15 +4,18 @@ import Tag from "../Tag/Tag";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+const fadeInUp = {
+  hidden: { y: 100, opacity: 0 },
+  show: { y: 0, opacity: 1 },
+};
+
 const Project = ({ project, position }) => {
   const { name, slug, tags, description } = project;
 
   return (
     <motion.div
-      initial={{ y: 100, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
+      variants={fadeInUp}
       viewport={{ once: true }}
-      transition={{ delay: position * 0.1 }}
       className="bg-zinc-900 rounded-xl p-5 flex flex-col gap-2"
     >
       <div className="w-full aspect-video">
