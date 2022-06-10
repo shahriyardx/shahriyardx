@@ -8,7 +8,7 @@ const Skill = ({ text, icon, className, position }) => {
       initial={{ scale: 0 }}
       whileInView={{ scale: 1 }}
       viewport={{ once: true }}
-      transition={{ delay: position * 0.1 }}
+      transition={{ delay: position * 0.05 }}
       className="relative group  cursor-pointer"
     >
       <Icon className={`transition-all ${className}`} />
