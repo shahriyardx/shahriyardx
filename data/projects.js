@@ -25,16 +25,15 @@ const projects = [
       "Crisis Entertainment is a video game startup currently operating in Bangladesh, India and Australia.",
     links: [
       { text: "Live Site", url: "https://crisisentertainment.com/" },
-      { text: "Repository (Closed Source)", url: "#" },
+      { text: "Repository (Closed Source)", url: "" },
     ],
     features: [
-      "Responsive Design",
-      "Static site generation",
-      "Server side rendering",
-      "SEO friendly",
+      "Responsive Design using ReactJs and TailwindCSS",
+      "Static site generation for blog/articles",
+      "SEO friendly using next/head package",
       "Email sending using Gmail API",
     ],
-    technologies: "NextJs, ReactJs, TailwindCss, NodeJs",
+    technologies: "NextJs, ReactJs, TailwindCss, NodeJs, Nodemailer",
   },
   {
     name: "Compart",

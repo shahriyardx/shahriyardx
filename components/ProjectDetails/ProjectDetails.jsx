@@ -31,38 +31,20 @@ const ProjectDetails = ({ project }) => {
         <div className="prose prose-invert prose-green mt-10 max-w-full">
           <h2>Screenshots</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            <div className="border-2 border-zinc-500 rounded-md overflow-hidden">
-              <Image
-                src={`/images/projects/${project.slug}/1.PNG`}
-                width={500}
-                height={300}
-                alt="Roktoo"
-                className="rounded-md"
-                objectFit="cover"
-              />
-            </div>
-
-            <div className="border-2 border-zinc-500 rounded-md overflow-hidden">
-              <Image
-                src={`/images/projects/${project.slug}/2.PNG`}
-                width={500}
-                height={300}
-                alt="Roktoo"
-                className="rounded-md"
-                objectFit="cover"
-              />
-            </div>
-
-            <div className="border-2 border-zinc-500 rounded-md overflow-hidden">
-              <Image
-                src={`/images/projects/${project.slug}/3.PNG`}
-                width={500}
-                height={300}
-                alt="Roktoo"
-                className="rounded-md"
-                objectFit="cover"
-              />
-            </div>
+            {[...Array(3)].map((_, index) => {
+              return (
+                <div className="rounded-md shadow-lg" key={index}>
+                  <Image
+                    src={`/images/projects/${project.slug}/${index + 1}.PNG`}
+                    width={500}
+                    height={300}
+                    alt="Roktoo"
+                    className="rounded-md"
+                    objectFit="cover"
+                  />
+                </div>
+              );
+            })}
           </div>
 
           <h2>Features</h2>
