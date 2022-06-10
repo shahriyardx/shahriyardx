@@ -8,7 +8,7 @@ import { BiLink } from "react-icons/bi";
 const ProjectDetails = ({ project }) => {
   return (
     <Main>
-      <Container className="py-20">
+      <Container className="pt-5 sm:pt-10 md:pt-20 pb-20">
         <motion.h1
           initial={{ y: -50 }}
           animate={{ y: 0 }}
