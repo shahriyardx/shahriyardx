@@ -3,6 +3,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
+import SEO from "@/components/SEO";
 
 const container = {
   hidden: { y: 100, opacity: 0 },
@@ -24,6 +25,7 @@ const About = () => {
   const [more, setMore] = useState(false);
   return (
     <Main>
+      <SEO title="About - Md Shahriyar Alam" />
       <motion.div
         variants={container}
         initial="hidden"
