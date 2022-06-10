@@ -2,13 +2,20 @@ import React from "react";
 import Container from "@/components/Layout/Container";
 import Main from "@/components/Layout/Main";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { BiLink } from "react-icons/bi";
 
 const ProjectDetails = ({ project }) => {
   return (
     <Main>
       <Container className="py-20">
-        <h1 className="text-5xl font-bold text-white">{project.name}</h1>
+        <motion.h1
+          initial={{ y: -50 }}
+          animate={{ y: 0 }}
+          className="text-5xl font-bold text-white"
+        >
+          {project.name}
+        </motion.h1>
         <p className="text-zinc-400">{project.description}</p>
 
         <div className="flex gap-5 items-center text-accent mt-5">
@@ -33,7 +40,10 @@ const ProjectDetails = ({ project }) => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {[...Array(3)].map((_, index) => {
               return (
-                <div
+                <motion.div
+                  initial={{ x: index + 1 * 400, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ x: { duration: (index + 1) * 0.2 } }}
                   className="rounded-md border-2 border-zinc-700 w-full aspect-video"
                   key={index}
                 >
@@ -46,7 +56,7 @@ const ProjectDetails = ({ project }) => {
                     objectFit="cover"
                     layout="responsive"
                   />
-                </div>
+                </motion.div>
               );
             })}
           </div>

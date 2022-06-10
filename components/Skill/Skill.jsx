@@ -1,14 +1,21 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const Skill = ({ text, icon, className, position }) => {
+const scale = {
+  hidden: {
+    scale: 0,
+  },
+  show: {
+    scale: 1,
+  },
+};
+
+const Skill = ({ text, icon, className }) => {
   const Icon = icon;
   return (
     <motion.div
-      initial={{ scale: 0 }}
-      whileInView={{ scale: 1 }}
+      variants={scale}
       viewport={{ once: true }}
-      transition={{ delay: position * 0.05 }}
       className="relative group  cursor-pointer"
     >
       <Icon className={`transition-all ${className}`} />
