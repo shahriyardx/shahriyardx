@@ -23,6 +23,9 @@ const MobileMenu = () => {
         <TextLink href="/contact" className="py-2">
           Contact
         </TextLink>
+        <TextLink href="/about" className="py-2">
+          About
+        </TextLink>
         <TextLink href="/blog" className="py-2">
           Blog
         </TextLink>
