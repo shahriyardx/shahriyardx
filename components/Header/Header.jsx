@@ -9,7 +9,7 @@ import {
   AiFillTwitterCircle,
   AiFillGithub,
   AiFillMail,
-  AiFillFacebook,
+  AiFillLinkedin,
 } from "react-icons/ai";
 
 import { BiMenu } from "react-icons/bi";
@@ -45,7 +45,6 @@ const Header = () => {
               Logout
             </button>
           )}
-          {/* <TextLink href='/contact'>Contact</TextLink> */}
         </div>
 
         <div className="ml-auto gap-10 hidden lg:flex">
@@ -63,10 +62,10 @@ const Header = () => {
               GitHub
             </IconLink>
             <IconLink
-              href="https://facebook.com/shahriyardx/"
-              icon={AiFillFacebook}
+              href="https://www.linkedin.com/in/shahriyardx/"
+              icon={AiFillLinkedin}
             >
-              Facebook
+              LinkedIn
             </IconLink>
           </div>
 
