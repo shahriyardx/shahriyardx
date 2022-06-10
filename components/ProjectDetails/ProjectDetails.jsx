@@ -33,7 +33,10 @@ const ProjectDetails = ({ project }) => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {[...Array(3)].map((_, index) => {
               return (
-                <div className="rounded-md shadow-lg" key={index}>
+                <div
+                  className="rounded-md border-2 border-zinc-700 w-full aspect-video"
+                  key={index}
+                >
                   <Image
                     src={`/images/projects/${project.slug}/${index + 1}.PNG`}
                     width={500}
@@ -41,6 +44,7 @@ const ProjectDetails = ({ project }) => {
                     alt="Roktoo"
                     className="rounded-md"
                     objectFit="cover"
+                    layout="responsive"
                   />
                 </div>
               );
