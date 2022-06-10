@@ -1,6 +1,8 @@
 import Main from "@/components/Layout/Main";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import Link from "next/link";
 
 const container = {
   hidden: { y: 100, opacity: 0 },
@@ -19,6 +21,7 @@ const item = {
 };
 
 const About = () => {
+  const [more, setMore] = useState(false);
   return (
     <Main>
       <motion.div
@@ -71,6 +74,45 @@ const About = () => {
             Full-stack web developer and a Python developer.
           </motion.p>
         </div>
+
+        <AnimatePresence>
+          {!more && (
+            <motion.button
+              layout
+              className="px-5 py-2 bg-accent text-black"
+              onClick={() => setMore(true)}
+            >
+              More
+            </motion.button>
+          )}
+
+          {more && (
+            <motion.div className="mt-10">
+              <motion.h2 initial={{ x: 100 }} animate={{ x: 0 }}>
+                Really? 😍
+              </motion.h2>
+
+              <motion.p
+                initial={{ x: 100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 1 }}
+              >
+                You want to know more? 😲
+              </motion.p>
+
+              <motion.p
+                initial={{ x: 100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 2 }}
+              >
+                Then please send me a message{" "}
+                <Link href="/contact" passHref>
+                  <a>Click Here</a>
+                </Link>
+              </motion.p>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
     </Main>
   );
