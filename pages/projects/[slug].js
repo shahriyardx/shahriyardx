@@ -19,7 +19,7 @@ const ProjectSingle = ({ project }) => {
 export default ProjectSingle;
 
 export const getStaticPaths = () => {
-  const paths = projects.map((project) => {
+  const paths = projects.slice(0, 3).map((project) => {
     return {
       params: {
         slug: project.slug,
@@ -29,7 +29,7 @@ export const getStaticPaths = () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 };
 
