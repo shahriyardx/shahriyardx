@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "../Layout/Container";
 import TextLink from "../Link/TextLink";
+import { motion } from "framer-motion";
 import {
   AiFillTwitterCircle,
   AiFillGithub,
@@ -13,7 +14,11 @@ const MobileMenu = () => {
   const { data: session } = useSession();
 
   return (
-    <div
+    <motion.div
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -100, opacity: 0 }}
+      transition={{ type: "tween" }}
       className={`absolute top-16 left-0 w-full bg-secondary lg:hidden z-10 py-5`}
     >
       <Container className="px-4">
@@ -69,7 +74,7 @@ const MobileMenu = () => {
           </a>
         </div>
       </Container>
-    </div>
+    </motion.div>
   );
 };
 

@@ -15,13 +15,14 @@ import {
 import { BiMenu } from "react-icons/bi";
 import MobileMenu from "./MobileMenu";
 import { signOut, useSession } from "next-auth/react";
+import { AnimatePresence } from "framer-motion";
 
 const Header = () => {
   const [show, setShow] = useState(false);
   const { data: session } = useSession();
 
   return (
-    <div className="h-16 bg-primary text-slate-200 flex items-center">
+    <div className="h-16 bg-primary text-slate-200 flex items-center z-50">
       <Container className="px-3 flex items-center">
         <div>
           <Link href="/">
@@ -82,7 +83,7 @@ const Header = () => {
         </div>
       </Container>
 
-      {show && <MobileMenu />}
+      <AnimatePresence>{show && <MobileMenu />}</AnimatePresence>
     </div>
   );
 };
