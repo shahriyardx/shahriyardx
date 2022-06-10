@@ -23,8 +23,8 @@ const ProjectDetails = ({ project }) => {
             return (
               <a
                 key={index}
-                href={link.url}
-                target="_blank"
+                href={link.url || "#"}
+                target={link.url ? "_blank" : "_self"}
                 rel="noreferrer"
                 className="hover:text-green-600 flex items-center gap-1"
               >

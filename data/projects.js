@@ -84,7 +84,7 @@ const projects = [
       "A discord bot dashboard to manage the bot from a web interface",
     links: [
       { text: "Live Site", url: "https://makeown.cc" },
-      { text: "Repository (Closed Source)", url: "#" },
+      { text: "Repository (Closed Source)", url: "" },
     ],
     features: [
       "Login with discord",
