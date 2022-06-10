@@ -90,21 +90,21 @@ const About = () => {
 
           {more && (
             <motion.div className="mt-10">
-              <motion.h2 initial={{ x: 100 }} animate={{ x: 0 }}>
+              <motion.h2 initial={{ y: 100 }} animate={{ y: 0 }}>
                 Really? 😍
               </motion.h2>
 
               <motion.p
-                initial={{ x: 100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
+                initial={{ y: 100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 1 }}
               >
                 You want to know more? 😲
               </motion.p>
 
               <motion.p
-                initial={{ x: 100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
+                initial={{ y: 100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 2 }}
               >
                 Then please send me a message{" "}
