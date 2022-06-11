@@ -49,7 +49,7 @@ const Contact = () => {
 
     if (response.success) {
       toast.success(response.message);
-      reset();
+      // reset();
     } else {
       toast.error(response.message);
     }

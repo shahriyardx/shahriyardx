@@ -1,4 +1,7 @@
 import { createTransport } from "nodemailer";
+import rateLimit from "@/utils/rateLimiter";
+
+const limiter = rateLimit();
 
 const transport = createTransport({
   host: "mail.privateemail.com",
@@ -25,6 +28,15 @@ const sendMail = async (message) => {
 };
 
 export default async function handler(req, res) {
+  try {
+    await limiter.check(res, 2, process.env.CACHE_TOKEN);
+  } catch {
+    return res.status(429).json({
+      success: false,
+      message: "You are sending mails too frrequently.",
+    });
+  }
+
   if (req.method !== "POST") {
     return res.json({ error: "Method not allowed" });
   }
