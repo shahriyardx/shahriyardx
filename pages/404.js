@@ -46,12 +46,12 @@ const Void = () => {
             />
             <motion.div
               variants={left}
-              transition={{ delay: 0.1 }}
+              transition={{ delay: 0.2 }}
               className="absolute bg-zinc-300 w-20 h-5 top-16 left-2"
             />
             <motion.div
               variants={bottom}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.4 }}
               className="absolute bg-zinc-300 h-28 w-5 top-4 right-4"
             />
           </motion.div>
@@ -63,22 +63,22 @@ const Void = () => {
           >
             <motion.div
               variants={left}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.6 }}
               className="absolute bg-zinc-300 w-20 h-5 top-7 left-4"
             />
             <motion.div
               variants={top}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.8 }}
               className="absolute  bg-zinc-300 h-28 w-5 top-4 right-6"
             />
             <motion.div
               variants={right}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 1 }}
               className="absolute bg-zinc-300 w-20 h-5 bottom-7 left-4"
             />
             <motion.div
               variants={bottom}
-              transition={{ delay: 0.6 }}
+              transition={{ delay: 1.2 }}
               className="absolute bg-zinc-300 h-28 w-5 top-4 left-6"
             />
           </motion.div>
@@ -90,17 +90,17 @@ const Void = () => {
           >
             <motion.div
               variants={top}
-              transition={{ delay: 0.7 }}
+              transition={{ delay: 1.4 }}
               className="absolute bg-zinc-300 h-20 w-5 top-4 left-4"
             />
             <motion.div
               variants={left}
-              transition={{ delay: 0.8 }}
+              transition={{ delay: 1.6 }}
               className="absolute bg-zinc-300 w-20 h-5 top-16 left-2"
             />
             <motion.div
               variants={bottom}
-              transition={{ delay: 0.9 }}
+              transition={{ delay: 1.7 }}
               className="absolute bg-zinc-300 h-28 w-5 top-4 right-4"
             />
           </motion.div>
@@ -108,7 +108,7 @@ const Void = () => {
         <motion.h1
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
+          transition={{ delay: 1.8 }}
           className="text-4xl text-zinc-400 font-black mt-10 font-montserrat"
         >
           <span>#</span>
@@ -119,7 +119,7 @@ const Void = () => {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2 }}
+          transition={{ delay: 2 }}
           className="mt-5"
         >
           <Link href="/" passHref>
