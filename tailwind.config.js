@@ -56,6 +56,10 @@ module.exports = {
       animation: {
         shake: "shake 0.5s infinite",
       },
+      backgroundImage: {
+        light:
+          "radial-gradient(circle, rgba(255,255,255,1) 30%, rgba(255,255,255,0) 70%)",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],

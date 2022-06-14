@@ -168,7 +168,9 @@ const Contact = () => {
               <div>
                 <button
                   type="submit"
-                  className="px-6 py-2 bg-accent text-black font-semibold flex items-center justify-center gap-2"
+                  disabled={sending}
+                  className="px-6 py-2 bg-accent text-black font-semibold flex items-center justify-center gap-2 
+                            disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   <SendIcon
                     className={`text-lg ${sending && "animate-spin"}`}
