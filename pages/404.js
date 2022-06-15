@@ -30,7 +30,7 @@ const bottom = {
 
 const Void = () => {
   return (
-    <div className="w-full h-screen overflow-hidden grid place-items-center">
+    <div className="w-full h-[90vh] md:h-screen overflow-hidden grid place-items-center">
       <SEO title="#PageNotFound" description="This page just doesn't exists" />
       <div className="flex flex-col items-center">
         <motion.div className="flex">
@@ -113,7 +113,9 @@ const Void = () => {
         >
           <span>#</span>
           <span className="hover:text-white cursor-pointer">Page</span>
-          <span className="hover:text-white cursor-pointer">Not</span>
+          <span className="hover:text-red-400 cursor-pointer inline-block hover:animate-shake ">
+            Not
+          </span>
           <span className="hover:text-white cursor-pointer">Found</span>
         </motion.h1>
         <motion.div
