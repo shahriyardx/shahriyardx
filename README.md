@@ -56,4 +56,4 @@ Projects I did as a Web Developer
   <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=shahriyardx&layout=compact&langs_count=8&theme=algolia"/>
 </a>
 </p>
-![FlagCounter](https://s11.flagcounter.com/count2/SDVr/bg_4A4A4A/txt_EBEBEB/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/)
+<img src="https://s11.flagcounter.com/count2/SDVr/bg_4A4A4A/txt_EBEBEB/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0">
