@@ -25,7 +25,6 @@ const SEO = ({ title, description, keywords, image, url, author }) => {
       <meta property="og:image" content={_image} />
 
       <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={_url} />
       <meta property="twitter:title" content={_title} />
       <meta property="twitter:description" content={_description} />
       <meta property="twitter:image" content={_image} />
