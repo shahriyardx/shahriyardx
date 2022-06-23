@@ -34,7 +34,7 @@ const MobileMenu = () => {
         <TextLink href="/blog" className="py-2">
           Blog
         </TextLink>
-        <TextLink href="/git" className="py-2">
+        <TextLink href="/github" className="py-2">
           Git
         </TextLink>
         {session?.user && (
