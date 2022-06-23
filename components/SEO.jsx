@@ -6,7 +6,6 @@ const SEO = ({ title, description, keywords, image, url, author }) => {
   const _description =
     description ||
     "Full-Stack Web Developer with knowledge of JavaScript and Python. Currently living in Bangladesh and open for jobs.";
-  const _url = url || "https://shahriyar.dev";
   const _image = image || "/images/meta.png";
   const _keywords =
     keywords ||
@@ -21,7 +20,6 @@ const SEO = ({ title, description, keywords, image, url, author }) => {
       <meta name="keywords" content={_keywords} />
 
       <meta property="og:type" content="website" />
-      <meta property="og:url" content={_url} />
       <meta property="og:title" content={_title} />
       <meta property="og:description" content={_description} />
       <meta property="og:image" content={_image} />
