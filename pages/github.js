@@ -13,9 +13,10 @@ const Github = ({ repos, user }) => {
   const [language, setLanguage] = useState(null);
   const languages = new Set(repos.map((repo) => repo.language));
 
+  const sorted = repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
   const filtered = language
-    ? repos.filter((repo) => repo.language === language)
-    : repos;
+    ? sorted.filter((repo) => repo.language === language)
+    : sorted;
 
   const searched = query.trim()
     ? filtered.filter((repo) => repo.name.includes(query))
