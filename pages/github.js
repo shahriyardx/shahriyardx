@@ -6,6 +6,7 @@ import GitProfile from "@/components/GitProfile/GitProfile";
 import { BiSearchAlt, BiX } from "react-icons/bi";
 import { motion, AnimatePresence } from "framer-motion";
 import { debounce } from "lodash";
+import SEO from "@/components/SEO";
 
 const Github = ({ repos, user }) => {
   const [query, setQuery] = useState("");
@@ -30,6 +31,11 @@ const Github = ({ repos, user }) => {
 
   return (
     <div>
+      <SEO
+        title="GitHub - Md Shahriyar Alam"
+        description={user.description}
+        image={user.avatar_url}
+      />
       <GitHeader />
       <GitProfile user={user} />
       <Container className="pt-10 pb-20">
