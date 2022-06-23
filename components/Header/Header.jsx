@@ -38,6 +38,7 @@ const Header = () => {
           <TextLink href="/contact">Contact</TextLink>
           <TextLink href="/about">About</TextLink>
           <TextLink href="/blog">Blog</TextLink>
+          <TextLink href="/github">Git</TextLink>
           {session?.user && (
             <button
               type="button"
