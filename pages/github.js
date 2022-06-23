@@ -35,7 +35,7 @@ const Github = ({ repos, user }) => {
       <SEO
         title="GitHub - Md Shahriyar Alam"
         description={user.description}
-        image={user.avatar_url}
+        image="/images/git.png"
       />
       <GitHeader />
       <GitProfile user={user} />
