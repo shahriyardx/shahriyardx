@@ -5,8 +5,8 @@
       "@/components/*": [
         "components/*"
       ],
-      "@/Sections/*": [
-        "Sections/*"
+      "@/sections/*": [
+        "sections/*"
       ],
       "@/utils/*": [
         "utils/*"

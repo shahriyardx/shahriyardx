@@ -1,11 +1,11 @@
 import Main from "@/components/Layout/Main";
 import SEO from "@/components/SEO";
-import Services from "@/Sections/Services/Services";
-import Banner from "@/Sections/Banner/Banner";
-import Projects from "@/Sections/Projects/Projects";
+import Services from "@/sections/Services/Services";
+import Banner from "@/sections/Banner/Banner";
+import Projects from "sections/Projects/Projects";
 import projects from "../data/projects";
-import Skills from "@/Sections/Skills/Skills";
-import CallToAction from "@/Sections/CallToAction/CallToAction";
+import Skills from "sections/Skills/Skills";
+import CallToAction from "sections/CallToAction/CallToAction";
 
 const Home = () => {
   return (
