@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import projects from "../data/projects";
+import projects from "@/data/projects";
 
 const initialState = projects;
 

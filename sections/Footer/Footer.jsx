@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import Container from '../../components/Layout/Container'
+import Container from '@/components/Layout/Container'
 
 const Footer = () => {
   return (

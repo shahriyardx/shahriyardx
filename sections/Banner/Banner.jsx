@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import Container from "../../components/Layout/Container";
+import Container from "@/components/Layout/Container";
 import { AiOutlineCloudDownload } from "react-icons/ai";
 import { motion } from "framer-motion";
 
@@ -19,7 +19,7 @@ const Banner = () => {
               <p className="bg-accent text-black p-1 px-2 text-xs w-max rounded-md">
                 Full-Stack Web Developer
               </p>
-              <h1 className="text-slate-100 text-3xl sm:text-4xl md:text-4xl lg:text-5xl mt-5 mb-2 font-black">
+              <h1 className="!text-slate-100 text-3xl sm:text-4xl md:text-4xl lg:text-5xl mt-5 mb-2 font-black">
                 Md Shahriyar Alam
               </h1>
               <p className="text-xs sm:text-sm text-zinc-400">

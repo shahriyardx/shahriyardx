@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "../../components/Layout/Container";
+import Container from "@/components/Layout/Container";
 
 import { BiCustomize, BiCodeAlt, BiCubeAlt } from "react-icons/bi";
 import Service from "@/components/Service/Service";

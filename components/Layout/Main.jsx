@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "@/sections/Footer/Footer";
-import Header from "../Header/Header";
+import Header from "@/components/Header/Header";
 
 const Main = (props) => {
   return (

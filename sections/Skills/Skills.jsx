@@ -1,6 +1,6 @@
 import React from "react";
-import Container from "../../components/Layout/Container";
-import skills from "../../data/skills";
+import Container from "@/components/Layout/Container";
+import skills from "@/data/skills";
 import Skill from "@/components/Skill/Skill";
 import { motion } from "framer-motion";
 

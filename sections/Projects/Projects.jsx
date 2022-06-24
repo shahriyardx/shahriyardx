@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Container from "../../components/Layout/Container";
-import Project from "../../components/Project/Project";
+import Container from "@/components/Layout/Container";
+import Project from "@/components/Project/Project";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 
