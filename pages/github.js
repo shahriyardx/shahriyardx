@@ -3,10 +3,10 @@ import GitHeader from "@/components/Header/GitHeader";
 import Container from "@/components/Layout/Container";
 import Repo from "@/components/Repo/Repo";
 import GitProfile from "@/components/GitProfile/GitProfile";
-import { BiSearchAlt, BiX } from "react-icons/bi";
 import { motion, AnimatePresence } from "framer-motion";
 import { debounce } from "lodash";
 import SEO from "@/components/SEO";
+import GitFilter from "@/components/GitFilter/GitFilter";
 
 const Github = ({ repos, user }) => {
   const [query, setQuery] = useState("");
@@ -40,49 +40,12 @@ const Github = ({ repos, user }) => {
       <GitHeader />
       <GitProfile user={user} />
       <Container className="pt-10 pb-20">
-        <div className="flex gap-5 mb-5 items-center">
-          <div className="flex flex-wrap gap-3">
-            <span
-              onClick={() => setFilter(null)}
-              className={`cursor-pointer hover:text-zinc-300
-                ${language == null ? "font-bold text-white" : "text-zinc-400"}
-              `}
-            >
-              All
-            </span>
-            {Array.from(languages).map((lang) => (
-              <p
-                onClick={() => setFilter(lang)}
-                key={lang}
-                className={`cursor-pointer hover:text-zinc-300 flex items-center gap-1 select-none
-                ${language === lang ? "font-bold text-white" : "text-zinc-400"}
-              `}
-              >
-                <span>{lang}</span>
-                {lang === language && (
-                  <span className="bg-zinc-600 text-white">
-                    <BiX
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setFilter(null);
-                      }}
-                    />
-                  </span>
-                )}
-              </p>
-            ))}
-          </div>
-
-          <div className="items-center bg-zinc-800 px-4 rounded-full hidden md:flex">
-            <BiSearchAlt className="text-zinc-400" />
-            <input
-              type="text"
-              className="bg-transparent border-none focus:ring-0 text-white"
-              placeholder="Search"
-              onChange={updateQuery}
-            />
-          </div>
-        </div>
+        <GitFilter
+          language={language}
+          languages={languages}
+          setFilter={setFilter}
+          updateQuery={updateQuery}
+        />
         <motion.div
           layout
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
