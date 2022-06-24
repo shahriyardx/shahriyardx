@@ -56,7 +56,7 @@ const Banner = () => {
         </motion.div>
 
         <motion.div
-          className="hidden md:block cursor-pointer absolute bottom-0 right-0 w-[400px] lg:w-[500px] aspect-square"
+          className="hidden md:block cursor-pointer absolute bottom-0 right-0 w-[400px] lg:w-[500px]"
           initial={{ x: 200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
         >
