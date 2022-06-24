@@ -4,7 +4,7 @@ module.exports = {
   content: [
     "./pages/**/*.js",
     "./components/**/*.{js,jsx}",
-    "./Sections/**/*.{js,jsx}",
+    "./sections/**/*.{js,jsx}",
   ],
   safelist: [
     "hover:text-orange-600",
