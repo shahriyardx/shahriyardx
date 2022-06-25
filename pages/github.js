@@ -69,7 +69,7 @@ const Github = ({ repos, user }) => {
 
 export default Github;
 
-export const getStaticProps = async ({ req, res }) => {
+export const getStaticProps = async () => {
   const repos = await fetch(
     "https://api.github.com/users/shahriyardx/repos"
   ).then((response) => response.json());
