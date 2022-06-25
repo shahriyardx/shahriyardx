@@ -8,6 +8,7 @@ const container = {
     y: 0,
     opacity: 1,
     transition: {
+      type: "tween",
       staggerChildren: 0.1,
     },
   },
