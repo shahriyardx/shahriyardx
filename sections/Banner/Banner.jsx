@@ -12,6 +12,11 @@ const Banner = () => {
         <motion.div
           initial={{ x: -200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 50,
+            damping: 10,
+          }}
           className="md:col-span-2 flex flex-col justify-center"
         >
           <div>
@@ -57,6 +62,11 @@ const Banner = () => {
           className="hidden md:flex items-center"
           initial={{ x: 200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 50,
+            damping: 10,
+          }}
         >
           <Image
             src="/images/me.jpg"
