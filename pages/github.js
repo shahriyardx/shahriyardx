@@ -71,7 +71,7 @@ export default Github;
 
 export const getStaticProps = async () => {
   const repos = await fetch(
-    "https://api.github.com/users/shahriyardx/repos"
+    "https://api.github.com/users/shahriyardx/repos?per_page=100"
   ).then((response) => response.json());
 
   const user = await fetch("https://api.github.com/users/shahriyardx").then(
