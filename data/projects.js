@@ -1,5 +1,26 @@
 const projects = [
   {
+    name: "The Best",
+    slug: "thebest",
+    tags: ["NextJs", "ReactJs", "TailwindCss", "NodeJs"],
+    description:
+      "A multi user blogging platform where anyone can register and create posts. Like and comment on others posts.",
+    links: [
+      { text: "Live Site", url: "https://the-best.shahriyar.dev/" },
+      { text: "Repository", url: "https://github.com/shahriyardx/the-best-blog/" },
+    ],
+    features: [
+      "Anyone can register using their github account",
+      "Create update or delete posts anytime we want",
+      "Like and comment on posts.",
+      "Using typescript for type safety",
+      "Using tRPC for making type safe API",
+      "Github Authentication."
+    ],
+    technologies:
+      "Typescript, NextJs, ReactJs, TailwindCss, NextAuth, Github Authentication, NodeJs, tRPC, Postgresql, Prisma",
+  },
+  {
     name: "Roktoo",
     slug: "roktoo",
     tags: ["NextJs", "ReactJs", "TailwindCss", "NodeJs"],
