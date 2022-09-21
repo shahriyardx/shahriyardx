@@ -20,7 +20,7 @@ module.exports = {
   theme: {
     extend: {
       gridTemplateColumns: {
-        dashboard: "300px auto",
+        dashboard: "250px auto",
       },
       screens: {
         msm: "400px",

@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply bg-zinc-900 font-sourcecode;
+    @apply bg-zinc-900 text-zinc-300 font-sourcecode;
   }
 }
 
