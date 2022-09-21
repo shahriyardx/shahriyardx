@@ -1,11 +1,7 @@
 /**@type {import('tailwindcss').Config} */
 
 module.exports = {
-  content: [
-    "./pages/**/*.js",
-    "./components/**/*.{js,jsx}",
-    "./sections/**/*.{js,jsx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   safelist: [
     "hover:text-orange-600",
     "hover:text-blue-500",
@@ -63,4 +59,4 @@ module.exports = {
     },
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
-};
+}
