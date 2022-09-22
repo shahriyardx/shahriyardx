@@ -10,9 +10,9 @@ const ToolbarButtons = ({ children }: Props) => {
       className="
         rounded-md overflow-hidden flex 
         [&>*]:flex [&>*]:items-center 
-        [&>*]:justify-center [&>*]:bg-[orange] 
+        [&>*]:justify-center
         [&>*]:dark:bg-zinc-900
-        [&>*]:w-9 [&>*]:h-9 [&>*]:dark:text-zinc-300
+        [&>*]:w-9 [&>*]:h-9 [&>*]:text-zinc-300
         [&>*]:cursor-pointer
       "
     >

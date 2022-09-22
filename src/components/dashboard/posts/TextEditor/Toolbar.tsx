@@ -19,7 +19,7 @@ type Props = {
 
 const Toolbar = ({ mdCommand }: Props) => {
   return (
-    <div className="flex flex-wrap gap-2 sm:gap-5 p-3 border-b-[1px] border-b-[orange] dark:border-b-zinc-600">
+    <div className="flex flex-wrap gap-2 sm:gap-5 p-3 border-b-[1px] border-b-zinc-600">
       <ToolbarButtons>
         <ToolbarButton mdCommand={mdCommand} command="bold">
           <BiBold />

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useRef, useState } from "react"
+import React, { ChangeEvent, useEffect, useRef, useState } from "react"
 import Link from "next/link"
 
 import Dashboard from "layouts/dashboard"
@@ -9,12 +9,23 @@ import TextEditor from "components/dashboard/posts/TextEditor/TextEditor"
 import Image from "next/image"
 
 const DashboardPostCreate = () => {
-  const [title, setTitle] = useState("")
+  const [title, setTitle] = useState("Very cool title")
+  const [slug, setSlug] = useState("")
   const [category, setCategory] = useState("")
   const [value, setValue] = useState<string | undefined>(undefined)
+  const [imageUrl, setImageUrl] = useState<string | null>(null)
 
   const [image, setImage] = useState<string | ArrayBuffer | null>("")
   const fileRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    setSlug(
+      title
+        .toLowerCase()
+        .replace(/ /g, "-")
+        .replace(/[^\w-]+/g, "")
+    )
+  }, [title])
 
   const handleImageSelect = (e: ChangeEvent<HTMLInputElement>) => {
     console.log("Change")
@@ -28,6 +39,24 @@ const DashboardPostCreate = () => {
         }
       }
     }
+  }
+
+  const uploadImage = async () => {
+    if (!fileRef.current?.files) return
+    const imageData = new FormData()
+
+    imageData.append("file", fileRef.current.files[0] as File)
+    imageData.append("upload_preset", "possts")
+
+    const cloudinaryData = await fetch(
+      "https://api.cloudinary.com/v1_1/shahriyar-dev/image/upload",
+      {
+        method: "POST",
+        body: imageData,
+      }
+    ).then((data) => data.json())
+
+    setImageUrl(cloudinaryData.secure_url)
   }
 
   return (
@@ -44,44 +73,46 @@ const DashboardPostCreate = () => {
 
       <div className="container grid grid-cols-3 gap-5 mt-5">
         <div className="col-span-2">
-          <form>
-            <Flex column className="gap-5">
-              <div className="grid grid-cols-3 gap-5">
-                <div className="col-span-2">
-                  <LabeledInput
-                    id="title"
-                    type="text"
-                    title="Title"
-                    placeholder="How Shahriyar bought google!"
-                    required
-                  />
-                </div>
+          <Flex column className="gap-5">
+            <div className="grid grid-cols-3 gap-5">
+              <div className="col-span-2">
+                <div className="flex flex-col gap-2">
+                  <label className="flex items-center gap-1" htmlFor="title">
+                    Title
+                    <span className="text-sm text-red-500">*</span>
+                  </label>
 
-                <LabeledInput
-                  id="category"
-                  title="Category"
-                  placeholder="Title"
-                  required
-                >
-                  <select>
-                    <option value="test">Test</option>
-                  </select>
-                </LabeledInput>
+                  <input id="title" type="text" placeholder="Title" />
+                </div>
               </div>
 
-              <LabeledInput
-                id="meta_description"
-                title="Meta Description"
-                required
-              >
-                <textarea placeholder="This information can blow your mind..." />
-              </LabeledInput>
+              <div className="flex flex-col gap-2">
+                <label className="flex items-center gap-1" htmlFor="Category">
+                  Category
+                  <span className="text-sm text-red-500">*</span>
+                </label>
 
-              <LabeledInput id="content" title="Content" required>
-                <TextEditor value={value} setValue={setValue} />
-              </LabeledInput>
-            </Flex>
-          </form>
+                <select id="Category">
+                  <option value="test">Test</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="col-span-2">
+              <div className="flex flex-col gap-2">
+                <label className="flex items-center gap-1" htmlFor="Content">
+                  Content
+                  <span className="text-sm text-red-500">*</span>
+                </label>
+
+                <textarea placeholder="This information can blow your mind..." />
+              </div>
+            </div>
+
+            <LabeledInput id="content" title="Content" required>
+              <TextEditor value={value} setValue={setValue} />
+            </LabeledInput>
+          </Flex>
         </div>
 
         <div>
@@ -133,6 +164,11 @@ const DashboardPostCreate = () => {
               />
             )}
           </div>
+
+          <p>
+            <b>Slug: </b>
+            {slug}
+          </p>
         </div>
       </div>
     </Dashboard>

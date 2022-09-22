@@ -11,7 +11,7 @@ const ToolbarButton = ({ children, mdCommand, command }: Props) => {
     <button
       type="button"
       onClick={() => mdCommand(command)}
-      className="hover:bg-zinc-900 hover:text-white dark:hover:bg-zinc-700 focus:bg-zinc-900 focus:text-white dark:focus:bg-zinc-700"
+      className="hover:text-white hover:bg-zinc-700 focus:bg-zinc-900 focus:text-white"
     >
       {children}
     </button>
