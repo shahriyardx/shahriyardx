@@ -2,21 +2,28 @@ import React, { ChangeEvent, useEffect, useRef, useState } from "react"
 import Link from "next/link"
 
 import Dashboard from "layouts/dashboard"
-import { BiCamera, BiChevronLeft, BiX } from "react-icons/bi"
+import { BiCamera, BiChevronLeft, BiLoaderAlt, BiX } from "react-icons/bi"
 import Flex from "components/shared/Flex"
 import LabeledInput from "components/dashboard/posts/LabeledInput"
 import TextEditor from "components/dashboard/posts/TextEditor/TextEditor"
 import Image from "next/image"
+import { useCategories } from "hooks/useCategories"
+import { toast } from "react-hot-toast"
+import { trpc } from "utils/trpc"
 
 const DashboardPostCreate = () => {
   const [title, setTitle] = useState("Very cool title")
+  const [meta_description, set_meta_description] = useState("")
   const [slug, setSlug] = useState("")
-  const [category, setCategory] = useState("")
-  const [value, setValue] = useState<string | undefined>(undefined)
-  const [imageUrl, setImageUrl] = useState<string | null>(null)
+  const [categoryId, setCategory] = useState("")
+  const [content, setContent] = useState<string | undefined>(undefined)
+  const [thumbnail, setThumbnail] = useState<string | null>(null)
 
   const [image, setImage] = useState<string | ArrayBuffer | null>("")
   const fileRef = useRef<HTMLInputElement>(null)
+  const [uploading, setUploading] = useState(false)
+
+  const { categories } = useCategories()
 
   useEffect(() => {
     setSlug(
@@ -28,7 +35,6 @@ const DashboardPostCreate = () => {
   }, [title])
 
   const handleImageSelect = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log("Change")
     if (e.target.files) {
       const file = e.target.files[0]
       if (file) {
@@ -48,15 +54,67 @@ const DashboardPostCreate = () => {
     imageData.append("file", fileRef.current.files[0] as File)
     imageData.append("upload_preset", "possts")
 
-    const cloudinaryData = await fetch(
-      "https://api.cloudinary.com/v1_1/shahriyar-dev/image/upload",
-      {
-        method: "POST",
-        body: imageData,
-      }
-    ).then((data) => data.json())
+    try {
+      setUploading(true)
+      const cloudinaryData = await fetch(
+        "https://api.cloudinary.com/v1_1/shahriyar-dev/image/upload",
+        {
+          method: "POST",
+          body: imageData,
+        }
+      ).then((data) => data.json())
 
-    setImageUrl(cloudinaryData.secure_url)
+      setThumbnail(cloudinaryData.secure_url)
+      setUploading(false)
+    } catch (error) {
+      console.error(error)
+      setUploading(false)
+    }
+  }
+
+  const { mutate, isLoading } = trpc.useMutation(["post.create"], {
+    onSuccess: () => {
+      setTitle("")
+      set_meta_description("")
+      fileRef.current ? (fileRef.current.value = "") : null
+
+      setContent("")
+      setThumbnail("")
+      setCategory("")
+      setImage("")
+
+      toast.success("post created")
+    },
+    onError: () => {
+      toast.error("something went wrong")
+    },
+  })
+
+  const addPost = async () => {
+    if (image) {
+      await uploadImage()
+    }
+
+    if (!categoryId) {
+      return toast.error("please select a category")
+    }
+
+    if (!content) {
+      return toast.error("please type content")
+    }
+
+    console.log(thumbnail)
+
+    const postData = {
+      title,
+      slug,
+      meta_description,
+      thumbnail: thumbnail ? thumbnail : undefined,
+      content: content,
+      categoryId,
+    }
+
+    mutate(postData)
   }
 
   return (
@@ -82,7 +140,13 @@ const DashboardPostCreate = () => {
                     <span className="text-sm text-red-500">*</span>
                   </label>
 
-                  <input id="title" type="text" placeholder="Title" />
+                  <input
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    id="title"
+                    type="text"
+                    placeholder="Title"
+                  />
                 </div>
               </div>
 
@@ -92,25 +156,36 @@ const DashboardPostCreate = () => {
                   <span className="text-sm text-red-500">*</span>
                 </label>
 
-                <select id="Category">
-                  <option value="test">Test</option>
+                <select
+                  value={categoryId}
+                  onChange={(e) => setCategory(e.target.value)}
+                  id="Category"
+                >
+                  <option value="">Select Category</option>
+                  {categories?.map((cat) => (
+                    <option value={cat.id}>{cat.name}</option>
+                  ))}
                 </select>
               </div>
             </div>
 
             <div className="col-span-2">
               <div className="flex flex-col gap-2">
-                <label className="flex items-center gap-1" htmlFor="Content">
-                  Content
+                <label className="flex items-center gap-1" htmlFor="Subtitle">
+                  Subtitle
                   <span className="text-sm text-red-500">*</span>
                 </label>
 
-                <textarea placeholder="This information can blow your mind..." />
+                <textarea
+                  value={meta_description}
+                  onChange={(e) => set_meta_description(e.target.value)}
+                  placeholder="This information can blow your mind..."
+                />
               </div>
             </div>
 
             <LabeledInput id="content" title="Content" required>
-              <TextEditor value={value} setValue={setValue} />
+              <TextEditor value={content} setValue={setContent} />
             </LabeledInput>
           </Flex>
         </div>
@@ -165,10 +240,27 @@ const DashboardPostCreate = () => {
             )}
           </div>
 
-          <p>
+          <p className="my-3 text-zinc-500">
             <b>Slug: </b>
             {slug}
           </p>
+
+          <button
+            onClick={addPost}
+            disabled={isLoading || uploading}
+            className="px-5 py-3 bg-black rounded-md flex items-center gap-2"
+          >
+            {isLoading && uploading && (
+              <BiLoaderAlt className="text-lg animate-spin" />
+            )}
+            <span>
+              {uploading
+                ? "Uploading..."
+                : isLoading
+                ? "Creating..."
+                : "Create Post"}
+            </span>
+          </button>
         </div>
       </div>
     </Dashboard>
