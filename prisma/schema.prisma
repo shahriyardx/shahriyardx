@@ -14,3 +14,27 @@ model AdminUsers {
     id    String @id @default(cuid())
     email String @unique
 }
+
+model Post {
+    id               String  @id @default(cuid())
+    title            String
+    slug             String  @unique
+    meta_description String?
+    thumbnail        String?
+    content          String
+    categoryId       String
+
+    category Category @relation(fields: [categoryId], references: [id])
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model Category {
+    id      String  @id @default(cuid())
+    name    String
+    bgColor String?
+    fgColor String?
+
+    Posts Post[]
+}
