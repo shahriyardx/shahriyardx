@@ -8,6 +8,12 @@
   body {
     @apply bg-zinc-900 text-zinc-300 font-sourcecode;
   }
+
+  input[type="text"],
+  select,
+  textarea {
+    @apply bg-zinc-700 placeholder:text-zinc-400 rounded-md;
+  }
 }
 
 /* width */

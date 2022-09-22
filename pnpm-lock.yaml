@@ -27,6 +27,7 @@ specifiers:
   react-query: ^3.39.2
   superjson: ^1.10.0
   tailwindcss: ^3.1.8
+  textarea-markdown-editor: ^1.0.1
   typescript: 4.7.4
   zod: ^3.18.0
 
@@ -46,6 +47,7 @@ dependencies:
   react-icons: 4.4.0_react@18.2.0
   react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
   superjson: 1.10.0
+  textarea-markdown-editor: 1.0.1_biqbaboplfbrettd7655fr4n2y
   zod: 3.19.1
 
 devDependencies:
@@ -1727,6 +1729,10 @@ packages:
   /minimist/1.2.6:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
 
+  /mousetrap/1.6.5:
+    resolution: {integrity: sha512-QNo4kEepaIBwiT8CDhP98umTetp+JNfQYBWvC1pc6/OAibuXtRcxZ58Qz8skvEHYvURne/7R8T5VoOI7rDsEUA==}
+    dev: false
+
   /ms/2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
     dev: true
@@ -2407,6 +2413,17 @@ packages:
   /text-table/0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
     dev: true
+
+  /textarea-markdown-editor/1.0.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-JFb2Y7sALJEVeCAFh2li1Otb/vHiXhXwaJcrbRU+NHhk5SfQcM0W9FwBZIux35TZTCv0L4bewJn9FxEB275nNQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      mousetrap: 1.6.5
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /to-regex-range/5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
