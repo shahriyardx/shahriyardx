@@ -3,8 +3,11 @@ import Header from "./Header"
 import IconLink from "./IconLink"
 
 import { BiGridAlt, BiPoll } from "react-icons/bi"
+import { useRouter } from "next/router"
 
 const Sidebar = () => {
+  const router = useRouter()
+
   return (
     <aside className="h-screen bg-black rounded-r-2xl">
       <Header />
@@ -16,6 +19,7 @@ const Sidebar = () => {
           icon={BiPoll}
           href="/dashboard/posts"
           iconClassname="hover:animate-spin"
+          active={router.asPath.includes("/dashboard/posts")}
         />
       </div>
     </aside>
