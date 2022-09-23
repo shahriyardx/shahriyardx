@@ -14,6 +14,10 @@
   textarea {
     @apply bg-zinc-800 placeholder:text-zinc-400 rounded-md;
   }
+
+  .button {
+    @apply px-5 py-3 rounded-md active:scale-90 transition-all;
+  }
 }
 
 /* width */
