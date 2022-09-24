@@ -18,7 +18,6 @@ const Sidebar = () => {
           text="Posts"
           icon={BiPoll}
           href="/dashboard/posts"
-          iconClassname="hover:animate-spin"
           active={router.asPath.includes("/dashboard/posts")}
         />
       </div>

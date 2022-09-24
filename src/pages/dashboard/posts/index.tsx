@@ -1,4 +1,5 @@
 import { Category, Post } from "@prisma/client"
+import DashPageHeader from "components/dashboard/shared/PageHeader"
 import Button from "components/shared/Button"
 import Modal from "components/shared/Modal"
 import Dashboard from "layouts/dashboard"
@@ -32,15 +33,13 @@ const DashboardPostsPage = () => {
   return (
     <Dashboard>
       <div className="h-[200vh]">
-        <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-bold">Posts</h1>
-
+        <DashPageHeader title="Posts">
           <Link href="/dashboard/posts/create">
-            <a className="flex items-center gap-1 text-xs px-3 py-2 bg-indigo-500 text-white rounded-md">
+            <a className="button text-xs px-3 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-md">
               <BiPlus className="text-lg" /> Create Post
             </a>
           </Link>
-        </div>
+        </DashPageHeader>
 
         <div className="mt-5">
           <table className="w-full border-2 border-zinc-800">

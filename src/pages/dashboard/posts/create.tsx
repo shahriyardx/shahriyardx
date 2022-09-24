@@ -10,6 +10,7 @@ import Image from "next/image"
 import { useCategories } from "hooks/useCategories"
 import { toast } from "react-hot-toast"
 import { trpc } from "utils/trpc"
+import DashPageHeader from "components/dashboard/shared/PageHeader"
 
 const DashboardPostCreate = () => {
   const [title, setTitle] = useState("Very cool title")
@@ -112,15 +113,13 @@ const DashboardPostCreate = () => {
 
   return (
     <Dashboard>
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold">Create Post</h1>
-
+      <DashPageHeader title="Posts">
         <Link href="/dashboard/posts">
-          <a className="flex items-center gap-1 text-xs px-3 py-2 bg-indigo-500 text-white rounded-md">
+          <a className="button text-xs px-3 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-md">
             <BiChevronLeft className="text-lg" /> Posts
           </a>
         </Link>
-      </div>
+      </DashPageHeader>
 
       <div className="container grid grid-cols-3 gap-5 mt-5">
         <div className="col-span-2">

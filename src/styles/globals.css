@@ -16,7 +16,7 @@
   }
 
   .button {
-    @apply px-5 py-3 rounded-md active:scale-90 transition-all;
+    @apply px-5 py-3 rounded-md active:scale-90 transition-all flex items-center gap-1;
   }
 }
 
