@@ -13,6 +13,9 @@ const BlogPage = () => {
     <Main>
       <SEO title="Blog" description="Go and read please..." />
       <div className="py-5 px-10">
+        <h1 className="text text-4xl font-bold mt-10 mb-10 text-center">
+          Blog
+        </h1>
         <div className="grid grid-cols-2 gap-5 max-w-6xl mx-auto">
           {posts?.map((post, index) => (
             <PostCard key={index} post={post} index={index} />
