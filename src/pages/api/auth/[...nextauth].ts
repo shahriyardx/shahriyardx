@@ -6,7 +6,7 @@ import prisma from "server/prisma"
 export const authOptions: NextAuthOptions = {
   callbacks: {
     session({ session, token }) {
-      session.admin = token.admin
+      session.admin = token.admin || false
       return session
     },
     async jwt({ token, user, account }) {
