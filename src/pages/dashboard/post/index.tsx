@@ -4,6 +4,7 @@ import Button from "components/shared/Button"
 import Modal from "components/shared/Modal"
 import Table from "components/shared/Table"
 import Dashboard from "layouts/dashboard"
+import Image from "next/future/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import React, { useState } from "react"
@@ -42,50 +43,47 @@ const DashboardPostsPage = () => {
         </DashPageHeader>
 
         <div className="mt-5">
-          {/* <Table
-            fields={["SL", "Title", "Category", "Image", "Action"]}
-            values={
-              posts?.length
-                ? [
-                    ...posts.map((post, index) => {
-                      return [
-                        index + 1,
-                        post.title,
-                        post.category.name,
-                        post.thumbnail ? (
-                          <Image
-                            src={post.thumbnail}
-                            width={40}
-                            height={40}
-                            alt={post.id}
-                            objectFit="cover"
-                            className="rounded-full"
-                          />
-                        ) : null,
-                        <div className="flex items-center gap-2">
-                          <Link href={`${router.asPath}/${post.id}`}>
-                            <a className="button px-3 py-2 bg-zinc-700 hover:bg-zinc-600">
-                              Edit
-                            </a>
-                          </Link>
+          {posts && (
+            <Table
+              fields={["SL", "Title", "Category", "Image", "Action"]}
+              values={[
+                ...posts.map((post, index) => {
+                  return [
+                    index + 1,
+                    post.title,
+                    post.category.name,
+                    post.thumbnail ? (
+                      <Image
+                        src={post.thumbnail}
+                        width={40}
+                        height={40}
+                        alt={post.id}
+                        className="rounded-full object-cover"
+                      />
+                    ) : null,
+                    <div key={index} className="flex items-center gap-2">
+                      <Link href={`${router.asPath}/${post.id}`}>
+                        <a className="button px-3 py-2 bg-zinc-700 hover:bg-zinc-600">
+                          Edit
+                        </a>
+                      </Link>
 
-                          <Button
-                            onClick={() => {
-                              setDelPost(post)
-                              setDelModalOpen(true)
-                            }}
-                            className="bg-red-700 hover:bg-red-600 px-3 py-2"
-                          >
-                            Delete
-                          </Button>
-                        </div>,
-                      ]
-                    }),
+                      <Button
+                        onClick={() => {
+                          setDelPost(post)
+                          setDelModalOpen(true)
+                        }}
+                        className="bg-red-700 hover:bg-red-600 px-3 py-2"
+                      >
+                        Delete
+                      </Button>
+                    </div>,
                   ]
-                : []
-            }
-            noFieldText="No Posts"
-          /> */}
+                }),
+              ]}
+              noFieldText="No Posts"
+            />
+          )}
         </div>
       </div>
 

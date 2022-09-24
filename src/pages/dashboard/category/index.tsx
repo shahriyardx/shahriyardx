@@ -63,43 +63,40 @@ const DashboardCategoryPage = () => {
 
         <div className="mt-5 grid grid-cols-3 gap-5">
           <div className="col-span-2">
-            <Table
-              key="lol"
-              fields={["SL", "Name", "Posts", "Action"]}
-              values={
-                categories
-                  ? [
-                      ...categories.map((cat, index) => [
-                        index + 1,
-                        cat.name,
-                        cat.Posts.length,
-                        <div className="flex items-center gap-2">
-                          <Button
-                            onClick={() => {
-                              setDelCat(cat)
-                              setAction("edit")
-                              setName(cat.name)
-                            }}
-                            className="bg-zinc-600 hover:bg-zinc-500 py-2 text-sm text-white"
-                          >
-                            Edit
-                          </Button>
-                          <Button
-                            onClick={() => {
-                              setDelModalOpen(true)
-                              setDelCat(cat)
-                            }}
-                            className="bg-red-600 hover:bg-red-500 py-2 text-sm text-white"
-                          >
-                            Delete
-                          </Button>
-                        </div>,
-                      ]),
-                    ]
-                  : []
-              }
-              noFieldText="No Category"
-            />
+            {categories && (
+              <Table
+                fields={["SL", "Name", "Posts", "Action"]}
+                values={[
+                  ...categories.map((cat, index) => [
+                    index + 1,
+                    cat.name,
+                    cat.Posts.length,
+                    <div key={index} className="flex items-center gap-2">
+                      <Button
+                        onClick={() => {
+                          setDelCat(cat)
+                          setAction("edit")
+                          setName(cat.name)
+                        }}
+                        className="bg-zinc-600 hover:bg-zinc-500 py-2 text-sm text-white"
+                      >
+                        Edit
+                      </Button>
+                      <Button
+                        onClick={() => {
+                          setDelModalOpen(true)
+                          setDelCat(cat)
+                        }}
+                        className="bg-red-600 hover:bg-red-500 py-2 text-sm text-white"
+                      >
+                        Delete
+                      </Button>
+                    </div>,
+                  ]),
+                ]}
+                noFieldText="No Category"
+              />
+            )}
           </div>
 
           <div>
