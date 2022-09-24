@@ -1,5 +1,6 @@
 import DashLoading from "components/dashboard/shared/DashLoading"
 import Sidebar from "components/dashboard/Sidebar/Sidebar"
+import SEO from "components/shared/SEO"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/router"
 import React from "react"
@@ -22,6 +23,7 @@ const Dashboard = ({ children }: Props) => {
 
   return (
     <div className="grid grid-cols-dashboard font-montserrat">
+      <SEO title="Dashboard" />
       <Sidebar />
       <div className="p-5 max-h-screen overflow-y-auto scrollbar">
         {children}
