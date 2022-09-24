@@ -2,12 +2,15 @@ const projects = [
   {
     name: "The Best",
     slug: "thebest",
-    tags: ["NextJs", "ReactJs", "TailwindCss", "NodeJs"],
+    tags: ["NextJs", "TailwindCss", "NodeJs"],
     description:
       "A multi user blogging platform where anyone can register and create posts. Like and comment on others posts.",
     links: [
       { text: "Live Site", url: "https://the-best.shahriyar.dev/" },
-      { text: "Repository", url: "https://github.com/shahriyardx/the-best-blog/" },
+      {
+        text: "Repository",
+        url: "https://github.com/shahriyardx/the-best-blog/",
+      },
     ],
     features: [
       "Anyone can register using their github account",
@@ -15,7 +18,7 @@ const projects = [
       "Like and comment on posts.",
       "Using typescript for type safety",
       "Using tRPC for making type safe API",
-      "Github Authentication."
+      "Github Authentication.",
     ],
     technologies:
       "Typescript, NextJs, ReactJs, TailwindCss, NextAuth, Github Authentication, NodeJs, tRPC, Postgresql, Prisma",
@@ -23,7 +26,7 @@ const projects = [
   {
     name: "Roktoo",
     slug: "roktoo",
-    tags: ["NextJs", "ReactJs", "TailwindCss", "NodeJs"],
+    tags: ["NextJs", "TailwindCss", "NodeJs"],
     description:
       "Roktoo is a blood donating platform where people can donate blood anf find blood",
     links: [
@@ -41,7 +44,7 @@ const projects = [
   {
     name: "Crisis Entertainment",
     slug: "crisis",
-    tags: ["NextJs", "ReactJs", "TailwindCss", "NodeJs"],
+    tags: ["NextJs", "TailwindCss", "NodeJs"],
     description:
       "Crisis Entertainment is a video game startup currently operating in Bangladesh, India and Australia.",
     links: [
@@ -59,7 +62,7 @@ const projects = [
   {
     name: "Compart",
     slug: "compart",
-    tags: ["ReactJs", "TailwindCss", "NodeJs", "JavaScript", "ExpressJs"],
+    tags: ["ReactJs", "TailwindCss", "ExpressJs"],
     description:
       "Pc parts manufaturer website. Where manufaturers can login and add products",
     links: [
@@ -100,7 +103,7 @@ const projects = [
   {
     name: "Makeown",
     slug: "makeown",
-    tags: ["HTML", "CSS", "JavaScript", "Python"],
+    tags: ["JavaScript", "Python"],
     description:
       "A discord bot dashboard to manage the bot from a web interface",
     links: [
@@ -120,7 +123,7 @@ const projects = [
   {
     name: "Laptop Carnival",
     slug: "laptopcarnival",
-    tags: ["ReactJs", "TailwindCss", "NodeJs", "ExpressJs"],
+    tags: ["ReactJs", "TailwindCss", "ExpressJs"],
     description:
       "Best inventory for selling laptops. Worldwide shipping, fastest delivery",
     links: [
@@ -144,6 +147,6 @@ const projects = [
     ],
     technologies: "ReactJs, TailwindCSS, Firebase, MongoDB, jsobwebtoken",
   },
-];
+]
 
-export default projects;
+export default projects

@@ -31,7 +31,7 @@ const tagMap: { [key: string]: any } = {
   },
   NextJs: {
     bg: "bg-black",
-    text: "text-white",
+    text: "text-zinc-300",
   },
   TailwindCss: {
     bg: "bg-[#0EA5E9]/20",
@@ -43,7 +43,7 @@ const Tag = ({ text }: { text: string }) => {
   const { bg: bgColor, text: textColor } = tagMap[text]
   const styles = `${bgColor} ${textColor}`
   return (
-    <div className={`px-2 py-1 rounded-lg text-sm ${styles} cursor-pointer`}>
+    <div className={`px-2 py-1 rounded-lg text-xs ${styles} cursor-pointer`}>
       # {text}
     </div>
   )
