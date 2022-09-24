@@ -11,6 +11,7 @@ import { useCategories } from "hooks/useCategories"
 import { toast } from "react-hot-toast"
 import { trpc } from "utils/trpc"
 import DashPageHeader from "components/dashboard/shared/PageHeader"
+import { uploadImage } from "utils/uploader"
 
 const DashboardPostCreate = () => {
   const [title, setTitle] = useState("Very cool title")
@@ -19,6 +20,7 @@ const DashboardPostCreate = () => {
   const [categoryId, setCategory] = useState("")
   const [content, setContent] = useState<string | undefined>(undefined)
   const [thumbnail, setThumbnail] = useState<string | null>(null)
+  const [uploading, setUploading] = useState<boolean>(false)
 
   const fileRef = useRef<HTMLInputElement>(null)
 
@@ -54,31 +56,6 @@ const DashboardPostCreate = () => {
     }
   }
 
-  // const uploadImage = async () => {
-  //   if (!fileRef.current?.files) return
-  //   const imageData = new FormData()
-
-  //   imageData.append("file", fileRef.current.files[0] as File)
-  //   imageData.append("upload_preset", "possts")
-
-  //   try {
-  //     setUploading(true)
-  //     const cloudinaryData = await fetch(
-  //       "https://api.cloudinary.com/v1_1/shahriyar-dev/image/upload",
-  //       {
-  //         method: "POST",
-  //         body: imageData,
-  //       }
-  //     ).then((data) => data.json())
-
-  //     setThumbnail(cloudinaryData.secure_url)
-  //     setUploading(false)
-  //   } catch (error) {
-  //     console.error(error)
-  //     setUploading(false)
-  //   }
-  // }
-
   const addPost = async () => {
     if (!categoryId) {
       return toast.error("please select a category")
@@ -88,13 +65,29 @@ const DashboardPostCreate = () => {
       return toast.error("please type content")
     }
 
-    console.log(thumbnail)
+    let url = null
+    if (thumbnail && fileRef.current) {
+      if (fileRef.current.files) {
+        url = await uploadImage({
+          path: "possts",
+          file: fileRef.current.files[0] as File,
+          onStart: () => setUploading(true),
+          onFinish: () => setUploading(false),
+        })
+
+        if (!url) {
+          return toast.error("Something went wrong while uploading the image")
+        }
+
+        setThumbnail(url)
+      }
+    }
 
     const postData = {
       title,
       slug,
       meta_description,
-      thumbnail: thumbnail ? thumbnail : undefined,
+      thumbnail: url ? url : undefined,
       content: content,
       categoryId,
     }
@@ -114,7 +107,7 @@ const DashboardPostCreate = () => {
   return (
     <Dashboard>
       <DashPageHeader title="Posts">
-        <Link href="/dashboard/posts">
+        <Link href="/dashboard/post">
           <a className="button text-xs px-3 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-md">
             <BiChevronLeft className="text-lg" /> Posts
           </a>
@@ -240,10 +233,16 @@ const DashboardPostCreate = () => {
           <button
             onClick={addPost}
             disabled={isLoading}
-            className="px-5 py-3 bg-black rounded-md flex items-center gap-2"
+            className="button px-5 py-3 bg-black rounded-md flex items-center gap-2"
           >
             {isLoading && <BiLoaderAlt className="text-lg animate-spin" />}
-            <span>{isLoading ? "Creating..." : "Create Post"}</span>
+            <span>
+              {uploading
+                ? "Uploading..."
+                : isLoading
+                ? "Creating..."
+                : "Create Post"}
+            </span>
           </button>
         </div>
       </div>

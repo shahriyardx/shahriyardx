@@ -12,6 +12,7 @@ import { toast } from "react-hot-toast"
 import { trpc } from "utils/trpc"
 import { useRouter } from "next/router"
 import { usePostDetails } from "hooks/usePostDetails"
+import { uploadImage } from "utils/uploader"
 
 const DashboardPostEdit = () => {
   const [title, setTitle] = useState("Very cool title")
@@ -20,6 +21,7 @@ const DashboardPostEdit = () => {
   const [categoryId, setCategory] = useState("")
   const [content, setContent] = useState<string | undefined>(undefined)
   const [thumbnail, setThumbnail] = useState<string | null>(null)
+  const [uploading, setUploading] = useState<boolean>(false)
 
   const fileRef = useRef<HTMLInputElement>(null)
 
@@ -29,7 +31,7 @@ const DashboardPostEdit = () => {
     post,
     isLoading: isPostLoading,
     refetch: refetchPost,
-  } = usePostDetails(router.query.postId as string)
+  } = usePostDetails(router.query.postId as string, false)
 
   const { mutate, isLoading } = trpc.useMutation(["post.update"], {
     onSuccess: () => {
@@ -62,13 +64,29 @@ const DashboardPostEdit = () => {
       return toast.error("please type content")
     }
 
-    console.log(thumbnail)
+    let url = null
+    if (thumbnail && fileRef.current && thumbnail !== post?.thumbnail) {
+      if (fileRef.current.files) {
+        url = await uploadImage({
+          path: "possts",
+          file: fileRef.current.files[0] as File,
+          onStart: () => setUploading(true),
+          onFinish: () => setUploading(false),
+        })
+
+        if (!url) {
+          return toast.error("Something went wrong while uploading the image")
+        }
+
+        setThumbnail(url)
+      }
+    }
 
     const postData = {
       title,
       slug,
       meta_description,
-      thumbnail: thumbnail ? thumbnail : undefined,
+      thumbnail: url ? url : undefined,
       content: content,
       categoryId,
     }
@@ -228,7 +246,13 @@ const DashboardPostEdit = () => {
             className="px-5 py-3 bg-black rounded-md flex items-center gap-2"
           >
             {isLoading && <BiLoaderAlt className="text-lg animate-spin" />}
-            <span>{isLoading ? "Updating..." : "Update"}</span>
+            <span>
+              {uploading
+                ? "Uploading..."
+                : isLoading
+                ? "Creating..."
+                : "Create Post"}
+            </span>
           </button>
         </div>
       </div>

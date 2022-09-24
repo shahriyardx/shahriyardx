@@ -2,7 +2,7 @@ import React from "react"
 import Header from "./Header"
 import IconLink from "./IconLink"
 
-import { BiGridAlt, BiPoll } from "react-icons/bi"
+import { BiGridAlt, BiPoll, BiCategoryAlt } from "react-icons/bi"
 import { useRouter } from "next/router"
 
 const Sidebar = () => {
@@ -15,10 +15,15 @@ const Sidebar = () => {
       <div className="mt-10 flex flex-col px-5 gap-1">
         <IconLink text="Dashboard" icon={BiGridAlt} href="/dashboard" />
         <IconLink
-          text="Posts"
+          text="Post"
           icon={BiPoll}
-          href="/dashboard/posts"
-          active={router.asPath.includes("/dashboard/posts")}
+          href="/dashboard/post"
+          active={router.asPath.includes("/dashboard/post")}
+        />
+        <IconLink
+          text="Category"
+          icon={BiCategoryAlt}
+          href="/dashboard/category"
         />
       </div>
     </aside>

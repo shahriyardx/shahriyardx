@@ -2,7 +2,7 @@ import React from "react"
 
 type Props = {
   title: string
-  children: any
+  children?: any
 }
 
 const DashPageHeader = ({ title, children }: Props) => {
