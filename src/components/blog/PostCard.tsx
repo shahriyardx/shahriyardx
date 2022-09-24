@@ -13,8 +13,8 @@ const PostCard = ({ post, index }: Props) => {
   return (
     <Link href={`/blog/${post.slug}`} passHref>
       <div
-        className={`grid grid-cols-2 gap-5 p-5 cursor-pointer ${
-          index === 0 && "col-span-2"
+        className={`grid grid-cols-1 md:grid-cols-2 gap-5 p-5 cursor-pointer ${
+          index === 0 && "md:col-span-2"
         } bg-zinc-900 rounded-lg`}
       >
         <div className="relative">
@@ -35,7 +35,7 @@ const PostCard = ({ post, index }: Props) => {
           </span>
           <h3
             className={`font-bold font-montserrat mt-2 ${
-              index === 0 ? "text-3xl" : "text-xl"
+              index === 0 ? "md:text-3xl text-xl" : "text-xl"
             }`}
           >
             {post.title}
@@ -43,7 +43,7 @@ const PostCard = ({ post, index }: Props) => {
 
           <p
             className={`text-zinc-500 font-bold font-montserrat mb-auto ${
-              index === 0 ? "mt-3" : "text-xs mt-2"
+              index === 0 ? "mt-2 md:mt-3 text-xs md:text-base" : "text-xs mt-2"
             }`}
           >
             {post.meta_description}
@@ -61,14 +61,14 @@ const PostCard = ({ post, index }: Props) => {
             <div className="flex flex-col font-montserrat">
               <span
                 className={`font-bold text-zinc-400 ${
-                  index === 0 ? "text-base" : "text-sm"
+                  index === 0 ? "md:text-base text-sm" : "text-sm"
                 }`}
               >
-                Md Shahriyar Alam
+                Shahriyar
               </span>
               <span
                 className={`text-zinc-500 ${
-                  index === 0 ? "text-sm" : "text-xs"
+                  index === 0 ? "md:text-sm text-xs" : "text-xs"
                 }`}
               >
                 {moment(post.createdAt).format("MMM DD, YYYY")}
