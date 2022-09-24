@@ -14,6 +14,7 @@ export const serverSchema = z.object({
   GITHUB_CLIENT_SECRET: z.string(),
   MAIL_USER: z.string(),
   MAIL_PASSWORD: z.string(),
+  CACHE_TOKEN: z.string(),
 })
 
 /**

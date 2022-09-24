@@ -5,10 +5,12 @@ import Services from "components/home/Services/Services"
 import Skills from "components/home/Skills/Skills"
 import Projects from "components/home/Projects/Projects"
 import CallToAction from "components/home/CallToAction/CallToAction"
+import SEO from "components/shared/SEO"
 
 const Home: NextPage = () => {
   return (
     <Main>
+      <SEO />
       <Banner />
       <Services />
       <Skills />

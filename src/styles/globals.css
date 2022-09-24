@@ -10,6 +10,7 @@
   }
 
   input[type="text"],
+  input[type="email"],
   select,
   textarea {
     @apply bg-zinc-800 placeholder:text-zinc-400 rounded-md;

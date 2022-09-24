@@ -11,6 +11,7 @@ specifiers:
   '@trpc/react': ^9.27.2
   '@trpc/server': ^9.27.2
   '@types/node': 18.0.0
+  '@types/nodemailer': ^6.4.6
   '@types/react': 18.0.14
   '@types/react-dom': 18.0.5
   '@typescript-eslint/eslint-plugin': ^5.33.0
@@ -20,12 +21,15 @@ specifiers:
   eslint: 8.22.0
   eslint-config-next: 12.3.1
   framer-motion: ^7.3.6
+  lru-cache: ^7.14.0
   next: 12.3.1
   next-auth: ^4.10.3
+  nodemailer: ^6.7.8
   postcss: ^8.4.16
   prisma: ^4.3.1
   react: 18.2.0
   react-dom: 18.2.0
+  react-hook-form: ^7.36.1
   react-hot-toast: ^2.4.0
   react-icons: ^4.4.0
   react-query: ^3.39.2
@@ -46,12 +50,16 @@ dependencies:
   '@trpc/next': 9.27.2_q6zioqap35hgke6xl77szo7ghe
   '@trpc/react': 9.27.2_e7pohnznr4qdgpqc5x4q3pmfcu
   '@trpc/server': 9.27.2
+  '@types/nodemailer': 6.4.6
   csstype: 3.1.1
   framer-motion: 7.3.6_biqbaboplfbrettd7655fr4n2y
+  lru-cache: 7.14.0
   next: 12.3.1_biqbaboplfbrettd7655fr4n2y
-  next-auth: 4.10.3_biqbaboplfbrettd7655fr4n2y
+  next-auth: 4.10.3_br325yun545l5vwdnneu6tztxq
+  nodemailer: 6.7.8
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-hook-form: 7.36.1_react@18.2.0
   react-hot-toast: 2.4.0_owo25xnefcwdq3zjgtohz6dbju
   react-icons: 4.4.0_react@18.2.0
   react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
@@ -204,7 +212,7 @@ packages:
       next-auth: ^4
     dependencies:
       '@prisma/client': 4.3.1_prisma@4.3.1
-      next-auth: 4.10.3_biqbaboplfbrettd7655fr4n2y
+      next-auth: 4.10.3_br325yun545l5vwdnneu6tztxq
     dev: false
 
   /@next/env/12.3.1:
@@ -471,7 +479,12 @@ packages:
 
   /@types/node/18.0.0:
     resolution: {integrity: sha512-cHlGmko4gWLVI27cGJntjs/Sj8th9aYwplmZFwmmgYQQvL5NUsgVJG7OddLvNfLqYS31KFN0s3qlaD9qCaxACA==}
-    dev: true
+
+  /@types/nodemailer/6.4.6:
+    resolution: {integrity: sha512-pD6fL5GQtUKvD2WnPmg5bC2e8kWCAPDwMPmHe/ohQbW+Dy0EcHgZ2oCSuPlWNqk74LS5BVMig1SymQbFMPPK3w==}
+    dependencies:
+      '@types/node': 18.0.0
+    dev: false
 
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
@@ -1807,6 +1820,11 @@ packages:
     dependencies:
       yallist: 4.0.0
 
+  /lru-cache/7.14.0:
+    resolution: {integrity: sha512-EIRtP1GrSJny0dqb50QXRUNBxHJhcpxHC++M5tD7RYbvLLn5KVWKsbyswSSqDuU15UFi3bgTQIY8nhDMeF6aDQ==}
+    engines: {node: '>=12'}
+    dev: false
+
   /match-sorter/6.3.1:
     resolution: {integrity: sha512-mxybbo3pPNuA+ZuCUhm5bwNkXrJTbsk5VWbR5wiwz/GC6LIiegBGn2w3O08UG/jdbYLinw51fSQ5xNU1U3MgBw==}
     dependencies:
@@ -1873,7 +1891,7 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
-  /next-auth/4.10.3_biqbaboplfbrettd7655fr4n2y:
+  /next-auth/4.10.3_br325yun545l5vwdnneu6tztxq:
     resolution: {integrity: sha512-7zc4aXYc/EEln7Pkcsn21V1IevaTZsMLJwapfbnKA4+JY0+jFzWbt5p/ljugesGIrN4VOZhpZIw50EaFZyghJQ==}
     engines: {node: ^12.19.0 || ^14.15.0 || ^16.13.0}
     peerDependencies:
@@ -1888,6 +1906,7 @@ packages:
       '@panva/hkdf': 1.0.2
       cookie: 0.4.2
       jose: 4.9.3
+      nodemailer: 6.7.8
       oauth: 0.9.15
       openid-client: 5.1.9
       preact: 10.11.0
@@ -1945,6 +1964,11 @@ packages:
   /node-releases/2.0.6:
     resolution: {integrity: sha512-PiVXnNuFm5+iYkLBNeq5211hvO38y63T0i2KKh2KnUs3RpzJ+JtODFjkD8yjLwnDkTYF1eKXheUwdssR+NRZdg==}
     dev: true
+
+  /nodemailer/6.7.8:
+    resolution: {integrity: sha512-2zaTFGqZixVmTxpJRCFC+Vk5eGRd/fYtvIR+dl5u9QXLTQWGIf48x/JXvo58g9sa0bU6To04XUv554Paykum3g==}
+    engines: {node: '>=6.0.0'}
+    dev: false
 
   /normalize-path/3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
@@ -2255,6 +2279,15 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-hook-form/7.36.1_react@18.2.0:
+    resolution: {integrity: sha512-EbYYkCG2p8ywe7ikOH2l02lAFMrrrslZi1I8fqd8ifDGNAkhomHZQzQsP6ksvzrWBKntRe8b5L5L7Zsd+Gm02Q==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-hot-toast/2.4.0_owo25xnefcwdq3zjgtohz6dbju:
