@@ -1,5 +1,6 @@
 import React, { useRef, ChangeEvent } from "react"
 import TextareaMarkdown, { TextareaMarkdownRef } from "textarea-markdown-editor"
+import TextareaAutosize from "react-textarea-autosize"
 import Toolbar from "./Toolbar"
 
 type Props = {
@@ -21,14 +22,15 @@ const TextEditor = ({ value, setValue }: Props) => {
   return (
     <div className="rounded-md border-[1px] border-zinc-600 bg-zinc-800">
       <Toolbar mdCommand={mdCommand} />
-      <TextareaMarkdown
-        rows={10}
-        value={value}
-        onChange={handleContentChange}
-        ref={mdref}
-        className="text-white w-full outline-none border-none focus:ring-0 bg-zinc-800 p-4"
-        placeholder="Start writing your content..."
-      />
+      <TextareaMarkdown.Wrapper ref={mdref}>
+        <TextareaAutosize
+          value={value}
+          rows={10}
+          onChange={(e) => setValue(e.target.value)}
+          className="text-white w-full outline-none border-none focus:ring-0 bg-zinc-800 p-4"
+          placeholder="Start writing your content..."
+        />
+      </TextareaMarkdown.Wrapper>
     </div>
   )
 }
