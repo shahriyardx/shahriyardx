@@ -32,15 +32,15 @@ const Repo = ({ repo }: Props) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="p-4 border-[2px] border-zinc-600 rounded-md text-base flex flex-col"
+      className="p-4 border-[2px] border-zinc-800 rounded-md text-base flex flex-col"
     >
-      <p className="flex items-center gap-2 text-zinc-100">
+      <p className="flex items-center gap-2 text-zinc-400">
         <BiBookBookmark className="text-xl" />
         <a
           href={html_url}
           target="_blank"
           rel="noreferrer"
-          className="text-sky-500 font-bold hover:text-blue-400 hover:underline underline-offset-2"
+          className="text-zinc-400 font-bold hover:text-blue-300 hover:underline underline-offset-2"
         >
           {name}
         </a>
@@ -59,12 +59,12 @@ const Repo = ({ repo }: Props) => {
         </div>
 
         <div className="flex items-center gap-2">
-          <BiStar className="text-white" />
+          <BiStar className="text-zinc-400" />
           <span className="text-zinc-300">{stars}</span>
         </div>
 
         <div className="flex items-center gap-2">
-          <BiGitRepoForked className="text-white" />
+          <BiGitRepoForked className="text-zinc-400" />
           <span className="text-zinc-300">{forks}</span>
         </div>
       </div>
