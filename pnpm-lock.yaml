@@ -10,6 +10,7 @@ specifiers:
   '@trpc/next': ^9.27.2
   '@trpc/react': ^9.27.2
   '@trpc/server': ^9.27.2
+  '@types/lodash': ^4.14.185
   '@types/node': 18.0.0
   '@types/nodemailer': ^6.4.6
   '@types/react': 18.0.14
@@ -21,6 +22,7 @@ specifiers:
   eslint: 8.22.0
   eslint-config-next: 12.3.1
   framer-motion: ^7.3.6
+  lodash: ^4.17.21
   lru-cache: ^7.14.0
   next: 12.3.1
   next-auth: ^4.10.3
@@ -50,9 +52,11 @@ dependencies:
   '@trpc/next': 9.27.2_q6zioqap35hgke6xl77szo7ghe
   '@trpc/react': 9.27.2_e7pohnznr4qdgpqc5x4q3pmfcu
   '@trpc/server': 9.27.2
+  '@types/lodash': 4.14.185
   '@types/nodemailer': 6.4.6
   csstype: 3.1.1
   framer-motion: 7.3.6_biqbaboplfbrettd7655fr4n2y
+  lodash: 4.17.21
   lru-cache: 7.14.0
   next: 12.3.1_biqbaboplfbrettd7655fr4n2y
   next-auth: 4.10.3_br325yun545l5vwdnneu6tztxq
@@ -476,6 +480,10 @@ packages:
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: true
+
+  /@types/lodash/4.14.185:
+    resolution: {integrity: sha512-evMDG1bC4rgQg4ku9tKpuMh5iBNEwNa3tf9zRHdP1qlv+1WUg44xat4IxCE14gIpZRGUUWAx2VhItCZc25NfMA==}
+    dev: false
 
   /@types/node/18.0.0:
     resolution: {integrity: sha512-cHlGmko4gWLVI27cGJntjs/Sj8th9aYwplmZFwmmgYQQvL5NUsgVJG7OddLvNfLqYS31KFN0s3qlaD9qCaxACA==}
@@ -1807,6 +1815,10 @@ packages:
 
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
+
+  /lodash/4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: false
 
   /loose-envify/1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
