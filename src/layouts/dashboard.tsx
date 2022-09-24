@@ -16,7 +16,7 @@ const Dashboard = ({ children }: Props) => {
     return <DashLoading />
   }
 
-  if (status !== "authenticated" || session.admin) {
+  if (status !== "authenticated" || !session.admin) {
     router.push("/")
   }
 

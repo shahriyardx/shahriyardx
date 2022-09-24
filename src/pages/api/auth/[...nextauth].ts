@@ -23,6 +23,7 @@ export const authOptions: NextAuthOptions = {
           token.admin = false
         }
       }
+
       return token
     },
   },

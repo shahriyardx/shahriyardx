@@ -13,7 +13,7 @@ const Project = ({ project }: { project: any }) => {
   const { name, slug, tags, description } = project
 
   return (
-    <Link href={`/projects/${slug}`}>
+    <Link href={`/project/${slug}`}>
       <motion.div
         variants={fadeInUp}
         viewport={{ once: true }}

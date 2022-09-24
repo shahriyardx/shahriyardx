@@ -86,7 +86,7 @@ const DashboardPostEdit = () => {
       title,
       slug,
       meta_description,
-      thumbnail: url ? url : undefined,
+      thumbnail: url || thumbnail || undefined,
       content: content,
       categoryId,
     }

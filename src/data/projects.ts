@@ -1,4 +1,13 @@
-const projects = [
+export type Project = {
+  name: string
+  slug: string
+  description: string
+  tags: Array<string>
+  links: Array<{ text: string; url: string }>
+  features: Array<string>
+  technologies: string
+}
+export const projects: Array<Project> = [
   {
     name: "The Best",
     slug: "thebest",
