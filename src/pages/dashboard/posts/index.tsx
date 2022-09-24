@@ -1,18 +1,33 @@
+import { Category, Post } from "@prisma/client"
 import Button from "components/shared/Button"
 import Modal from "components/shared/Modal"
 import Dashboard from "layouts/dashboard"
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import React, { Fragment, useState } from "react"
+import React, { useState } from "react"
+import { toast } from "react-hot-toast"
 import { BiPlus } from "react-icons/bi"
 import { trpc } from "utils/trpc"
-import { set } from "zod"
 
 const DashboardPostsPage = () => {
-  const [delId, setDelId] = useState<string | null>(null)
   const router = useRouter()
-  const { data: posts } = trpc.useQuery(["post.all"])
+
+  const [delPost, setDelPost] = useState<
+    (Post & { category: Category }) | null
+  >(null)
+  const [delModalOpen, setDelModalOpen] = useState<boolean>(false)
+  const { data: posts, refetch } = trpc.useQuery(["post.all"])
+  const { mutate: deletePost, isLoading } = trpc.useMutation(["post.delById"], {
+    onSuccess: () => {
+      refetch()
+      setDelModalOpen(false)
+      toast.success("post deleted")
+    },
+    onError: (error) => {
+      toast.error(error.message)
+    },
+  })
 
   return (
     <Dashboard>
@@ -65,7 +80,10 @@ const DashboardPostsPage = () => {
                     </Link>
 
                     <Button
-                      onClick={() => setDelId(post.title)}
+                      onClick={() => {
+                        setDelPost(post)
+                        setDelModalOpen(true)
+                      }}
                       className="bg-red-700 hover:bg-red-600 px-3 py-2"
                     >
                       Delete
@@ -73,19 +91,27 @@ const DashboardPostsPage = () => {
                   </td>
                 </tr>
               ))}
+              {!Boolean(posts?.length) && (
+                <tr>
+                  <td colSpan={5} className="text-center py-3">
+                    <p className="text-2xl font-bold text-zinc-400">No Posts</p>
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
       </div>
 
       <Modal
-        title={`Delete ${delId} ?`}
+        title={`Delete ${delPost?.title} ?`}
         subtitle="This action is irreversible"
         description="Once a post is deleted, it can't be recovered. Still want to proceed?"
-        open={delId}
-        onClose={() => setDelId(null)}
-        onConfirm={() => alert("Deleted")}
+        open={delModalOpen}
+        onClose={() => setDelModalOpen(false)}
+        onConfirm={() => deletePost({ postId: delPost?.id as string })}
         buttonText="Delete"
+        isLoading={isLoading}
       />
     </Dashboard>
   )

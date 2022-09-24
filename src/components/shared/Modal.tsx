@@ -1,6 +1,7 @@
 import React, { Fragment } from "react"
 
 import { Dialog, Transition } from "@headlessui/react"
+import { BiLoaderAlt } from "react-icons/bi"
 
 type Props = {
   title: any
@@ -10,6 +11,7 @@ type Props = {
   onClose: () => void
   onConfirm: () => void
   buttonText: string
+  isLoading: boolean
 }
 
 const Modal = ({
@@ -20,6 +22,7 @@ const Modal = ({
   onClose,
   onConfirm,
   buttonText,
+  isLoading,
 }: Props) => {
   return (
     <Transition appear show={Boolean(open)} as={Fragment}>
@@ -68,9 +71,10 @@ const Modal = ({
                 <div className="mt-4">
                   <button
                     type="button"
-                    className="inline-flex justify-center rounded-md border border-transparent bg-zinc-600 px-4 py-2 text-sm font-medium text-whiite hover:bg-zinc-500 focus:outline-none focus-visible:ring-2"
+                    className="inline-flex items-center gap-2 justify-center rounded-md border border-transparent bg-zinc-600 px-4 py-2 text-sm font-medium text-whiite hover:bg-zinc-500 focus:outline-none focus-visible:ring-2"
                     onClick={onConfirm}
                   >
+                    {isLoading && <BiLoaderAlt className="animate-spin" />}
                     {buttonText}
                   </button>
                 </div>
