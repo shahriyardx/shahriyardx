@@ -107,7 +107,7 @@ const DashboardCategoryPage = () => {
               {action === "create" ? "Add New" : "Edit"}
             </label>
 
-            <form onSubmit={(e) => e.preventDefault()}>
+            <div>
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -140,7 +140,7 @@ const DashboardCategoryPage = () => {
                   </Button>
                 )}
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
