@@ -42,7 +42,7 @@ export const postRouter = createRouter()
 
       await ctx.prisma.post.update({
         where: {
-          id: input.id,
+          id: id,
         },
         data: {
           ...data,

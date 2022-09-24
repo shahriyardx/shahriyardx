@@ -27,11 +27,7 @@ const DashboardPostEdit = () => {
 
   const router = useRouter()
   const { categories } = useCategories()
-  const {
-    post,
-    isLoading: isPostLoading,
-    refetch: refetchPost,
-  } = usePostDetails(router.query.postId as string, false)
+  const { post } = usePostDetails(router.query.postId as string, false)
 
   const { mutate, isLoading } = trpc.useMutation(["post.update"], {
     onSuccess: () => {
@@ -48,7 +44,7 @@ const DashboardPostEdit = () => {
       if (file) {
         const reader = new FileReader()
         reader.readAsDataURL(file)
-        reader.onload = (e) => {
+        reader.onload = () => {
           setThumbnail(reader.result?.toString() as string)
         }
       }
@@ -158,7 +154,9 @@ const DashboardPostEdit = () => {
                 >
                   <option value="">Select Category</option>
                   {categories?.map((cat) => (
-                    <option value={cat.id}>{cat.name}</option>
+                    <option key={cat.id} value={cat.id}>
+                      {cat.name}
+                    </option>
                   ))}
                 </select>
               </div>

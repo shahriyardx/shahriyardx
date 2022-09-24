@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import Container from "components/shared/Container"
 import Project from "./Project"
 import projects from "data/projects"
 import { BiChevronDown } from "react-icons/bi"

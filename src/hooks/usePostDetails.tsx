@@ -1,4 +1,3 @@
-import { UseTRPCQueryOptions } from "@trpc/react"
 import { trpc } from "utils/trpc"
 
 export const usePostDetails = (postId: string, dontRefetch: boolean) => {

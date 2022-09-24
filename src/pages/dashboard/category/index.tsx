@@ -1,11 +1,10 @@
-import { Category, Post } from "@prisma/client"
+import { Category } from "@prisma/client"
 import DashPageHeader from "components/dashboard/shared/PageHeader"
 import Button from "components/shared/Button"
 import Modal from "components/shared/Modal"
 import Table from "components/shared/Table"
 import { useCategories } from "hooks/useCategories"
 import Dashboard from "layouts/dashboard"
-import { useRouter } from "next/router"
 import React, { useState } from "react"
 import { toast } from "react-hot-toast"
 import { trpc } from "utils/trpc"
@@ -65,6 +64,7 @@ const DashboardCategoryPage = () => {
         <div className="mt-5 grid grid-cols-3 gap-5">
           <div className="col-span-2">
             <Table
+              key="lol"
               fields={["SL", "Name", "Posts", "Action"]}
               values={
                 categories

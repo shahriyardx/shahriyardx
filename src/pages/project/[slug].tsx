@@ -15,11 +15,11 @@ type Props = {
 const ProjectSingle = ({ project }: Props) => {
   return (
     <>
-      {/* <SEO
-          title={`${project.name} - Md Shahriyar Alam`}
-          image={`/images/projects/${project.slug}/1.PNG`}
-          description={project.description}
-        /> */}
+      <SEO
+        title={`${project.name} - Md Shahriyar Alam`}
+        image={`/images/projects/${project.slug}/1.PNG`}
+        description={project.description}
+      />
       <ProjectDetails project={project} />
     </>
   )

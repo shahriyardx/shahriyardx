@@ -49,7 +49,7 @@ const DashboardPostCreate = () => {
       if (file) {
         const reader = new FileReader()
         reader.readAsDataURL(file)
-        reader.onload = (e) => {
+        reader.onload = () => {
           setThumbnail(reader.result?.toString() as string)
         }
       }
@@ -148,7 +148,9 @@ const DashboardPostCreate = () => {
                 >
                   <option value="">Select Category</option>
                   {categories?.map((cat) => (
-                    <option value={cat.id}>{cat.name}</option>
+                    <option key={cat.id} value={cat.id}>
+                      {cat.name}
+                    </option>
                   ))}
                 </select>
               </div>

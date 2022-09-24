@@ -3,7 +3,7 @@ import React from "react"
 import { GetStaticPaths, GetStaticProps } from "next"
 
 import moment from "moment"
-import Markdown from "marked-react" // @ts-ignore
+import Markdown from "marked-react" //@ts-expect-error("idk why error")
 import Lowlight from "react-lowlight"
 
 import prisma from "server/prisma"
@@ -12,13 +12,13 @@ import { BiUser, BiTime } from "react-icons/bi"
 
 import Main from "layouts/Main"
 import SEO from "components/shared/SEO"
-import Container from "components/shared/Container" // @ts-ignore
+import Container from "components/shared/Container"
 
 import "react-lowlight/common"
-import "highlight.js/styles/atom-one-dark.css" // @ts-ignore
-import python from "highlight.js/lib/languages/python" // @ts-ignore
-import markdown from "highlight.js/lib/languages/markdown" // @ts-ignore
-import javascript from "highlight.js/lib/languages/javascript" // @ts-ignore
+import "highlight.js/styles/atom-one-dark.css" // @ts-expect-error("idk why error")
+import python from "highlight.js/lib/languages/python" // @ts-expect-error("idk why error")
+import markdown from "highlight.js/lib/languages/markdown" // @ts-expect-error("idk why error")
+import javascript from "highlight.js/lib/languages/javascript"
 
 type Props = {
   post: Post & { category: Category }
@@ -33,7 +33,7 @@ const SinglePost = ({ post }: Props) => {
     code(snippet: any, lang: any) {
       return (
         <Lowlight
-          // @ts-ignore
+          // @ts-expect-error("idk why error")
           key={this.elementId as string}
           language={lang}
           value={snippet}

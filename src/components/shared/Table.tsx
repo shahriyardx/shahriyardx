@@ -12,17 +12,24 @@ const Table = ({ fields, values, thClass, noFieldText }: Props) => {
     <table className="w-full border-2 border-zinc-800">
       <thead className="bg-zinc-800 text-zinc-400">
         <tr>
-          {fields.map((field) => (
-            <th className={`px-5 py-3 text-left ${thClass}`}>{field}</th>
+          {fields.map((field, index) => (
+            <th key={index} className={`px-5 py-3 text-left ${thClass}`}>
+              {field}
+            </th>
           ))}
         </tr>
       </thead>
 
       <tbody>
-        {values?.map((val) => (
-          <tr className="even:bg-black/20 cursor-pointer hover:bg-black/50">
-            {val.map((v) => (
-              <td className="px-5 py-2">{v}</td>
+        {values?.map((val, index) => (
+          <tr
+            key={index}
+            className="even:bg-black/20 cursor-pointer hover:bg-black/50"
+          >
+            {val.map((v, index) => (
+              <td key={index} className="px-5 py-2">
+                {v}
+              </td>
             ))}
           </tr>
         ))}

@@ -1,4 +1,4 @@
-import React, { useRef, ChangeEvent } from "react"
+import React, { useRef } from "react"
 import TextareaMarkdown, { TextareaMarkdownRef } from "textarea-markdown-editor"
 import TextareaAutosize from "react-textarea-autosize"
 import Toolbar from "./Toolbar"
@@ -10,10 +10,6 @@ type Props = {
 
 const TextEditor = ({ value, setValue }: Props) => {
   const mdref = useRef<TextareaMarkdownRef>(null)
-
-  const handleContentChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    setValue(event.target.value)
-  }
 
   const mdCommand = (command: string) => {
     mdref.current?.trigger(command)

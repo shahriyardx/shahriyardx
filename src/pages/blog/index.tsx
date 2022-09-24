@@ -13,7 +13,7 @@ const BlogPage = () => {
       <div className="py-5 px-10">
         <div className="grid grid-cols-2 gap-5 max-w-6xl mx-auto">
           {posts?.map((post, index) => (
-            <PostCard post={post} index={index} />
+            <PostCard key={index} post={post} index={index} />
           ))}
         </div>
       </div>

@@ -33,7 +33,7 @@ export const uploadImage = async ({
         })
     } catch (error) {
       onFinish()
-      resolve(null)
+      reject(null)
     }
   })
 }

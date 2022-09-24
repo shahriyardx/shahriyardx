@@ -4,7 +4,6 @@ import Button from "components/shared/Button"
 import Modal from "components/shared/Modal"
 import Table from "components/shared/Table"
 import Dashboard from "layouts/dashboard"
-import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import React, { useState } from "react"
@@ -43,7 +42,7 @@ const DashboardPostsPage = () => {
         </DashPageHeader>
 
         <div className="mt-5">
-          <Table
+          {/* <Table
             fields={["SL", "Title", "Category", "Image", "Action"]}
             values={
               posts?.length
@@ -86,7 +85,7 @@ const DashboardPostsPage = () => {
                 : []
             }
             noFieldText="No Posts"
-          />
+          /> */}
         </div>
       </div>
 

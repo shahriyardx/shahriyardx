@@ -21,7 +21,7 @@ const sendMail = async (message: MailOptions) => {
     transport.sendMail(message, (error, info) => {
       if (error) {
         console.log(`Error ${error}`)
-        resolve(false)
+        reject(false)
       } else {
         console.log(`Email sent ${info.response}`)
         resolve(true)
