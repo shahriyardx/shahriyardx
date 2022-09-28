@@ -13,6 +13,7 @@ import { trpc } from "utils/trpc"
 import { useRouter } from "next/router"
 import { usePostDetails } from "hooks/usePostDetails"
 import { uploadImage } from "utils/uploader"
+import DashPageHeader from "components/dashboard/shared/PageHeader"
 
 const DashboardPostEdit = () => {
   const [title, setTitle] = useState("Very cool title")
@@ -110,15 +111,13 @@ const DashboardPostEdit = () => {
 
   return (
     <Dashboard>
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold">Create Post</h1>
-
-        <Link href="/dashboard/posts">
-          <a className="flex items-center gap-1 text-xs px-3 py-2 bg-indigo-500 text-white rounded-md">
+      <DashPageHeader title="Edit Post">
+        <Link href="/dashboard/post">
+          <a className="button text-xs px-3 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-md">
             <BiChevronLeft className="text-lg" /> Posts
           </a>
         </Link>
-      </div>
+      </DashPageHeader>
 
       <div className="container grid grid-cols-3 gap-5 mt-5">
         <div className="col-span-2">
