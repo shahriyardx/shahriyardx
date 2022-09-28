@@ -73,7 +73,7 @@ const DashboardPostsPage = () => {
                           setDelPost(post)
                           setDelModalOpen(true)
                         }}
-                        className="bg-red-700 hover:bg-red-600 px-3 py-2"
+                        className="bg-red-700 hover:bg-red-600 !px-3 !py-2"
                       >
                         Delete
                       </Button>

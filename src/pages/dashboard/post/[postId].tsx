@@ -248,8 +248,8 @@ const DashboardPostEdit = () => {
               {uploading
                 ? "Uploading..."
                 : isLoading
-                ? "Creating..."
-                : "Create Post"}
+                ? "Updating..."
+                : "Update Post"}
             </span>
           </button>
         </div>
