@@ -93,38 +93,25 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string
 
-  try {
-    const data = await prisma.post.findUnique({
-      where: {
-        slug: slug,
-      },
-    })
+  const data = await prisma.post.findUnique({
+    where: {
+      slug: slug,
+    },
+  })
 
-    if (!data) {
-      return {
-        redirect: {
-          destination: "/blog",
-          permanent: false,
-        },
-      }
+  if (!data) {
+    return {
+      notFound: true,
     }
+  }
 
-    return {
-      props: {
-        post: {
-          ...data,
-          createdAt: data.createdAt.toISOString(),
-          updatedAt: data.updatedAt.toISOString(),
-        },
+  return {
+    props: {
+      post: {
+        ...data,
+        createdAt: data.createdAt.toISOString(),
+        updatedAt: data.updatedAt.toISOString(),
       },
-      revalidate: 600,
-    }
-  } catch (err) {
-    return {
-      redirect: {
-        destination: "/blog",
-        permanent: false,
-      },
-    }
+    },
   }
 }

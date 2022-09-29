@@ -41,20 +41,25 @@ export const postRouter = createRouter()
     input: postUpdateSchema,
     async resolve({ ctx, input }) {
       const { id, ...data } = input
-      const oldSlug = data.slug
 
-      await ctx.prisma.post.update({
-        where: {
-          id: id,
-        },
-        data: {
-          ...data,
-          thumbnail: data.thumbnail || null,
-        },
+      const post = await ctx.prisma.post.findUnique({
+        where: { id },
       })
 
-      await ctx.res.revalidate(`/blog/${oldSlug}`)
-      await ctx.res.revalidate(`/blog/${data.slug}`)
+      if (post) {
+        await ctx.prisma.post.update({
+          where: {
+            id: id,
+          },
+          data: {
+            ...data,
+            thumbnail: data.thumbnail || null,
+          },
+        })
+
+        await ctx.res.revalidate(`/blog/${post.slug}`)
+        await ctx.res.revalidate(`/blog/${data.slug}`)
+      }
     },
   })
   .mutation("delById", {
