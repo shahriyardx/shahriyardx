@@ -65,7 +65,7 @@ const Header = () => {
               GitHub
             </IconLink>
             <IconLink
-              href="https://www.linkedin.com/in/shahriyardx/"
+              href="https://www.linkedin.com/in/devshahriyar/"
               icon={AiFillLinkedin}
             >
               LinkedIn
