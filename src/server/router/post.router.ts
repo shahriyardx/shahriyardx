@@ -30,15 +30,18 @@ export const postRouter = createRouter()
   .mutation("create", {
     input: postSchema,
     async resolve({ ctx, input }) {
-      await ctx.prisma.post.create({
+      const data = await ctx.prisma.post.create({
         data: input,
       })
+
+      await ctx.res.revalidate(`/blog/${data.slug}`)
     },
   })
   .mutation("update", {
     input: postUpdateSchema,
     async resolve({ ctx, input }) {
       const { id, ...data } = input
+      const oldSlug = data.slug
 
       await ctx.prisma.post.update({
         where: {
@@ -49,6 +52,9 @@ export const postRouter = createRouter()
           thumbnail: data.thumbnail || null,
         },
       })
+
+      await ctx.res.revalidate(`/blog/${oldSlug}`)
+      await ctx.res.revalidate(`/blog/${data.slug}`)
     },
   })
   .mutation("delById", {

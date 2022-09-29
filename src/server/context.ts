@@ -1,12 +1,15 @@
 // src/server/router/context.ts
 import * as trpc from "@trpc/server"
 import * as trpcNext from "@trpc/server/adapters/next"
+import { NextApiRequest, NextApiResponse } from "next"
 import { Session } from "next-auth"
 import { getServerAuthSession } from "./common/getServerAuthSession"
 import prisma from "./prisma"
 
 type CreateContextOptions = {
   session: Session | null
+  req: NextApiRequest
+  res: NextApiResponse
 }
 
 /** Use this helper for:
@@ -16,6 +19,8 @@ type CreateContextOptions = {
 export const createContextInner = async (opts: CreateContextOptions) => {
   return {
     session: opts.session,
+    req: opts.req,
+    res: opts.res,
     prisma,
   }
 }
@@ -34,27 +39,11 @@ export const createContext = async (
 
   return await createContextInner({
     session,
+    req,
+    res,
   })
 }
 
 type Context = trpc.inferAsyncReturnType<typeof createContext>
 
 export const createRouter = () => trpc.router<Context>()
-
-/**
- * Creates a tRPC router that asserts all queries and mutations are from an authorized user. Will throw an unauthorized error if a user is not signed in.
- **/
-export function createProtectedRouter() {
-  return createRouter().middleware(({ ctx, next }) => {
-    if (!ctx.session || !ctx.session.user) {
-      throw new trpc.TRPCError({ code: "UNAUTHORIZED" })
-    }
-    return next({
-      ctx: {
-        ...ctx,
-        // infers that `session` is non-nullable to downstream resolvers
-        session: { ...ctx.session, user: ctx.session.user },
-      },
-    })
-  })
-}

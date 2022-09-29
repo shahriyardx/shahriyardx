@@ -12,7 +12,7 @@ const BlogPage = () => {
   return (
     <Main>
       <SEO title="Blog" description="Go and read please..." />
-      <div className="p-5">
+      <div className="p-5 pb-20">
         <h1 className="text text-4xl font-bold mt-10 mb-10 text-center">
           Blog
         </h1>

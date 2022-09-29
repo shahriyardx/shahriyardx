@@ -76,7 +76,9 @@ const SinglePost = ({ post }: Props) => {
 export default SinglePost
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await prisma.post.findMany()
+  const posts = await prisma.post.findMany({
+    take: 1,
+  })
 
   const paths = posts.map((post) => {
     return { params: { slug: post.slug } }

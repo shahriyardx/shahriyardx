@@ -17,8 +17,8 @@ const PostCard = ({ post, index }: Props) => {
           index === 0 && "md:col-span-2"
         } bg-zinc-900 rounded-lg`}
       >
-        <div className="relative">
-          {post.thumbnail && (
+        <div className={`${!post.thumbnail && "hidden sm:block"}`}>
+          {post.thumbnail ? (
             <Image
               src={post.thumbnail}
               alt="Image"
@@ -26,6 +26,14 @@ const PostCard = ({ post, index }: Props) => {
               height={index === 0 ? 324 : 216}
               className="w-full aspect-video h-full rounded-md overflow-hidden object-cover"
             />
+          ) : (
+            <div className="text-8xl font-bold text-zinc-700 uppercase grid place-items-center h-full">
+              {post.title
+                .split(" ")
+                .map((x) => x[0])
+                .slice(0, 2)
+                .join("")}
+            </div>
           )}
         </div>
 
