@@ -61,7 +61,7 @@ const SinglePost = ({ post }: Props) => {
           <div className="flex gap-2 text-sm text-zinc-300 items-center">
             <BiTime className="text-base text-accent" />{" "}
             <span className="createdAt tracking-tighter">
-              {moment(post.createdAt).format("MMMM d, YYYY")}
+              {moment(post.createdAt).format("MMMM DD, YYYY")}
             </span>
           </div>
         </div>
