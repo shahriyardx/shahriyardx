@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form"
 import { BiLoaderAlt, BiMailSend } from "react-icons/bi"
 
 import SEO from "components/shared/SEO"
-import Main from "layouts/Main"
+import Main from "components/layouts/Main"
 import Container from "components/shared/Container"
 
 const container = {

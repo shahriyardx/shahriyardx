@@ -1,4 +1,4 @@
-import Main from "layouts/Main"
+import Main from "components/layouts/Main"
 import React from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"

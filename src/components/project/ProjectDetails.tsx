@@ -1,6 +1,6 @@
 import React from "react"
 import Container from "components/shared/Container"
-import Main from "layouts/Main"
+import Main from "components/layouts/Main"
 import Image from "next/image"
 import { BiLink } from "react-icons/bi"
 import { Project } from "data/projects"

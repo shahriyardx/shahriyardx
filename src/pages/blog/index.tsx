@@ -2,7 +2,7 @@ import React from "react"
 
 import { trpc } from "utils/trpc"
 
-import Main from "layouts/Main"
+import Main from "components/layouts/Main"
 import PostCard from "components/blog/PostCard"
 import SEO from "components/shared/SEO"
 

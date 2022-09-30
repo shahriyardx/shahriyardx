@@ -10,7 +10,7 @@ import prisma from "server/prisma"
 import { Post, Category } from "@prisma/client"
 import { BiUser, BiTime } from "react-icons/bi"
 
-import Main from "layouts/Main"
+import Main from "components/layouts/Main"
 import SEO from "components/shared/SEO"
 import Container from "components/shared/Container"
 

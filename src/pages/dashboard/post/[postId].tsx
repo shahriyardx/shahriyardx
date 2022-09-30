@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from "react"
 import Link from "next/link"
 
-import Dashboard from "layouts/dashboard"
+import Dashboard from "components/layouts/Dashboard"
 import { BiCamera, BiChevronLeft, BiLoaderAlt, BiX } from "react-icons/bi"
 import Flex from "components/shared/Flex"
 import LabeledInput from "components/dashboard/posts/LabeledInput"
