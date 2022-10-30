@@ -14,7 +14,7 @@ const Projects = () => {
           <h1 className="text-4xl font-bold text-zinc-300">Recent Projects</h1>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 px-5">
           {renderRrojects.map((project) => (
             <Project key={project.slug} project={project} />
           ))}
