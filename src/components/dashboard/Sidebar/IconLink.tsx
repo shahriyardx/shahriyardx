@@ -23,18 +23,19 @@ const IconLink = (props: Props) => {
   const _active = props.active ? props.active : props.href === router.asPath
 
   return (
-    <Link
-      href={props.href}
-      className={`flex items-center gap-3 px-4 py-3 rounded-md
-      hover:bg-zinc-800 group
-        ${_active && "bg-zinc-900"}
-        ${props.className}
-      `}
-    >
-      <Icon
-        className={`${props.iconClassname} text-xl group-hover:scale-125 transition-all`}
-      />
-      <span className={`${props.textClassName}`}>{props.text}</span>
+    <Link href={props.href}>
+      <div
+        className={`flex items-center gap-3 px-4 py-3 rounded-md
+        hover:bg-zinc-800 group
+          ${_active && "bg-zinc-900"}
+          ${props.className}
+        `}
+      >
+        <Icon
+          className={`${props.iconClassname} text-xl group-hover:scale-125 transition-all`}
+        />
+        <span className={`${props.textClassName}`}>{props.text}</span>
+      </div>
     </Link>
   )
 }

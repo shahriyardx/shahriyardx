@@ -112,11 +112,10 @@ const DashboardPostEdit = () => {
   return (
     <Dashboard>
       <DashPageHeader title="Edit Post">
-        <Link
-          href="/dashboard/post"
-          className="button text-xs px-3 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-md"
-        >
-          <BiChevronLeft className="text-lg" /> Posts
+        <Link href="/dashboard/post">
+          <span className="button text-xs px-3 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-md">
+            <BiChevronLeft className="text-lg" /> <span>Posts</span>
+          </span>
         </Link>
       </DashPageHeader>
 

@@ -25,9 +25,11 @@ const Header = () => {
     <div className="h-16 bg-primary text-slate-200 flex items-center z-50">
       <Container className="px-3 flex items-center">
         <div>
-          <Link href="/" className="flex gap-1 uppercase text-lg">
-            <span className="font-bold text-white">Shahriyar</span>
-            <span className="text-slate-200 font-thin">Alam</span>
+          <Link href="/">
+            <div className="flex gap-1 uppercase text-lg">
+              <span className="font-bold text-white">Shahriyar</span>
+              <span className="text-slate-200 font-thin">Alam</span>
+            </div>
           </Link>
         </div>
 

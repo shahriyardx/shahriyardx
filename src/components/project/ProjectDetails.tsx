@@ -49,9 +49,7 @@ const ProjectDetails = ({ project }: Props) => {
                     width={500}
                     height={300}
                     alt="Roktoo"
-                    className="rounded-md"
-                    objectFit="cover"
-                    layout="responsive"
+                    className="rounded-md object-cover"
                   />
                 </div>
               )

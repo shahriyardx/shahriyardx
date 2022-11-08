@@ -35,11 +35,10 @@ const DashboardPostsPage = () => {
     <Dashboard>
       <div className="h-[200vh]">
         <DashPageHeader title="Posts">
-          <Link
-            href={`${router.asPath}/create`}
-            className="button text-xs px-3 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-md"
-          >
-            <BiPlus className="text-lg" /> Create Post
+          <Link href={`${router.asPath}/create`}>
+            <span className="button text-xs px-3 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-md">
+              <BiPlus className="text-lg" /> <span>Create Post</span>
+            </span>
           </Link>
         </DashPageHeader>
 
