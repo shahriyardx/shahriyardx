@@ -4,7 +4,7 @@ import Button from "components/shared/Button"
 import Modal from "components/shared/Modal"
 import Table from "components/shared/Table"
 import Dashboard from "components/layouts/Dashboard"
-import Image from "next/future/image"
+import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import React, { useState } from "react"
@@ -35,10 +35,11 @@ const DashboardPostsPage = () => {
     <Dashboard>
       <div className="h-[200vh]">
         <DashPageHeader title="Posts">
-          <Link href={`${router.asPath}/create`}>
-            <a className="button text-xs px-3 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-md">
-              <BiPlus className="text-lg" /> Create Post
-            </a>
+          <Link
+            href={`${router.asPath}/create`}
+            className="button text-xs px-3 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-md"
+          >
+            <BiPlus className="text-lg" /> Create Post
           </Link>
         </DashPageHeader>
 
@@ -62,10 +63,11 @@ const DashboardPostsPage = () => {
                       />
                     ) : null,
                     <div key={index} className="flex items-center gap-2">
-                      <Link href={`${router.asPath}/${post.id}`}>
-                        <a className="button px-3 py-2 bg-zinc-700 hover:bg-zinc-600">
-                          Edit
-                        </a>
+                      <Link
+                        href={`${router.asPath}/${post.id}`}
+                        className="button px-3 py-2 bg-zinc-700 hover:bg-zinc-600"
+                      >
+                        Edit
                       </Link>
 
                       <Button

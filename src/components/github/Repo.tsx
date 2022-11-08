@@ -1,7 +1,6 @@
 import React from "react"
 import { BiBookBookmark, BiGitRepoForked, BiStar } from "react-icons/bi"
 import { motion } from "framer-motion"
-import { Repo } from "pages/github"
 
 const colorMap: { [key: string]: string } = {
   CSS: "#186CAB",
@@ -12,8 +11,18 @@ const colorMap: { [key: string]: string } = {
   SCSS: "#C45F92",
 }
 
+export type RepoType = {
+  id: string
+  name: string
+  description: string
+  html_url: string
+  language: string
+  stargazers_count: number
+  forks_count: string
+}
+
 type Props = {
-  repo: Repo
+  repo: RepoType
 }
 
 const Repo = ({ repo }: Props) => {

@@ -8,18 +8,17 @@ const TextLink = ({ href, children, className }: Props) => {
   const { pathname } = useRouter()
 
   return (
-    <Link href={href}>
-      <a
-        className={`text-base flex gap-1 ${className || ""} ${
-          pathname == href && "text-accent"
-        } hover:text-accent`}
-      >
-        <span>{pathname == href && "<"}</span>
+    <Link
+      href={href}
+      className={`text-base flex gap-1 ${className || ""} ${
+        pathname == href && "text-accent"
+      } hover:text-accent`}
+    >
+      <span>{pathname == href && "<"}</span>
 
-        <span>{children}</span>
+      <span>{children}</span>
 
-        <span>{pathname == href && ">"}</span>
-      </a>
+      <span>{pathname == href && ">"}</span>
     </Link>
   )
 }

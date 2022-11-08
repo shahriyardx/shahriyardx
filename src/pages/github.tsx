@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import GitHeader from "components/github/GitHeader"
 import Container from "components/shared/Container"
-import Repo from "components/github/Repo"
+import Repo, { RepoType } from "components/github/Repo"
 import GitProfile from "components/github/GitProfile"
 import { motion, AnimatePresence } from "framer-motion"
 import { debounce } from "lodash"
@@ -18,19 +18,9 @@ export type User = {
   login: string
 }
 
-export type Repo = {
-  id: string
-  name: string
-  description: string
-  html_url: string
-  language: string
-  stargazers_count: number
-  forks_count: string
-}
-
 type Props = {
   user: User
-  repos: Repo[]
+  repos: RepoType[]
 }
 
 const Github = ({ repos, user }: Props) => {

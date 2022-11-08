@@ -34,7 +34,7 @@ const Banner = () => {
 
             <div className="flex items-center gap-5 mt-5 sm:mt-10">
               <Link href="/cv" passHref>
-                <motion.a
+                <motion.p
                   initial={{ y: 30 }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.6 }}
@@ -42,17 +42,17 @@ const Banner = () => {
                 >
                   <AiOutlineCloudDownload className="text-xl animate-bounce -mb-2" />
                   <span>Download Resume</span>
-                </motion.a>
+                </motion.p>
               </Link>
               <Link href="/contact" passHref>
-                <motion.a
+                <motion.p
                   initial={{ y: 30 }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8 }}
                   className="text-zinc-200 underline underline-offset-2 uppercase mt-5 text-sm sm:text-base"
                 >
                   <span>Let&apos;s Chat</span>
-                </motion.a>
+                </motion.p>
               </Link>
             </div>
           </div>

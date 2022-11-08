@@ -124,10 +124,12 @@ const Void = () => {
           transition={{ delay: 2 }}
           className="mt-5"
         >
-          <Link href="/" passHref>
-            <a className="px-5 py-2 bg-zinc-900 hover:bg-black text-zinc-300 text-lg font-semibold rounded-md inline-block">
-              Go home
-            </a>
+          <Link
+            href="/"
+            passHref
+            className="px-5 py-2 bg-zinc-900 hover:bg-black text-zinc-300 text-lg font-semibold rounded-md inline-block"
+          >
+            Go home
           </Link>
         </motion.div>
       </div>

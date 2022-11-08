@@ -109,7 +109,7 @@ const About = () => {
               >
                 Then please send me a message{" "}
                 <Link href="/contact" passHref>
-                  <a>Click Here</a>
+                  Click Here
                 </Link>
               </motion.p>
             </motion.div>

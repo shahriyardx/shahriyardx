@@ -29,7 +29,7 @@ const GitFilter = ({ language, languages, setFilter, updateQuery }: Props) => {
               `}
           >
             <span>{lang}</span>
-            {lang === language && (
+            {lang && lang === language && (
               <span className="bg-zinc-600 text-white">
                 <BiX
                   onClick={(e) => {

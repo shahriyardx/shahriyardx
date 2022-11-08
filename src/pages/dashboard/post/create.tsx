@@ -107,10 +107,11 @@ const DashboardPostCreate = () => {
   return (
     <Dashboard>
       <DashPageHeader title="Posts">
-        <Link href="/dashboard/post">
-          <a className="button text-xs px-3 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-md">
-            <BiChevronLeft className="text-lg" /> Posts
-          </a>
+        <Link
+          href="/dashboard/post"
+          className="button text-xs px-3 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-md"
+        >
+          <BiChevronLeft className="text-lg" /> Posts
         </Link>
       </DashPageHeader>
 

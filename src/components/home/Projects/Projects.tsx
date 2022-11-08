@@ -6,6 +6,7 @@ import { BiChevronDown } from "react-icons/bi"
 const Projects = () => {
   const [showAll, setShowAll] = useState(false)
   const renderRrojects = showAll ? projects : projects.slice(0, 6)
+
   return (
     <div className="bg-secondary">
       <div className="max-w-6xl mx-auto py-10 md:py-20">
