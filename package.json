@@ -5,7 +5,7 @@
   "engineStrict": true,
    "engines": {
     "npm": "Please use yarn",
-    "yarn": ">= 1.22.19",
+    "yarn": ">= 1.22.18",
     "node": ">= 16.13.0"
   },
   "scripts": {
@@ -13,7 +13,7 @@
     "dev": "next dev",
     "postinstall": "prisma generate",
     "lint": "next lint",
-    "start": "next start -p 6969",
+    "start": "next start",
     "deploy": "pm2 stop shah && git pull && prisma generate && prisma db push && next build && pm2 start shah"
   },
   "dependencies": {
