@@ -1,5 +1,5 @@
 # Ignore dockerfile for now
-Dockerfile
+# Dockerfile
 
 # dependencies
 /node_modules
