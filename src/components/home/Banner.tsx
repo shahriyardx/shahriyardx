@@ -33,7 +33,7 @@ const Banner = () => {
             </p>
 
             <div className="flex items-center gap-5 mt-5 sm:mt-10">
-              <Link href="/cv" passHref>
+              <a href="/Resume.pdf">
                 <motion.p
                   initial={{ y: 30 }}
                   animate={{ y: 0 }}
@@ -43,7 +43,7 @@ const Banner = () => {
                   <AiOutlineCloudDownload className="text-xl animate-bounce -mb-2" />
                   <span>Download Resume</span>
                 </motion.p>
-              </Link>
+              </a>
               <Link href="/contact" passHref>
                 <motion.p
                   initial={{ y: 30 }}
@@ -73,8 +73,7 @@ const Banner = () => {
             width={500}
             height={500}
             alt="Me"
-            className="rounded-full w-full aspect-square"
-            objectFit="contain"
+            className="rounded-full w-full aspect-square object-contain"
           />
         </motion.div>
       </Container>

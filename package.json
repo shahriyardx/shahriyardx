@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engineStrict": true,
-   "engines": {
+  "engines": {
     "npm": "Please use yarn",
     "yarn": ">= 1.22.18",
     "node": ">= 16.13.0"
@@ -43,7 +43,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.36.1",
     "react-hot-toast": "^2.4.0",
-    "react-icons": "^4.4.0",
+    "react-icons": "^4.6.0",
     "react-lowlight": "^3.0.0",
     "react-query": "^3.39.2",
     "react-textarea-autosize": "^8.3.4",
