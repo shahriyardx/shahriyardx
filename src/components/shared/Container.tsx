@@ -2,7 +2,7 @@ import React from "react"
 
 type Props = {
   className?: string
-  children: any
+  children: React.ReactNode | React.ReactNode[]
 }
 
 const Container = ({ className, children, ...props }: Props) => {

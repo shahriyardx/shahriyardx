@@ -1,11 +1,11 @@
 import React from "react"
 
-import { GetStaticPaths, GetStaticProps } from "next"
+import { type GetStaticPaths, type GetStaticProps } from "next"
 
 import SEO from "components/shared/SEO"
 import ProjectDetails from "components/project/ProjectDetails"
 
-import { Project } from "data/projects"
+import { type Project } from "data/projects"
 import projects from "data/projects"
 
 type Props = {

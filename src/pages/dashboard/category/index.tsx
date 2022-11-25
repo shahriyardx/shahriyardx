@@ -1,4 +1,4 @@
-import { Category } from "@prisma/client"
+import { type Category } from "@prisma/client"
 import DashPageHeader from "components/dashboard/shared/PageHeader"
 import Button from "components/shared/Button"
 import Modal from "components/shared/Modal"
@@ -19,8 +19,7 @@ const DashboardCategoryPage = () => {
   const [delModalOpen, setDelModalOpen] = useState<boolean>(false)
   const { categories, refetch } = useCategories()
 
-  const { mutate: addCategory, isLoading } = trpc.useMutation(
-    ["category.create"],
+  const { mutate: addCategory, isLoading } = trpc.category.create.useMutation(
     {
       onSuccess: () => {
         refetch()
@@ -32,7 +31,7 @@ const DashboardCategoryPage = () => {
     }
   )
 
-  const { mutate: delCategory } = trpc.useMutation(["category.delById"], {
+  const { mutate: delCategory } = trpc.category.delById.useMutation({
     onSuccess: () => {
       refetch()
       toast.success("category deleted")
@@ -43,7 +42,7 @@ const DashboardCategoryPage = () => {
     },
   })
 
-  const { mutate: updateCategory } = trpc.useMutation(["category.update"], {
+  const { mutate: updateCategory } = trpc.category.update.useMutation({
     onSuccess: () => {
       refetch()
       toast.success("category updated")

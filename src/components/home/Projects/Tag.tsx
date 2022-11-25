@@ -1,6 +1,6 @@
 import React from "react"
 
-const tagMap: { [key: string]: any } = {
+const tagMap: { [key: string]: {bg: string;text: string}} = {
   HTML: {
     bg: "bg-[#F53900]/20",
     text: "text-[#F53900]",
@@ -40,7 +40,8 @@ const tagMap: { [key: string]: any } = {
 }
 
 const Tag = ({ text }: { text: string }) => {
-  const { bg: bgColor, text: textColor } = tagMap[text]
+  const _colors = tagMap[text] as { bg: string; text: string }
+  const { bg: bgColor, text: textColor } = _colors
   const styles = `${bgColor} ${textColor}`
   return (
     <div className={`px-2 py-1 rounded-lg text-xs ${styles} cursor-pointer`}>

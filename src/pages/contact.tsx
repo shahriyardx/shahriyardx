@@ -2,7 +2,7 @@ import React, { useState } from "react"
 
 import toast from "react-hot-toast"
 import { motion } from "framer-motion"
-import { useForm } from "react-hook-form"
+import { type SubmitHandler, useForm } from "react-hook-form"
 import { BiLoaderAlt, BiMailSend } from "react-icons/bi"
 
 import SEO from "components/shared/SEO"
@@ -25,6 +25,13 @@ const item = {
   show: { y: 0 },
 }
 
+type MailData = {
+  name: string
+  email: string
+  subject: string
+  text: string 
+}
+
 const Contact = () => {
   const [sending, setSending] = useState(false)
   const SendIcon = sending ? BiLoaderAlt : BiMailSend
@@ -41,9 +48,7 @@ const Contact = () => {
     text: string
   }>()
 
-  const sendMail = async (data: any) => {
-    setSending(true)
-
+  const actuallySendMail = async (data: MailData) => {
     const response = await fetch(`/api/mail`, {
       method: "POST",
       headers: {
@@ -60,6 +65,11 @@ const Contact = () => {
     } else {
       toast.error(response.message)
     }
+  }
+
+  const sendMail: SubmitHandler<MailData> = (data: MailData) => {
+    setSending(true)
+    actuallySendMail(data) 
   }
 
   return (

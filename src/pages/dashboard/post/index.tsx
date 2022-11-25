@@ -1,4 +1,4 @@
-import { Category, Post } from "@prisma/client"
+import { type Category, type Post } from "@prisma/client"
 import DashPageHeader from "components/dashboard/shared/PageHeader"
 import Button from "components/shared/Button"
 import Modal from "components/shared/Modal"
@@ -19,8 +19,8 @@ const DashboardPostsPage = () => {
     (Post & { category: Category }) | null
   >(null)
   const [delModalOpen, setDelModalOpen] = useState<boolean>(false)
-  const { data: posts, refetch } = trpc.useQuery(["post.all"])
-  const { mutate: deletePost, isLoading } = trpc.useMutation(["post.delById"], {
+  const { data: posts, refetch } = trpc.post.all.useQuery()
+  const { mutate: deletePost, isLoading } = trpc.post.delById.useMutation({
     onSuccess: () => {
       refetch()
       setDelModalOpen(false)

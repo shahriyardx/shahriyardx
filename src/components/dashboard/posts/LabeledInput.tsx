@@ -1,5 +1,5 @@
 import Flex from "components/shared/Flex"
-import React, { HTMLInputTypeAttribute } from "react"
+import React, { type HTMLInputTypeAttribute } from "react"
 
 type Props = {
   title: string
@@ -8,7 +8,7 @@ type Props = {
   type?: HTMLInputTypeAttribute
   id?: string
   error?: string
-  children?: any
+  children?: React.ReactNode | React.ReactNode[]
 }
 
 const LabeledInput = ({

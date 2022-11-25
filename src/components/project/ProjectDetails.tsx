@@ -3,7 +3,7 @@ import Container from "components/shared/Container"
 import Main from "components/layouts/Main"
 import Image from "next/image"
 import { BiLink } from "react-icons/bi"
-import { Project } from "data/projects"
+import { type Project } from "data/projects"
 
 type Props = {
   project: Project

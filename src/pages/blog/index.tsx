@@ -7,7 +7,7 @@ import PostCard from "components/blog/PostCard"
 import SEO from "components/shared/SEO"
 
 const BlogPage = () => {
-  const { data: posts } = trpc.useQuery(["post.all"])
+  const { data: posts } = trpc.post.all.useQuery()
 
   return (
     <Main>

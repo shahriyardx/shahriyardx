@@ -2,7 +2,7 @@ import React from "react"
 
 type Props = {
   title: string
-  children?: any
+  children?: React.ReactNode | React.ReactNode[]
 }
 
 const DashPageHeader = ({ title, children }: Props) => {

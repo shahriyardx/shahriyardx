@@ -5,8 +5,7 @@ type Props = {
   column?: boolean
   className?: string
   reverse?: boolean
-  children: any
-  [x: string]: any
+  children: React.ReactNode | React.ReactNode[]
 }
 
 const Flex = ({

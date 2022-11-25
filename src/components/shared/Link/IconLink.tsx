@@ -1,7 +1,7 @@
 import React from "react"
-import { IconType } from "react-icons"
+import { type IconType } from "react-icons"
 
-type Props = { icon: IconType; href: string; children: any; className?: string }
+type Props = { icon: IconType; href: string; children: React.ReactNode; className?: string }
 
 const IconLink = ({ icon, href, children, className }: Props) => {
   const Icon = icon

@@ -1,7 +1,7 @@
 import { env } from "env/server.mjs"
-import { NextApiRequest, NextApiResponse } from "next"
+import { type NextApiRequest, type NextApiResponse } from "next"
 import { createTransport } from "nodemailer"
-import { MailOptions } from "nodemailer/lib/smtp-transport"
+import { type MailOptions } from "nodemailer/lib/smtp-transport"
 import rateLimit from "utils/raterLimiter"
 
 const limiter = rateLimit()

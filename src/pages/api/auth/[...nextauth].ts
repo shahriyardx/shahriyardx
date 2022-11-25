@@ -1,7 +1,7 @@
 import NextAuth, { type NextAuthOptions } from "next-auth"
 import GithubProvider from "next-auth/providers/github"
 import { env } from "../../../env/server.mjs"
-import prisma from "server/prisma"
+import { prisma } from "server/db/client"
 
 export const authOptions: NextAuthOptions = {
   callbacks: {

@@ -1,5 +1,5 @@
 import React, { useRef } from "react"
-import TextareaMarkdown, { TextareaMarkdownRef } from "textarea-markdown-editor"
+import TextareaMarkdown, { type TextareaMarkdownRef } from "textarea-markdown-editor"
 import TextareaAutosize from "react-textarea-autosize"
 import Toolbar from "./Toolbar"
 

@@ -1,6 +1,6 @@
 import React from "react"
 import { motion } from "framer-motion"
-import { IconType } from "react-icons"
+import { type IconType } from "react-icons"
 
 const scale = {
   hidden: {

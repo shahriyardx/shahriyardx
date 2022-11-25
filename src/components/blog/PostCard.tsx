@@ -1,4 +1,4 @@
-import { Category, Post } from "@prisma/client"
+import { type Category, type Post } from "@prisma/client"
 import moment from "moment"
 import Image from "next/image"
 import Link from "next/link"

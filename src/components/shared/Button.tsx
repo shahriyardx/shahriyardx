@@ -1,9 +1,9 @@
 import React from "react"
 
 type Props = {
-  children: any
+  children: string
   className: string
-  [key: string]: any
+  [key: string]: string | CallableFunction | number  | boolean | null | undefined
 }
 
 const Button = ({ children, className, ...props }: Props) => {

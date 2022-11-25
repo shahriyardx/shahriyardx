@@ -2,7 +2,7 @@ import React from "react"
 
 type Props = {
   fields: Array<string>
-  values?: Array<Array<any>>
+  values?: Array<Array<React.ReactNode>>
   thClass?: string
   noFieldText: string
 }

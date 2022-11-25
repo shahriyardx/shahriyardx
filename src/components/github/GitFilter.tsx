@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react"
+import React, { type ChangeEvent } from "react"
 import { BiSearchAlt, BiX } from "react-icons/bi"
 
 type Props = {

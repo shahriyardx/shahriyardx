@@ -1,13 +1,13 @@
 import React from "react"
 
-import { GetStaticPaths, GetStaticProps } from "next"
+import { type GetStaticPaths, type GetStaticProps } from "next"
 
 import moment from "moment"
 import Markdown from "marked-react" //@ts-expect-error("idk why error")
 import Lowlight from "react-lowlight"
 
-import prisma from "server/prisma"
-import { Post, Category } from "@prisma/client"
+import { prisma } from "server/db/client"
+import { type Post, type Category } from "@prisma/client"
 import { BiUser, BiTime } from "react-icons/bi"
 
 import Main from "components/layouts/Main"
@@ -30,7 +30,7 @@ Lowlight.registerLanguage("md", markdown)
 
 const SinglePost = ({ post }: Props) => {
   const renderer = {
-    code(snippet: any, lang: any) {
+    code(snippet: string, lang: string) {
       return (
         <Lowlight
           // @ts-expect-error("idk why error")

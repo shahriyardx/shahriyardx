@@ -1,16 +1,20 @@
-import React from "react"
-import Link from "next/link"
-import { useRouter } from "next/router"
+import React from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-type Props = { href: string; children: any; className?: string }
+type Props = {
+  href: string;
+  children: React.ReactNode | React.ReactNode[];
+  className?: string;
+};
 
 const TextLink = ({ href, children, className }: Props) => {
-  const { pathname } = useRouter()
+  const { pathname } = useRouter();
 
   return (
     <Link href={href}>
       <div
-        className={`text-base flex gap-1 ${className || ""} ${
+        className={`flex gap-1 text-base ${className || ""} ${
           pathname == href && "text-accent"
         } hover:text-accent`}
       >
@@ -21,7 +25,7 @@ const TextLink = ({ href, children, className }: Props) => {
         <span>{pathname == href && ">"}</span>
       </div>
     </Link>
-  )
-}
+  );
+};
 
-export default TextLink
+export default TextLink;

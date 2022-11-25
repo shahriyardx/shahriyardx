@@ -1,71 +1,71 @@
-import React, { ChangeEvent, useEffect, useRef, useState } from "react"
-import Link from "next/link"
+import React, { type ChangeEvent, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
-import Dashboard from "components/layouts/Dashboard"
-import { BiCamera, BiChevronLeft, BiLoaderAlt, BiX } from "react-icons/bi"
-import Flex from "components/shared/Flex"
-import LabeledInput from "components/dashboard/posts/LabeledInput"
-import TextEditor from "components/dashboard/posts/TextEditor/TextEditor"
-import Image from "next/image"
-import { useCategories } from "hooks/useCategories"
-import { toast } from "react-hot-toast"
-import { trpc } from "utils/trpc"
-import DashPageHeader from "components/dashboard/shared/PageHeader"
-import { uploadImage } from "utils/uploader"
+import Dashboard from "components/layouts/Dashboard";
+import { BiCamera, BiChevronLeft, BiLoaderAlt, BiX } from "react-icons/bi";
+import Flex from "components/shared/Flex";
+import LabeledInput from "components/dashboard/posts/LabeledInput";
+import TextEditor from "components/dashboard/posts/TextEditor/TextEditor";
+import Image from "next/image";
+import { useCategories } from "hooks/useCategories";
+import { toast } from "react-hot-toast";
+import { trpc } from "utils/trpc";
+import DashPageHeader from "components/dashboard/shared/PageHeader";
+import { uploadImage } from "utils/uploader";
 
 const DashboardPostCreate = () => {
-  const [title, setTitle] = useState("Very cool title")
-  const [meta_description, set_meta_description] = useState("")
-  const [slug, setSlug] = useState("")
-  const [categoryId, setCategory] = useState("")
-  const [content, setContent] = useState<string | undefined>(undefined)
-  const [thumbnail, setThumbnail] = useState<string | null>(null)
-  const [uploading, setUploading] = useState<boolean>(false)
+  const [title, setTitle] = useState("Very cool title");
+  const [meta_description, set_meta_description] = useState("");
+  const [slug, setSlug] = useState("");
+  const [categoryId, setCategory] = useState("");
+  const [content, setContent] = useState<string | undefined>(undefined);
+  const [thumbnail, setThumbnail] = useState<string | null>(null);
+  const [uploading, setUploading] = useState<boolean>(false);
 
-  const fileRef = useRef<HTMLInputElement>(null)
+  const fileRef = useRef<HTMLInputElement>(null);
 
-  const { categories } = useCategories()
+  const { categories } = useCategories();
 
-  const { mutate, isLoading } = trpc.useMutation(["post.create"], {
+  const { mutate, isLoading } = trpc.post.create.useMutation({
     onSuccess: () => {
-      setTitle("")
-      set_meta_description("")
-      fileRef.current ? (fileRef.current.value = "") : null
+      setTitle("");
+      set_meta_description("");
+      fileRef.current ? (fileRef.current.value = "") : null;
 
-      setContent("")
-      setThumbnail("")
-      setCategory("")
+      setContent("");
+      setThumbnail("");
+      setCategory("");
 
-      toast.success("post created")
+      toast.success("post created");
     },
     onError: () => {
-      toast.error("something went wrong")
+      toast.error("something went wrong");
     },
-  })
+  });
 
   const handleImageSelect = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      const file = e.target.files[0]
+      const file = e.target.files[0];
       if (file) {
-        const reader = new FileReader()
-        reader.readAsDataURL(file)
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
         reader.onload = () => {
-          setThumbnail(reader.result?.toString() as string)
-        }
+          setThumbnail(reader.result?.toString() as string);
+        };
       }
     }
-  }
+  };
 
   const addPost = async () => {
     if (!categoryId) {
-      return toast.error("please select a category")
+      return toast.error("please select a category");
     }
 
     if (!content) {
-      return toast.error("please type content")
+      return toast.error("please type content");
     }
 
-    let url = null
+    let url = null;
     if (thumbnail && fileRef.current) {
       if (fileRef.current.files) {
         url = await uploadImage({
@@ -73,13 +73,13 @@ const DashboardPostCreate = () => {
           file: fileRef.current.files[0] as File,
           onStart: () => setUploading(true),
           onFinish: () => setUploading(false),
-        })
+        });
 
         if (!url) {
-          return toast.error("Something went wrong while uploading the image")
+          return toast.error("Something went wrong while uploading the image");
         }
 
-        setThumbnail(url)
+        setThumbnail(url);
       }
     }
 
@@ -90,10 +90,10 @@ const DashboardPostCreate = () => {
       thumbnail: url ? url : undefined,
       content: content,
       categoryId,
-    }
+    };
 
-    mutate(postData)
-  }
+    mutate(postData);
+  };
 
   useEffect(() => {
     setSlug(
@@ -101,20 +101,20 @@ const DashboardPostCreate = () => {
         .toLowerCase()
         .replace(/ /g, "-")
         .replace(/[^\w-]+/g, "")
-    )
-  }, [title])
+    );
+  }, [title]);
 
   return (
     <Dashboard>
       <DashPageHeader title="Posts">
         <Link href="/dashboard/post">
-          <span className="button text-xs px-3 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-md">
+          <span className="button rounded-md bg-indigo-500 px-3 py-2 text-xs text-white hover:bg-indigo-600">
             <BiChevronLeft className="text-lg" /> <span>Posts</span>
           </span>
         </Link>
       </DashPageHeader>
 
-      <div className="container grid grid-cols-3 gap-5 mt-5">
+      <div className="container mt-5 grid grid-cols-3 gap-5">
         <div className="col-span-2">
           <Flex column className="gap-5">
             <div className="grid grid-cols-3 gap-5">
@@ -186,25 +186,25 @@ const DashboardPostCreate = () => {
             onChange={handleImageSelect}
             accept="image/png, image/jpeg, image/jpg"
           />
-          <div className="aspect-video rounded-md overflow-hidden border-2 border-zinc-700 relative isolate">
+          <div className="relative isolate aspect-video overflow-hidden rounded-md border-2 border-zinc-700">
             {thumbnail && (
               <div
                 onClick={() => {
-                  setThumbnail(null)
-                  fileRef.current ? (fileRef.current.value = "") : null
+                  setThumbnail(null);
+                  fileRef.current ? (fileRef.current.value = "") : null;
                 }}
-                className="absolute top-5 right-5 bg-red-500 w-6 h-6 z-10 grid place-items-center rounded-full cursor-pointer"
+                className="absolute top-5 right-5 z-10 grid h-6 w-6 cursor-pointer place-items-center rounded-full bg-red-500"
               >
-                <BiX className="text-white text-2xl z-10 " />
+                <BiX className="z-10 text-2xl text-white " />
               </div>
             )}
 
             <div
               onClick={() => fileRef.current?.click()}
               className={`
-                  w-[60px] h-[60px] 
-                  grid place-items-center group cursor-pointer rounded-full
-                  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10
+                  group absolute 
+                  top-1/2 left-1/2 z-10 grid h-[60px]
+                  w-[60px] -translate-x-1/2 -translate-y-1/2 cursor-pointer place-items-center rounded-full
                   ${
                     thumbnail
                       ? "bg-zinc-900 hover:bg-zinc-800"
@@ -235,9 +235,9 @@ const DashboardPostCreate = () => {
           <button
             onClick={addPost}
             disabled={isLoading}
-            className="button px-5 py-3 bg-black rounded-md flex items-center gap-2"
+            className="button flex items-center gap-2 rounded-md bg-black px-5 py-3"
           >
-            {isLoading && <BiLoaderAlt className="text-lg animate-spin" />}
+            {isLoading && <BiLoaderAlt className="animate-spin text-lg" />}
             <span>
               {uploading
                 ? "Uploading..."
@@ -249,7 +249,7 @@ const DashboardPostCreate = () => {
         </div>
       </div>
     </Dashboard>
-  )
-}
+  );
+};
 
-export default DashboardPostCreate
+export default DashboardPostCreate;
