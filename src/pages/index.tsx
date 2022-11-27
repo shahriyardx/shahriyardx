@@ -6,11 +6,8 @@ import Skills from "components/home/Skills/Skills";
 import Projects from "components/home/Projects/Projects";
 import CallToAction from "components/home/CallToAction/CallToAction";
 import SEO from "components/shared/SEO";
-import { api } from "../http";
+import { api } from "../utils/http";
 import { type ICollectionResponse, type IProject } from "types";
-import axios, { AxiosResponse } from "axios";
-import { env as serverEnv } from "env/server.mjs";
-import { env as clientEnv } from "env/client.mjs";
 
 type Props = {
   projects: Array<IProject>;
@@ -30,21 +27,15 @@ const Home = ({ projects }: Props) => {
 };
 
 export default Home;
-export const getServerSideProps: GetServerSideProps = async () => {
-  // const url = `${clientEnv.NEXT_PUBLIC_STRAPI_BASE}/api/projects`
-  const url = `http://localhost:1337/api/projects`
-  const response = await axios.get(url, {
-    headers: {
-      Authorization: `Bearer ${serverEnv.STRAPI_TOKEN}`
-    }
-  })
-  // const response : AxiosResponse<ICollectionResponse<Array<IProject>>> = await api.get(
-  //   "/api/projects?populate=*"
-  // );
-  console.log(response.data)
+
+export const getStaticProps: GetServerSideProps = async () => {
+  const { data: projects }: ICollectionResponse<Array<IProject>> = await api(
+    "/api/projects?populate=*"
+  );
+
   return {
     props: {
-      projects: [],
+      projects: projects,
     },
   };
 };

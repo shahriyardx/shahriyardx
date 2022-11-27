@@ -3,6 +3,7 @@ import Image from "next/image";
 import Tag from "./Tag";
 import Link from "next/link";
 import { IProject, ITag } from "types";
+import { env as clientEnv } from "env/client.mjs";
 
 const Project = ({ project }: { project: IProject }) => {
   const { id, attributes } = project;
@@ -23,7 +24,7 @@ const Project = ({ project }: { project: IProject }) => {
       >
         <div className="aspect-video w-full">
           <Image
-            src={`http://localhost:1337${thumbnail_img.attributes.formats.thumbnail.url}`}
+            src={`${clientEnv.NEXT_PUBLIC_STRAPI_BASE}${thumbnail_img.attributes.formats.thumbnail?.url}`}
             width={320}
             height={180}
             alt={name}

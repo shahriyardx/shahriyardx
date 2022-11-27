@@ -14,7 +14,7 @@ const config = {
     defaultLocale: "en",
   },
   images: {
-    domains: ["res.cloudinary.com", "avatars.githubusercontent.com", "localhost"],
+    domains: ["res.cloudinary.com", "avatars.githubusercontent.com", "localhost", "admin.shahriyar.dev"],
   },
 };
 export default config;

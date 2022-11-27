@@ -25,7 +25,7 @@ export interface Image {
     width: number;
     height: number;
     formats: {
-      [key: string]: ImageFormat
+      [key: string]: ImageFormat;
     };
     hash: string;
     ext: string;
@@ -55,21 +55,51 @@ export interface Images {
   data: Array<Image>;
 }
 
-export interface IProject extends TimeStamps, Images {
+export interface ICategoryAttributes extends TimeStamps {
+  title: string;
+  slug: string;
+}
+
+export interface ICategory {
   id: number;
-  attributes: {
-    name: string;
-    slug: string
-    short_description: string;
-    description: string;
-    live_url?: string;
-    repo_url?: string;
-    thumbnail: {
-      data: Image;
-    };
-    screenshots: { data: Array<Image> };
-    tags: { data: Array<ITag> };
+  attributes: ICategoryAttributes;
+}
+
+export interface IProjectAttributes extends TimeStamps {
+  name: string;
+  slug: string;
+  short_description: string;
+  description: string;
+  live_url?: string;
+  repo_url?: string;
+  thumbnail: {
+    data: Image;
   };
+  screenshots: { data: Array<Image> };
+  tags: { data: Array<ITag> };
+}
+
+export interface IProject {
+  id: number;
+  attributes: IProjectAttributes;
+}
+
+export interface IProjectAttributes extends TimeStamps {
+  title: string;
+  description: string;
+  content: string;
+  slug: string;
+  thumbnail: {
+    data: Image;
+  };
+  category: {
+    data: ICategory
+  };
+}
+
+export interface IPost {
+  id: number;
+  attributes: IProjectAttributes;
 }
 
 export interface ICollectionResponse<T> {

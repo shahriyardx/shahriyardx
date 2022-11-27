@@ -1,29 +1,44 @@
-import React from "react"
+import React from "react";
+import { type GetStaticProps } from "next";
 
-import { trpc } from "utils/trpc"
+import Main from "components/layouts/Main";
+import PostCard from "components/blog/PostCard";
+import SEO from "components/shared/SEO";
+import { type ICollectionResponse, type IPost } from "types";
+import { api } from "utils/http";
 
-import Main from "components/layouts/Main"
-import PostCard from "components/blog/PostCard"
-import SEO from "components/shared/SEO"
+type Props = {
+  posts: Array<IPost>;
+};
 
-const BlogPage = () => {
-  const { data: posts } = trpc.post.all.useQuery()
-
+const BlogPage = ({ posts }: Props) => {
   return (
     <Main>
       <SEO title="Blog" description="Go and read please..." />
       <div className="p-5 pb-20">
-        <h1 className="text text-4xl font-bold mt-10 mb-10 text-center">
+        <h1 className="text mt-10 mb-10 text-center text-4xl font-bold">
           Blog
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-6xl mx-auto">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5">
           {posts?.map((post, index) => (
-            <PostCard key={index} post={post} index={index} />
+            <PostCard key={index} post={post} />
           ))}
         </div>
       </div>
     </Main>
-  )
-}
+  );
+};
 
-export default BlogPage
+export default BlogPage;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { data: posts }: ICollectionResponse<Array<IPost>> = await api(
+    "/api/posts?populate=*"
+  );
+
+  return {
+    props: {
+      posts: posts,
+    },
+  };
+};

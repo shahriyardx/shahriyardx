@@ -1,92 +1,79 @@
-import { type Category, type Post } from "@prisma/client"
-import moment from "moment"
-import Image from "next/image"
-import Link from "next/link"
-import React from "react"
+import moment from "moment";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import { IPost } from "types";
+import { env } from "env/client.mjs";
 
 type Props = {
-  post: Post & { category: Category }
-  index: number
-}
+  post: IPost;
+};
 
-const PostCard = ({ post, index }: Props) => {
+const PostCard = ({ post }: Props) => {
+  const { id: _, attributes } = post;
+  const {
+    slug,
+    thumbnail: thumbnail_img,
+    category,
+    title,
+    description,
+    createdAt
+  } = attributes;
   return (
-    <Link href={`/blog/${post.slug}`} passHref>
+    <Link href={`/blog/${slug}`} passHref>
       <div
-        className={`grid grid-cols-1 md:grid-cols-2 gap-5 p-5 cursor-pointer ${
-          index === 0 && "md:col-span-2"
-        } bg-zinc-900 rounded-lg`}
+        className={`grid cursor-pointer grid-cols-1 sm:grid-cols-[250px,auto] gap-5 px-5 py-10 border-b-[1px] border-zinc-700`}
       >
-        <div className={`${!post.thumbnail && "hidden sm:block"}`}>
-          {post.thumbnail ? (
-            <Image
-              src={post.thumbnail}
-              alt="Image"
-              width={index === 0 ? 576 : 348}
-              height={index === 0 ? 324 : 216}
-              className="w-full aspect-video h-full rounded-md overflow-hidden object-cover"
-            />
-          ) : (
-            <div className="text-8xl font-bold text-zinc-700 uppercase grid place-items-center h-full">
-              {post.title
-                .split(" ")
-                .map((x) => x[0])
-                .slice(0, 2)
-                .join("")}
-            </div>
-          )}
-        </div>
+        <Image
+          src={`${env.NEXT_PUBLIC_STRAPI_BASE}${thumbnail_img.data.attributes.formats.thumbnail?.url}`}
+          alt="Image"
+          width={300}
+          height={200}
+          className="h-full aspect-square overflow-hidden rounded-md object-cover"
+        />
 
         <div className="flex flex-col">
           <span className="text-xs font-bold text-zinc-600">
-            {post.category.name}
+            {category.data.attributes.title}
           </span>
           <h3
-            className={`font-bold font-montserrat mt-2 ${
-              index === 0 ? "md:text-3xl text-xl" : "text-xl"
-            }`}
+            className={`mt-2 font-montserrat font-bold text-xl md:text-3xl`}
           >
-            {post.title}
+            {title}
           </h3>
 
           <p
-            className={`text-zinc-500 font-bold font-montserrat mb-auto ${
-              index === 0 ? "mt-2 md:mt-3 text-xs md:text-base" : "text-xs mt-2"
-            }`}
+            className={`mb-auto font-montserrat font-bold text-zinc-500 mt-2 text-xs md:mt-3 md:text-base`}
           >
-            {post.meta_description}
+            {description}
           </p>
 
-          <div className="flex items-center gap-3 mt-5">
+          <div className="mt-5 flex items-center gap-3">
             <Image
               src="/images/me.jpg"
-              width={index === 0 ? 50 : 35}
-              height={index === 0 ? 50 : 35}
+              width={50}
+              height={50}
               className="rounded-full"
               alt={"profile"}
             />
 
             <div className="flex flex-col font-montserrat">
               <span
-                className={`font-bold text-zinc-400 ${
-                  index === 0 ? "md:text-base text-sm" : "text-sm"
-                }`}
+                className={`font-bold text-zinc-400 text-sm md:text-base`}
               >
                 Shahriyar
               </span>
               <span
-                className={`text-zinc-500 ${
-                  index === 0 ? "md:text-sm text-xs" : "text-xs"
-                }`}
+                className={`text-zinc-500 text-xs md:text-sm`}
               >
-                {moment(post.createdAt).format("MMM DD, YYYY")}
+                {moment(createdAt).format("MMM DD, YYYY")}
               </span>
             </div>
           </div>
         </div>
       </div>
     </Link>
-  )
-}
+  );
+};
 
-export default PostCard
+export default PostCard;
