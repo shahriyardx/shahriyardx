@@ -4,6 +4,18 @@ export interface TimeStamps {
   publishedAt: Date;
 }
 
+export interface ImageFormat {
+  ext: string;
+  url: string;
+  hash: string;
+  mime: string;
+  name: string;
+  path?: string;
+  size: number;
+  width: number;
+  height: number;
+}
+
 export interface Image {
   id: number;
   attributes: {
@@ -13,28 +25,7 @@ export interface Image {
     width: number;
     height: number;
     formats: {
-      small: {
-        ext: string;
-        url: string;
-        hash: string;
-        mime: string;
-        name: string;
-        path?: string;
-        size: number;
-        width: number;
-        height: number;
-      };
-      thumbnail: {
-        ext: string;
-        url: string;
-        hash: string;
-        mime: string;
-        name: string;
-        path?: string;
-        size: number;
-        width: number;
-        height: number;
-      };
+      [key: string]: ImageFormat
     };
     hash: string;
     ext: string;
