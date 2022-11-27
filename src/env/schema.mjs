@@ -24,6 +24,7 @@ export const serverSchema = z.object({
   MAIL_USER: z.string(),
   MAIL_PASSWORD: z.string(),
   CACHE_TOKEN: z.string(),
+  STRAPI_TOKEN: z.string()
 });
 
 /**
@@ -33,6 +34,7 @@ export const serverSchema = z.object({
  */
 export const clientSchema = z.object({
   NEXT_PUBLIC_CLOUDINARY_URL: z.string(),
+  NEXT_PUBLIC_STRAPI_BASE: z.string()
 });
 
 /**
@@ -43,4 +45,5 @@ export const clientSchema = z.object({
  */
 export const clientEnv = {
   NEXT_PUBLIC_CLOUDINARY_URL: process.env.NEXT_PUBLIC_CLOUDINARY_URL,
+  NEXT_PUBLIC_STRAPI_BASE: process.env.NEXT_PUBLIC_STRAPI_BASE
 };

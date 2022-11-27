@@ -1,9 +1,14 @@
 import React, { useState } from "react"
 import Project from "./Project"
-import projects from "data/projects"
+// import projects from "data/projects"
 import { BiChevronDown } from "react-icons/bi"
+import { ICollectionResponse, IProject } from "types"
 
-const Projects = () => {
+type Props = {
+  projects: Array<IProject>
+}
+
+const Projects = ({ projects }: Props) => {
   const [showAll, setShowAll] = useState(false)
   const renderRrojects = showAll ? projects : projects.slice(0, 6)
 
@@ -17,7 +22,7 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 px-5">
           {renderRrojects.map((project) => (
-            <Project key={project.slug} project={project} />
+            <Project key={project.id} project={project} />
           ))}
         </div>
         {projects.length > 6 && (

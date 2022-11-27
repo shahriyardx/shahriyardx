@@ -1,28 +1,29 @@
-import React from "react"
-import Image from "next/image"
-import Tag from "./Tag"
-import Link from "next/link"
+import React from "react";
+import Image from "next/image";
+import Tag from "./Tag";
+import Link from "next/link";
+import { IProject, ITag } from "types";
 
-type ProjectType = {
-  name: string
-  slug: string
-  tags: Array<string>
-  description: string
-}
-
-const Project = ({ project }: { project: ProjectType }) => {
-  const { name, slug, tags, description } = project
+const Project = ({ project }: { project: IProject }) => {
+  const { id, attributes } = project;
+  const {
+    name,
+    short_description,
+    slug,
+    thumbnail: { data: thumbnail_img },
+    tags: { data: project_tags },
+  } = attributes;
 
   return (
     <Link href={`/project/${slug}`}>
       <div
         className="
-          bg-zinc-900 rounded-xl p-5 flex flex-col gap-2 transition-all
-          group cursor-pointer active:animate-shake"
+          group flex cursor-pointer flex-col gap-2 rounded-xl bg-zinc-900
+          p-5 transition-all active:animate-shake"
       >
-        <div className="w-full aspect-video">
+        <div className="aspect-video w-full">
           <Image
-            src={`/images/projects/${slug}/1.PNG`}
+            src={`http://localhost:1337${thumbnail_img.attributes.formats.thumbnail.url}`}
             width={320}
             height={180}
             alt={name}
@@ -30,17 +31,19 @@ const Project = ({ project }: { project: ProjectType }) => {
           />
         </div>
 
-        <p className="text-white text-2xl group-hover:text-accent">{name}</p>
-        <p className="text-zinc-500 tracking-tighter text-sm">{description}</p>
+        <p className="text-2xl text-white group-hover:text-accent">{name}</p>
+        <p className="text-sm tracking-tighter text-zinc-500">
+          {short_description}
+        </p>
 
-        <div className="flex flex-wrap gap-2 mt-auto pt-2">
-          {tags.map((tag: string, index: number) => (
-            <Tag key={index} text={tag} />
+        <div className="mt-auto flex flex-wrap gap-2 pt-2">
+          {project_tags.map((tag: ITag, index: number) => (
+            <Tag key={tag.id} tag={tag} />
           ))}
         </div>
       </div>
     </Link>
-  )
-}
+  );
+};
 
-export default Project
+export default Project;
