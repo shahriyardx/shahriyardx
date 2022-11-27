@@ -6,8 +6,6 @@ import moment from "moment"
 import Markdown from "marked-react" //@ts-expect-error("idk why error")
 import Lowlight from "react-lowlight"
 
-import { prisma } from "server/db/client"
-import { type Post, type Category } from "@prisma/client"
 import { BiUser, BiTime } from "react-icons/bi"
 
 import Main from "components/layouts/Main"
@@ -32,7 +30,7 @@ Lowlight.registerLanguage("md", markdown)
 
 const SinglePost = ({ post }: Props) => {
   const { id, attributes } = post
-  const { title, content, description, thumbnail, createdAt } = attributes
+  const { title, content, description, thumbnail, createdAt, slug } = attributes
 
   const renderer = {
     code(snippet: string, lang: string) {
@@ -53,7 +51,7 @@ const SinglePost = ({ post }: Props) => {
         title={title}
         description={description}
         image={thumbnail.data.attributes.formats.large?.url}
-        url={`https://shahriyar.dev/blog/${post.id}`}
+        url={`https://shahriyar.dev/blog/${slug}`}
       />
       <Container className="py-20 prose prose-invert prose-green max-w-[88ch]">
         <h1>{title}</h1>
