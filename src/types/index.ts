@@ -84,7 +84,7 @@ export interface IProject {
   attributes: IProjectAttributes;
 }
 
-export interface IProjectAttributes extends TimeStamps {
+export interface IPostAttributes extends TimeStamps {
   title: string;
   description: string;
   content: string;
@@ -99,7 +99,7 @@ export interface IProjectAttributes extends TimeStamps {
 
 export interface IPost {
   id: number;
-  attributes: IProjectAttributes;
+  attributes: IPostAttributes;
 }
 
 export interface ICollectionResponse<T> {

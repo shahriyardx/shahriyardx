@@ -19,9 +19,11 @@ import "highlight.js/styles/atom-one-dark.css" // @ts-expect-error("idk why erro
 import python from "highlight.js/lib/languages/python" // @ts-expect-error("idk why error")
 import markdown from "highlight.js/lib/languages/markdown" // @ts-expect-error("idk why error")
 import javascript from "highlight.js/lib/languages/javascript"
+import { ICollectionResponse, IPost } from "types"
+import { api } from "utils/http"
 
 type Props = {
-  post: Post & { category: Category }
+  post: IPost
 }
 
 Lowlight.registerLanguage("js", javascript)
@@ -29,6 +31,9 @@ Lowlight.registerLanguage("py", python)
 Lowlight.registerLanguage("md", markdown)
 
 const SinglePost = ({ post }: Props) => {
+  const { id, attributes } = post
+  const { title, content, description, thumbnail, createdAt } = attributes
+
   const renderer = {
     code(snippet: string, lang: string) {
       return (
@@ -45,13 +50,13 @@ const SinglePost = ({ post }: Props) => {
   return (
     <Main>
       <SEO
-        title={post.title}
-        description={post.meta_description as string}
-        image={post.thumbnail as string}
+        title={title}
+        description={description}
+        image={thumbnail.data.attributes.formats.large?.url}
         url={`https://shahriyar.dev/blog/${post.id}`}
       />
       <Container className="py-20 prose prose-invert prose-green max-w-[88ch]">
-        <h1>{post.title}</h1>
+        <h1>{title}</h1>
         <div className="flex gap-3 mt-3 mb-10 flex-wrap">
           <div className="flex gap-2 text-sm text-zinc-300 items-center">
             <BiUser className="text-base text-accent" />{" "}
@@ -61,12 +66,12 @@ const SinglePost = ({ post }: Props) => {
           <div className="flex gap-2 text-sm text-zinc-300 items-center">
             <BiTime className="text-base text-accent" />{" "}
             <span className="createdAt tracking-tighter">
-              {moment(post.createdAt).format("MMMM DD, YYYY")}
+              {moment(createdAt).format("MMMM DD, YYYY")}
             </span>
           </div>
         </div>
         <div>
-          <Markdown renderer={renderer}>{post.content}</Markdown>
+          <Markdown renderer={renderer}>{content}</Markdown>
         </div>
       </Container>
     </Main>
@@ -76,12 +81,12 @@ const SinglePost = ({ post }: Props) => {
 export default SinglePost
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await prisma.post.findMany({
-    take: 1,
-  })
+  const { data: posts }: ICollectionResponse<Array<IPost>> = await api(
+    "/api/posts?populate=*"
+  );
 
   const paths = posts.map((post) => {
-    return { params: { slug: post.slug } }
+    return { params: { slug: post.attributes.slug } }
   })
 
   return {
@@ -93,25 +98,21 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string
 
-  const data = await prisma.post.findUnique({
-    where: {
-      slug: slug,
-    },
-  })
+  const { data }: ICollectionResponse<Array<IPost>> = await api(
+    `/api/posts?populate=*&filters[slug][$eq]=${slug}`
+  );
 
-  if (!data) {
+  if (data.length < 0) {
     return {
       notFound: true,
     }
   }
 
+  const post: IPost = data[0] as IPost
+
   return {
     props: {
-      post: {
-        ...data,
-        createdAt: data.createdAt.toISOString(),
-        updatedAt: data.updatedAt.toISOString(),
-      },
+      post: post
     },
   }
 }
