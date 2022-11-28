@@ -29,7 +29,7 @@ const PostCard = ({ post }: Props) => {
           alt="Image"
           width={300}
           height={200}
-          className="h-full aspect-square overflow-hidden rounded-md object-cover"
+          className="h-full aspect-[3/2] sm:aspect-square overflow-hidden rounded-md object-cover"
         />
 
         <div className="flex flex-col">
