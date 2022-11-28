@@ -8,11 +8,8 @@ import {
   AiFillMail,
   AiFillLinkedin,
 } from "react-icons/ai"
-import { signOut, useSession } from "next-auth/react"
 
 const MobileMenu = () => {
-  const { data: session } = useSession()
-
   return (
     <motion.div
       initial={{ y: -100, opacity: 0 }}
@@ -37,15 +34,6 @@ const MobileMenu = () => {
         <TextLink href="/github" className="py-2">
           Git
         </TextLink>
-        {session?.user && (
-          <button
-            type="button"
-            onClick={() => signOut()}
-            className="text-red-400 hover:text-red-500 py-2"
-          >
-            Logout
-          </button>
-        )}
 
         <div className="py-2 pb-5 flex gap-3 text-3xl">
           <a
