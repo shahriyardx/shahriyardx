@@ -34,7 +34,7 @@ const PostCard = ({ post }: Props) => {
 
         <div className="flex flex-col">
           <span className="text-xs font-bold text-zinc-600">
-            {category.data.attributes.title}
+            {category.data?.attributes?.title}
           </span>
           <h3
             className={`mt-2 font-montserrat font-bold text-xl md:text-3xl`}

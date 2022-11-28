@@ -1,74 +1,66 @@
-import React from "react"
-import Container from "components/shared/Container"
-import Main from "components/layouts/Main"
-import Image from "next/image"
-import { BiLink } from "react-icons/bi"
-import { type Project } from "data/projects"
+import React from "react";
+import Container from "components/shared/Container";
+import Main from "components/layouts/Main";
+import Image from "next/image";
+import { BiLink } from "react-icons/bi";
+import { type IProjectAttributes } from "types";
+import { env } from "env/client.mjs";
 
 type Props = {
-  project: Project
-}
+  project: IProjectAttributes;
+};
 
 const ProjectDetails = ({ project }: Props) => {
   return (
     <Main>
-      <Container className="pt-5 sm:pt-10 md:pt-20 pb-20 max-w-6xl">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+      <Container className="max-w-6xl pt-5 pb-20 sm:pt-10 md:pt-20">
+        <h1 className="text-2xl font-bold text-white sm:text-3xl md:text-4xl">
           {project.name}
         </h1>
         <p className="text-zinc-400">{project.description}</p>
 
-        <div className="flex flex-wrap gap-2 sm:gap-5 items-center text-accent mt-5">
-          {project.links.map((link, index) => {
-            return (
-              <a
-                key={index}
-                href={link.url || "#"}
-                target={link.url ? "_blank" : "_self"}
-                rel="noreferrer"
-                className="hover:text-green-600 flex items-center gap-1"
-              >
-                <BiLink className="text-xl" />
-                <span>{link.text}</span>
-              </a>
-            )
-          })}
+        <div className="mt-5 flex flex-wrap items-center gap-2 text-accent sm:gap-5">
+          {project.live_url && (
+            <a
+              href={project.live_url}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1 hover:text-green-600"
+            >
+              <BiLink className="text-xl" />
+              <span>Live Site</span>
+            </a>
+          )}
         </div>
 
         <div className="prose prose-invert prose-green mt-10 max-w-full">
           <h2>Screenshots</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-full overflow-x-hidden">
-            {[...Array(3)].map((_, index) => {
+          <div className="grid max-w-full grid-cols-1 gap-5 overflow-x-hidden sm:grid-cols-3">
+            {project.screenshots.data.map((image, index) => {
               return (
                 <div
-                  className="rounded-md border-2 border-zinc-700 w-full aspect-video"
+                  className="aspect-video w-full rounded-md border-2 border-zinc-700"
                   key={index}
                 >
                   <Image
-                    src={`/images/projects/${project.slug}/${index + 1}.PNG`}
+                    src={`${env.NEXT_PUBLIC_STRAPI_BASE}${image.attributes.formats.thumbnail?.url}`}
                     width={500}
                     height={300}
                     alt="Roktoo"
                     className="rounded-md object-cover"
                   />
                 </div>
-              )
+              );
             })}
           </div>
 
-          <h2>Features</h2>
-          <ul>
-            {project.features.map((feature, index) => {
-              return <li key={index}>{feature}</li>
-            })}
-          </ul>
-
-          <h2>Technologies Used</h2>
-          <p>{project.technologies}</p>
+          <div>
+            {project.description}
+          </div>
         </div>
       </Container>
     </Main>
-  )
-}
+  );
+};
 
-export default ProjectDetails
+export default ProjectDetails;

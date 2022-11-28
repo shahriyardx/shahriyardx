@@ -7,20 +7,26 @@ import ProjectDetails from "components/project/ProjectDetails"
 
 import { type Project } from "data/projects"
 import projects from "data/projects"
+import { ICollectionResponse, IProject } from "types"
+import { api } from "utils/http"
+import { env } from "env/client.mjs"
 
 type Props = {
-  project: Project
+  project: IProject
 }
 
 const ProjectSingle = ({ project }: Props) => {
+  const { id, attributes } = project
+  const { name, slug, short_description, thumbnail: { data: thumbnail_img } } = attributes
+
   return (
     <>
       <SEO
-        title={`${project.name} - Md Shahriyar Alam`}
-        image={`/images/projects/${project.slug}/1.PNG`}
-        description={project.description}
+        title={`${name} - Md Shahriyar Alam`}
+        image={`${env.NEXT_PUBLIC_STRAPI_BASE}${thumbnail_img.attributes.formats.thumbnail?.url}`}
+        description={short_description}
       />
-      <ProjectDetails project={project} />
+      <ProjectDetails project={attributes} />
     </>
   )
 }
@@ -28,42 +34,38 @@ const ProjectSingle = ({ project }: Props) => {
 export default ProjectSingle
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = projects.map((project) => {
-    return { params: { slug: project.slug } }
+  const { data: projects }: ICollectionResponse<Array<IProject>> = await api(
+    "/api/projects"
+  );
+
+  const paths = projects.map((post) => {
+    return { params: { slug: post.attributes.slug } }
   })
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   }
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string
 
-  try {
-    const data = projects.find((project) => project.slug === slug)
+  const { data }: ICollectionResponse<Array<IProject>> = await api(
+    `/api/projects?populate=*&filters[slug][$eq]=${slug}`
+  );
 
-    if (!data) {
-      return {
-        redirect: {
-          destination: "/",
-          permanent: false,
-        },
-      }
+  if (data.length < 0) {
+    return {
+      notFound: true,
     }
+  }
 
-    return {
-      props: {
-        project: data,
-      },
-    }
-  } catch (err) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    }
+  const project: IProject = data[0] as IProject
+
+  return {
+    props: {
+      project: project
+    },
   }
 }
