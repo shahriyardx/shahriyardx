@@ -2,7 +2,7 @@ import React from "react";
 import Container from "components/shared/Container";
 import Main from "components/layouts/Main";
 import Image from "next/image";
-import { BiLink } from "react-icons/bi";
+import { BiGitCommit, BiLink } from "react-icons/bi";
 import { type IProjectAttributes } from "types";
 import { env } from "env/client.mjs";
 import Markdown from "marked-react";
@@ -30,6 +30,18 @@ const ProjectDetails = ({ project }: Props) => {
             >
               <BiLink className="text-xl" />
               <span>Live Site</span>
+            </a>
+          )}
+
+          {project.repo_url && (
+            <a
+              href={project.repo_url}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1 hover:text-green-600"
+            >
+              <BiGitCommit className="text-xl" />
+              <span>Repo URL</span>
             </a>
           )}
         </div>
