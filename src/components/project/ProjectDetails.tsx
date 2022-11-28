@@ -40,7 +40,7 @@ const ProjectDetails = ({ project }: Props) => {
             {project.screenshots.data.map((image, index) => {
               return (
                 <div
-                  className="aspect-video w-full rounded-md border-2 border-zinc-700"
+                  className="aspect-video w-full rounded-md"
                   key={index}
                 >
                   <Image
