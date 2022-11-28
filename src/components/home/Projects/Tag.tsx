@@ -1,5 +1,5 @@
 import React from "react";
-import { ITag } from "types";
+import { type ITag } from "types";
 
 const Tag = ({ tag }: { tag: ITag }) => {
   return (

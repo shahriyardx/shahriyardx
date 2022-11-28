@@ -17,7 +17,7 @@ import "highlight.js/styles/atom-one-dark.css" // @ts-expect-error("idk why erro
 import python from "highlight.js/lib/languages/python" // @ts-expect-error("idk why error")
 import markdown from "highlight.js/lib/languages/markdown" // @ts-expect-error("idk why error")
 import javascript from "highlight.js/lib/languages/javascript"
-import { ICollectionResponse, IPost } from "types"
+import { type ICollectionResponse, type IPost } from "types"
 import { api } from "utils/http"
 
 type Props = {
@@ -29,7 +29,7 @@ Lowlight.registerLanguage("py", python)
 Lowlight.registerLanguage("md", markdown)
 
 const SinglePost = ({ post }: Props) => {
-  const { id, attributes } = post
+  const { attributes } = post
   const { title, content, description, thumbnail, createdAt, slug } = attributes
 
   const renderer = {

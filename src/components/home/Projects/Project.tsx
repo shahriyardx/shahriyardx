@@ -2,11 +2,11 @@ import React from "react";
 import Image from "next/image";
 import Tag from "./Tag";
 import Link from "next/link";
-import { IProject, ITag } from "types";
+import { type IProject, type ITag } from "types";
 import { env as clientEnv } from "env/client.mjs";
 
 const Project = ({ project }: { project: IProject }) => {
-  const { id, attributes } = project;
+  const { attributes } = project;
   const {
     name,
     short_description,
@@ -38,7 +38,7 @@ const Project = ({ project }: { project: IProject }) => {
         </p>
 
         <div className="mt-auto flex flex-wrap gap-2 pt-2">
-          {project_tags.map((tag: ITag, index: number) => (
+          {project_tags.map((tag: ITag) => (
             <Tag key={tag.id} tag={tag} />
           ))}
         </div>

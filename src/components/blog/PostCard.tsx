@@ -2,7 +2,7 @@ import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { IPost } from "types";
+import { type IPost } from "types";
 import { env } from "env/client.mjs";
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 };
 
 const PostCard = ({ post }: Props) => {
-  const { id: _, attributes } = post;
+  const { attributes } = post;
   const {
     slug,
     thumbnail: thumbnail_img,

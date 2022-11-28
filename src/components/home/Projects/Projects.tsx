@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import Project from "./Project"
 // import projects from "data/projects"
 import { BiChevronDown } from "react-icons/bi"
-import { ICollectionResponse, IProject } from "types"
+import { type IProject } from "types"
 
 type Props = {
   projects: Array<IProject>

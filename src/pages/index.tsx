@@ -1,4 +1,4 @@
-import { type GetServerSideProps, type NextPage } from "next";
+import { type GetServerSideProps } from "next";
 import Main from "components/layouts/Main";
 import Banner from "components/home/Banner";
 import Services from "components/home/Services/Services";

@@ -10,7 +10,7 @@ type Props = {
   author?: string
 }
 
-const SEO = ({ title, description, keywords, image, author, url }: Props) => {
+const SEO = ({ title, description, keywords, image, author }: Props) => {
   const _title = title || "Md Shahriyar Alam - Full-Stack Web Developer"
   const _description =
     description ||
