@@ -17,4 +17,4 @@ const MyApp: AppType<{ session: Session | null }> = ({
   )
 }
 
-MyApp
+export default MyApp
