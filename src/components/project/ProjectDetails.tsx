@@ -5,6 +5,7 @@ import Image from "next/image";
 import { BiLink } from "react-icons/bi";
 import { type IProjectAttributes } from "types";
 import { env } from "env/client.mjs";
+import Markdown from "marked-react";
 
 type Props = {
   project: IProjectAttributes;
@@ -17,7 +18,7 @@ const ProjectDetails = ({ project }: Props) => {
         <h1 className="text-2xl font-bold text-white sm:text-3xl md:text-4xl">
           {project.name}
         </h1>
-        <p className="text-zinc-400">{project.description}</p>
+        <p className="text-zinc-400">{project.short_description}</p>
 
         <div className="mt-5 flex flex-wrap items-center gap-2 text-accent sm:gap-5">
           {project.live_url && (
@@ -54,8 +55,8 @@ const ProjectDetails = ({ project }: Props) => {
             })}
           </div>
 
-          <div>
-            {project.description}
+          <div className="mt-10">
+            <Markdown>{project.description}</Markdown>
           </div>
         </div>
       </Container>
