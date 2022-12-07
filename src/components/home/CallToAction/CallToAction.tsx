@@ -22,23 +22,23 @@ const item = {
 const CallToAction = () => {
   return (
     <div className="bg-primary bg-[url(/images/cta.jpg)] bg-no-repeat bg-center bg-cover">
-      <Container className="py-20 z-10">
+      <Container className="z-10 py-20">
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="p-10 rounded-2xl text-center"
+          className="p-10 text-center rounded-2xl"
         >
           <motion.h1
             variants={item}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-300 font-montserrat"
+            className="text-2xl font-bold sm:text-3xl md:text-4xl text-zinc-300 font-montserrat"
           >
             I know your mind wants to hire me 👀
           </motion.h1>
           <motion.p
             variants={item}
-            className="text-zinc-400 text-sm sm:text-base mt-2"
+            className="mt-2 text-sm text-zinc-400 sm:text-base"
           >
             The button bellow will make it easy
           </motion.p>
@@ -49,8 +49,8 @@ const CallToAction = () => {
             className="mt-10"
           >
             <a
-              href="https://www.linkedin.com/in/shahriyardx/"
-              className="px-5 py-3 bg-accent text-black font-bold group hover:bg-rose-500 hover:animate-shake transition-all inline-block"
+              href="https://www.linkedin.com/in/devshahriyar/"
+              className="inline-block px-5 py-3 font-bold text-black transition-all bg-accent group hover:bg-rose-500 hover:animate-shake"
               target="_blank"
               rel="noreferrer"
             >
