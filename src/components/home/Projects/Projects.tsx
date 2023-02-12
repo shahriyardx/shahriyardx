@@ -1,11 +1,10 @@
 import React, { useState } from "react"
 import Project from "./Project"
-// import projects from "data/projects"
 import { BiChevronDown } from "react-icons/bi"
-import { type IProject } from "types"
+import { ProjectMeta } from "utils/projects"
 
 type Props = {
-  projects: Array<IProject>
+  projects: Array<ProjectMeta>
 }
 
 const Projects = ({ projects }: Props) => {
@@ -14,20 +13,20 @@ const Projects = ({ projects }: Props) => {
 
   return (
     <div className="bg-secondary">
-      <div className="max-w-6xl mx-auto py-10 md:py-20">
+      <div className="max-w-6xl py-10 mx-auto md:py-20">
         <div className="text-center">
-          <span className="uppercase text-lg text-zinc-600">Projects</span>
+          <span className="text-lg uppercase text-zinc-600">Projects</span>
           <h1 className="text-4xl font-bold text-zinc-300">Recent Projects</h1>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 px-5">
+        <div className="grid grid-cols-1 gap-5 px-5 mt-10 sm:grid-cols-2 lg:grid-cols-3">
           {renderRrojects.map((project) => (
-            <Project key={project.id} project={project} />
+            <Project key={project.slug} project={project} />
           ))}
         </div>
         {projects.length > 6 && (
           <div
-            className="mt-5 flex justify-center"
+            className="flex justify-center mt-5"
             onClick={() => setShowAll(!showAll)}
           >
             <button className="px-5 py-3">

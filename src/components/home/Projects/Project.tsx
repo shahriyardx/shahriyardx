@@ -2,44 +2,32 @@ import React from "react";
 import Image from "next/image";
 import Tag from "./Tag";
 import Link from "next/link";
-import { type IProject, type ITag } from "types";
-import { env as clientEnv } from "env/client.mjs";
+import { ProjectMeta } from "utils/projects";
 
-const Project = ({ project }: { project: IProject }) => {
-  const { attributes } = project;
-  const {
-    name,
-    short_description,
-    slug,
-    thumbnail: { data: thumbnail_img },
-    tags: { data: project_tags },
-  } = attributes;
-
+const Project = ({ project }: { project: ProjectMeta }) => {
   return (
-    <Link href={`/project/${slug}`}>
+    <Link href={`/project/${project.slug}`}>
       <div
-        className="
-          group flex cursor-pointer flex-col gap-2 rounded-xl bg-zinc-900
-          p-5 transition-all active:animate-shake"
+        className="flex flex-col gap-2 p-5 transition-all cursor-pointer group rounded-xl bg-zinc-900 active:animate-shake"
       >
-        <div className="aspect-video w-full">
+        <div className="w-full aspect-video">
           <Image
-            src={`${clientEnv.NEXT_PUBLIC_STRAPI_BASE}${thumbnail_img.attributes.formats.thumbnail?.url}`}
+            src={`/images/projects/${project.slug}.png`}
             width={320}
             height={180}
-            alt={name}
-            className="rounded-lg object-cover"
+            alt={project.title}
+            className="object-cover w-full rounded-lg"
           />
         </div>
 
-        <p className="text-2xl text-white group-hover:text-accent">{name}</p>
+        <p className="text-2xl text-white group-hover:text-accent">{project.title}</p>
         <p className="text-sm tracking-tighter text-zinc-500">
-          {short_description}
+          {project.description}
         </p>
 
-        <div className="mt-auto flex flex-wrap gap-2 pt-2">
-          {project_tags.map((tag: ITag) => (
-            <Tag key={tag.id} tag={tag} />
+        <div className="flex flex-wrap gap-2 pt-2 mt-auto">
+          {project.tags.map((tag: string) => (
+            <Tag key={tag} tag={tag} />
           ))}
         </div>
       </div>

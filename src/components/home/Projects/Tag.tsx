@@ -1,16 +1,18 @@
 import React from "react";
-import { type ITag } from "types";
 
-const Tag = ({ tag }: { tag: ITag }) => {
+const colors: any = {
+  React: 'bg-sky-500 text-white',
+  Tailwindcss: 'bg-sky-700 text-white',
+  Next: 'bg-black text-white',
+  Node: 'bg-green-600 text-white',
+}
+
+const Tag = ({ tag }: { tag: string }) => {
   return (
     <div
-      style={{
-        background: tag.attributes.bg_color,
-        color: tag.attributes.text_color,
-      }}
-      className="cursor-pointer rounded-lg px-2 py-1 text-xs"
+      className={`px-2 py-1 text-xs rounded-lg cursor-pointer ${colors[tag]} `}
     >
-      # {tag.attributes.name}
+      # {tag}
     </div>
   );
 };

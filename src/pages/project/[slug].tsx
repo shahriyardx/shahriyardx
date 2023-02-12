@@ -5,69 +5,45 @@ import { type GetStaticPaths, type GetStaticProps } from "next";
 import SEO from "components/shared/SEO";
 import ProjectDetails from "components/project/ProjectDetails";
 
-import { type ICollectionResponse, type IProject } from "types";
-import { api } from "utils/http";
-import { env } from "env/client.mjs";
+import {  getProjectFromSlug, getSlugs, type ProjectMeta } from "utils/projects";
+import { serialize } from "next-mdx-remote/serialize";
+import { type MDXRemoteSerializeResult } from "next-mdx-remote/dist";
 
 type Props = {
-  project: IProject;
+  source: MDXRemoteSerializeResult<Record<string, unknown>>;
+  meta: ProjectMeta
 };
 
-const ProjectSingle = ({ project }: Props) => {
-  const { attributes } = project;
-  const {
-    name,
-    short_description,
-    thumbnail: { data: thumbnail_img },
-  } = attributes;
-
+const ProjectSingle = ({ source, meta }: Props) => {
   return (
     <>
       <SEO
-        title={`${name} - Md Shahriyar Alam`}
-        image={`${env.NEXT_PUBLIC_STRAPI_BASE}${thumbnail_img.attributes.formats.thumbnail?.url}`}
-        description={short_description}
+        title={`${meta.title} - Md Shahriyar Alam`}
+        image={`/images/projects/${meta.slug}.png`}
+        description={meta.description}
       />
-      <ProjectDetails project={attributes} />
+      <ProjectDetails source={source} meta={meta} />
     </>
   );
 };
 
 export default ProjectSingle;
-
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data: projects }: ICollectionResponse<Array<IProject>> = await api(
-    "/api/projects"
-  );
-
-  const paths = projects.map((post) => {
-    return { params: { slug: post.attributes.slug } };
-  });
-
-  return {
-    paths,
-    fallback: "blocking",
-  };
+  const paths = getSlugs().map((slug) => ({ params: { slug } }));
+  return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = params?.slug as string;
-
-  const { data }: ICollectionResponse<Array<IProject>> = await api(
-    `/api/projects?populate=*&filters[slug][$eq]=${slug}`
-  );
-
-  if (data.length < 0) {
-    return {
-      notFound: true,
-    };
-  }
-
-  const project: IProject = data[0] as IProject;
+  const { slug } = params as { slug: string };
+  const { content, meta } = getProjectFromSlug(slug);
+  const mdxSource = await serialize(content, {
+    mdxOptions: {},
+  });
 
   return {
     props: {
-      project: project,
+      source: mdxSource,
+      meta,
     },
   };
 };

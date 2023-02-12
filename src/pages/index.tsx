@@ -6,11 +6,10 @@ import Skills from "components/home/Skills/Skills";
 import Projects from "components/home/Projects/Projects";
 import CallToAction from "components/home/CallToAction/CallToAction";
 import SEO from "components/shared/SEO";
-import { api } from "../utils/http";
-import { type ICollectionResponse, type IProject } from "types";
+import { type ProjectMeta, getAllProjects } from "utils/projects";
 
 type Props = {
-  projects: Array<IProject>;
+  projects: Array<ProjectMeta>;
 };
 
 const Home = ({ projects }: Props) => {
@@ -29,9 +28,7 @@ const Home = ({ projects }: Props) => {
 export default Home;
 
 export const getStaticProps: GetServerSideProps = async () => {
-  const { data: projects }: ICollectionResponse<Array<IProject>> = await api(
-    "/api/projects?populate=*"
-  );
+  const projects = getAllProjects().map(project => project.meta)
 
   return {
     props: {
