@@ -4,61 +4,64 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url>
-  <loc>https://shahriyar.dev/</loc>
-  <lastmod>2022-06-10T09:43:01+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://shahriyar.dev/contact</loc>
-  <lastmod>2022-06-10T09:43:01+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://shahriyar.dev/blog</loc>
-  <lastmod>2022-06-10T09:43:01+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://shahriyar.dev/projects/roktoo</loc>
-  <lastmod>2022-06-10T09:43:01+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://shahriyar.dev/projects/crisis</loc>
-  <lastmod>2022-06-10T09:43:01+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://shahriyar.dev/projects/compart</loc>
-  <lastmod>2022-06-10T09:43:01+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://shahriyar.dev/projects/wildie</loc>
-  <lastmod>2022-06-10T09:43:01+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://shahriyar.dev/projects/makeown</loc>
-  <lastmod>2022-06-10T09:43:01+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://shahriyar.dev/projects/laptopcarnival</loc>
-  <lastmod>2022-06-10T09:43:01+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://shahriyar.dev/blog/Some-of-my-usefull-libraries</loc>
-  <lastmod>2022-06-10T09:43:01+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://shahriyar.dev/blog/Welcome-to-my-blog</loc>
-  <lastmod>2022-06-10T09:43:01+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
-
+  <url>
+    <loc>https://shahriyar.dev/</loc>
+    <lastmod>2022-11-28T11:03:12+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://shahriyar.dev/contact</loc>
+    <lastmod>2022-11-28T11:03:12+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shahriyar.dev/about</loc>
+    <lastmod>2022-11-28T11:03:12+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shahriyar.dev/blog</loc>
+    <lastmod>2022-11-28T11:03:12+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shahriyar.dev/github</loc>
+    <lastmod>2022-11-28T11:03:12+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shahriyar.dev/project/wildie</loc>
+    <lastmod>2022-11-28T11:03:12+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shahriyar.dev/project/the-best-blog</loc>
+    <lastmod>2022-11-28T11:03:12+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shahriyar.dev/project/roktoo</loc>
+    <lastmod>2022-11-28T11:03:12+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shahriyar.dev/project/crisis-entertainment</loc>
+    <lastmod>2022-11-28T11:03:12+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shahriyar.dev/project/compart</loc>
+    <lastmod>2022-11-28T11:03:12+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shahriyar.dev/project/makeown</loc>
+    <lastmod>2022-11-28T11:03:12+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shahriyar.dev/blog/some-of-my-open-source-libraries-you-can-use-on-your-projects</loc>
+    <lastmod>2022-11-28T11:03:12+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
 </urlset>
