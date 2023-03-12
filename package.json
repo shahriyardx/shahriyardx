@@ -2,11 +2,6 @@
   "name": "shahriyar-dev",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "npm": "Please use yarn",
-    "yarn": ">= 1.22.18",
-    "node": ">= 16.13.0"
-  },
   "scripts": {
     "build": "next build",
     "dev": "next dev -p 6969",
