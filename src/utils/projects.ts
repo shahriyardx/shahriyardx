@@ -1,24 +1,13 @@
-import { sync } from "glob"
+
 import path from "path"
 import fs from "fs"
 import matter from "gray-matter"
+import { getSlugsFromPath } from "./mdx"
 
-const PROJECTS_PATH = path.join(process.cwd(), "src", "projects").replace(/\\/g, '/')
-
-export const getSlugs = (): Array<string> => {
-    const paths = sync(`${PROJECTS_PATH}/*.mdx`)
-
-    return paths.map(path => {
-        const parts = path.split("/")
-        const filename = parts[parts.length - 1] as string
-        const slug = filename.split(".")[0]
-
-        return slug
-    }) as []
-}
+export const PROJECTS_PATH = path.join(process.cwd(), "src", "content", "projects").replace(/\\/g, '/')
 
 export const getAllProjects = () => {
-    const posts = getSlugs()
+    const posts = getSlugsFromPath(PROJECTS_PATH)
         .map(slug => getProjectFromSlug(slug))
         .sort((a, b) => {
             if (a.meta.date < b.meta.date) return 1
@@ -27,7 +16,6 @@ export const getAllProjects = () => {
         })
 
     return posts
-
 }
 
 export interface Project {

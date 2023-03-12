@@ -20,26 +20,26 @@ const Header = () => {
   const [show, setShow] = useState(false)
 
   return (
-    <div className="h-16 bg-primary text-slate-200 flex items-center z-50">
-      <Container className="px-3 flex items-center">
+    <div className="z-50 flex items-center h-16 bg-primary text-slate-200">
+      <Container className="flex items-center px-3">
         <div>
           <Link href="/">
-            <div className="flex gap-1 uppercase text-lg">
+            <div className="flex gap-1 text-lg uppercase">
               <span className="font-bold text-white">Shahriyar</span>
-              <span className="text-slate-200 font-thin">Alam</span>
+              <span className="font-thin text-slate-200">Alam</span>
             </div>
           </Link>
         </div>
 
-        <div className="items-center gap-5 ml-20 hidden lg:flex">
+        <div className="items-center hidden gap-5 ml-20 lg:flex">
           <TextLink href="/">Home</TextLink>
           <TextLink href="/contact">Contact</TextLink>
           <TextLink href="/about">About</TextLink>
-          <TextLink href="/blog">Blog</TextLink>
+          {/* <TextLink href="/blog">Blog</TextLink> */}
           <TextLink href="/github">Git</TextLink>
         </div>
 
-        <div className="ml-auto gap-10 hidden lg:flex">
+        <div className="hidden gap-10 ml-auto lg:flex">
           <div className="flex items-center gap-5">
             <IconLink
               href="https://twitter.com/shahriyardx"
@@ -61,7 +61,7 @@ const Header = () => {
             </IconLink>
           </div>
 
-          <div className="p-3 bg-zinc-700 rounded-full">
+          <div className="p-3 rounded-full bg-zinc-700">
             <a href="mailto:mdshahriyaralam9@gmail.com">
               <AiFillMail />
             </a>
