@@ -1,6 +1,4 @@
-import Link from "next/link";
-import { BiLink } from "react-icons/bi";
-import { SiGithub } from "react-icons/si";
+import Project from "./Project";
 
 const Projects = () => {
   return (
@@ -14,35 +12,44 @@ const Projects = () => {
         <div className="flex flex-col gap-5 mt-10">
           <Project
             title="Slash Commands"
-            description="A discord bot dashboard for making custom slash commands"
+            image="/images/projects/ccbot.png"
+            description="A discord bot dashboard for making custom slash commands. Where people can invite the bot and create their own custom commands"
             url="https://ccbot.app"
-            github="https://github.com/weirdsoftltd"
-          />
-
-          <Project
-            title="Crisis Entertainment"
-            description="Official website of crisis entertainment. A game development company based on Bangladesh and Australia"
-            url="https://crisisentertainment.com"
+            repo={{ front: "https://github.com/weirdsoftltd" }}
+            features={[
+              "Easy to use user interface",
+              "Highly customizable commands",
+              "High level programming support",
+              "Event handlers for better control",
+            ]}
           />
 
           <Project
             title="Roktoo"
-            description="A blood donating and searching platform."
+            image="/images/projects/roktoo.png"
+            description="A blood donation website using Next.js where users can become donator and other people can find donators very easily"
             url="https://roktoo.shahriyar.dev"
-            github="https://github.com/shahriyardx/roktoo.com"
+            repo={{ front: "https://github.com/weirdsoftltd" }}
+            features={[
+              "Anyone can find blood",
+              "Anyone can become a donator",
+              "Control panel for donators to pause donation or update info",
+            ]}
           />
 
           <Project
-            title="The Best Blog"
-            description="A blogging platform for developers. Where developers can register and write posts"
-            url="https://the-best.shahriyar.dev/"
-            github="https://github.com/shahriyardx/the-best-blog"
+            title="Custom Commands"
+            image="/images/projects/makeown.png"
+            description="A discord bot for making prefix based custom commands easily without any knowledge of programming."
+            url="https://ccbot.app"
+            repo={{ front: "https://github.com/weirdsoftltd" }}
+            features={[
+              "Easy to use user interface",
+              "Highly customizable commands",
+              "Custom functions for dynamic commands",
+              "5 types of command to make server unique",
+            ]}
           />
-
-          <div>
-            There are more, if you are interested feel free to connect on
-            linkedin...
-          </div>
         </div>
       </div>
     </div>
@@ -50,39 +57,3 @@ const Projects = () => {
 };
 
 export default Projects;
-
-type ProjectProps = {
-  title: string;
-  description: string;
-  url: string;
-  github?: string;
-}
-
-const Project = ({ title, description, url, github }: ProjectProps) => {
-  return (
-    <div className="p-5 rounded-xl bg-zinc-700">
-      <h2 className="text-4xl font-bold text-indigo-300">{title}</h2>
-      <p className="text-zinc-400">{description}</p>
-
-      <div className="flex items-center gap-5 mt-2 text-lg">
-        <Link href={url} className="flex items-center gap-2">
-          <>
-            <BiLink />
-            Visit
-          </>
-        </Link>
-
-        {github ? (
-          <Link href={github} className="flex items-center gap-2">
-            <>
-              <SiGithub />
-              Github
-            </>
-          </Link>
-        ) : (
-          <>Closed Source</>
-        )}
-      </div>
-    </div>
-  );
-};

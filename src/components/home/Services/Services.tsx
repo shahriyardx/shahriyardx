@@ -3,7 +3,7 @@
 import React from "react"
 import Container from "@/components/shared/Container"
 
-import { BiCustomize, BiCodeAlt, BiCubeAlt } from "react-icons/bi"
+import { BiCustomize, BiLogoDiscord, BiCubeAlt } from "react-icons/bi"
 import Service from "./Service"
 
 const Services = () => {
@@ -18,21 +18,21 @@ const Services = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-10">
           <Service
             icon={BiCubeAlt}
-            title="Frontend Development"
+            title="Web Development"
             position={1}
             content="Develop modern looking UI using HTML, CSS, JavaScript and ReactJs"
           />
           <Service
-            icon={BiCodeAlt}
-            title="Backend Development"
+            icon={BiLogoDiscord}
+            title="Discord Development"
             position={2}
-            content="Backend REST API development using ExpressJs (JavaScript), Flask (Python), FastAPI (python)"
+            content="Develop discord bots using the discord.py, nextcord, and hikari discord API wrapper"
           />
           <Service
             icon={BiCustomize}
-            title="Responsive Design"
+            title="Python Development"
             position={3}
-            content="Wesbites I make will look good in Mobile, Tablet and Desktop devices."
+            content="With a 3 year personal experience in Python, I can quickly build python projects with most libraries"
           />
         </div>
       </Container>
