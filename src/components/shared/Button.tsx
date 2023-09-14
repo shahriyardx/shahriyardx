@@ -3,7 +3,7 @@ import React from "react"
 type Props = {
   children: string
   className: string
-  [key: string]: string | CallableFunction | number  | boolean | null | undefined
+  [key: string]: string | CallableFunction | number | boolean | null | undefined
 }
 
 const Button = ({ children, className, ...props }: Props) => {

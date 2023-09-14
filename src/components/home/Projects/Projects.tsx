@@ -1,4 +1,4 @@
-import Project from "./Project";
+import Project from "./Project"
 
 const Projects = () => {
   return (
@@ -53,7 +53,7 @@ const Projects = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects

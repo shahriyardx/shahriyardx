@@ -17,7 +17,7 @@ import {
   SiStripe,
   SiCloudflare,
   SiNextdotjs,
-} from "react-icons/si";
+} from "react-icons/si"
 
 const skills = [
   {
@@ -110,6 +110,6 @@ const skills = [
     icon: SiCloudflare,
     className: "hover:text-orange-500",
   },
-];
+]
 
-export default skills;
+export default skills

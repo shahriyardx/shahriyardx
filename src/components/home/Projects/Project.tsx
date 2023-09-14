@@ -1,33 +1,33 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
-import { BiChevronDown, BiChevronRight, BiLink } from "react-icons/bi";
-import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
-import useWindowSize from "@/hooks/useWindowSize";
-import breakpoints from "@/tools/breakpoint";
+import React, { useState } from "react"
+import { BiChevronDown, BiChevronRight, BiLink } from "react-icons/bi"
+import Image from "next/image"
+import { AnimatePresence, motion } from "framer-motion"
+import useWindowSize from "@/hooks/useWindowSize"
+import breakpoints from "@/tools/breakpoint"
 
 type Props = {
-  title: string;
-  image: string;
-  description: string;
-  url?: string;
-  features: Array<string>;
+  title: string
+  image: string
+  description: string
+  url?: string
+  features: Array<string>
   repo?: {
-    front?: string;
-    back?: string;
-  };
-};
+    front?: string
+    back?: string
+  }
+}
 
 const Project = ({ title, description, features, url, image }: Props) => {
-  const [expanded, setExpanded] = useState(false);
-  const size = useWindowSize();
+  const [expanded, setExpanded] = useState(false)
+  const size = useWindowSize()
 
   const defaultTransition = {
     type: "spring",
     stiffness: 50,
     damping: 10,
-  };
+  }
 
   return (
     <div className="select-none">
@@ -115,7 +115,7 @@ const Project = ({ title, description, features, url, image }: Props) => {
         )}
       </AnimatePresence>
     </div>
-  );
-};
+  )
+}
 
-export default Project;
+export default Project

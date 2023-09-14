@@ -32,7 +32,7 @@ const GitFilter = ({ language, languages, setFilter, updateQuery }: Props) => {
             {lang && lang === language && (
               <span className="bg-zinc-600 text-white">
                 <BiX
-                  onClick={(e) => {
+                  onClick={(e: PointerEvent) => {
                     e.stopPropagation()
                     setFilter(null)
                   }}

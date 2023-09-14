@@ -30,7 +30,7 @@ type MailData = {
   name: string
   email: string
   subject: string
-  text: string 
+  text: string
 }
 
 const Contact = () => {
@@ -70,7 +70,7 @@ const Contact = () => {
 
   const sendMail: SubmitHandler<MailData> = (data: MailData) => {
     setSending(true)
-    actuallySendMail(data) 
+    actuallySendMail(data)
   }
 
   return (

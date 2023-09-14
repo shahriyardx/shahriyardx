@@ -4,9 +4,9 @@ import { Dialog, Transition } from "@headlessui/react"
 import { BiLoaderAlt } from "react-icons/bi"
 
 type Props = {
-  title: string 
+  title: string
   subtitle: string
-  description: string 
+  description: string
   open: boolean
   onClose: () => void
   onConfirm: () => void

@@ -1,14 +1,14 @@
 "use client"
 
-import React from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import React from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 type Props = {
-  href: string;
-  children: React.ReactNode | React.ReactNode[];
-  className?: string;
-};
+  href: string
+  children: React.ReactNode | React.ReactNode[]
+  className?: string
+}
 
 const TextLink = ({ href, children, className }: Props) => {
   const pathname = usePathname()
@@ -27,7 +27,7 @@ const TextLink = ({ href, children, className }: Props) => {
         <span>{pathname == href && ">"}</span>
       </div>
     </Link>
-  );
-};
+  )
+}
 
-export default TextLink;
+export default TextLink

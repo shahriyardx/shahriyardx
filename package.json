@@ -2,6 +2,7 @@
   "name": "portfolio-rewrite",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,11 +13,6 @@
     "@headlessui/react": "^1.7.17",
     "@tailwindcss/forms": "^0.5.6",
     "@tailwindcss/typography": "^0.5.10",
-    "@types/lodash": "^4.14.198",
-    "@types/node": "20.6.0",
-    "@types/nodemailer": "^6.4.10",
-    "@types/react": "18.2.21",
-    "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
@@ -34,5 +30,14 @@
     "sharp": "^0.32.5",
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@types/lodash": "^4.14.198",
+    "@types/node": "20.6.0",
+    "@types/nodemailer": "^6.4.10",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "@typescript-eslint/parser": "^6.7.0"
   }
 }

@@ -1,58 +1,58 @@
-"use client";
+"use client"
 
-import React, { useEffect, useState } from "react";
-import GitHeader from "@/components/github/GitHeader";
-import Container from "@/components/shared/Container";
-import Repo, { type RepoType } from "@/components/github/Repo";
-import GitProfile from "@/components/github/GitProfile";
-import { motion, AnimatePresence } from "framer-motion";
-import { debounce } from "lodash";
-import GitFilter from "@/components/github/GitFilter";
+import React, { useEffect, useState } from "react"
+import GitHeader from "@/components/github/GitHeader"
+import Container from "@/components/shared/Container"
+import Repo, { type RepoType } from "@/components/github/Repo"
+import GitProfile from "@/components/github/GitProfile"
+import { motion, AnimatePresence } from "framer-motion"
+import { debounce } from "lodash"
+import GitFilter from "@/components/github/GitFilter"
 
 export type User = {
-  avatar_url: string;
-  description: string;
-  name: string;
-  bio: string;
-  followers: number;
-  public_repos: number;
-  login: string;
-};
+  avatar_url: string
+  description: string
+  name: string
+  bio: string
+  followers: number
+  public_repos: number
+  login: string
+}
 
 const Github = () => {
-  const [query, setQuery] = useState("");
-  const [language, setLanguage] = useState<string | null>(null);
+  const [query, setQuery] = useState("")
+  const [language, setLanguage] = useState<string | null>(null)
 
-  const [user, setUser] = useState<User | null>(null);
-  const [repos, setRepos] = useState<RepoType[]>([]);
-  const languages = new Set(repos.map((repo) => repo.language));
+  const [user, setUser] = useState<User | null>(null)
+  const [repos, setRepos] = useState<RepoType[]>([])
+  const languages = new Set(repos.map((repo) => repo.language))
 
-  const sorted = repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+  const sorted = repos.sort((a, b) => b.stargazers_count - a.stargazers_count)
   const filtered = language
     ? sorted.filter((repo) => repo.language === language)
-    : sorted;
+    : sorted
 
   const searched = query.trim()
     ? filtered.filter((repo) => repo.name.includes(query))
-    : filtered;
+    : filtered
 
   const setFilter = (lang: string | null) => {
-    setLanguage(lang);
-  };
+    setLanguage(lang)
+  }
 
   const updateQuery = debounce((e) => {
-    setQuery(e.target.value);
-  }, 500);
+    setQuery(e.target.value)
+  }, 500)
 
   useEffect(() => {
     fetch("https://api.github.com/users/shahriyardx/repos?per_page=100")
       .then((response) => response.json())
-      .then((data) => setRepos(data));
+      .then((data) => setRepos(data))
 
     fetch("https://api.github.com/users/shahriyardx")
       .then((response) => response.json())
-      .then((data) => setUser(data));
-  }, []);
+      .then((data) => setUser(data))
+  }, [])
 
   return (
     <div>
@@ -86,7 +86,7 @@ const Github = () => {
         </Container>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Github;
+export default Github
