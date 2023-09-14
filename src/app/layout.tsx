@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | Md Shahriyar Alam",
   },
   description:
-    "Full-Stack Web Developer with knowledge of JavaScript and Python. Currently living in Bangladesh and open for jobs.",
+    "Full-Stack Web Developer with knowledge of JavaScript and Python",
   authors: {
     name: "Md Shahriyar Alam",
     url: "https://shahriyar.dev",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "@shahriyardx",
     "#shahriyardx",
   ],
-};
+}; // TODO: Improve the metadata with more info
 
 export default function RootLayout({
   children,
