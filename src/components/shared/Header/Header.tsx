@@ -36,8 +36,6 @@ const Header = () => {
         <div className="items-center hidden gap-5 ml-20 lg:flex">
           <TextLink href="/">Home</TextLink>
           <TextLink href="/contact">Contact</TextLink>
-          <TextLink href="/about">About</TextLink>
-          {/* <TextLink href="/blog">Blog</TextLink> */}
           <TextLink href="/github">Git</TextLink>
         </div>
 
