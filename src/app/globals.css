@@ -2,26 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer base {
+  body {
+    @apply bg-zinc-900 text-zinc-300 font-sourcecode;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    @apply bg-zinc-800 placeholder:text-zinc-400 rounded-md;
+  }
+
+  .button {
+    @apply px-5 py-3 rounded-md active:scale-90 transition-all flex items-center gap-1;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* width */
+.scrollbar::-webkit-scrollbar {
+  @apply w-2;
+}
+/* Handle */
+.scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-zinc-800;
+}
+
+.hljs {
+  @apply !bg-transparent;
+}
+
+.skill {
+  @apply p-3 bg-black/10 rounded-md flex items-center gap-2;
+}
+
+.skill svg {
+  @apply text-2xl;
+}
+
+.skill span {
+  @apply font-bold;
 }
