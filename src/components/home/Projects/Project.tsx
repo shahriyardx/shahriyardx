@@ -17,10 +17,11 @@ type Props = {
     front?: string
     back?: string
   }
+  open?: boolean
 }
 
-const Project = ({ title, description, features, url, image }: Props) => {
-  const [expanded, setExpanded] = useState(false)
+const Project = ({ title, description, features, url, image, open }: Props) => {
+  const [expanded, setExpanded] = useState(open || false)
   const size = useWindowSize()
 
   const defaultTransition = {

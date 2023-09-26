@@ -22,6 +22,7 @@ const Projects = () => {
               "High level programming support",
               "Event handlers for better control",
             ]}
+            open
           />
 
           <Project
