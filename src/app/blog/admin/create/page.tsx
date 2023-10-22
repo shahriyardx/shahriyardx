@@ -2,7 +2,7 @@
 
 import z from "zod"
 import React from "react"
-import BlogForm, { blogSchema } from "../../BlogForm"
+import BlogForm, { blogSchema } from "../BlogForm"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import toast from "react-hot-toast"

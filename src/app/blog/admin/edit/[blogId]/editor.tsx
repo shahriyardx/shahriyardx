@@ -1,6 +1,6 @@
 "use client"
 
-import BlogForm, { blogSchema } from "@/app/blog/BlogForm"
+import BlogForm, { blogSchema } from "@/app/blog/admin/BlogForm"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { BlogPost } from "@prisma/client"
 import React, { useEffect } from "react"

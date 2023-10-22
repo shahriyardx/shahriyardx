@@ -26,3 +26,13 @@ export const getBlogById = async (
 
   return data.data
 }
+
+export const getBlogBySlug = async (
+    slug: string,
+    init: RequestInit = { next: { revalidate: 60 } },
+  ): Promise<BlogPost | null> => {
+    const response = await fetch(`${BASE_URL}/api/blog/public/${slug}`, init)
+    const data = await response.json()
+    return data.data
+  }
+  

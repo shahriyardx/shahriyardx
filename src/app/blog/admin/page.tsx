@@ -1,11 +1,11 @@
 import React from "react"
 import { getAllBlogs } from "../utils"
 import Container from "@/components/shared/Container"
-import BlogActions from "../BlogActions"
+import BlogActions from "./BlogActions"
 
 export const dynamic = "force-dynamic"
 
-const BlogCreate = async () => {
+const BlogAdmin = async () => {
   const blogs = await getAllBlogs({ cache: "no-store" })
 
   return (
@@ -26,4 +26,4 @@ const BlogCreate = async () => {
   )
 }
 
-export default BlogCreate
+export default BlogAdmin

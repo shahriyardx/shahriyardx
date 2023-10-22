@@ -11,7 +11,7 @@ export const GET = async (
 
   const response = {
     success: blog ? true : false,
-    data: null,
+    data: blog,
   }
 
   return NextResponse.json(response)

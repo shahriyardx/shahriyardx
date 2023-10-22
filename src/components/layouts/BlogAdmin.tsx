@@ -15,6 +15,8 @@ const BlogAdmin = ({ children }: Props) => {
             <h4 className="text-4xl font-bold">Blog</h4>
             <nav>
               <div className="flex items-center gap-3">
+                <Link href="/">Home</Link>
+                <Link href="/blog">Blogs</Link>
                 <Link href="/blog/admin">All Blogs</Link>
                 <Link href="/blog/admin/create">Create</Link>
               </div>
