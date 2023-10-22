@@ -2,11 +2,19 @@ import { prisma } from "@/tools/db"
 import { revalidatePath } from "next/cache"
 import { NextResponse, NextRequest } from "next/server"
 import slugify from "slugify"
+import { getServerSession } from "next-auth"
+import { authOptions } from "../../auth/[...nextauth]/authOptions"
 
 export const PUT = async (
   req: NextRequest,
-  { params }: { params: { blogId: string } },
+  { params }: { params: { blogId: string } }
 ) => {
+  const session = await getServerSession(authOptions)
+
+  if (!session) {
+    return NextResponse.json({ success: false, message: "unauthenticated" })
+  }
+
   const blog = await prisma.blogPost.findUnique({
     where: { id: params.blogId },
   })
@@ -39,8 +47,14 @@ export const PUT = async (
 
 export const DELETE = async (
   _req: NextRequest,
-  { params }: { params: { blogId: string } },
+  { params }: { params: { blogId: string } }
 ) => {
+  const session = await getServerSession(authOptions)
+
+  if (!session) {
+    return NextResponse.json({ success: false, message: "unauthenticated" })
+  }
+
   const blog = await prisma.blogPost.findUnique({
     where: { id: params.blogId },
   })
