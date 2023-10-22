@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: { domains: ["picsum.photos", "avatars.githubusercontent.com"] },
+  images: {
+    domains: [
+      "picsum.photos",
+      "avatars.githubusercontent.com",
+      "opengraph.githubassets.com",
+    ],
+  },
 }
 
 module.exports = nextConfig

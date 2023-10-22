@@ -14,7 +14,6 @@ import langpy from "highlight.js/lib/languages/python"
 import langBash from "highlight.js/lib/languages/bash"
 import langJs from "highlight.js/lib/languages/javascript"
 import langCss from "highlight.js/lib/languages/css"
-import langHTML from "highlight.js/lib/languages/html"
 
 import "src/styles/atom-one-dark.css"
 
@@ -40,7 +39,6 @@ const SingleBlogPage = async ({ params }: { params: { slug: string } }) => {
               bash: langBash,
               py: langpy,
               css: langCss,
-              html: langHTML,
             },
           },
         ],
