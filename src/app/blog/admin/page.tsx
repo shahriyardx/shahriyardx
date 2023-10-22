@@ -1,12 +1,12 @@
 import React from "react"
-import { getAllBlogs } from "../utils"
+import { getAllBlogsServer } from "../utils"
 import Container from "@/components/shared/Container"
 import BlogActions from "./BlogActions"
 
 export const dynamic = "force-dynamic"
 
 const BlogAdmin = async () => {
-  const blogs = await getAllBlogs({ cache: "no-store" })
+  const blogs = await getAllBlogsServer()
 
   return (
     <div>

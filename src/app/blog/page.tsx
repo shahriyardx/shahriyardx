@@ -1,5 +1,5 @@
 import React from "react"
-import { getAllBlogs } from "./utils"
+import { getAllBlogsServer } from "./utils"
 import Main from "@/components/layouts/Main"
 import Container from "@/components/shared/Container"
 import Link from "next/link"
@@ -12,14 +12,7 @@ export const metadata = {
 }
 
 const BlogPage = async () => {
-  const init: RequestInit = {}
-  if (process.env.NODE_ENV === "development") {
-    init.cache = "no-store"
-  } else {
-    init.next = { revalidate: 60 }
-  }
-
-  const allBlogs = await getAllBlogs({ next: { revalidate: 60 } })
+  const allBlogs = await getAllBlogsServer()
 
   return (
     <Main>
