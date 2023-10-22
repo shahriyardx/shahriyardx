@@ -1,12 +1,12 @@
 import React from "react"
-import { getAllBlogsServer } from "../utils"
+import { prismaGetAllBlogs } from "../utils"
 import Container from "@/components/shared/Container"
 import BlogActions from "./BlogActions"
 
 export const dynamic = "force-dynamic"
 
 const BlogAdmin = async () => {
-  const blogs = await getAllBlogsServer()
+  const blogs = await prismaGetAllBlogs()
 
   return (
     <div>

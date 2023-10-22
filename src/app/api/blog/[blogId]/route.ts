@@ -31,7 +31,6 @@ export const PUT = async (
   }
 
   revalidatePath("/blog")
-  revalidatePath("/blog/admin")
   revalidatePath(`/blog/${blog.slug}`)
   revalidatePath(`/blog/${slugify(body.title, { lower: true })}`)
 

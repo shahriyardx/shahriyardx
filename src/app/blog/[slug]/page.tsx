@@ -21,7 +21,7 @@ export const dynamic = "force-dynamic"
 
 const SingleBlogPage = async ({ params }: { params: { slug: string } }) => {
   const blog = await getBlogBySlug(params.slug, {
-    cache: process.env.NODE_ENV === "development" ? "no-store" : undefined,
+    next: { revalidate: 60 * 60 * 24 },
   })
 
   if (!blog) return notFound()

@@ -1,18 +1,18 @@
 import React from "react"
-import { getAllBlogsServer } from "./utils"
+import { getAllBlogs } from "./utils"
 import Main from "@/components/layouts/Main"
 import Container from "@/components/shared/Container"
 import Link from "next/link"
 import BlogInfo from "./BlogInfo"
 
-export const dynamic = "force-dynamic"
-
 export const metadata = {
   title: "Blog",
 }
 
+export const dynamic = "force-dynamic"
+
 const BlogPage = async () => {
-  const allBlogs = await getAllBlogsServer()
+  const allBlogs = await getAllBlogs({ next: { revalidate: 60 * 60 * 24 } })
 
   return (
     <Main>
