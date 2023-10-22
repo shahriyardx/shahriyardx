@@ -16,7 +16,7 @@ const BlogPage = async () => {
 
   return (
     <Main>
-      <Container className="px-5 pt-10">
+      <Container className="px-5 py-10">
         <h1 className="text-5xl font-bold mb-5 text-white">Blogs</h1>
 
         <div className="flex flex-col gap-5">

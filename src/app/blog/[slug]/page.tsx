@@ -71,7 +71,7 @@ const SingleBlogPage = async ({ params }: Props) => {
 
   return (
     <Main>
-      <Container className="p-5 pt-10">
+      <Container className="p-5 py-10">
         <h1 className="text-4xl font-bold text-white">{blog.title}</h1>
         <BlogInfo blog={blog} className="mt-3" />
 
