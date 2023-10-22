@@ -9,23 +9,21 @@ export const prismaGetAllBlogs = async () => {
 }
 
 export const prismaGetBlogById = async (
-  blogId: string
+  blogId: string,
 ): Promise<BlogPost | null> => {
   return await prisma.blogPost.findFirst({ where: { id: blogId } })
 }
 
 export const getBlogBySlug = async (
   slug: string,
-  init?: RequestInit
+  init?: RequestInit,
 ): Promise<BlogPost | null> => {
   const response = await fetch(`${BASE_URL}/api/blog/public/${slug}`, init)
   const data = await response.json()
   return data.data
 }
 
-export const getAllBlogs = async (
-  init?: RequestInit
-): Promise<BlogPost[]> => {
+export const getAllBlogs = async (init?: RequestInit): Promise<BlogPost[]> => {
   const response = await fetch(`${BASE_URL}/api/blog/public`, init)
   const data = await response.json()
   return data

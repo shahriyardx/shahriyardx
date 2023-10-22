@@ -16,10 +16,33 @@ import langJs from "highlight.js/lib/languages/javascript"
 import langCss from "highlight.js/lib/languages/css"
 
 import "src/styles/atom-one-dark.css"
+import { Metadata, ResolvingMetadata } from "next"
 
 export const dynamic = "force-dynamic"
 
-const SingleBlogPage = async ({ params }: { params: { slug: string } }) => {
+type Props = { params: { slug: string } }
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const blog = await getBlogBySlug(params.slug, {
+    next: { revalidate: 60 * 60 * 24 },
+  })
+
+  if (!blog) {
+    return {
+      title: "Not found",
+    }
+  }
+
+  return {
+    title: blog.title,
+    description: blog.description,
+  }
+}
+
+const SingleBlogPage = async ({ params }: Props) => {
   const blog = await getBlogBySlug(params.slug, {
     next: { revalidate: 60 * 60 * 24 },
   })

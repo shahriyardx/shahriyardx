@@ -1,12 +1,10 @@
 "use client"
 
-import React from 'react'
-import NextProgress from "next-progress";
+import React from "react"
+import NextProgress from "next-progress"
 
 const ProgressBar = () => {
-  return (
-    <NextProgress />
-  )
+  return <NextProgress />
 }
 
 export default ProgressBar
