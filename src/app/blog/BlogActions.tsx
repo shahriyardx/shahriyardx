@@ -1,12 +1,12 @@
 "use client"
 
 import React from "react"
-import { BlogData } from "./utils"
 import Link from "next/link"
 import toast from "react-hot-toast"
 import { useRouter } from "next/navigation"
+import { BlogPost } from "@prisma/client"
 
-const BlogActions = ({ blog }: { blog: BlogData }) => {
+const BlogActions = ({ blog }: { blog: BlogPost }) => {
   const router = useRouter()
   const deleteBlog = () => {
     const agree = confirm("Are you sure?")

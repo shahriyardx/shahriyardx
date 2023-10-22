@@ -1,14 +1,14 @@
 "use client"
 
 import BlogForm, { blogSchema } from "@/app/blog/BlogForm"
-import { BlogData } from "@/app/blog/utils"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { BlogPost } from "@prisma/client"
 import React, { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import toast from "react-hot-toast"
 import z from "zod"
 
-type Props = { data: BlogData }
+type Props = { data: BlogPost }
 
 const EditBlog = ({ data }: Props) => {
   const {
@@ -30,11 +30,11 @@ const EditBlog = ({ data }: Props) => {
       body: JSON.stringify(values),
     })
       .then((response) => response.json())
-      .then(data => {
+      .then((data) => {
         if (data.success) {
-            toast.success("blog updated")
+          toast.success("blog updated")
         } else {
-            toast.error(data.error)
+          toast.error(data.error)
         }
       })
       .catch(console.log)

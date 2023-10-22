@@ -21,7 +21,7 @@ const CreateBlog = () => {
       body: JSON.stringify(values),
     })
       .then((response) => response.json())
-      .then(data => {
+      .then((data) => {
         if (data.success) {
           reset()
           toast.success("blog created")

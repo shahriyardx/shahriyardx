@@ -13,7 +13,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
   const result = await prisma.blogPost.create({ data: postdata })
   const response = {
     success: result ? true : false,
-    data: result
+    data: result,
   }
   return NextResponse.json(response)
 }

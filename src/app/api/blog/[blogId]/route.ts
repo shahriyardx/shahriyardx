@@ -4,7 +4,7 @@ import slugify from "slugify"
 
 export const GET = async (
   _req: NextRequest,
-  { params }: { params: { blogId: string } }
+  { params }: { params: { blogId: string } },
 ) => {
   const blog = await prisma.blogPost.findUnique({
     where: { id: params.blogId },
@@ -20,7 +20,7 @@ export const GET = async (
 
 export const PUT = async (
   req: NextRequest,
-  { params }: { params: { blogId: string } }
+  { params }: { params: { blogId: string } },
 ) => {
   const blog = await prisma.blogPost.findUnique({
     where: { id: params.blogId },
@@ -50,7 +50,7 @@ export const PUT = async (
 
 export const DELETE = async (
   _req: NextRequest,
-  { params }: { params: { blogId: string } }
+  { params }: { params: { blogId: string } },
 ) => {
   const blog = await prisma.blogPost.findUnique({
     where: { id: params.blogId },
