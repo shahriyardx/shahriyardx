@@ -12,9 +12,14 @@ export const metadata = {
 }
 
 const BlogPage = async () => {
-  const allBlogs = await getAllBlogs({
-    cache: process.env.NODE_ENV === "development" ? "no-store" : undefined,
-  })
+  const init: RequestInit = {}
+  if (process.env.NODE_ENV === "development") {
+    init.cache = "no-store"
+  } else {
+    init.next = { revalidate: 60 }
+  }
+
+  const allBlogs = await getAllBlogs({ next: { revalidate: 60 } })
 
   return (
     <Main>

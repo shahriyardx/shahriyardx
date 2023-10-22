@@ -1,4 +1,5 @@
 import { prisma } from "@/tools/db"
+import { revalidatePath } from "next/cache"
 import { NextResponse, NextRequest } from "next/server"
 import slugify from "slugify"
 
@@ -15,5 +16,8 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     success: result ? true : false,
     data: result,
   }
+
+  revalidatePath("/blog")
+  revalidatePath("/blog/admin")
   return NextResponse.json(response)
 }

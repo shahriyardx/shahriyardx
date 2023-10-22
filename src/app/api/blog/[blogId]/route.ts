@@ -1,26 +1,11 @@
 import { prisma } from "@/tools/db"
+import { revalidatePath } from "next/cache"
 import { NextResponse, NextRequest } from "next/server"
 import slugify from "slugify"
 
-export const GET = async (
-  _req: NextRequest,
-  { params }: { params: { blogId: string } },
-) => {
-  const blog = await prisma.blogPost.findUnique({
-    where: { id: params.blogId },
-  })
-
-  const response = {
-    success: blog ? true : false,
-    data: blog,
-  }
-
-  return NextResponse.json(response)
-}
-
 export const PUT = async (
   req: NextRequest,
-  { params }: { params: { blogId: string } },
+  { params }: { params: { blogId: string } }
 ) => {
   const blog = await prisma.blogPost.findUnique({
     where: { id: params.blogId },
@@ -45,12 +30,17 @@ export const PUT = async (
     data: res,
   }
 
+  revalidatePath("/blog")
+  revalidatePath("/blog/admin")
+  revalidatePath(`/blog/${blog.slug}`)
+  revalidatePath(`/blog/${slugify(body.title, { lower: true })}`)
+
   return NextResponse.json(response)
 }
 
 export const DELETE = async (
   _req: NextRequest,
-  { params }: { params: { blogId: string } },
+  { params }: { params: { blogId: string } }
 ) => {
   const blog = await prisma.blogPost.findUnique({
     where: { id: params.blogId },
@@ -68,6 +58,9 @@ export const DELETE = async (
     success: res ? true : false,
     data: res,
   }
+
+  revalidatePath("/blog")
+  revalidatePath(`/blog/${blog.slug}`)
 
   return NextResponse.json(response)
 }
