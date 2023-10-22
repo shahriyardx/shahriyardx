@@ -23,7 +23,7 @@ const Skills = () => {
       <Container className="py-20">
         <div className="text-center">
           <span className="uppercase text-lg text-zinc-600">Skills</span>
-          <h1 className="text-4xl font-bold text-zinc-300">My Skills</h1>
+          <h1 className="text-4xl font-bold text-zinc-300">Things I Love</h1>
         </div>
         <motion.div
           variants={stagger}

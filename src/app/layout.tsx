@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | Md Shahriyar Alam",
   },
   description:
-    "Full-Stack Web Developer with knowledge of JavaScript and Python",
+    "⚡️ Web instructor @ Programming Hero | Full-Stack Web Developer with knowledge of JavaScript and Python.",
   authors: {
     name: "Md Shahriyar Alam",
     url: "https://shahriyar.dev",

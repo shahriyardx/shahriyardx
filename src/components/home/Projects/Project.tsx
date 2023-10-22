@@ -31,7 +31,7 @@ const Project = ({ title, description, features, url, image, open }: Props) => {
   }
 
   return (
-    <div className="select-none">
+    <div className="select-none overflow-hidden">
       <div
         onClick={() => setExpanded(!expanded)}
         className="cursor-pointer flex items-center justify-between border-b border-b-zinc-700 p-5 rounded-md hover:bg-zinc-800"
@@ -42,8 +42,12 @@ const Project = ({ title, description, features, url, image, open }: Props) => {
 
       <AnimatePresence>
         {expanded && (
-          <motion.div layout className="p-5">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <motion.div
+            initial={{ height: 0 }}
+            animate={{ height: "max-content" }}
+            exit={{ height: 0, opacity: 0 }}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 p-5">
               <motion.div
                 initial={{ x: size < breakpoints.MD ? 50 : -50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
