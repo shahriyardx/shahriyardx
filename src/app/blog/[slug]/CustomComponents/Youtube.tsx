@@ -13,7 +13,7 @@ const CustomYoutube = ({
   return (
     <YouTube
       videoId={videoId}
-      className={cn(`max-w-full`, className)}
+      className={cn(`my-5 max-w-full`, className)}
       iframeClassName={cn(`max-w-full`, iframeClassName)}
     />
   )
