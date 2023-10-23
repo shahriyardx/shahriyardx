@@ -1,10 +1,9 @@
 "use client"
 
 import React from "react"
-import NextProgress from "next-progress"
-
+import NextTopLoader from 'nextjs-toploader';
 const ProgressBar = () => {
-  return <NextProgress />
+  return <NextTopLoader />
 }
 
 export default ProgressBar
