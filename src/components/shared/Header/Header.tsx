@@ -17,16 +17,18 @@ import {
 import { BiMenu } from "react-icons/bi"
 import MobileMenu from "./MobileMenu"
 import { AnimatePresence } from "framer-motion"
+import { useRouter } from "next/navigation"
 
 const Header = () => {
   const [show, setShow] = useState(false)
+  const router = useRouter()
 
   return (
     <div className="z-50 flex items-center h-16 bg-primary text-slate-200">
       <Container className="flex items-center px-3">
         <div>
           <Link href="/">
-            <div className="flex gap-1 text-lg uppercase">
+            <div className="flex gap-1 text-lg uppercase" onDoubleClick={() => router.push("/blog/admin")}>
               <span className="font-bold text-white">Shahriyar</span>
               <span className="font-thin text-slate-200">Alam</span>
             </div>

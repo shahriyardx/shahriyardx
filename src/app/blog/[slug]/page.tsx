@@ -7,6 +7,7 @@ import { getBlogBySlug } from "../utils"
 import { notFound } from "next/navigation"
 import { serialize } from "next-mdx-remote/serialize"
 import rehypeHighlight from "rehype-highlight"
+import rehypeSlug from "rehype-slug"
 
 // Languages
 import langNginx from "highlight.js/lib/languages/nginx"
@@ -65,6 +66,7 @@ const SingleBlogPage = async ({ params }: Props) => {
             },
           },
         ],
+        rehypeSlug,
       ],
     },
   })
