@@ -25,7 +25,7 @@ const BlogActions = ({ blog }: { blog: BlogPost }) => {
   }
   return (
     <div className="flex items-center gap-5">
-      <Link href={`/blog/admin/edit/${blog.id}`} key={blog.id}>
+      <Link href={`/admin/blog/edit/${blog.id}`} key={blog.id}>
         Edit
       </Link>
       <button onClick={deleteBlog}>Delete</button>

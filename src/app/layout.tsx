@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { Toaster } from "react-hot-toast"
 import ProgressBar from "./ProgressBar"
+import App from "./app"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -38,7 +39,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Toaster />
-        {children}
+        <App>{children}</App>
         <ProgressBar />
       </body>
     </html>

@@ -6,8 +6,11 @@ import React from "react"
 import Container from "@/components/shared/Container"
 import { AiOutlineCloudDownload } from "react-icons/ai"
 import { motion } from "framer-motion"
+import { useRouter } from "next/navigation"
 
 const Banner = () => {
+  const router = useRouter()
+
   return (
     <div className="bg-primary py-20 lg:py-32">
       <Container className="md:grid md:grid-cols-3 gap-10 xl:max-w-7xl overflow-x-hidden">
@@ -76,6 +79,7 @@ const Banner = () => {
             height={500}
             alt="Me"
             className="rounded-full w-full aspect-square object-contain"
+            onDoubleClick={() => router.push("/auth/signin")}
           />
         </motion.div>
       </Container>

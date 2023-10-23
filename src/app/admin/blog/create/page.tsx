@@ -6,6 +6,7 @@ import BlogForm, { blogSchema } from "../BlogForm"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import toast from "react-hot-toast"
+import PageHeader from "../../components/PageHeader"
 
 const CreateBlog = () => {
   const {
@@ -32,6 +33,7 @@ const CreateBlog = () => {
 
   return (
     <div>
+      <PageHeader title="Create Blog" />
       <BlogForm
         register={register}
         handleSubmit={handleSubmit}
