@@ -28,7 +28,10 @@ const Header = () => {
       <Container className="flex items-center px-3">
         <div>
           <Link href="/">
-            <div className="flex gap-1 text-lg uppercase" onDoubleClick={() => router.push("/blog/admin")}>
+            <div
+              className="flex gap-1 text-lg uppercase"
+              onDoubleClick={() => router.push("/blog/admin")}
+            >
               <span className="font-bold text-white">Shahriyar</span>
               <span className="font-thin text-slate-200">Alam</span>
             </div>

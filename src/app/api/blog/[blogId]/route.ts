@@ -7,7 +7,7 @@ import { authOptions } from "../../auth/[...nextauth]/authOptions"
 
 export const PUT = async (
   req: NextRequest,
-  { params }: { params: { blogId: string } }
+  { params }: { params: { blogId: string } },
 ) => {
   const session = await getServerSession(authOptions)
 
@@ -47,7 +47,7 @@ export const PUT = async (
 
 export const DELETE = async (
   _req: NextRequest,
-  { params }: { params: { blogId: string } }
+  { params }: { params: { blogId: string } },
 ) => {
   const session = await getServerSession(authOptions)
 
