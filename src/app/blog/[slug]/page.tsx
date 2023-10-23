@@ -8,6 +8,7 @@ import { notFound } from "next/navigation"
 import { serialize } from "next-mdx-remote/serialize"
 import rehypeHighlight from "rehype-highlight"
 import rehypeSlug from "rehype-slug"
+import remarkCodeTitle from "remark-code-title"
 
 // Languages
 import langNginx from "highlight.js/lib/languages/nginx"
@@ -51,6 +52,9 @@ const SingleBlogPage = async ({ params }: Props) => {
   if (!blog) return notFound()
   const mdxSource = await serialize(blog.content, {
     mdxOptions: {
+      remarkPlugins: [
+        remarkCodeTitle,
+      ],
       rehypePlugins: [
         [
           // @ts-expect-error("unknown")
