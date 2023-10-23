@@ -5,32 +5,37 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
         <loc>https://shahriyar.dev/</loc>
-        <lastmod>2023-10-22T22:53:51+00:00</lastmod>
+        <lastmod>2023-10-23T09:56:59+00:00</lastmod>
         <priority>1.00</priority>
-    </url>
-    <url>
+        </url>
+        <url>
         <loc>https://shahriyar.dev/contact</loc>
-        <lastmod>2023-10-22T22:53:51+00:00</lastmod>
+        <lastmod>2023-10-23T09:56:59+00:00</lastmod>
         <priority>0.80</priority>
-    </url>
-    <url>
+        </url>
+        <url>
         <loc>https://shahriyar.dev/blog</loc>
-        <lastmod>2023-10-22T22:53:51+00:00</lastmod>
+        <lastmod>2023-10-23T09:56:59+00:00</lastmod>
         <priority>0.80</priority>
-    </url>
-    <url>
+        </url>
+        <url>
         <loc>https://shahriyar.dev/github</loc>
-        <lastmod>2023-10-22T22:53:51+00:00</lastmod>
+        <lastmod>2023-10-23T09:56:59+00:00</lastmod>
         <priority>0.80</priority>
-    </url>
-    <url>
+        </url>
+        <url>
         <loc>https://shahriyar.dev/Resume.pdf</loc>
-        <lastmod>2023-10-22T22:53:51+00:00</lastmod>
+        <lastmod>2023-10-23T09:56:59+00:00</lastmod>
         <priority>0.80</priority>
-    </url>
-    <url>
-        <loc>https://shahriyar.dev/blog/tailwind-css-manual-dark-mode-using-react-js</loc>
-        <lastmod>2023-10-22T22:53:51+00:00</lastmod>
+        </url>
+        <url>
+        <loc>https://shahriyar.dev/blog/deplying-an-express-app-in-vercel</loc>
+        <lastmod>2023-10-23T09:56:59+00:00</lastmod>
         <priority>0.64</priority>
-    </url>
+        </url>
+        <url>
+        <loc>https://shahriyar.dev/blog/tailwind-css-manual-dark-mode-in-react-js</loc>
+        <lastmod>2023-10-23T09:56:59+00:00</lastmod>
+        <priority>0.64</priority>
+        </url>
 </urlset>
