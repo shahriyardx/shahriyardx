@@ -16,19 +16,19 @@ const BlogInfo = ({
   const time = Math.ceil(words / 225)
 
   return (
-    <div className={`flex items-center gap-5 text-sm ${className}`}>
+    <div className={`flex items-center gap-2 sm:gap-5 text-xs sm:text-sm flex-wrap ${className}`}>
       <span className="flex items-center gap-2">
         <BiUser />
         <span>shahriyardx</span>
       </span>
 
       <span className="flex items-center gap-2">
-        <BiCalendar />
+        <BiCalendar className="hidden sm:block"/>
         {moment(new Date(Number(blog.time))).fromNow()}
       </span>
 
       <span className="flex items-center gap-2">
-        <BiTime />
+        <BiTime className="hidden sm:block"/>
         {moment.duration(time, "minute").humanize()} read
       </span>
     </div>
