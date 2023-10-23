@@ -31,7 +31,7 @@
     "next-mdx-remote": "^4.4.1",
     "nextjs-toploader": "^1.5.3",
     "nodemailer": "^6.9.5",
-    "postcss": "8.4.29",
+    "postcss": "^8.4.31",
     "prisma": "^5.4.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
