@@ -15,6 +15,7 @@ const EditBlog = ({ data }: Props) => {
     reset,
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm<z.infer<typeof blogSchema>>({ resolver: zodResolver(blogSchema) })
 
@@ -40,12 +41,15 @@ const EditBlog = ({ data }: Props) => {
       .catch(console.log)
   }
   return (
-    <BlogForm
-      register={register}
-      handleSubmit={handleSubmit}
-      errors={errors}
-      onSubmit={submitHandler}
-    />
+    <div>
+      <BlogForm
+        register={register}
+        handleSubmit={handleSubmit}
+        errors={errors}
+        onSubmit={submitHandler}
+        getValue={getValues}
+      />
+    </div>
   )
 }
 

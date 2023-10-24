@@ -12,6 +12,7 @@ const CreateBlog = () => {
   const {
     reset,
     register,
+    getValues,
     handleSubmit,
     formState: { errors },
   } = useForm<z.infer<typeof blogSchema>>({ resolver: zodResolver(blogSchema) })
@@ -39,6 +40,7 @@ const CreateBlog = () => {
         handleSubmit={handleSubmit}
         errors={errors}
         onSubmit={submitHandler}
+        getValue={getValues}
       />
     </div>
   )

@@ -1,7 +1,10 @@
+"use client"
+
 import { z } from "zod"
 import React from "react"
 import {
   FieldErrors,
+  UseFormGetValues,
   UseFormHandleSubmit,
   UseFormRegister,
 } from "react-hook-form"
@@ -28,10 +31,16 @@ type Props = {
   handleSubmit: UseFormHandleSubmit<BlogInputType>
   register: UseFormRegister<BlogInputType>
   errors: FieldErrors<BlogInputType>
+  getValue: UseFormGetValues<BlogInputType>
   onSubmit: (values: BlogInputType) => void
 }
 
-const BlogForm = ({ handleSubmit, register, errors, onSubmit }: Props) => {
+const BlogForm = ({
+  handleSubmit,
+  register,
+  errors,
+  onSubmit,
+}: Props) => {
   return (
     <Container className="p-5">
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
@@ -79,7 +88,7 @@ const BlogForm = ({ handleSubmit, register, errors, onSubmit }: Props) => {
           />
         </div>
 
-        <div>
+        <div className="flex gap-2">
           <button
             type="submit"
             className="px-7 py-3 bg-white text-black rounded-md tetx-lg"
