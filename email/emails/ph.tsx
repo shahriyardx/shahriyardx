@@ -1,3 +1,4 @@
+import React from "react"
 import {
   Body,
   Container,
@@ -9,9 +10,8 @@ import {
   Text,
   Column,
   Link,
-  Tailwind,
+  // Tailwind,
 } from "@react-email/components"
-import React from "react"
 import { Markdown } from "@react-email/markdown"
 
 const md = `
@@ -55,7 +55,7 @@ const allClasses: AllClasses = {
   },
 }
 
-const mode: string = "dark"
+const mode: string = "default"
 const classes: Classes = mode === "dark" ? allClasses.dark : allClasses.default
 
 const PH = ({ content = md }: { content: string }) => {
@@ -67,7 +67,7 @@ const PH = ({ content = md }: { content: string }) => {
       : "https://shahriyar.dev"
 
   return (
-    <Tailwind>
+    // <Tailwind>
       <Html>
         <Head>
           <meta name="color-scheme" content="light dark" />
@@ -135,7 +135,7 @@ const PH = ({ content = md }: { content: string }) => {
           </Container>
         </Body>
       </Html>
-    </Tailwind>
+    // </Tailwind>
   )
 }
 
