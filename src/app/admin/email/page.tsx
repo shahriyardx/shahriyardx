@@ -7,7 +7,7 @@ import PageHeader from "../components/PageHeader"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 
-export const emailSchema = z.object({
+const emailSchema = z.object({
   from: z
     .string({ required_error: "from is required" })
     .min(1, { message: "from is required" }),

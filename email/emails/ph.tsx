@@ -7,29 +7,19 @@ import {
   Img,
   Section,
   Text,
-  Tailwind,
   Column,
   Link,
 } from "@react-email/components"
+import { Tailwind } from "@react-email/tailwind"
 import { Markdown } from "@react-email/markdown"
 import React from "react"
 
 const md = `
-## Dear Students
-Hello developers \n
-কি অবস্থা তোমাদের ফুলস্ট্যাক জার্নির? এই মাইলস্টোন এ কিন্তু আগের জিনিস গুলাই আবার রিক্যাপ করা হচ্ছে। ব্যাকএন্ড এ পাকা হতে চাইলে কিন্তু CRUD অপেরেশন ভালোভাবে শেখার কোনো বিকল্প নেই। তাই আজকে তোমাদের আবার CRUD অপারেশন এর কনসেপ্টগুলো দেখানো হবে এবং তার সাথে কিভাবে JWT দিয়ে API সিকিউর করা যাই তা দেখানো হঁবে। আজকের সেশনটি খুবই ইন্টারেষ্টিং। তাই দেরি না করে জয়েন করে ফেলো নিচের লিংকে ঠিক রাত ৯.০০ টাই আজকের সেশন দেখার জন্য। আজকের সেশনটি নিবেন আমাদের ইন্সট্রাক্টর জিহাদ ভাই।
-</br></br>
+# Test
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, id repudiandae ab corporis esse in numquam. 
+Eos ipsum eaque adipisci quo veritatis, sunt voluptatibus. Commodi nam ex dolore quisquam architecto!
 
-__Topic__: Conceptual Session</br>
-__Time__: Oct 27, 2023 09:00 PM. </br></br>
-__Join Zoom Meeting__: [Click Here](https://us02web.zoom.us/j/5678589533?pwd=UTlsZm9PTE1LSEJOVDlrdUhUMkxzdz09)
-
-
-__Meeting ID__: 567 858 9533 </br>
-__Passcode__: 1234
-
-<p style="font-size:20px;font-weight:700;margin:0; margin-top:20px;">Best Regards</p>
-Team Programming Hero
+Links: [Link](https://google.com)
 `
 
 type AllClasses = {

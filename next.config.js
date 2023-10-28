@@ -6,7 +6,7 @@ const nextConfig = {
       "avatars.githubusercontent.com",
       "opengraph.githubassets.com",
     ],
-  },
+  }
 }
 
 module.exports = nextConfig
