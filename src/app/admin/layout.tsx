@@ -1,21 +1,17 @@
-"use client"
-
 import React from "react"
 import Sidebar from "./components/sidebar/Sidebar"
-import { useSession } from "next-auth/react"
-import { useRouter } from "next/navigation"
+import { getServerSession } from "next-auth"
+import { redirect } from "next/navigation"
+import { authOptions } from "../api/auth/[...nextauth]/authOptions"
 
 type Props = {
   children: React.ReactNode
 }
 
-const BlogLayout = ({ children }: Props) => {
-  const router = useRouter()
+const BlogLayout = async ({ children }: Props) => {
+  const session = await getServerSession(authOptions)
   
-  useSession({
-    required: true,
-    onUnauthenticated: () => router.push("/api/auth/signin"),
-  })
+  if (!session) return redirect("/api/auth/signin")
 
   return (
     <div className="grid grid-cols-[300px,auto]">
