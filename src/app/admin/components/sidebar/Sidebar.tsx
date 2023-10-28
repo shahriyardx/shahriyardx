@@ -2,7 +2,7 @@
 
 import React from "react"
 import IconLink from "./IconLink"
-import { BiBookContent, BiCubeAlt, BiHome } from "react-icons/bi"
+import { BiBookContent, BiCubeAlt, BiHome, BiMailSend } from "react-icons/bi"
 
 const Sidebar = () => {
   return (
@@ -19,6 +19,9 @@ const Sidebar = () => {
         </IconLink>
         <IconLink href="/admin/blog" Icon={BiBookContent}>
           Blogs
+        </IconLink>
+        <IconLink href="/admin/email" Icon={BiMailSend}>
+          Email
         </IconLink>
       </div>
     </div>

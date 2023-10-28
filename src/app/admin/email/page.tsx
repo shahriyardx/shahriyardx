@@ -1,12 +1,10 @@
 "use client"
 
+import z from "zod"
 import React from "react"
 import Container from "@/components/shared/Container"
-import Link from "next/link"
-import { BiPlus } from "react-icons/bi"
 import PageHeader from "../components/PageHeader"
 import { useForm } from "react-hook-form"
-import z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 
 export const emailSchema = z.object({
