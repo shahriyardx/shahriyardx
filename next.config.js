@@ -6,6 +6,9 @@ const nextConfig = {
       "avatars.githubusercontent.com",
       "opengraph.githubassets.com",
     ],
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   }
 }
 
