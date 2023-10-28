@@ -10,7 +10,7 @@ import {
   Text,
   Column,
   Link,
-  // Tailwind,
+  Tailwind,
 } from "@react-email/components"
 import { Markdown } from "@react-email/markdown"
 
@@ -67,7 +67,7 @@ const PH = ({ content = md }: { content: string }) => {
       : "https://shahriyar.dev"
 
   return (
-    // <Tailwind>
+    <Tailwind>
       <Html>
         <Head>
           <meta name="color-scheme" content="light dark" />
@@ -135,7 +135,7 @@ const PH = ({ content = md }: { content: string }) => {
           </Container>
         </Body>
       </Html>
-    // </Tailwind>
+    </Tailwind>
   )
 }
 
