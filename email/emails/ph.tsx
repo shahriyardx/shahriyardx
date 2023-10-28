@@ -59,12 +59,7 @@ const mode: string = "default"
 const classes: Classes = mode === "dark" ? allClasses.dark : allClasses.default
 
 const PH = ({ content = md }: { content: string }) => {
-  const BASE_URL =
-    process.env.VERCEL_URL ||
-    process.env.NEXT_PUBLIC_VERCEL_URL ||
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://shahriyar.dev"
+  const BASE_URL = "https://shahriyar.dev"
 
   return (
     <Tailwind>
