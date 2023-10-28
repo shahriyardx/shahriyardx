@@ -11,12 +11,10 @@ export const emailSchema = z.object({
   from: z
     .string({ required_error: "from is required" })
     .min(1, { message: "from is required" }),
-  to: z
-    .string({ required_error: "to is required" })
-    .min(1, { message: "to is required" }),
+  to: z.string().default("mdshahriyaralam552@gmail.com"),
   subject: z
     .string({ required_error: "subject is required" })
-    .min(1, { message: "subject is required" }),
+    .default("No Subject"),
   content: z
     .string({ required_error: "content is required" })
     .min(1, { message: "content is required" }),
@@ -34,15 +32,16 @@ const BlogAdmin = () => {
 
   const sendEmail = (value: Email) => {
     fetch(`/api/email`, {
-        method: "POST",
-        headers: {
-            'content-type': 'application/json',
-        },
-        body: JSON.stringify(value)
-    }).then(response => response.json())
-    .then(data => {
-        console.log(data)
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(value),
     })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+      })
   }
 
   return (
