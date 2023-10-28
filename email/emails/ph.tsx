@@ -9,10 +9,10 @@ import {
   Text,
   Column,
   Link,
+  Tailwind,
 } from "@react-email/components"
-import { Tailwind } from "@react-email/tailwind"
-import { Markdown } from "@react-email/markdown"
 import React from "react"
+import { Markdown } from "@react-email/markdown"
 
 const md = `
 # Test
