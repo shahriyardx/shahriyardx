@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from "next/server"
 import { Resend } from "resend"
 import { Email } from "@/app/admin/email/page"
-import PH from "@/email/emails/ph"
+import PH from "@/email/ph"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 

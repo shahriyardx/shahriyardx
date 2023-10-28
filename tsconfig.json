@@ -19,8 +19,8 @@
       }
     ],
     "paths": {
+      "@/email/*": ["./email/emails/*"],
       "@/*": ["./src/*"],
-      "@/email/*": ["./email/emails/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
