@@ -15,7 +15,6 @@ type Props = { params: { slug: string } }
 
 export async function generateMetadata(
   { params }: Props,
-  parent: ResolvingMetadata
 ): Promise<Metadata> {
   const blog = await getBlogBySlug(params.slug, {
     next: { revalidate: 60 * 60 * 24 },
@@ -26,16 +25,12 @@ export async function generateMetadata(
       title: "Not found",
     }
   }
-
-  const previousImages = (await parent).openGraph?.images || []
-
   return {
     title: blog.title,
     description: blog.description,
     openGraph: {
       images: [
-        { url: blog.thumbnail, width: 1920, height: 1080 },
-        ...previousImages,
+        { url: blog.thumbnail, width: 1920, height: 1080, type: "image/png" },
       ],
     },
   }
