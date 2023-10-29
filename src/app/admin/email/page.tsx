@@ -6,6 +6,7 @@ import Container from "@/components/shared/Container"
 import PageHeader from "../components/PageHeader"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
+import toast from "react-hot-toast"
 
 const emailSchema = z.object({
   from: z
@@ -40,7 +41,12 @@ const BlogAdmin = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
+        if (data.success) {
+          toast.success("Email sent successfully")
+        } else {
+          toast.error("Email sent failed")
+          console.log(data)
+        }
       })
   }
 
