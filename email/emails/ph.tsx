@@ -59,7 +59,10 @@ const mode: string = "default"
 const classes: Classes = mode === "dark" ? allClasses.dark : allClasses.default
 
 const PH = ({ content = md }: { content: string }) => {
-  const BASE_URL = "https://shahriyar.dev"
+  const BASE_URL =
+    process.env.NODE_ENV === "production"
+      ? "https://shahriyar.dev"
+      : "http://localhost:3000"
 
   return (
     <Tailwind>
