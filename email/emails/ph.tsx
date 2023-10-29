@@ -50,7 +50,7 @@ const allClasses: AllClasses = {
 const mode: string = "default"
 const classes: Classes = mode === "dark" ? allClasses.dark : allClasses.default
 
-const PH = ({ content = md }: { content: string }) => {
+const PH = ({ content }: { content: string }) => {
   const BASE_URL =
     process.env.NODE_ENV === "production"
       ? "https://shahriyar.dev"
@@ -165,13 +165,5 @@ const markdownStyles = {
     margin: 0,
   },
 }
-
-const md = `
-# Test
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, id repudiandae ab corporis esse in numquam. 
-Eos ipsum eaque adipisci quo veritatis, sunt voluptatibus. Commodi nam ex dolore quisquam architecto!
-
-Links: [Link](https://google.com)
-`
 
 export default PH
