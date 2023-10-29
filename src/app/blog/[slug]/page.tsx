@@ -3,7 +3,7 @@ import Main from "@/components/layouts/Main"
 import Container from "@/components/shared/Container"
 import Markdown from "../../../components/markdown/Markdown"
 import BlogInfo from "../BlogInfo"
-import { Metadata } from "next"
+import { Metadata, ResolvingMetadata } from "next"
 import { notFound } from "next/navigation"
 import { getBlogBySlug } from "../utils"
 
@@ -13,7 +13,7 @@ export const dynamic = "force-dynamic"
 
 type Props = { params: { slug: string } }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
   const blog = await getBlogBySlug(params.slug, {
     next: { revalidate: 60 * 60 * 24 },
   })
@@ -24,9 +24,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
   }
 
+  const previousImages = (await parent).openGraph?.images || []
+
   return {
     title: blog.title,
     description: blog.description,
+    openGraph: {
+      images: [blog.thumbnail, ...previousImages],
+    },
   }
 }
 

@@ -14,6 +14,7 @@ export const blogSchema = z.object({
   title: z
     .string({ required_error: "title is required" })
     .min(1, { message: "title is required" }),
+  thumbnail: z.string(),
   description: z
     .string({ required_error: "description is required" })
     .min(1, { message: "description is required" }),
@@ -35,16 +36,11 @@ type Props = {
   onSubmit: (values: BlogInputType) => void
 }
 
-const BlogForm = ({
-  handleSubmit,
-  register,
-  errors,
-  onSubmit,
-}: Props) => {
+const BlogForm = ({ handleSubmit, register, errors, onSubmit }: Props) => {
   return (
     <Container className="p-5">
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-2 gap-5">
           <div className="flex flex-col">
             <label htmlFor="title">Title</label>
             <input
@@ -59,10 +55,24 @@ const BlogForm = ({
             <input
               type="text"
               {...register("description")}
-              className={`${errors.title && "border-red-400"}`}
+              className={`${errors.description && "border-red-400"}`}
             />
             {errors?.description && (
               <span>{errors?.description.message as string}</span>
+            )}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-5">
+          <div className="flex flex-col">
+            <label htmlFor="thumbnail">Thumbnail</label>
+            <input
+              type="text"
+              {...register("thumbnail")}
+              className={`${errors.thumbnail && "border-red-400"}`}
+            />
+            {errors?.thumbnail && (
+              <span>{errors?.thumbnail.message as string}</span>
             )}
           </div>
 
