@@ -78,6 +78,7 @@ const PH = ({ content = md }: { content: string }) => {
               <Img
                 src={`${BASE_URL}/static/profile-pic.png`}
                 className="w-[150px] h-[150px] mx-auto"
+                alt="Md Shahriyar Alam"
               />
 
               <Text className={classes.profile.title}>Md Shahriyar Alam</Text>
