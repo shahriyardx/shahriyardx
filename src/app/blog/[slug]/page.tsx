@@ -28,12 +28,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: blog.description,
     openGraph: {
       images: [
-        { url: blog.thumbnail, width: 1920, height: 1080, type: "image/png" },
+        { url: blog.thumbnail, width: 1200, height: 630, type: "image/png" },
       ],
     },
     twitter: {
       images: [
-        { url: blog.thumbnail, width: 1920, height: 1080, type: "image/png" },
+        { url: blog.thumbnail, width: 1200, height: 630, type: "image/png" },
       ],
     },
   }
