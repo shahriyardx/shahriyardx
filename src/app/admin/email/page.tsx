@@ -98,7 +98,7 @@ const BlogAdmin = () => {
             </div>
 
             <div>
-              <label>Blog Content</label>
+              <label>Email Content</label>
               <textarea
                 rows={10}
                 className={`${errors.content && "border-red-400"} w-full`}
