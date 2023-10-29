@@ -14,14 +14,6 @@ import {
 } from "@react-email/components"
 import { Markdown } from "@react-email/markdown"
 
-const md = `
-# Test
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, id repudiandae ab corporis esse in numquam. 
-Eos ipsum eaque adipisci quo veritatis, sunt voluptatibus. Commodi nam ex dolore quisquam architecto!
-
-Links: [Link](https://google.com)
-`
-
 type AllClasses = {
   dark: Classes
   default: Classes
@@ -85,7 +77,7 @@ const PH = ({ content = md }: { content: string }) => {
             <Section className="p-5 mt-10 text-center shadow-md">
               <Img
                 src={`${BASE_URL}/static/profile-pic.png`}
-                className="w-[200px] h-[200px] mx-auto"
+                className="w-[150px] h-[150px] mx-auto"
               />
 
               <Text className={classes.profile.title}>Md Shahriyar Alam</Text>
@@ -172,4 +164,13 @@ const markdownStyles = {
     margin: 0,
   },
 }
+
+const md = `
+# Test
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, id repudiandae ab corporis esse in numquam. 
+Eos ipsum eaque adipisci quo veritatis, sunt voluptatibus. Commodi nam ex dolore quisquam architecto!
+
+Links: [Link](https://google.com)
+`
+
 export default PH
