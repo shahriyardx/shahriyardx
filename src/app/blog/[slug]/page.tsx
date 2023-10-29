@@ -13,7 +13,10 @@ export const dynamic = "force-dynamic"
 
 type Props = { params: { slug: string } }
 
-export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const blog = await getBlogBySlug(params.slug, {
     next: { revalidate: 60 * 60 * 24 },
   })
@@ -30,7 +33,10 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
     title: blog.title,
     description: blog.description,
     openGraph: {
-      images: [blog.thumbnail, ...previousImages],
+      images: [
+        { url: blog.thumbnail, width: 1920, height: 1080 },
+        ...previousImages,
+      ],
     },
   }
 }
