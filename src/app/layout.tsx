@@ -4,6 +4,7 @@ import { Inter } from "next/font/google"
 import { Toaster } from "react-hot-toast"
 import ProgressBar from "./ProgressBar"
 import App from "./app"
+import GoogleAnalytics from "@/components/shared/Analytics"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -41,6 +42,9 @@ export default function RootLayout({
         <Toaster />
         <App>{children}</App>
         <ProgressBar />
+        {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
+          <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+        ) : null}
       </body>
     </html>
   )
