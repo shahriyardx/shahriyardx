@@ -24,6 +24,7 @@ export const blogSchema = z.object({
   category: z
     .string({ required_error: "category is required" })
     .min(1, { message: "category is required" }),
+  status: z.string(),
 })
 
 export type BlogInputType = z.infer<typeof blogSchema>
@@ -63,7 +64,7 @@ const BlogForm = ({ handleSubmit, register, errors, onSubmit }: Props) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid grid-cols-3 gap-5">
           <div className="flex flex-col">
             <label htmlFor="thumbnail">Thumbnail</label>
             <input
@@ -86,6 +87,15 @@ const BlogForm = ({ handleSubmit, register, errors, onSubmit }: Props) => {
             {errors?.category && (
               <span>{errors?.category.message as string}</span>
             )}
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="category">Status</label>
+            <select {...register("status")}>
+              <option value="draft">Draft</option>
+              <option value="unlisted">Unlisted</option>
+              <option value="published">Published</option>
+            </select>
           </div>
         </div>
 
