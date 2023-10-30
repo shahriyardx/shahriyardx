@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic"
 
 export const GET = async (req: NextRequest, res: NextResponse) => {
   const response = await prisma.blogPost.findMany({
-    // where: { status: "published" },
+    where: { status: "published" },
     orderBy: { time: "desc" },
   })
   return NextResponse.json(response)
