@@ -17,4 +17,5 @@ model BlogPost {
   category    String
   thumbnail   String @default("https://shahriyar.dev/images/me.jpg")
   status      String @default("draft")
+  views       Int    @default(0)
 }
