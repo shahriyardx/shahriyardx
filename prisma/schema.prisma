@@ -3,8 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model BlogPost {
@@ -16,4 +16,5 @@ model BlogPost {
   content     String
   category    String
   thumbnail   String @default("https://shahriyar.dev/images/me.jpg")
+  status      String @default("draft")
 }
