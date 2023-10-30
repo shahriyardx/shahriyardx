@@ -7,9 +7,7 @@ const nextConfig = {
       "opengraph.githubassets.com",
     ],
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  output: "standalone"
 }
 
 module.exports = nextConfig
