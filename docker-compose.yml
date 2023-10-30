@@ -12,6 +12,8 @@ services:
       - ./database:/var/lib/postgresql/data
     networks:
       - portfolio
+    ports:
+      - 5469:5432
   app:
     build: .
     ports:
