@@ -74,6 +74,7 @@ const Banner = () => {
           }}
         >
           <Image
+            priority
             src="/images/me.jpg"
             width={500}
             height={500}
