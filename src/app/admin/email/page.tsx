@@ -32,7 +32,7 @@ const BlogAdmin = () => {
   } = useForm<Email>({ resolver: zodResolver(emailSchema) })
 
   const sendEmail = (value: Email) => {
-    fetch(`/api/email`, {
+    fetch(`/api/resend/email`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

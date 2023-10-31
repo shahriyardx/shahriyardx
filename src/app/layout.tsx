@@ -9,6 +9,7 @@ import GoogleAnalytics from "@/components/shared/Analytics"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://shahriyar.dev"),
   title: {
     default: "Shahriyar Alam",
     template: "%s | Md Shahriyar Alam",
