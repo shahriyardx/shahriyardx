@@ -7,7 +7,7 @@ const nextConfig = {
       "opengraph.githubassets.com",
     ],
   },
-  output: "standalone"
+  output: "standalone",
 }
 
 module.exports = nextConfig

@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { BiTime, BiUser, BiCalendar } from "react-icons/bi"
+import { BiTime, BiCalendar } from "react-icons/bi"
 import moment from "moment"
 import { BlogPost } from "@prisma/client"
 
