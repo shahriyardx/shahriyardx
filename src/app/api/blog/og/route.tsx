@@ -47,7 +47,7 @@ export async function GET(req: NextRequest) {
 
           <span tw="flex items-center ml-3">&#128345; {readTime} read</span>
         </div>
-
+          {/* eslint-disable-next-line */}
           <img
             src="https://shahriyar.dev/images/me.jpg"
             width={100}
