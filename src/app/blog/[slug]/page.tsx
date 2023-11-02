@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   query.set("title", blog.title)
   query.set("description", blog.description)
   query.set("read", words.toString())
-  query.set("time", time.toString())
+  query.set("time", blog.time.toString())
 
   const ogImage = new URL(`/api/blog/og?${query.toString()}`, base).toString()
 
