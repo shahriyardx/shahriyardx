@@ -42,14 +42,14 @@ export async function GET(req: NextRequest) {
       >
         <p tw="m-0 p-0 text-7xl mb-2 font-bold">{title}</p>
         <p tw="m-0 p-0 text-2xl">{description}</p>
-        <div tw="flex items-center text-xs flex-wrap mt-auto text-lg">
+        <div tw="flex items-center flex-wrap mt-auto text-xl">
           <span tw="flex items-center">&#x1F4C5; {postedAt}</span>
 
           <span tw="flex items-center ml-7">&#128345; {readTime} read</span>
         </div>
           {/* eslint-disable-next-line */}
           <img
-            src="https://shahriyar.dev/images/me.jpg"
+            src="https://shahriyar.dev/_next/image?url=%2Fimages%2Fme.jpg&w=256&q=20"
             width={200}
             height={200}
             alt="me"
