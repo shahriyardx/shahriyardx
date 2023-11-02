@@ -40,20 +40,20 @@ export async function GET(req: NextRequest) {
           position: "relative",
         }}
       >
-        <p tw="m-0 p-0 text-4xl mb-2 font-bold">{title}</p>
-        <p tw="m-0 p-0 text-xl">{description}</p>
-        <div tw="flex items-center text-xs sm:text-sm flex-wrap mt-auto">
+        <p tw="m-0 p-0 text-7xl mb-2 font-bold">{title}</p>
+        <p tw="m-0 p-0 text-2xl">{description}</p>
+        <div tw="flex items-center text-xs flex-wrap mt-auto text-lg">
           <span tw="flex items-center">&#x1F4C5; {postedAt}</span>
 
-          <span tw="flex items-center ml-3">&#128345; {readTime} read</span>
+          <span tw="flex items-center ml-7">&#128345; {readTime} read</span>
         </div>
           {/* eslint-disable-next-line */}
           <img
             src="https://shahriyar.dev/images/me.jpg"
-            width={100}
-            height={100}
+            width={200}
+            height={200}
             alt="me"
-            tw="rounded-full absolute bottom-[50] right-[50]"
+            tw="rounded-full absolute bottom-[50px] right-[50px]"
           />
       </div>
     ),
