@@ -53,7 +53,7 @@ export async function GET(req: NextRequest) {
             width={100}
             height={100}
             alt="me"
-            tw="rounded-full absolute bottom-5 right-5"
+            tw="rounded-full absolute bottom-[50] right-[50]"
 
           />
       </div>
