@@ -23,17 +23,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: "Not found",
     }
   }
+
+  const words = blog.content.trim().split(/\s+/).length
+  const time = Math.ceil(words / 225)
+
+  const base = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `http://localhost:3000`
+  const query = new URLSearchParams()
+  query.set("title", blog.title)
+  query.set("description", blog.description)
+  query.set("read", words.toString())
+  query.set("time", time.toString())
+
+  const ogImage = new URL(`/api/blog/og?${query.toString()}`, base).toString()
+
   return {
     title: blog.title,
     description: blog.description,
     openGraph: {
       images: [
-        { url: blog.thumbnail, width: 1200, height: 630, type: "image/png" },
+        { url: ogImage, width: 1200, height: 630, type: "image/png" },
       ],
     },
     twitter: {
       images: [
-        { url: blog.thumbnail, width: 1200, height: 630, type: "image/png" },
+        { url: ogImage, width: 1200, height: 630, type: "image/png" },
       ],
     },
   }
