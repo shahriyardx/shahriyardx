@@ -54,7 +54,6 @@ export async function GET(req: NextRequest) {
             height={100}
             alt="me"
             tw="rounded-full absolute bottom-[50] right-[50]"
-
           />
       </div>
     ),
