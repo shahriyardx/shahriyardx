@@ -38,7 +38,7 @@ const Experience = ({
           </span>
         )}
       </h3>
-      <span className="flex items-center gap-2 mb-2">
+      <span className="flex items-center gap-1 sm:gap-2 mb-2 flex-wrap">
         <span className="text-gray-300">{position}</span>
         <time className="block text-sm font-normal leading-none text-gray-500">
           {from} - {to}

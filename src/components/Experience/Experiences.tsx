@@ -9,9 +9,9 @@ const Experiences = () => {
           <h1 className="text-4xl font-bold text-zinc-300">Experience</h1>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-10 px-5">
           <ol className="relative border-l border-gray-200 dark:border-gray-700">
-          <Experience
+            <Experience
               company="Programming Hero"
               from="November 2023"
               to="Present"
