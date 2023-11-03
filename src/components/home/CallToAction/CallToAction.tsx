@@ -3,6 +3,7 @@
 import Container from "@/components/shared/Container"
 import React from "react"
 import { motion } from "framer-motion"
+import FramerMagnetic from "@/components/shared/FramerMagnetic"
 
 const container = {
   hidden: { y: 100, opacity: 0 },
@@ -50,16 +51,18 @@ const CallToAction = () => {
             viewport={{ once: true }}
             className="mt-10"
           >
-            <a
-              href="https://www.linkedin.com/in/devshahriyar/"
-              className="inline-block px-5 py-3 font-bold text-black transition-all bg-accent group hover:bg-rose-500 hover:animate-shake"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span className="mr-2">Hire Me</span>
-              <span className="group-hover:hidden">💔</span>
-              <span className="hidden group-hover:inline-block">💖</span>
-            </a>
+            <FramerMagnetic>
+              <a
+                href="https://www.linkedin.com/in/devshahriyar/"
+                className="inline-block px-5 py-3 font-bold text-black transition-all bg-accent group hover:bg-rose-500 hover:animate-shake"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span className="mr-2">Hire Me</span>
+                <span className="group-hover:hidden">💔</span>
+                <span className="hidden group-hover:inline-block">💖</span>
+              </a>
+            </FramerMagnetic>
           </motion.div>
         </motion.div>
       </Container>

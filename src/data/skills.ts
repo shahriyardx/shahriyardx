@@ -21,7 +21,7 @@ import {
 
 const skills = [
   {
-    name: "HTMl",
+    name: "HTML",
     icon: SiHtml5,
     className: "hover:text-orange-600",
   },
