@@ -5,8 +5,8 @@ const Experiences = () => {
     <div className="px-5 bg-secondary">
       <div className="max-w-6xl py-10 mx-auto md:py-20">
         <div className="text-center">
-          <span className="text-lg uppercase text-zinc-600">Projects</span>
-          <h1 className="text-4xl font-bold text-zinc-300">Recent Projects</h1>
+          <span className="text-lg uppercase text-zinc-600">Previous Jobs</span>
+          <h1 className="text-4xl font-bold text-zinc-300">Experience</h1>
         </div>
 
         <div className="mt-10">
