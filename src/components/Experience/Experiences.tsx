@@ -11,9 +11,9 @@ const Experiences = () => {
 
         <div className="mt-10">
           <ol className="relative border-l border-gray-200 dark:border-gray-700">
-            <Experience
+          <Experience
               company="Programming Hero"
-              from="August 2023"
+              from="November 2023"
               to="Present"
               current
               position="Web Instructor"
@@ -27,10 +27,24 @@ const Experiences = () => {
             />
 
             <Experience
+              company="Programming Hero"
+              from="August 2023"
+              to="October 2023"
+              position="Web Instructor (Intern)"
+              responsibilities={[
+                "Provide feedback and guidance to students on their coursework",
+                "Answer questions and provide support through the course facebook group",
+                "Assist with the development of new courses and course materials",
+                "Collaborate with other instructors to ensure consistency in course content and delivery",
+                "Stay up-to-date with industry trends and technologies related to web development and the MERN stack",
+              ]}
+            />
+
+            <Experience
               company="Onito Technologies Pvt. Ltd"
               from="April 2022"
               to="June 2022"
-              position="Web Developer"
+              position="React Developer"
               responsibilities={[
                 "Adding new UI elements and React components, and integrating them with the application",
                 "Understand client's requirements and improving user experience",
