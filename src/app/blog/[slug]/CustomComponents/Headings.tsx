@@ -6,7 +6,7 @@ type Props = HTMLAttributes<HTMLHeadElement>
 export const H1 = ({ id, ...props }: Props) => {
   return (
     <Link href={`#${id}`} className="no-underline hover:underline">
-      <h1 {...props}># {props.children}</h1>
+      <h1 {...props} id={id}>{props.children}</h1>
     </Link>
   )
 }
@@ -14,7 +14,7 @@ export const H1 = ({ id, ...props }: Props) => {
 export const H2 = ({ id, ...props }: Props) => {
   return (
     <Link href={`#${id}`} className="no-underline hover:underline">
-      <h2 {...props}># {props.children}</h2>
+      <h2 {...props} id={id}>{props.children}</h2>
     </Link>
   )
 }
