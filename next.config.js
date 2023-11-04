@@ -8,6 +8,7 @@ const nextConfig = {
     ],
   },
   output: "standalone",
+  transpilePackages: ["lucide-react"],
 }
 
 module.exports = nextConfig
