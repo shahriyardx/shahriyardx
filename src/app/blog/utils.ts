@@ -21,6 +21,17 @@ export const getBlogBySlug = async (
   if (process.env.NODE_ENV === "development") {
     init = { cache: "no-store" }
   }
+  
+  await prisma.blogPost.update({
+    where: {
+      slug: slug
+    },
+    data: {
+      views: {
+        increment: 1
+      }
+    }
+  })
 
   const response = await fetch(`${BASE_URL}/api/blog/public/${slug}`, init)
   const data = await response.json()
