@@ -664,7 +664,7 @@
     react "18.2.0"
     react-dom "18.2.0"
 
-"@react-email/render@^0.0.8", "@react-email/render@workspace:*":
+"@react-email/render@workspace:*":
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/@react-email/render/-/render-0.0.8.tgz#4b313817835e4d106a2442cc8ee48a96a01e8631"
   integrity sha512-DwrCG5t2nXlXYcchZz8h4NOhBYoU5Rpogz54Z18mANUmwMtzl88x6NwRDwzZoAVAlTLOPqvsQbYtWHvfpTfmmA==
