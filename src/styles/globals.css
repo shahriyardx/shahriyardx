@@ -45,9 +45,9 @@
 }
 
 [data-remark-code-title="true"] {
-  @apply bg-zinc-900 p-2 rounded-t-md text-indigo-500 px-5 
+  @apply bg-zinc-900 p-2 rounded-t-md text-indigo-500 px-5;
 }
 
-[data-remark-code-title="true"] +pre {
-  @apply m-0 rounded-t-none
+[data-remark-code-title="true"] + pre {
+  @apply m-0 rounded-t-none;
 }

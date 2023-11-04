@@ -4,15 +4,16 @@ import React from "react"
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote"
 
 // Custom components
-import YouTube from "../../app/blog/[slug]/CustomComponents/Youtube"
-import Repo from "../../app/blog/[slug]/CustomComponents/Repo"
-import { H1, H2 } from "../../app/blog/[slug]/CustomComponents/Headings"
+import YouTube from "../CustomComponents/Youtube"
+import Repo from "../CustomComponents/Repo"
+import { H1, H2 } from "../CustomComponents/Headings"
+import Link from "../CustomComponents/Link"
 
 const MarkdownRenderer = ({ source }: { source: MDXRemoteSerializeResult }) => {
   return (
     <MDXRemote
       {...source}
-      components={{ YouTube, Youtube: YouTube, Repo, h1: H1, h2: H2 }}
+      components={{ YouTube, Youtube: YouTube, Repo, h1: H1, h2: H2, a: Link }}
     />
   )
 }

@@ -1,7 +1,7 @@
 import React from "react"
 import Main from "@/components/layouts/Main"
 import Container from "@/components/shared/Container"
-import Markdown from "../../../components/markdown/Markdown"
+import Markdown from "./markdown/Markdown"
 import BlogInfo from "../components/BlogInfo"
 import { Metadata, ResolvingMetadata } from "next"
 import { notFound } from "next/navigation"
@@ -26,7 +26,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const words = blog.content.trim().split(/\s+/).length / 225
 
-  const base = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `http://localhost:3000`
+  const base = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : `http://localhost:3000`
   const query = new URLSearchParams()
   query.set("title", blog.title)
   query.set("description", blog.description)
@@ -39,14 +41,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: blog.title,
     description: blog.description,
     openGraph: {
-      images: [
-        { url: ogImage, width: 1200, height: 630, type: "image/png" },
-      ],
+      images: [{ url: ogImage, width: 1200, height: 630, type: "image/png" }],
     },
     twitter: {
-      images: [
-        { url: ogImage, width: 1200, height: 630, type: "image/png" },
-      ],
+      images: [{ url: ogImage, width: 1200, height: 630, type: "image/png" }],
     },
   }
 }
@@ -64,7 +62,7 @@ const SingleBlogPage = async ({ params }: Props) => {
         <h1 className="text-4xl font-bold text-white">{blog.title}</h1>
         <BlogInfo blog={blog} className="mt-3" />
 
-        <div className="mt-10 prose prose-invert max-w-full">
+        <div className="mt-10 prose prose-invert prose-green max-w-full">
           <Markdown content={blog.content} />
         </div>
       </Container>

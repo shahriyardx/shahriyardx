@@ -19,7 +19,7 @@ export const getBlogBySlug = async (
   init?: RequestInit,
 ): Promise<BlogPost | null> => {
   if (process.env.NODE_ENV === "development") {
-    init = { cache: 'no-store' }
+    init = { cache: "no-store" }
   }
 
   const response = await fetch(`${BASE_URL}/api/blog/public/${slug}`, init)
@@ -29,9 +29,9 @@ export const getBlogBySlug = async (
 
 export const getAllBlogs = async (init?: RequestInit): Promise<BlogPost[]> => {
   if (process.env.NODE_ENV === "development") {
-    init = { cache: 'no-store' }
+    init = { cache: "no-store" }
   }
-  
+
   const response = await fetch(`${BASE_URL}/api/blog/public`, init)
   const data = await response.json()
   return data

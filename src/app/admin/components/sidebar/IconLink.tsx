@@ -21,7 +21,7 @@ const IconLink = ({ Icon, ...props }: Props) => {
       className={cn(
         pathname === props.href && "bg-zinc-700",
         "flex items-center gap-3 px-4 py-3 text-lg hover:bg-zinc-700",
-        props.clasName
+        props.clasName,
       )}
     >
       <Icon className="text-2xl" />

@@ -1,4 +1,4 @@
-import Markdown from "@/components/markdown/Markdown"
+import Markdown from "@/app/blog/[slug]/markdown/Markdown"
 import { Dialog, Transition } from "@headlessui/react"
 import React, { Dispatch, SetStateAction, Fragment, Suspense } from "react"
 

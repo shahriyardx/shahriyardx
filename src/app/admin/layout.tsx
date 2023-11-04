@@ -10,7 +10,7 @@ type Props = {
 
 const BlogLayout = async ({ children }: Props) => {
   const session = await getServerSession(authOptions)
-  
+
   if (!session) return redirect("/api/auth/signin")
 
   return (

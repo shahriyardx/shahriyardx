@@ -2,6 +2,7 @@ import React from "react"
 import rehypeHighlight from "rehype-highlight"
 import rehypeSlug from "rehype-slug"
 import remarkCodeTitle from "remark-code-title"
+import remarkGfm from "remark-gfm"
 
 import { serialize } from "next-mdx-remote/serialize"
 
@@ -17,7 +18,7 @@ import MarkdownRenderer from "./MarkdownRenderer"
 const Markdown = async ({ content }: { content: string }) => {
   const mdxSource = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [remarkCodeTitle],
+      remarkPlugins: [remarkCodeTitle, remarkGfm],
       rehypePlugins: [
         [
           // @ts-expect-error("unknown")

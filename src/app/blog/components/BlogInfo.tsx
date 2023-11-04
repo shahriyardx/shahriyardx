@@ -16,7 +16,9 @@ const BlogInfo = ({
   const time = Math.ceil(words / 225)
 
   return (
-    <div className={`flex items-center gap-2 sm:gap-5 text-xs sm:text-sm flex-wrap ${className}`}>
+    <div
+      className={`flex items-center gap-2 sm:gap-5 text-xs sm:text-sm flex-wrap ${className}`}
+    >
       <span className="flex items-center gap-2">
         <BiCalendar />
         {moment(new Date(Number(blog.time))).fromNow()}

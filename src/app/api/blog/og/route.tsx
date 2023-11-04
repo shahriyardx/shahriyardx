@@ -1,14 +1,14 @@
 import { ImageResponse, NextRequest } from "next/server"
 import moment from "moment"
- 
+
 export const runtime = "edge"
 
 const regularFont = fetch(
-  new URL("/public/fonts/inter-regular.ttf", import.meta.url)
+  new URL("/public/fonts/inter-regular.ttf", import.meta.url),
 ).then((res) => res.arrayBuffer())
 
 const boldFont = fetch(
-  new URL("/public/fonts/inter-bold.ttf", import.meta.url)
+  new URL("/public/fonts/inter-bold.ttf", import.meta.url),
 ).then((res) => res.arrayBuffer())
 
 export async function GET(req: NextRequest) {
@@ -23,7 +23,7 @@ export async function GET(req: NextRequest) {
     .duration(Number(req.nextUrl.searchParams.get("read")), "minute")
     .humanize()
   const postedAt = moment(
-    new Date(Number(req.nextUrl.searchParams.get("time")))
+    new Date(Number(req.nextUrl.searchParams.get("time"))),
   ).fromNow()
 
   return new ImageResponse(
@@ -47,14 +47,14 @@ export async function GET(req: NextRequest) {
 
           <span tw="flex items-center ml-7">&#128345; {readTime} read</span>
         </div>
-          {/* eslint-disable-next-line */}
-          <img
-            src="https://shahriyar.dev/_next/image?url=%2Fimages%2Fme.jpg&w=256&q=20"
-            width={200}
-            height={200}
-            alt="me"
-            tw="rounded-full absolute bottom-[50px] right-[50px]"
-          />
+        {/* eslint-disable-next-line */}
+        <img
+          src="https://shahriyar.dev/_next/image?url=%2Fimages%2Fme.jpg&w=256&q=20"
+          width={200}
+          height={200}
+          alt="me"
+          tw="rounded-full absolute bottom-[50px] right-[50px]"
+        />
       </div>
     ),
     {
@@ -72,6 +72,6 @@ export async function GET(req: NextRequest) {
           weight: 700,
         },
       ],
-    }
+    },
   )
 }
