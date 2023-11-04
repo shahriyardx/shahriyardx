@@ -25,10 +25,15 @@ const BlogPage = async () => {
             {allBlogs.map((blog) => {
               return (
                 <Link href={`/blog/${blog.slug}`} key={blog.id}>
-                  <div className="p-5 border-2 rounded-md border-zinc-600">
-                    <span className="text-2xl font-bold text-white">
+                  <div className="py-5 border-b-2 border-b-zinc-600 group">
+                    <span className="text-2xl font-bold text-white group-hover:text-green-500 transition-all">
                       {blog.title}
                     </span>
+                    <div className="mb-2">
+                      <span className="text-zinc-500">
+                        {blog.category}
+                      </span>
+                    </div>
                     <p>{blog.description}</p>
                     <BlogInfo blog={blog} className="mt-5" />
                   </div>

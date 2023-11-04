@@ -30,7 +30,7 @@ const Experiences = () => {
               company="Programming Hero"
               from="August 2023"
               to="October 2023"
-              position="Web Instructor (Intern)"
+              position="Web Instructor (Trainee)"
               responsibilities={[
                 "Provide feedback and guidance to students on their coursework",
                 "Answer questions and provide support through the course facebook group",
