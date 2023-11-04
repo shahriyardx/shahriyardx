@@ -10,7 +10,7 @@ const Experiences = () => {
         </div>
 
         <div className="mt-10 px-5">
-          <ol className="relative border-l border-gray-200 dark:border-gray-700">
+          <ol className="relative border-l border-gray-700">
             <Experience
               company="Programming Hero"
               from="November 2023"
