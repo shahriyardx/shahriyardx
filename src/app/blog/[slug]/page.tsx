@@ -3,11 +3,13 @@ import Main from "@/components/layouts/Main"
 import Container from "@/components/shared/Container"
 import Markdown from "./markdown/Markdown"
 import BlogInfo from "../components/BlogInfo"
-import { Metadata, ResolvingMetadata } from "next"
+import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { getBlogBySlug } from "../utils"
+import { getServerSession } from "next-auth"
 
 import "src/styles/atom-one-dark.css"
+import Link from "next/link"
 
 export const dynamic = "force-dynamic"
 
@@ -29,6 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const base = process.env.VERCEL_URL
     ? `https://${process.env.VERCEL_URL}`
     : `http://localhost:3000`
+
   const query = new URLSearchParams()
   query.set("title", blog.title)
   query.set("description", blog.description)
@@ -50,6 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const SingleBlogPage = async ({ params }: Props) => {
+  const session = await getServerSession()
   const blog = await getBlogBySlug(params.slug, {
     next: { revalidate: 60 * 60 * 24 },
   })
@@ -60,7 +64,10 @@ const SingleBlogPage = async ({ params }: Props) => {
     <Main>
       <Container className="p-5 py-10">
         <h1 className="text-4xl font-bold text-white">{blog.title}</h1>
-        <BlogInfo blog={blog} className="mt-3" />
+        <div className="flex items-center gap-5 mt-3">
+          <BlogInfo blog={blog} />
+          {session && <Link href={`/admin/blog/edit/${blog.id}`}>Edit</Link>}
+        </div>
 
         <div className="mt-10 prose prose-invert prose-green max-w-full">
           <Markdown content={blog.content} />

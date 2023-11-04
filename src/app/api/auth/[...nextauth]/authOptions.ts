@@ -17,5 +17,8 @@ export const authOptions: NextAuthOptions = {
 
       return true
     },
+    redirect() {
+      return "/admin"
+    }
   },
 }

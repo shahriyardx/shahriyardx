@@ -9,6 +9,9 @@ const nextConfig = {
   },
   output: "standalone",
   transpilePackages: ["lucide-react"],
+  experimental: {
+    serverActions: true,
+  }
 }
 
 module.exports = nextConfig

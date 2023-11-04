@@ -1,8 +1,8 @@
-import { prisma } from "@/tools/db"
-import { BlogPost } from "@prisma/client"
+"use server"
 
-export const BASE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+import { prisma } from "@/tools/db"
+import { BASE_URL } from "@/tools/url"
+import { BlogPost } from "@prisma/client"
 
 export const prismaGetAllBlogs = async () => {
   return await prisma.blogPost.findMany()
