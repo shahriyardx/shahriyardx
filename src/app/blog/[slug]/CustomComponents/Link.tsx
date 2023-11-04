@@ -7,16 +7,16 @@ const Link = (props: Props) => {
   const origin = new URL(props.href).origin
 
   return (
-    <a {...props} className="flex items-center gap-2 m-0 p-0">
+    <a {...props} className="m-0 p-0">
       {/* eslint-disable-next-line */} {/* prettier-ignore */}
       <img
         src={`${origin}/favicon.ico`}
-        className="w-5 h-5 rounded-full m-0 p-0"
+        className="w-5 h-5 rounded-full m-0 p-0 inline-block mr-2"
         onError={(e) => {
           { /* @ts-expect-error src-exists */ } {/* prettier-ignore */}
           return (e.target.src = "/fallback-ico.ico")
         }}
-      />{" "}
+      />
       <span className="truncate">{props.children}</span>
     </a>
   )
