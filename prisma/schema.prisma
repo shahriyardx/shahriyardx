@@ -8,16 +8,26 @@ datasource db {
 }
 
 model BlogPost {
-  id          String @id @default(cuid())
+  id          String    @id @default(cuid())
   title       String
-  slug        String @unique @default("test")
+  slug        String    @unique @default("test")
   time        String
   description String
   content     String
   category    String
-  thumbnail   String @default("https://shahriyar.dev/images/me.jpg")
-  status      String @default("draft")
-  views       Int    @default(0)
+  thumbnail   String    @default("https://shahriyar.dev/images/me.jpg")
+  status      String    @default("draft")
+  views       Int       @default(0)
+  Comments    Comment[]
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  username  String
+  comment   String
+  createdAt DateTime @default(now())
+  post      BlogPost @relation(fields: [postId], references: [id])
+  postId    String
 }
 
 model Subscriber {

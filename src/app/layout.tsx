@@ -7,6 +7,11 @@ import App from "./app"
 import GoogleAnalytics from "@/components/shared/Analytics"
 
 const inter = Inter({ subsets: ["latin"] })
+// export const viewport: Viewport = {
+//   width: 1,
+//   themeColor: '#FFFFFF',
+//   initialScale: 1,
+// }
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://shahriyar.dev"),

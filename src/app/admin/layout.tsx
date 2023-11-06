@@ -8,10 +8,11 @@ type Props = {
   children: React.ReactNode
 }
 
-const BlogLayout = async ({ children }: Props) => {
+const AdminLayout = async ({ children }: Props) => {
   const session = await getServerSession(authOptions)
 
   if (!session) return redirect("/api/auth/signin")
+  if (!session.admin) return redirect("/")
 
   return (
     <div className="grid grid-cols-[300px,auto]">
@@ -21,4 +22,4 @@ const BlogLayout = async ({ children }: Props) => {
   )
 }
 
-export default BlogLayout
+export default AdminLayout

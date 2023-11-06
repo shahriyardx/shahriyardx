@@ -34,7 +34,6 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
       data,
     })
   } catch (err) {
-    console.log(err)
     return NextResponse.json({
       success: false,
       message: "Unable to send mail. Please try again",

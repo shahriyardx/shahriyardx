@@ -10,6 +10,7 @@ import { getServerSession } from "next-auth"
 
 import "src/styles/atom-one-dark.css"
 import Link from "next/link"
+import Comment from "./Comment/Comment"
 
 export const dynamic = "force-dynamic"
 
@@ -69,8 +70,11 @@ const SingleBlogPage = async ({ params }: Props) => {
           {session && <Link href={`/admin/blog/edit/${blog.id}`}>Edit</Link>}
         </div>
 
-        <div className="mt-10 prose prose-invert prose-green max-w-full">
-          <Markdown content={blog.content} />
+        <div className="grid grid-cols-1 lg:grid-cols-[auto,300px] gap-5 mt-10">
+          <div className="prose prose-invert prose-green max-w-full">
+            <Markdown content={blog.content} />
+          </div>
+          <Comment blog={blog} />
         </div>
       </Container>
     </Main>

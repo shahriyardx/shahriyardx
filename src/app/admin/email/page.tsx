@@ -45,7 +45,6 @@ const BlogAdmin = () => {
           toast.success("Email sent successfully")
         } else {
           toast.error("Email sent failed")
-          console.log(data)
         }
       })
   }
