@@ -29,9 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const words = blog.content.trim().split(/\s+/).length / 225
 
-  const base = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : `http://localhost:3000`
+  const base = process.env.NEXT_PUBLIC_BASE_URL || `http://localhost:3000`
 
   const query = new URLSearchParams()
   query.set("title", blog.title)
