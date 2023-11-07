@@ -100,7 +100,7 @@ const BlogAdmin = async () => {
                 <tr key={link.id} className="even:bg-zinc-700">
                   <td className="px-5 py-3">{index + 1}</td>
                   <td className="px-5 py-3">{link.text}</td>
-                  <td className="px-5 py-3">{link.url}</td>
+                  <td className="px-5 py-3 truncate">{link.url}</td>
                   <td className="px-5 py-3">{link.visited}</td>
                   <td className="px-5 py-3 flex flex-wrap gap-2">
                     <form action={deleteLink}>
