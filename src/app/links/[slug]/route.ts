@@ -13,5 +13,12 @@ export async function GET(
   })
 
   if (!link) return redirect("/")
+  await prisma.link.update({
+    where: {
+      id: link.id,
+    },
+    data: { visited: { increment: 1 } },
+  })
+
   return redirect(link.url)
 }

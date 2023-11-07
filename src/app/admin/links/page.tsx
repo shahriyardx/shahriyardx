@@ -88,6 +88,7 @@ const BlogAdmin = async () => {
                 </th>
                 <th className="text-left px-5 py-3 bg-zinc-950">Text</th>
                 <th className="text-left px-5 py-3 bg-zinc-950">URL</th>
+                <th className="text-left px-5 py-3 bg-zinc-950">Views</th>
                 <th className="text-left px-5 py-3 bg-zinc-950 rounded-tr-md">
                   Actions
                 </th>
@@ -100,6 +101,7 @@ const BlogAdmin = async () => {
                   <td className="px-5 py-3">{index + 1}</td>
                   <td className="px-5 py-3">{link.text}</td>
                   <td className="px-5 py-3">{link.url}</td>
+                  <td className="px-5 py-3">{link.visited}</td>
                   <td className="px-5 py-3 flex flex-wrap gap-2">
                     <form action={deleteLink}>
                       <input type="hidden" name="id" value={link.id} />
