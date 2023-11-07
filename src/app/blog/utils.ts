@@ -8,6 +8,10 @@ export const prismaGetAllBlogs = async () => {
   return await prisma.blogPost.findMany()
 }
 
+export const prismaGetAllLinks = async () => {
+  return await prisma.link.findMany()
+}
+
 export const prismaGetBlogById = async (
   blogId: string,
 ): Promise<BlogPost | null> => {

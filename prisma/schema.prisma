@@ -30,6 +30,13 @@ model Comment {
   postId    String
 }
 
+model Link {
+  id        String   @id @default(cuid())
+  text      String
+  url       String
+  createdAt DateTime @default(now())
+}
+
 model Subscriber {
   id        String   @id @default(cuid())
   email     String   @unique
