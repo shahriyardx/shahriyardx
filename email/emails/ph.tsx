@@ -11,8 +11,8 @@ import {
   Column,
   Link,
   Tailwind,
-} from "@react-email/components"
-import { Markdown } from "@react-email/markdown"
+  Markdown,
+} from "@jsx-email/all"
 
 type AllClasses = {
   dark: Classes
@@ -50,15 +50,14 @@ const allClasses: AllClasses = {
 const mode: string = "default"
 const classes: Classes = mode === "dark" ? allClasses.dark : allClasses.default
 
-const PH = ({ content }: { content: string }) => {
-  const BASE_URL =
-    process.env.NODE_ENV === "production"
-      ? "https://shahriyar.dev"
-      : "http://localhost:3000"
+const PH = ({ content = "Hello" }: { content: string }) => {
+  const BASE_URL = "https://shahriyar.dev"
 
   return (
     <Tailwind>
+      {/** @ts-ignore */}
       <Html>
+        {/** @ts-ignore */}
         <Head>
           <meta name="color-scheme" content="light dark" />
           <meta name="supported-color-schemes" content="light dark" />
@@ -87,8 +86,10 @@ const PH = ({ content }: { content: string }) => {
               </Text>
 
               <Section style={{ width: "98px", marginTop: 10 }}>
+                {/** @ts-ignore */}
                 <Row style={{ width: "98px", float: "left", margin: "0 auto" }}>
                   <Column>
+                    {/** @ts-ignore */}
                     <Link href="https://facebook.com/shahriyardx">
                       <Img
                         src={`${BASE_URL}/static/socials/facebook.png`}
@@ -100,6 +101,7 @@ const PH = ({ content }: { content: string }) => {
                     </Link>
                   </Column>
                   <Column>
+                    {/** @ts-ignore */}
                     <Link href="https://linkedin.com/devshahriyar">
                       <Img
                         src={`${BASE_URL}/static/socials/linkedin.png`}
@@ -111,6 +113,7 @@ const PH = ({ content }: { content: string }) => {
                     </Link>
                   </Column>
                   <Column>
+                    {/** @ts-ignore */}
                     <Link href="https://github.com/shahriyardx">
                       <Img
                         src={`${BASE_URL}/static/socials/github.png`}

@@ -1,17 +1,20 @@
 {
-  "name": "emails",
-  "version": "0.0.18",
+  "name": "jsx-email-reproduction",
+  "version": "0.0.0",
   "private": true,
-  "workspaces": [
-    ".react-email"
-  ],
+  "description": "A reproduction template for jsx-email",
   "scripts": {
-    "dev": "email dev",
-    "export": "email export"
+    "build": "email build ./emails",
+    "dev": "email preview ./emails",
+    "make": "email create"
   },
   "dependencies": {
-    "@react-email/components": "0.0.6",
-    "@react-email/markdown": "^0.0.7",
-    "react-email": "1.9.3"
+    "@jsx-email/all": "3.0.1",
+    "@jsx-email/cli": "3.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "react": "^18.2.0",
+    "typescript": "^5.2.2"
   }
 }
