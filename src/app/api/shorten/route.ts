@@ -28,3 +28,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
   return NextResponse.json(data)
 }
+
+export async function GET(req: NextRequest, res: NextResponse) {
+  const result = await prisma.link.findMany()
+  return NextResponse.json(result)
+}
