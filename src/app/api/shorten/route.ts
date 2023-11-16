@@ -15,6 +15,11 @@ const getRandomTitle = () => {
   return text
 }
 
+export async function GET(req: NextRequest, res: NextResponse) {
+  const result = await prisma.link.findMany()
+  return NextResponse.json(result)
+}
+
 export async function POST(req: NextRequest, res: NextResponse) {
   let { url, title } = (await req.json()) as { url: string; title?: string }
   if (!title) title = getRandomTitle()
@@ -27,9 +32,4 @@ export async function POST(req: NextRequest, res: NextResponse) {
   })
 
   return NextResponse.json(data)
-}
-
-export async function GET(req: NextRequest, res: NextResponse) {
-  const result = await prisma.link.findMany()
-  return NextResponse.json(result)
 }
