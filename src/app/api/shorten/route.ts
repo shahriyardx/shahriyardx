@@ -24,12 +24,16 @@ export async function POST(req: NextRequest, res: NextResponse) {
   let { url, title } = (await req.json()) as { url: string; title?: string }
   if (!title) title = getRandomTitle()
 
-  const data = await prisma.link.create({
-    data: {
-      url,
-      text: title,
-    },
-  })
+  try {
+    const data = await prisma.link.create({
+      data: {
+        url,
+        text: title,
+      },
+    })
+    return NextResponse.json({success: true, data})
+  } catch {
+    return NextResponse.json({ success: false, error: "Something went wrong"})
+  }
 
-  return NextResponse.json(data)
 }
