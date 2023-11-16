@@ -14,14 +14,14 @@ services:
       - portfolio
     ports:
       - 5469:5432
-  app:
-    build: .
-    ports:
-      - 6969:3000
-    depends_on:
-      - database
-    networks:
-      - portfolio
+  # app:
+  #   build: .
+  #   ports:
+  #     - 6969:3000
+  #   depends_on:
+  #     - database
+  #   networks:
+  #     - portfolio
 
 networks:
   portfolio:
