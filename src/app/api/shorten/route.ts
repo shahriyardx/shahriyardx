@@ -33,7 +33,7 @@ export async function POST(req: NextRequest, _res: NextResponse) {
     })
     return NextResponse.json({success: true, data})
   } catch {
-    return NextResponse.json({ success: false, error: "Something went wrong"})
+    return NextResponse.json({ success: false, error: "Something went wrong while creating the link."})
   }
 
 }
