@@ -15,12 +15,12 @@ const getRandomTitle = () => {
   return text
 }
 
-export async function GET(req: NextRequest, res: NextResponse) {
+export async function GET(_req: NextRequest, _res: NextResponse) {
   const result = await prisma.link.findMany()
   return NextResponse.json(result)
 }
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest, _res: NextResponse) {
   let { url, title } = (await req.json()) as { url: string; title?: string }
   if (!title) title = getRandomTitle()
 
