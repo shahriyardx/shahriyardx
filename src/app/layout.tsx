@@ -5,13 +5,9 @@ import { Toaster } from "react-hot-toast"
 import ProgressBar from "./ProgressBar"
 import App from "./app"
 import GoogleAnalytics from "@/components/shared/Analytics"
+import LenisWrapper from "./LenisWrapper"
 
 const inter = Inter({ subsets: ["latin"] })
-// export const viewport: Viewport = {
-//   width: 1,
-//   themeColor: '#FFFFFF',
-//   initialScale: 1,
-// }
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://shahriyar.dev"),
@@ -46,7 +42,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Toaster />
-        <App>{children}</App>
+        <LenisWrapper>
+          <App>{children}</App>
+        </LenisWrapper>
         <ProgressBar />
         {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
           <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
