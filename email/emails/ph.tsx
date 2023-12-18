@@ -14,10 +14,6 @@ import {
 } from "@react-email/components"
 import { Markdown } from "@react-email/markdown"
 
-type AllClasses = {
-  dark: Classes
-  default: Classes
-}
 type Classes = {
   body: string
   message: string
@@ -27,30 +23,17 @@ type Classes = {
   socialIcons: string
 }
 
-const allClasses: AllClasses = {
-  dark: {
-    body: "bg-zinc-900",
-    message: "p-7 rounded-xl bg-zinc-800 text-zinc-200",
-    profile: {
-      title: "m-0 mt-5 text-3xl font-semibold text-white",
-    },
-    socialIcons: "invert",
+const classes: Classes = {
+  body: "bg-white dark:bg-zinc-900",
+  message:
+    "text-black p-7 rounded-xl bg-zinc-100 dark:bg-zinc-800 dark:text-zinc-200",
+  profile: {
+    title: "m-0 mt-5 text-3xl font-semibold text-black dark:text-white",
   },
-  default: {
-    body: "bg-white dark:bg-zinc-900",
-    message:
-      "text-black p-7 rounded-xl bg-zinc-100 dark:bg-zinc-800 dark:text-zinc-200",
-    profile: {
-      title: "m-0 mt-5 text-3xl font-semibold text-black dark:text-white",
-    },
-    socialIcons: "dark:invert",
-  },
+  socialIcons: "dark:invert",
 }
 
-const mode: string = "default"
-const classes: Classes = mode === "dark" ? allClasses.dark : allClasses.default
-
-const PH = ({ content }: { content: string }) => {
+const PH = ({ content = "demo" }: { content: string }) => {
   const BASE_URL =
     process.env.NODE_ENV === "production"
       ? "https://shahriyar.dev"
@@ -58,11 +41,12 @@ const PH = ({ content }: { content: string }) => {
 
   return (
     <Tailwind>
+      <Head>
+        <meta name="color-scheme" content="light dark" />
+        <meta name="supported-color-schemes" content="light dark" />
+      </Head>
+
       <Html>
-        <Head>
-          <meta name="color-scheme" content="light dark" />
-          <meta name="supported-color-schemes" content="light dark" />
-        </Head>
         <Body style={{ ...main }} className={classes.body}>
           <Container className="p-5">
             <Section className={classes.message}>

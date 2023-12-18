@@ -15,8 +15,8 @@
     "@headlessui/react": "^1.7.17",
     "@hookform/resolvers": "^3.3.2",
     "@prisma/client": "5.4.2",
-    "@react-email/components": "^0.0.8",
-    "@react-email/markdown": "^0.0.7",
+    "@react-email/components": "^0.0.12",
+    "@react-email/markdown": "^0.0.8",
     "@studio-freight/react-lenis": "^0.0.38",
     "@tailwindcss/forms": "^0.5.6",
     "@tailwindcss/typography": "^0.5.10",
@@ -54,7 +54,7 @@
     "sharp": "^0.33.1",
     "slugify": "^1.6.6",
     "tailwind-merge": "^1.14.0",
-    "tailwindcss": "3.3.3",
+    "tailwindcss": "^3.3.6",
     "typescript": "5.2.2",
     "zod": "^3.22.4"
   },
@@ -66,6 +66,6 @@
     "@types/react-dom": "18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
-    "react-email": "^1.9.5"
+    "react-email": "^1.10.0"
   }
 }
