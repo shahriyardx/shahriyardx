@@ -5,6 +5,7 @@ const nextConfig = {
       "picsum.photos",
       "avatars.githubusercontent.com",
       "opengraph.githubassets.com",
+      "t1.gstatic.com",
     ],
   },
   output: "standalone",

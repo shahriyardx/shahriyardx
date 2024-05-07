@@ -10,7 +10,7 @@ const Link = (props: Props) => {
     <a {...props} className="m-0 p-0">
       {/* eslint-disable-next-line */} {/* prettier-ignore */}
       <img
-        src={`${origin}/favicon.ico`}
+        src={`https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${origin}&size=16`}
         className="w-5 h-5 rounded-full m-0 p-0 inline-block mr-2"
         onError={(e) => {
           { /* @ts-expect-error src-exists */ } {/* prettier-ignore */}
