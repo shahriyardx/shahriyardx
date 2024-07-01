@@ -1,7 +1,9 @@
-import { ImageResponse, NextRequest } from "next/server"
 import moment from "moment"
+import { NextRequest } from "next/server"
+import { ImageResponse } from "next/og"
+import { ServerRuntime } from "next"
 
-export const runtime = "edge"
+export const runtime: ServerRuntime = "edge"
 
 const regularFont = fetch(
   new URL("/public/fonts/inter-regular.ttf", import.meta.url),

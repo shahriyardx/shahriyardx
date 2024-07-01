@@ -7,6 +7,7 @@ RUN apt-get -y update && \
 WORKDIR /app
 
 COPY package.json bun.lockb ./
+COPY prisma ./
 RUN bun install --frozen-lockfile
 
 
