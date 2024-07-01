@@ -3,14 +3,15 @@ import Main from "@/components/layouts/Main"
 import Container from "@/components/shared/Container"
 import Markdown from "./markdown/Markdown"
 import BlogInfo from "../components/BlogInfo"
+import Link from "next/link"
+import Comment from "./Comment/Comment"
+
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { getBlogBySlug } from "../utils"
 import { getServerSession } from "next-auth"
 
-import "src/styles/atom-one-dark.css"
-import Link from "next/link"
-import Comment from "./Comment/Comment"
+import "@/styles/atom-one-dark.css"
 
 export const dynamic = "force-dynamic"
 

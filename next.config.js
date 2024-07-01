@@ -10,13 +10,11 @@ const nextConfig = {
   },
   output: "standalone",
   transpilePackages: ["lucide-react"],
-  experimental: {
-    serverActions: true,
-  },
   typescript: {
     ignoreBuildErrors: true,
   },
   eslint: { ignoreDuringBuilds: true },
+  
 }
 
 module.exports = nextConfig

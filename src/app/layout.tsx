@@ -1,5 +1,5 @@
 import "@/styles/globals.css"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import { Toaster } from "react-hot-toast"
 import ProgressBar from "./ProgressBar"
@@ -8,6 +8,11 @@ import GoogleAnalytics from "@/components/shared/Analytics"
 import LenisWrapper from "./LenisWrapper"
 
 const inter = Inter({ subsets: ["latin"] })
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://shahriyar.dev"),
@@ -20,10 +25,6 @@ export const metadata: Metadata = {
   authors: {
     name: "Md Shahriyar Alam",
     url: "https://shahriyar.dev",
-  },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
   },
   keywords: [
     "shahriyardx",

@@ -1,4 +1,4 @@
-FROM imbios/bun-node:18-slim AS base
+FROM imbios/bun-node:20-slim AS base
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get -y update && \
@@ -19,7 +19,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 RUN bun prisma generate
 RUN bun run build
 
-FROM node:18-alpine AS runner
+FROM node:20-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
