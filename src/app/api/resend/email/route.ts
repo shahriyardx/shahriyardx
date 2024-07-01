@@ -3,9 +3,9 @@ import { Resend } from "resend"
 import { Email } from "@/app/admin/email/page"
 import PH from "@/email/ph"
 
-const resend = new Resend(process.env.RESEND_API_KEY)
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
+  const resend = new Resend(process.env.RESEND_API_KEY)
   const body = (await req.json()) as Email
 
   const sender =

@@ -22,6 +22,8 @@ services:
       - database
     networks:
       - portfolio
+    env_file:
+      - .env.docker
 
 networks:
   portfolio:
