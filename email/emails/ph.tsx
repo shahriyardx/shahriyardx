@@ -36,9 +36,9 @@ const classes: Classes = {
 const PH = ({ content = "demo" }: { content: string }) => {
   const BASE_URL =
     process.env.NODE_ENV === "production"
-      ? "https://shahriyar.dev"
-      : "http://localhost:3000"
-
+      ? process.env.NEXTAUTH_URL
+      : ""
+  console.log(BASE_URL)
   return (
     <Tailwind>
       <Head>
