@@ -13,17 +13,17 @@ services:
     networks:
       - portfolio
     ports:
-      - 5469:5432
-  app:
-    build: .
-    ports:
-      - 6969:3000
-    depends_on:
-      - database
-    networks:
-      - portfolio
-    env_file:
-      - .env.docker
+      - 5432:5432
+  # app:
+  #   build: .
+  #   ports:
+  #     - 6969:3000
+  #   depends_on:
+  #     - database
+  #   networks:
+  #     - portfolio
+  #   env_file:
+  #     - .env.docker
 
 networks:
   portfolio:
