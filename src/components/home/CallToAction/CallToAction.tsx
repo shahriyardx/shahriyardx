@@ -53,6 +53,7 @@ const CallToAction = () => {
 					>
 						<FramerMagnetic>
 							<a
+								data-umami-event="Hire Button Clicked"
 								href="https://www.linkedin.com/in/devshahriyar/"
 								className="inline-block px-5 py-3 font-bold text-black transition-all bg-accent group hover:bg-rose-500 hover:animate-shake"
 								target="_blank"

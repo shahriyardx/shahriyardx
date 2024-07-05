@@ -50,25 +50,35 @@ const Header = () => {
 						<IconLink
 							href="https://twitter.com/shahriyardx"
 							icon={AiFillTwitterCircle}
+							data-umami-event="Twitter Link Clicked"
+							data-umami-event-location="Desktop Navbar"
 						>
 							Twitter
 						</IconLink>
 						<IconLink
 							href="https://github.com/shahriyardx/"
 							icon={AiFillGithub}
+							data-umami-event="GitHub Link Clicked"
+							data-umami-event-location="Desktop Navbar"
 						>
 							GitHub
 						</IconLink>
 						<IconLink
 							href="https://www.linkedin.com/in/devshahriyar/"
 							icon={AiFillLinkedin}
+							data-umami-event="Linkedin Link Clicked"
+							data-umami-event-location="Desktop Navbar"
 						>
 							LinkedIn
 						</IconLink>
 					</div>
 
 					<div className="p-3 rounded-full bg-zinc-700">
-						<a href="mailto:mdshahriyaralam9@gmail.com">
+						<a
+							data-umami-event="Email Link Clicked"
+							data-umami-event-location="Desktop Navbar"
+							href="mailto:mdshahriyaralam9@gmail.com"
+						>
 							<AiFillMail />
 						</a>
 					</div>

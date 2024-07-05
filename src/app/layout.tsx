@@ -3,6 +3,7 @@ import "@/styles/code-highlight.css"
 import GoogleAnalytics from "@/components/shared/Analytics"
 import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
+import Script from "next/script"
 import { Toaster } from "react-hot-toast"
 import LenisWrapper from "./LenisWrapper"
 import ProgressBar from "./ProgressBar"
@@ -48,6 +49,12 @@ export default function RootLayout({
 				{process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
 					<GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
 				) : null}
+				<Script
+					src="https://stats.shahriyar.dev/script.js"
+					type="text/javascript"
+					data-website-id="001efedf-3321-495b-9345-dcd12f19715a"
+					strategy="beforeInteractive"
+				/>
 			</body>
 		</html>
 	)

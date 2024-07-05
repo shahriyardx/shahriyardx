@@ -34,6 +34,8 @@ const MobileMenu = () => {
 
 				<div className="flex gap-3 py-2 pb-5 text-3xl">
 					<a
+						data-umami-event="Twitter Link Clicked"
+						data-umami-event-location="Mobile Navbar"
 						href="https://twitter.com/shahriyardx/"
 						target="_blank"
 						rel="noreferrer"
@@ -42,6 +44,8 @@ const MobileMenu = () => {
 					</a>
 
 					<a
+						data-umami-event="GitHub Link Clicked"
+						data-umami-event-location="Mobile Navbar"
 						href="https://github.com/shahriyardx/"
 						target="_blank"
 						rel="noreferrer"
@@ -50,6 +54,8 @@ const MobileMenu = () => {
 					</a>
 
 					<a
+						data-umami-event="Linkedin Link Clicked"
+						data-umami-event-location="Mobile Navbar"
 						href="https://www.linkedin.com/in/shahriyardx/"
 						target="_blank"
 						rel="noreferrer"
@@ -57,7 +63,11 @@ const MobileMenu = () => {
 						<AiFillLinkedin className="rounded-full" />
 					</a>
 
-					<a href="mailto:mdshahriyaralam9@gmail.com">
+					<a
+						data-umami-event="Email Link Clicked"
+						data-umami-event-location="Mobile Navbar"
+						href="mailto:mdshahriyaralam9@gmail.com"
+					>
 						<AiFillMail className="rounded-full" />
 					</a>
 				</div>
