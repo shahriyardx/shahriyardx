@@ -1,7 +1,7 @@
-import { NextResponse, NextRequest } from "next/server"
+import { NextResponse, type NextRequest } from "next/server"
 
 export const dynamic = "force-dynamic"
 
 export const GET = async (req: NextRequest, res: NextResponse) => {
-  return NextResponse.json({ ok: true })
+	return NextResponse.json({ ok: true })
 }

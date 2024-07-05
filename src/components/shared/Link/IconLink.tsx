@@ -1,26 +1,26 @@
-import React from "react"
-import { type IconType } from "react-icons"
+import type React from "react"
+import type { IconType } from "react-icons"
 
 type Props = {
-  icon: IconType
-  href: string
-  children: React.ReactNode
-  className?: string
+	icon: IconType
+	href: string
+	children: React.ReactNode
+	className?: string
 }
 
 const IconLink = ({ icon, href, children, className }: Props) => {
-  const Icon = icon
+	const Icon = icon
 
-  return (
-    <a
-      href={href}
-      className={`flex items-center gap-2 ${className || ""} hover:text-accent`}
-      target="_blank"
-      rel="noreferrer"
-    >
-      <Icon /> {children}
-    </a>
-  )
+	return (
+		<a
+			href={href}
+			className={`flex items-center gap-2 ${className || ""} hover:text-accent`}
+			target="_blank"
+			rel="noreferrer"
+		>
+			<Icon /> {children}
+		</a>
+	)
 }
 
 export default IconLink

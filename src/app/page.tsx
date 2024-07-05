@@ -7,16 +7,16 @@ import CallToAction from "@/components/home/CallToAction/CallToAction"
 import Experiences from "@/components/Experience/Experiences"
 
 const Home = () => {
-  return (
-    <Main>
-      <Banner />
-      <Services />
-      <Skills />
-      <Projects />
-      <Experiences />
-      <CallToAction />
-    </Main>
-  )
+	return (
+		<Main>
+			<Banner />
+			<Services />
+			<Skills />
+			<Projects />
+			<Experiences />
+			<CallToAction />
+		</Main>
+	)
 }
 
 export default Home
