@@ -1,9 +1,9 @@
 "use client"
 
-import React from "react"
-import { BiTime, BiCalendar } from "react-icons/bi"
-import moment from "moment"
 import type { BlogPost } from "@/tools/blog"
+import moment from "moment"
+import React from "react"
+import { BiCalendar, BiTime } from "react-icons/bi"
 
 const BlogInfo = ({
 	blog,

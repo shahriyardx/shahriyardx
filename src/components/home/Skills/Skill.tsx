@@ -1,7 +1,7 @@
-import React from "react"
-import { motion } from "framer-motion"
-import type { IconType } from "react-icons"
 import FramerMagnetic from "@/components/shared/FramerMagnetic"
+import { motion } from "framer-motion"
+import React from "react"
+import type { IconType } from "react-icons"
 
 const scale = {
 	hidden: {

@@ -1,6 +1,6 @@
+import { motion } from "framer-motion"
 import React from "react"
 import { BiBookBookmark, BiGitRepoForked, BiStar } from "react-icons/bi"
-import { motion } from "framer-motion"
 
 const colorMap: { [key: string]: string } = {
 	CSS: "#186CAB",

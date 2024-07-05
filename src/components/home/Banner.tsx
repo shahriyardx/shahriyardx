@@ -1,12 +1,12 @@
 "use client"
 
+import Container from "@/components/shared/Container"
+import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import React from "react"
-import Container from "@/components/shared/Container"
-import { AiOutlineCloudDownload } from "react-icons/ai"
-import { motion } from "framer-motion"
 import { useRouter } from "next/navigation"
+import React from "react"
+import { AiOutlineCloudDownload } from "react-icons/ai"
 
 const Banner = () => {
 	const router = useRouter()

@@ -1,14 +1,12 @@
-import React from "react"
 import Main from "@/components/layouts/Main"
 import Container from "@/components/shared/Container"
-import Markdown from "./markdown/Markdown"
+import React from "react"
 import BlogInfo from "../components/BlogInfo"
+import Markdown from "./markdown/Markdown"
 
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { getBlogBySlug } from "../../../tools/blog"
-
-import "@/styles/atom-one-dark.css"
 
 type Props = { params: { slug: string } }
 
@@ -57,7 +55,7 @@ const SingleBlogPage = async ({ params }: Props) => {
 					<BlogInfo blog={blog} />
 				</div>
 
-				<div className="mt-10 prose prose-invert prose-green max-w-full">
+				<div className="mt-10 prose prose-invert prose-green max-w-full prose-pre:p-0">
 					<Markdown content={blog.content} />
 				</div>
 			</Container>

@@ -1,6 +1,6 @@
 "use client"
 
-import { useScroll, motion, useTransform, cubicBezier } from "framer-motion"
+import { cubicBezier, motion, useScroll, useTransform } from "framer-motion"
 import React, { useRef } from "react"
 
 type Props = {

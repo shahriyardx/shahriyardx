@@ -1,11 +1,11 @@
 import "@/styles/globals.css"
+import "@/styles/code-highlight.css"
+import GoogleAnalytics from "@/components/shared/Analytics"
 import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import { Toaster } from "react-hot-toast"
-import ProgressBar from "./ProgressBar"
-import App from "./app"
-import GoogleAnalytics from "@/components/shared/Analytics"
 import LenisWrapper from "./LenisWrapper"
+import ProgressBar from "./ProgressBar"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -43,9 +43,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={inter.className}>
 				<Toaster />
-				<LenisWrapper>
-					<App>{children}</App>
-				</LenisWrapper>
+				<LenisWrapper>{children}</LenisWrapper>
 				<ProgressBar />
 				{process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
 					<GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />

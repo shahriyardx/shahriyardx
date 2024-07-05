@@ -1,11 +1,11 @@
 "use client"
 
-import React, { useState } from "react"
-import { BiChevronDown, BiChevronRight, BiLink } from "react-icons/bi"
-import Image from "next/image"
-import { AnimatePresence, motion } from "framer-motion"
 import useWindowSize from "@/hooks/useWindowSize"
 import breakpoints from "@/tools/breakpoint"
+import { AnimatePresence, motion } from "framer-motion"
+import Image from "next/image"
+import React, { useState } from "react"
+import { BiChevronDown, BiChevronRight, BiLink } from "react-icons/bi"
 
 type Props = {
 	title: string

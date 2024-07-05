@@ -1,10 +1,10 @@
 "use client"
 
-import React from "react"
 import Container from "@/components/shared/Container"
 import skills from "@/data/skills"
-import Skill from "./Skill"
 import { motion } from "framer-motion"
+import React from "react"
+import Skill from "./Skill"
 
 const stagger = {
 	hidden: { opacity: 0 },

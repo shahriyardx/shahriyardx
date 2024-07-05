@@ -2,9 +2,9 @@
 
 import React, { useState } from "react"
 
-import toast from "react-hot-toast"
 import { motion } from "framer-motion"
 import { type SubmitHandler, useForm } from "react-hook-form"
+import toast from "react-hot-toast"
 import { BiLoaderAlt, BiMailSend } from "react-icons/bi"
 
 import Main from "@/components/layouts/Main"

@@ -1,8 +1,8 @@
-import React from "react"
-import { getAllBlogs } from "../../tools/blog"
 import Main from "@/components/layouts/Main"
 import Container from "@/components/shared/Container"
 import Link from "next/link"
+import React from "react"
+import { getAllBlogs } from "../../tools/blog"
 import BlogInfo from "./components/BlogInfo"
 
 export const metadata = {

@@ -1,9 +1,9 @@
 "use client"
 
-import React from "react"
 import Container from "@/components/shared/Container"
+import React from "react"
 
-import { BiCustomize, BiLogoDiscord, BiCubeAlt } from "react-icons/bi"
+import { BiCubeAlt, BiCustomize, BiLogoDiscord } from "react-icons/bi"
 import Service from "./Service"
 
 const Services = () => {

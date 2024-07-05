@@ -1,9 +1,9 @@
 "use client"
 
 import Container from "@/components/shared/Container"
-import React from "react"
-import { motion } from "framer-motion"
 import FramerMagnetic from "@/components/shared/FramerMagnetic"
+import { motion } from "framer-motion"
+import React from "react"
 
 const container = {
 	hidden: { y: 100, opacity: 0 },

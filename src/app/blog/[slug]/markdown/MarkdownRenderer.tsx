@@ -1,14 +1,15 @@
 "use client"
 
-import React from "react"
 import { MDXRemote, type MDXRemoteSerializeResult } from "next-mdx-remote"
+import React, { type ComponentProps } from "react"
 
+import CodeBlock from "../CustomComponents/CodeBlock"
+import { H1, H2 } from "../CustomComponents/Headings"
+import Icon from "../CustomComponents/Icon"
+import Link from "../CustomComponents/Link"
+import Repo from "../CustomComponents/Repo"
 // Custom components
 import YouTube from "../CustomComponents/Youtube"
-import Repo from "../CustomComponents/Repo"
-import { H1, H2 } from "../CustomComponents/Headings"
-import Link from "../CustomComponents/Link"
-import Icon from "../CustomComponents/Icon"
 
 const MarkdownRenderer = ({ source }: { source: MDXRemoteSerializeResult }) => {
 	return (
@@ -22,6 +23,16 @@ const MarkdownRenderer = ({ source }: { source: MDXRemoteSerializeResult }) => {
 				h2: H2,
 				a: Link,
 				Icon: Icon,
+				pre: ({ children, ...props }: ComponentProps<"pre">) => {
+					if (!children || !React.isValidElement(children)) return <code />
+					const language = children.props.className.replace(/language-/, "")
+
+					return (
+						<CodeBlock language={language} {...props}>
+							{children}
+						</CodeBlock>
+					)
+				},
 			}}
 		/>
 	)

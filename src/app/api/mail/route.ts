@@ -1,7 +1,7 @@
-import { NextResponse, type NextRequest } from "next/server"
+import rateLimit from "@/tools/rateLimiter"
+import { type NextRequest, NextResponse } from "next/server"
 import { createTransport } from "nodemailer"
 import type { MailOptions } from "nodemailer/lib/smtp-transport"
-import rateLimit from "@/tools/rateLimiter"
 
 const limiter = rateLimit()
 

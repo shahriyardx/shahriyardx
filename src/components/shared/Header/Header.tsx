@@ -1,23 +1,23 @@
 "use client"
 
-import React, { useState } from "react"
 import Link from "next/link"
+import React, { useState } from "react"
 
 import Container from "../Container"
 import IconLink from "../Link/IconLink"
 import TextLink from "../Link/TextLink"
 
 import {
-	AiFillTwitterCircle,
 	AiFillGithub,
-	AiFillMail,
 	AiFillLinkedin,
+	AiFillMail,
+	AiFillTwitterCircle,
 } from "react-icons/ai"
 
-import { BiMenu } from "react-icons/bi"
-import MobileMenu from "./MobileMenu"
 import { AnimatePresence } from "framer-motion"
 import { useRouter } from "next/navigation"
+import { BiMenu } from "react-icons/bi"
+import MobileMenu from "./MobileMenu"
 
 const Header = () => {
 	const [show, setShow] = useState(false)

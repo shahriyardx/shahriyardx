@@ -1,13 +1,13 @@
+import { motion } from "framer-motion"
 import React from "react"
+import {
+	AiFillGithub,
+	AiFillLinkedin,
+	AiFillMail,
+	AiFillTwitterCircle,
+} from "react-icons/ai"
 import Container from "../Container"
 import TextLink from "../Link/TextLink"
-import { motion } from "framer-motion"
-import {
-	AiFillTwitterCircle,
-	AiFillGithub,
-	AiFillMail,
-	AiFillLinkedin,
-} from "react-icons/ai"
 
 const MobileMenu = () => {
 	return (

@@ -1,7 +1,7 @@
-import dynamic from "next/dynamic"
+import { cn } from "@/tools/tw"
 import type { LucideProps } from "lucide-react"
 import dynamicIconImports from "lucide-react/dynamicIconImports"
-import { cn } from "@/tools/tw"
+import dynamic from "next/dynamic"
 
 interface IconProps extends LucideProps {
 	name: keyof typeof dynamicIconImports

@@ -1,7 +1,7 @@
-import React from "react"
-import Image from "next/image"
 import Container from "@/components/shared/Container"
-import { BiUser, BiBookBookmark } from "react-icons/bi"
+import Image from "next/image"
+import React from "react"
+import { BiBookBookmark, BiUser } from "react-icons/bi"
 
 type User = {
 	avatar_url: string

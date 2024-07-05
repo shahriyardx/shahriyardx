@@ -2,14 +2,14 @@
 const nextConfig = {
 	images: {
 		remotePatterns: [
-			{hostname: "picsum.photos"},
-			{hostname: "avatars.githubusercontent.com"},
-			{hostname: "opengraph.githubassets.com"},
-			{hostname: "t1.gstatic.com"},
-		]
+			{ hostname: "picsum.photos" },
+			{ hostname: "avatars.githubusercontent.com" },
+			{ hostname: "opengraph.githubassets.com" },
+			{ hostname: "t1.gstatic.com" },
+		],
 	},
 	// output: "standalone",
-	transpilePackages: ["lucide-react"],
+	transpilePackages: ["lucide-react", "next-mdx-remote"],
 	typescript: {
 		ignoreBuildErrors: true,
 	},

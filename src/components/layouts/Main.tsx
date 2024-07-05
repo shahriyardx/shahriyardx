@@ -1,6 +1,6 @@
-import type React from "react"
 import Footer from "@/components/shared/Footer"
 import Header from "@/components/shared/Header/Header"
+import type React from "react"
 
 const Main = ({
 	children,
