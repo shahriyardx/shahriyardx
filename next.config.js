@@ -8,7 +8,7 @@ const nextConfig = {
 			{hostname: "t1.gstatic.com"},
 		]
 	},
-	// output: "standalone",
+	output: "standalone",
 	transpilePackages: ["lucide-react"],
 	typescript: {
 		ignoreBuildErrors: true,
