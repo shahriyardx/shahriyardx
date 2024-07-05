@@ -1,1 +1,2 @@
-npm test
+bun biome:format
+bun lint-staged

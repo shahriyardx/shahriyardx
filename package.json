@@ -7,7 +7,7 @@
 		"dev": "next dev --turbo",
 		"build": "next build",
 		"start": "next start",
-		"biome-lint": "biome lint ./",
+		"biome:format": "biome format ./src --write",
 		"prepare": "husky"
 	},
 	"lint-staged": {
