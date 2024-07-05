@@ -1,16 +1,16 @@
 "use client"
 
 import { SessionProvider } from "next-auth/react"
-import React from "react"
+import type React from "react"
 
-const WithSession = (Element: React.ComponentType<any>) => {
-  return function WrappedComponent(props: Record<string, unknown>) {
-    return (
-      <SessionProvider>
-        <Element {...props} />
-      </SessionProvider>
-    )
-  }
+const WithSession = (Element: React.ComponentType) => {
+	return function WrappedComponent(props: Record<string, unknown>) {
+		return (
+			<SessionProvider>
+				<Element {...props} />
+			</SessionProvider>
+		)
+	}
 }
 
 export default WithSession

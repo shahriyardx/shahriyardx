@@ -16,29 +16,29 @@ import langCss from "highlight.js/lib/languages/css"
 import MarkdownRenderer from "./MarkdownRenderer"
 
 const Markdown = async ({ content }: { content: string }) => {
-  const mdxSource = await serialize(content, {
-    mdxOptions: {
-      remarkPlugins: [remarkCodeTitle, remarkGfm],
-      rehypePlugins: [
-        [
-          // @ts-expect-error("unknown")
-          rehypeHighlight,
-          {
-            languages: {
-              nginx: langNginx,
-              js: langJs,
-              sh: langBash,
-              bash: langBash,
-              py: langpy,
-              css: langCss,
-            },
-          },
-        ],
-        rehypeSlug,
-      ],
-    },
-  })
-  return <MarkdownRenderer source={mdxSource} />
+	const mdxSource = await serialize(content, {
+		mdxOptions: {
+			remarkPlugins: [remarkCodeTitle, remarkGfm],
+			rehypePlugins: [
+				[
+					// @ts-expect-error("unknown")
+					rehypeHighlight,
+					{
+						languages: {
+							nginx: langNginx,
+							js: langJs,
+							sh: langBash,
+							bash: langBash,
+							py: langpy,
+							css: langCss,
+						},
+					},
+				],
+				rehypeSlug,
+			],
+		},
+	})
+	return <MarkdownRenderer source={mdxSource} />
 }
 
 export default Markdown
