@@ -1,16 +1,7 @@
 "use server"
 
-import { prisma } from "@/tools/db"
 import { directus_client } from "@/tools/directus"
 import { readItems } from "@directus/sdk"
-
-export const prismaGetAllBlogs = async () => {
-	return await prisma.blogPost.findMany()
-}
-
-export const prismaGetAllLinks = async () => {
-	return await prisma.link.findMany()
-}
 
 export interface BlogCategory {
 	name: string
