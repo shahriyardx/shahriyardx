@@ -21,4 +21,4 @@ export const H2 = ({ id, ...props }: Props) => {
 			</h2>
 		</Link>
 	)
-};
+}
