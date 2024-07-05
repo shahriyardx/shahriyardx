@@ -7,7 +7,6 @@ RUN apt-get -y update && \
 WORKDIR /app
 
 COPY package.json bun.lockb ./
-COPY prisma ./
 RUN bun install --frozen-lockfile
 
 
@@ -17,7 +16,6 @@ COPY --from=base /app/node_modules ./node_modules
 COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED 1
-RUN bun prisma generate
 RUN bun run build
 
 FROM node:20-alpine AS runner
