@@ -1,24 +1,34 @@
-FROM imbios/bun-node:20-slim AS base
-ARG DEBIAN_FRONTEND=noninteractive
+FROM node:18-alpine AS base
 
-RUN apt-get -y update && \
-  apt-get install -yq openssl git ca-certificates tzdata && \
-  dpkg-reconfigure -f noninteractive tzdata
+FROM base as deps
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-COPY package.json bun.lockb ./
-RUN bun install --frozen-lockfile
+# Install dependencies based on the preferred package manager
+COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
+RUN \
+  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
+  elif [ -f package-lock.json ]; then npm ci; \
+  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile; \
+  else echo "Lockfile not found." && exit 1; \
+  fi
 
 
 FROM base AS builder
 WORKDIR /app
-COPY --from=base /app/node_modules ./node_modules
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED 1
-RUN bun run build
 
-FROM node:20-alpine AS runner
+RUN \
+  if [ -f yarn.lock ]; then yarn run build; \
+  elif [ -f package-lock.json ]; then npm run build; \
+  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm run build; \
+  else echo "Lockfile not found." && exit 1; \
+  fi
+
+FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
