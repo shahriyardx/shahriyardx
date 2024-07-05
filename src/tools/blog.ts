@@ -4,9 +4,9 @@ import { directus_client } from "@/tools/directus"
 import { readItems } from "@directus/sdk"
 
 export interface BlogCategory {
+	id: string
 	name: string
 	slug: string
-	date_created: string
 }
 
 export interface BlogPost {
@@ -29,7 +29,9 @@ export const getBlogBySlug = async (slug: string): Promise<BlogPost | null> => {
 				"content",
 				"meta_description",
 				"date_created",
+				"categories.category_id.id",
 				"categories.category_id.name",
+				"categories.category_id.slug",
 			],
 			filter: {
 				status: "published",
