@@ -1,7 +1,7 @@
 import Link from "next/link"
 import type { HTMLAttributes } from "react"
 
-type Props = HTMLAttributes<HTMLHeadElement>;
+type Props = HTMLAttributes<HTMLHeadElement>
 
 export const H1 = ({ id, ...props }: Props) => {
 	return (
@@ -21,4 +21,4 @@ export const H2 = ({ id, ...props }: Props) => {
 			</h2>
 		</Link>
 	)
-}
+};
