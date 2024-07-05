@@ -7,7 +7,7 @@ RUN apt-get -y update && \
 WORKDIR /app
 
 COPY package.json bun.lockb ./
-RUN bun install --frozen-lockifle
+RUN bun install --frozen-lockfile
 
 
 FROM base AS builder
