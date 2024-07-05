@@ -1,12 +1,13 @@
 "use client"
 
+import { motion, AnimatePresence } from "framer-motion"
+import { debounce } from "lodash"
+
 import React, { useEffect, useState } from "react"
 import GitHeader from "@/components/github/GitHeader"
 import Container from "@/components/shared/Container"
 import Repo, { type RepoType } from "@/components/github/Repo"
 import GitProfile from "@/components/github/GitProfile"
-import { motion, AnimatePresence } from "framer-motion"
-import { debounce } from "lodash"
 import GitFilter from "@/components/github/GitFilter"
 
 export type User = {

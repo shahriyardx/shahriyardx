@@ -1,24 +1,23 @@
-import { prisma } from "@/tools/db"
-import { notFound, redirect } from "next/navigation"
-import { type NextRequest, NextResponse } from "next/server"
+import { directus_client } from "@/tools/directus"
+import { readItems } from "@directus/sdk"
+import { redirect } from "next/navigation"
+
+import type { NextRequest } from "next/server"
 
 export async function GET(
-	req: NextRequest,
+	_req: NextRequest,
 	{ params }: { params: { slug: string } },
 ) {
-	const link = await prisma.link.findFirst({
-		where: {
-			text: params.slug,
-		},
-	})
+	const data = await directus_client.request(
+		readItems("link", {
+			filter: {
+				slug: {
+					_eq: params.slug,
+				},
+			},
+		}),
+	)
 
-	if (!link) return redirect("/")
-	await prisma.link.update({
-		where: {
-			id: link.id,
-		},
-		data: { visited: { increment: 1 } },
-	})
-
-	return redirect(link.url)
+	if (data.length < 0) return redirect("/")
+	return redirect(data[0].url)
 }
