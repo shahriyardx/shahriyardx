@@ -11,7 +11,9 @@
 		"prepare": "husky"
 	},
 	"lint-staged": {
-		"*.{js,ts,tsx,jsx}": ["biome check --write --no-errors-on-unmatched"]
+		"*.{js,ts,tsx,jsx}": [
+			"biome check --write --no-errors-on-unmatched"
+		]
 	},
 	"dependencies": {
 		"@directus/sdk": "^16.1.1",

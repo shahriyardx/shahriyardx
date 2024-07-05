@@ -1,4 +1,1 @@
-#!/usr/bin/env sh
-. "${0%/*}/_/h"
-
-bun lint-staged
+npm test
