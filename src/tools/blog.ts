@@ -15,6 +15,7 @@ export interface BlogPost {
 	content: string
 	meta_description: string
 	date_created: string
+	date_updated: string
 	categories: Array<{
 		category_id: BlogCategory
 	}>
@@ -55,6 +56,19 @@ export const getAllBlogs = async (): Promise<BlogPost[]> => {
 				"date_created",
 				"categories.category_id.name",
 			],
+			filter: {
+				status: "published",
+			},
+		}),
+	)
+
+	return response
+}
+
+export const getAllBlogsSlug = async (): Promise<BlogPost[]> => {
+	const response = await directus_client.request<BlogPost[]>(
+		readItems("blog", {
+			fields: ["slug", "date_updated"],
 			filter: {
 				status: "published",
 			},
