@@ -25,7 +25,8 @@ const MarkdownRenderer = ({ source }: { source: MDXRemoteSerializeResult }) => {
 				Icon: Icon,
 				pre: ({ children, ...props }: ComponentProps<"pre">) => {
 					if (!children || !React.isValidElement(children)) return <code />
-					const language = children.props.className.replace(/language-/, "")
+					const language =
+						children.props.className?.replace(/language-/, "") || ""
 
 					return (
 						<CodeBlock language={language} {...props}>
