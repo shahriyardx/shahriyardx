@@ -21,7 +21,7 @@ const BlogInfo = ({
 		>
 			<span className="flex items-center gap-2">
 				<BiCalendar />
-				{moment(new Date(blog.date_created)).fromNow()}
+				{moment(new Date(blog.createdAt)).fromNow()}
 			</span>
 
 			<span className="flex items-center gap-2">

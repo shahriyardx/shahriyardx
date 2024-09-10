@@ -28,14 +28,12 @@ const BlogPage = async () => {
 										</span>
 										<div className="mb-2">
 											<span className="text-zinc-500 flex items-center gap-2">
-												{blog.categories.map((cat) => (
-													<span key={cat.category_id.id}>
-														{cat.category_id.name}
-													</span>
+												{blog.categories.map((cat, index) => (
+													<span key={index}>{cat}</span>
 												))}
 											</span>
 										</div>
-										<p>{blog.meta_description}</p>
+										<p>{blog.description}</p>
 										<BlogInfo blog={blog} className="mt-5" />
 									</div>
 								</Link>

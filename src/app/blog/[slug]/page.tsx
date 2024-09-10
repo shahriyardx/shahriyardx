@@ -25,15 +25,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 	const query = new URLSearchParams()
 	query.set("title", blog.title)
-	query.set("description", blog.meta_description)
+	query.set("description", blog.description)
 	query.set("read", words.toString())
-	query.set("time", blog.date_created)
+	query.set("time", blog.createdAt)
 
 	const ogImage = new URL(`/api/blog/og?${query.toString()}`, base).toString()
 
 	return {
 		title: blog.title,
-		description: blog.meta_description,
+		description: blog.description,
 		openGraph: {
 			images: [{ url: ogImage, width: 1200, height: 630, type: "image/png" }],
 		},

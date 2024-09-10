@@ -6,12 +6,12 @@ import type { NextRequest } from "next/server"
 export const runtime: ServerRuntime = "edge"
 
 const regularFont = fetch(
-	new URL("/public/fonts/inter-regular.ttf", import.meta.url),
+	new URL("./fonts/inter-regular.ttf", import.meta.url),
 ).then((res) => res.arrayBuffer())
 
-const boldFont = fetch(
-	new URL("/public/fonts/inter-bold.ttf", import.meta.url),
-).then((res) => res.arrayBuffer())
+const boldFont = fetch(new URL("./fonts/inter-bold.ttf", import.meta.url)).then(
+	(res) => res.arrayBuffer(),
+)
 
 export async function GET(req: NextRequest) {
 	const [regularFontData, boldFontData] = await Promise.all([
