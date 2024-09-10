@@ -84,11 +84,6 @@
   resolved "https://registry.yarnpkg.com/@biomejs/cli-win32-x64/-/cli-win32-x64-1.8.3.tgz#6a9dc5a4e13357277da43c015cd5cdc374035448"
   integrity sha512-/PJ59vA1pnQeKahemaQf4Nyj7IKUvGQSc3Ze1uIGi+Wvr1xF7rGobSrAAG01T/gUDG21vkDsZYM03NAmPiVkqg==
 
-"@directus/sdk@^16.1.1":
-  version "16.1.2"
-  resolved "https://registry.yarnpkg.com/@directus/sdk/-/sdk-16.1.2.tgz#cd8c45881497a4ae3b6659c6b6bd68dc13e98258"
-  integrity sha512-TlKmS80tH5mmFQA1kRYZ6QuvggE/kP1uMRTTIM3qSTrAsAabaG1oKhRVLM3Qi8HZYL20DWqSSG6AQFjYgbKxFw==
-
 "@emnapi/runtime@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@emnapi/runtime/-/runtime-1.2.0.tgz#71d018546c3a91f3b51106530edbc056b9f2f2e3"
