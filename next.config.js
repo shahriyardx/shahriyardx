@@ -8,12 +8,12 @@ const nextConfig = {
 			{ hostname: "t1.gstatic.com" },
 		],
 	},
-	// output: "standalone",
 	transpilePackages: ["lucide-react", "next-mdx-remote"],
 	typescript: {
 		ignoreBuildErrors: true,
 	},
 	eslint: { ignoreDuringBuilds: true },
+	output: "standalone",
 }
 
 module.exports = nextConfig
