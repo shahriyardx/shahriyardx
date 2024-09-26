@@ -5,7 +5,7 @@ const nextConfig = {
 			{ hostname: "picsum.photos" },
 			{ hostname: "avatars.githubusercontent.com" },
 			{ hostname: "opengraph.githubassets.com" },
-			{ hostname: "t1.gstatic.com" },
+			{ hostname: "icons.duckduckgo.com" },
 		],
 	},
 	transpilePackages: ["lucide-react", "next-mdx-remote"],
