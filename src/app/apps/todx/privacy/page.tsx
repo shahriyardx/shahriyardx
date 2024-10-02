@@ -30,7 +30,7 @@ We may update this privacy policy from time to time. Any changes will be reflect
 
 ----
 
-If you have any questions or concerns about this privacy policy, feel free to contact us at [contact@shahriyar.dev](mailto:contact@shahriyar.dev).
+If you have any questions or concerns about this privacy policy, feel free to contact us at [mdshahriyaralam552@gmail.com](mailto:mdshahriyaralam552@gmail.com).
 
 ----
 `
