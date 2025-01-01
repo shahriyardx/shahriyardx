@@ -7,10 +7,10 @@ I am a full-stack web developer with knowledge of Python and JavaScript
 class Shahriyar:
     """Whoami?"""
     name: str = "Md Shahriyar Alam"
-    age: int = 22
-    profession: str = "Student"
+    age: int = 24
+    profession: str = "Student and Web Instructor"
     country: str = "Bangladesh"
-    hobby: str = "Web Development"
+    hobby: str = "Web Development, Python Programming"
 ```
 
 ### Skills
