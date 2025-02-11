@@ -1,4 +1,5 @@
 import {
+	SiApachekafka,
 	SiCloudflare,
 	SiCss3,
 	SiDocker,
@@ -14,6 +15,7 @@ import {
 	SiNodedotjs,
 	SiPostgresql,
 	SiPython,
+	SiRabbitmq,
 	SiReact,
 	SiStripe,
 	SiTypescript,
@@ -108,6 +110,16 @@ const skills = [
 	{
 		name: "Cloudflare",
 		icon: SiCloudflare,
+		className: "hover:text-orange-500",
+	},
+	{
+		name: "Kafka",
+		icon: SiApachekafka,
+		className: "hover:text-white",
+	},
+	{
+		name: "RabbitMQ",
+		icon: SiRabbitmq,
 		className: "hover:text-orange-500",
 	},
 ]
