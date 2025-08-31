@@ -1,2 +1,2 @@
-bun biome:format
-bun lint-staged
+yarn biome:format
+yarn lint-staged

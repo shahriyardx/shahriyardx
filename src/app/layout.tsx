@@ -50,9 +50,8 @@ export default function RootLayout({
 				{process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
 					<GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
 				) : null}
-				{process.env.NEXT_PUBLIC_GTM ? (
-					<GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM} />
-				) : null}
+				<GoogleTagManager gtmId="GTM-M7CZ3JSG" />
+
 				<Script
 					src="https://stats.shahriyar.dev/script.js"
 					type="text/javascript"
