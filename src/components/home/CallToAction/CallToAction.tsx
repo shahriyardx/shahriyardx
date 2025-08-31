@@ -2,6 +2,7 @@
 
 import Container from "@/components/shared/Container"
 import FramerMagnetic from "@/components/shared/FramerMagnetic"
+import { sendGTMEvent } from "@next/third-parties/google"
 import { motion } from "framer-motion"
 import React from "react"
 
@@ -54,6 +55,11 @@ const CallToAction = () => {
 						<FramerMagnetic>
 							<a
 								data-umami-event="Hire Button Clicked"
+								onClick={() =>
+									sendGTMEvent({
+										event: "hire_me",
+									})
+								}
 								href="https://www.linkedin.com/in/devshahriyar/"
 								className="inline-block px-5 py-3 font-bold text-black transition-all bg-accent group hover:bg-rose-500 hover:animate-shake"
 								target="_blank"

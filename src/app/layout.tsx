@@ -1,6 +1,7 @@
 import "@/styles/globals.css"
 import "@/styles/code-highlight.css"
-import GoogleAnalytics from "@/components/shared/Analytics"
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google"
+// import GoogleAnalytics from "@/components/shared/Analytics"
 import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import Script from "next/script"
@@ -47,7 +48,10 @@ export default function RootLayout({
 				<LenisWrapper>{children}</LenisWrapper>
 				<ProgressBar />
 				{process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
-					<GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+					<GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+				) : null}
+				{process.env.NEXT_PUBLIC_GTM ? (
+					<GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM} />
 				) : null}
 				<Script
 					src="https://stats.shahriyar.dev/script.js"

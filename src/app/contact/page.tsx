@@ -9,6 +9,7 @@ import { BiLoaderAlt, BiMailSend } from "react-icons/bi"
 
 import Main from "@/components/layouts/Main"
 import Container from "@/components/shared/Container"
+import { sendGTMEvent } from "@next/third-parties/google"
 
 const container = {
 	hidden: { y: 100, opacity: 0 },
@@ -61,6 +62,11 @@ const Contact = () => {
 		setSending(false)
 
 		if (response.success) {
+			sendGTMEvent({
+				event: "generate_lead",
+				form_data: data,
+			})
+
 			toast.success(response.message)
 			reset()
 		} else {
