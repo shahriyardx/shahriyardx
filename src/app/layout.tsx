@@ -1,64 +1,41 @@
-import "@/styles/globals.css"
-import "@/styles/code-highlight.css"
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google"
-// import GoogleAnalytics from "@/components/shared/Analytics"
-import type { Metadata, Viewport } from "next"
-import { Inter } from "next/font/google"
-import Script from "next/script"
-import { Toaster } from "react-hot-toast"
-import LenisWrapper from "./LenisWrapper"
-import ProgressBar from "./ProgressBar"
+import type { Metadata } from "next"
+import { Geist, Geist_Mono } from "next/font/google"
+import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+})
 
-export const viewport: Viewport = {
-	width: "device-width",
-	initialScale: 1,
-}
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+})
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://shahriyar.dev"),
-	title: {
-		default: "Shahriyar Alam",
-		template: "%s | Md Shahriyar Alam",
-	},
-	description:
-		"⚡️ Web instructor @ Programming Hero | Full-Stack Web Developer with knowledge of JavaScript and Python.",
-	authors: {
-		name: "Md Shahriyar Alam",
-		url: "https://shahriyar.dev",
-	},
-	keywords: [
-		"shahriyardx",
-		"MD Shahriyar Alam",
-		"@shahriyardx",
-		"#shahriyardx",
-	],
-} // TODO: Improve the metadata with more info
+  title: "Md Shahriyar Alam",
+  description:
+    "Full-Stack Web Developer with knowledge of JavaScript and Python.",
+  keywords: [
+    "shahriyardx",
+    "MD Shahriyar Alam",
+    "@shahriyardx",
+    "#shahriyardx",
+  ],
+}
 
 export default function RootLayout({
-	children,
-}: {
-	children: React.ReactNode
-}) {
-	return (
-		<html lang="en">
-			<body className={inter.className}>
-				<Toaster />
-				<LenisWrapper>{children}</LenisWrapper>
-				<ProgressBar />
-				{process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
-					<GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
-				) : null}
-				<GoogleTagManager gtmId="GTM-M7CZ3JSG" />
-
-				<Script
-					src="https://stats.shahriyar.dev/script.js"
-					type="text/javascript"
-					data-website-id="001efedf-3321-495b-9345-dcd12f19715a"
-					strategy="beforeInteractive"
-				/>
-			</body>
-		</html>
-	)
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {children}
+      </body>
+    </html>
+  )
 }
