@@ -40,7 +40,8 @@
         "useValidAnchor": "off",
         "useButtonType": "off",
         "useKeyWithClickEvents": "off",
-        "useKeyWithMouseEvents": "off"
+        "useKeyWithMouseEvents": "off",
+        "useSemanticElements": "off"
       }
     },
     "domains": {
@@ -51,7 +52,7 @@
   "assist": {
     "actions": {
       "source": {
-        "organizeImports": "on"
+        "organizeImports": "off"
       }
     }
   }
